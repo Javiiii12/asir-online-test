@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test ASIR ONLINE - Da Vinci Albacete v2.0</title>
+    <title>Test ASIR ONLINE - Da Vinci Albacete v2.5</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -17,12 +18,18 @@
                             neon: '#39ff14',
                             blue: '#00f0ff',
                             red: '#ff003c',
+                            orange: '#ff8c00',
+                            purple: '#b026ff',
+                            yellow: '#facc15'
                         }
                     },
                     boxShadow: {
                         'neon': '0 0 15px rgba(57, 255, 20, 0.5)',
                         'blue': '0 0 15px rgba(0, 240, 255, 0.5)',
                         'red': '0 0 15px rgba(255, 0, 60, 0.5)',
+                        'orange': '0 0 15px rgba(255, 140, 0, 0.5)',
+                        'purple': '0 0 15px rgba(176, 38, 255, 0.5)',
+                        'yellow': '0 0 15px rgba(250, 204, 21, 0.5)',
                         'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
                     }
                 }
@@ -32,115 +39,201 @@
     <style>
         body {
             background-color: #0f172a;
-            background-image: 
-                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, hsla(339,49%,30%,0.2) 0, transparent 50%);
+            background-image:
+                radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 0.2) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 0.2) 0, transparent 50%);
             background-attachment: fixed;
             color: #e2e8f0;
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
         }
+
         .glass-panel {
             background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #475569; }
-        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
         .transition-all-custom {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .animate-fade-in {
             animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20%,
+            60% {
+                transform: translateX(-5px);
+            }
+
+            40%,
+            80% {
+                transform: translateX(5px);
+            }
         }
     </style>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body class="antialiased flex flex-col items-center py-10 px-4">
-    
+
     <header class="w-full max-w-4xl text-center mb-10 text-white">
-        <h1 class="text-4xl md:text-5xl font-bold mb-3 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyber-blue to-cyber-neon">
+        <h1
+            class="text-4xl md:text-5xl font-bold mb-3 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyber-blue to-cyber-neon drop-shadow-lg">
             Test ASIR ONLINE
         </h1>
         <p class="text-sm md:text-base text-slate-400 tracking-widest uppercase">
-            Da Vinci Albacete • v2.0
+            Da Vinci Albacete • v2.5
         </p>
     </header>
 
-    <main class="w-full max-w-3xl flex flex-col gap-6" id="app-container">
-        
-        <!-- Pantalla de Selección de Asignatura -->
-        <section id="selection-screen" class="glass-panel rounded-3xl p-8 md:p-10 shadow-glass flex flex-col gap-8 animate-fade-in">
+    <main class="w-full max-w-4xl flex flex-col gap-6" id="app-container">
+
+        <!-- Pantalla de Selección de Módulos (Dashboard) -->
+        <section id="selection-screen"
+            class="glass-panel rounded-3xl p-8 md:p-10 shadow-glass flex flex-col gap-8 animate-fade-in">
             <h2 class="text-2xl font-semibold text-center text-white">Selecciona un Módulo</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="subject-buttons">
+            <!-- Grid de 6 Tarjetas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="subject-buttons">
                 <!-- Botones inyectados por JS -->
             </div>
         </section>
 
+        <!-- Navegación por Subniveles (Modal / Panel Dinámico) -->
+        <section id="level-selection-screen"
+            class="hidden glass-panel rounded-3xl p-8 shadow-glass flex flex-col gap-6 animate-fade-in w-full max-w-2xl mx-auto">
+
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pb-4 border-b border-slate-700/50">
+                <button id="btn-back-menu"
+                    class="group flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800/80 text-cyber-blue hover:text-cyber-neon hover:bg-slate-700 border border-slate-600 hover:border-cyber-neon transition-all shadow-[0_0_10px_rgba(0,0,0,0.5)] hover:shadow-neon text-sm uppercase tracking-wider font-bold">
+                    <span class="group-hover:-translate-x-1 transition-transform">←</span> Volver
+                </button>
+                <h3 id="level-title" class="text-xl font-bold text-white text-center sm:text-right">
+                    <!-- Título Inyectado -->
+                </h3>
+            </div>
+
+            <div id="level-list-container" class="grid gap-3 max-h-[60vh] overflow-y-auto pr-2">
+                <!-- Botones de Temas o Tests inyectados por JS -->
+            </div>
+
+        </section>
+
         <!-- Pantalla del Test -->
-        <section id="test-screen" class="hidden flex flex-col gap-6 w-full animate-fade-in">
-            
+        <section id="test-screen" class="hidden flex flex-col gap-6 w-full max-w-3xl mx-auto animate-fade-in">
+
             <!-- Header del Test (Progreso y Puntuación) -->
             <div class="glass-panel rounded-2xl p-6 shadow-glass flex flex-col gap-4">
-                <div class="flex justify-between items-center text-sm font-medium">
-                    <span id="subject-title" class="text-cyber-blue uppercase tracking-widest font-bold"></span>
-                    <span id="score-display" class="bg-slate-800 px-4 py-1.5 rounded-full border border-slate-700 text-cyber-neon shadow-sm">Puntos: 0</span>
+                <div
+                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-sm font-medium">
+                    <div class="flex flex-col">
+                        <span id="test-breadcrumbs" class="text-xs text-slate-400 tracking-wider">Módulo > Tema >
+                            Test</span>
+                        <span id="subject-title" class="text-cyber-blue uppercase tracking-widest font-bold"></span>
+                    </div>
+                    <span id="score-display"
+                        class="bg-slate-800 px-4 py-1.5 rounded-full border border-slate-700 text-cyber-neon shadow-sm transition-transform duration-200 self-end sm:self-auto">Puntos:
+                        0</span>
                 </div>
-                
+
                 <!-- Barra de Progreso -->
                 <div class="w-full bg-slate-800 rounded-full h-2.5 relative overflow-hidden shadow-inner">
-                    <div id="progress-bar" class="bg-gradient-to-r from-cyber-blue to-cyber-neon h-2.5 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+                    <div id="progress-bar"
+                        class="bg-gradient-to-r from-cyber-blue to-cyber-neon h-2.5 rounded-full transition-all duration-500 ease-out"
+                        style="width: 0%"></div>
                 </div>
-                <div class="text-xs text-slate-400 text-right font-medium tracking-wide">
-                    Pregunta <span id="current-q-num" class="text-slate-200">0</span> de <span id="total-q-num" class="text-slate-200">0</span>
+                <div class="flex justify-between text-xs text-slate-400 font-medium tracking-wide">
+                    <span id="current-test-name">Test Activo</span>
+                    <span>Pregunta <span id="current-q-num" class="text-slate-200">0</span> de <span id="total-q-num"
+                            class="text-slate-200">0</span></span>
                 </div>
             </div>
 
             <!-- Contenedor principal de la Pregunta -->
             <div class="glass-panel rounded-3xl p-8 shadow-glass transition-all-custom" id="question-container">
-                <h3 id="question-text" class="text-xl md:text-2xl font-medium leading-relaxed mb-8 text-white min-h-[4rem]">
+                <h3 id="question-text"
+                    class="text-lg md:text-xl font-medium leading-relaxed mb-8 text-white min-h-[4rem]">
                     <!-- Pregunta cargada por JS -->
                 </h3>
-                
+
                 <div id="options-container" class="flex flex-col gap-3">
                     <!-- Opciones inyectadas por JS -->
                 </div>
             </div>
-            
+
             <!-- Controles de navegación inferior -->
             <div class="flex flex-col-reverse md:flex-row justify-between items-center gap-4 mt-2">
-                <button id="btn-back" class="w-full md:w-auto px-6 py-3 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-colors border border-slate-700 text-sm font-medium uppercase tracking-wider">
-                    ← Abandonar
+                <button id="btn-abandon"
+                    class="w-full md:w-auto px-6 py-3 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-colors border border-slate-700 text-sm font-medium uppercase tracking-wider">
+                    Abandonar Test
                 </button>
-                <button id="btn-next" class="hidden w-full md:w-auto px-8 py-3 rounded-xl bg-gradient-to-r from-cyber-blue to-blue-500 text-cyber-dark hover:from-blue-400 hover:to-cyber-blue transition-all shadow-blue font-bold uppercase tracking-wider">
+                <button id="btn-next"
+                    class="hidden w-full md:w-auto px-8 py-3 rounded-xl bg-gradient-to-r from-cyber-blue to-blue-500 text-cyber-dark hover:from-blue-400 hover:to-cyber-blue transition-all shadow-blue font-bold uppercase tracking-wider">
                     Siguiente
                 </button>
             </div>
         </section>
 
         <!-- Pantalla de Resultados Finales -->
-        <section id="result-screen" class="hidden glass-panel rounded-3xl p-10 shadow-glass flex flex-col items-center justify-center gap-6 text-center animate-fade-in">
+        <section id="result-screen"
+            class="hidden glass-panel rounded-3xl p-10 shadow-glass flex flex-col items-center justify-center gap-6 text-center animate-fade-in w-full max-w-3xl mx-auto">
             <h2 class="text-3xl font-bold text-white mb-2 tracking-tight">Reporte Completado</h2>
-            <div id="score-circle-container" class="w-36 h-36 rounded-full border-4 flex items-center justify-center shadow-glass transition-all mb-4 bg-slate-900/50 backdrop-blur-sm">
-                <span id="final-score" class="text-5xl font-bold">100%</span>
+            <div id="score-circle-container"
+                class="w-36 h-36 rounded-full border-4 flex items-center justify-center shadow-glass transition-all mb-4 bg-slate-900/50 backdrop-blur-sm">
+                <span id="final-score" class="text-5xl font-bold">0%</span>
             </div>
             <p id="final-message" class="text-lg text-slate-300 max-w-md font-medium"></p>
-            <button id="btn-restart" class="mt-6 px-10 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 transition-colors shadow-lg hover:shadow-xl text-white font-bold uppercase tracking-widest text-sm">
-                Volver al Inicio
-            </button>
+            <div class="flex flex-col sm:flex-row gap-4 mt-6">
+                <button id="btn-restart-test"
+                    class="px-8 py-3 rounded-xl bg-slate-700 hover:bg-slate-600 border border-slate-500 transition-colors shadow-lg text-white font-bold uppercase tracking-wider text-sm">
+                    Reintentar Test
+                </button>
+                <button id="btn-restart-home"
+                    class="px-8 py-3 rounded-xl bg-gradient-to-r from-cyber-blue to-blue-600 hover:from-blue-500 hover:to-cyber-dark text-white border border-transparent transition-all shadow-blue font-bold uppercase tracking-wider text-sm">
+                    Volver al Inicio
+                </button>
+            </div>
         </section>
 
     </main>
@@ -148,4 +241,5 @@
     <!-- Punto de entrada de la aplicación JS (ES6 Module) -->
     <script type="module" src="./js/app.js"></script>
 </body>
+
 </html>

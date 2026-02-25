@@ -1,127 +1,259 @@
-import { questionsISO } from '../data/iso.js';
-import { questionsPAR } from '../data/par.js';
+// ---- MOCKS de Datos para los Módulos ----
+// Idealmente se importarían de archivos separados (ej: import { isoData } from '../data/iso.js')
 
-// ---- Configuración y Estado ----
-const subjects = [
-    { id: 'iso', name: 'Implantación de Sistemas Operativos', data: questionsISO, color: '#39ff14' },
-    { id: 'par', name: 'Planificación y Adm. de Redes', data: questionsPAR, color: '#00f0ff' }
+const rawAppStructure = [
+    {
+        id: 'iso',
+        name: 'Implantación de Sistemas Operativos',
+        color: '#39ff14', // Neon
+        icon: '💻',
+        themes: [
+            {
+                id: 'iso-t1', name: 'Tema 1: Intro a SO',
+                tests: [
+                    { id: 'iso-t1-test1', name: 'Test 1 Básico', questions: [{ question: "¿Qué es un SO?", options: ["Software", "Hardware", "Periférico", "Red"], correct: 0, explanation: "Es software base." }] }
+                ]
+            },
+            {
+                id: 'iso-t2', name: 'Tema 2: Gestión de Procesos',
+                tests: [
+                    { id: 'iso-t2-test1', name: 'Test 1 Hilos', questions: [{ question: "¿Qué comando mata procesos en Linux?", options: ["kill", "stop", "end", "halt"], correct: 0, explanation: "El comando kill." }] },
+                    { id: 'iso-t2-test2', name: 'Test 2 Avanzado', questions: [{ question: "Formato octal para lectura y ejecución", options: ["7", "6", "5", "4"], correct: 2, explanation: "4(Lectura) + 1(Ejecución) = 5" }] }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'par',
+        name: 'Planificación y Adm. de Redes',
+        color: '#00f0ff', // Blue
+        icon: '🌐',
+        themes: [
+            {
+                id: 'par-t1', name: 'Tema 1: Modelo OSI',
+                tests: [
+                    { id: 'par-t1-test1', name: 'Test 1 Capas', questions: [{ question: "Capa que maneja IPs", options: ["Enlace", "Red", "Transporte", "Física"], correct: 1, explanation: "La capa de red enruta IPs." }] }
+                ]
+            }
+        ]
+    },
+    {
+        id: 'fh',
+        name: 'Fundamentos de Hardware',
+        color: '#ff8c00',
+        icon: '⚙️',
+        themes: [
+            {
+                id: 'fh-t1', name: 'Tema 1: Arquitectura de Computadores',
+                tests: [
+                    { id: 'fh-t1-test1', name: 'Test 1 Componentes', questions: [{ question: "¿Qué componente se considera el cerebro del ordenador?", options: ["RAM", "Disco Duro", "CPU", "GPU"], correct: 2, explanation: "La Unidad Central de Procesamiento (CPU)." }] }
+                ]
+            }
+        ]
+    },
+    { id: 'gbd', name: 'Gestión de Bases de Datos', color: '#b026ff', icon: '🗄️', themes: [] },
+    { id: 'sost', name: 'Sostenibilidad', color: '#32cd32', icon: '🌱', themes: [] },
+    { id: 'dig', name: 'Digitalización', color: '#facc15', icon: '🤖', themes: [] }
 ];
 
+// ---- Configuración y Estado ----
 const state = {
-    currentSubject: null,
+    view: 'dashboard',         // 'dashboard' | 'themes' | 'tests' | 'quiz' | 'results'
+    selectedModule: null,      // Object
+    selectedTheme: null,       // Object
+    selectedTest: null,        // Object
+
+    // Quiz State
     questions: [],
     currentIndex: 0,
     score: 0,
     isAnswered: false
 };
 
-// ---- Elementos del DOM ----
-const appContainer = document.getElementById('app-container');
-const selectionScreen = document.getElementById('selection-screen');
-const testScreen = document.getElementById('test-screen');
-const resultScreen = document.getElementById('result-screen');
-const subjectButtonsContainer = document.getElementById('subject-buttons');
+// ---- DOM Elements ----
+const views = {
+    dashboard: document.getElementById('selection-screen'),
+    levels: document.getElementById('level-selection-screen'),
+    quiz: document.getElementById('test-screen'),
+    results: document.getElementById('result-screen')
+};
+
+const moduleButtonsContainer = document.getElementById('subject-buttons');
+const levelTitle = document.getElementById('level-title');
+const levelListContainer = document.getElementById('level-list-container');
+const btnBackMenu = document.getElementById('btn-back-menu');
+
+const testBreadcrumbs = document.getElementById('test-breadcrumbs');
 const subjectTitle = document.getElementById('subject-title');
+const currentTestName = document.getElementById('current-test-name');
 const scoreDisplay = document.getElementById('score-display');
 const progressBar = document.getElementById('progress-bar');
 const currentQNum = document.getElementById('current-q-num');
 const totalQNum = document.getElementById('total-q-num');
 const questionText = document.getElementById('question-text');
 const optionsContainer = document.getElementById('options-container');
-const btnBack = document.getElementById('btn-back');
+
+const btnAbandon = document.getElementById('btn-abandon');
 const btnNext = document.getElementById('btn-next');
-const btnRestart = document.getElementById('btn-restart');
+const btnRestartTest = document.getElementById('btn-restart-test');
+const btnRestartHome = document.getElementById('btn-restart-home');
+
 const finalScore = document.getElementById('final-score');
 const finalMessage = document.getElementById('final-message');
 const scoreCircleContainer = document.getElementById('score-circle-container');
 
 // ---- Inicialización ----
 function init() {
-    renderSubjectSelection();
+    renderDashboard();
     setupEventListeners();
 }
 
-function renderSubjectSelection() {
-    subjectButtonsContainer.innerHTML = '';
+function switchView(viewName) {
+    Object.values(views).forEach(v => v.classList.add('hidden'));
+    views[viewName].classList.remove('hidden');
+    state.view = viewName;
+}
 
-    subjects.forEach(subject => {
+// ---- Renderizadores de Navegación ----
+function renderDashboard() {
+    moduleButtonsContainer.innerHTML = '';
+
+    rawAppStructure.forEach(mod => {
         const btn = document.createElement('button');
-        btn.className = `w-full text-left p-6 rounded-2xl border border-slate-700 bg-slate-800/50 hover:bg-slate-700/80 transition-all shadow-lg hover:shadow-xl group relative overflow-hidden`;
-        btn.dataset.id = subject.id;
+        // Estilo adaptado para soportar los colores dinámicos en hover
+        btn.className = `w-full text-left p-6 md:p-8 rounded-2xl border border-slate-700 bg-slate-800/40 hover:bg-slate-700/80 transition-all shadow-lg hover:shadow-xl group relative overflow-hidden flex flex-col justify-between min-h-[140px]`;
+        btn.dataset.action = 'select-module';
+        btn.dataset.id = mod.id;
 
-        // Efecto hover decorativo
         const glow = document.createElement('div');
         glow.className = `absolute top-0 right-0 w-2 h-full transition-all group-hover:w-full opacity-10 group-hover:opacity-20 z-0`;
-        glow.style.backgroundColor = subject.color;
+        glow.style.backgroundColor = mod.color;
 
-        const content = document.createElement('div');
-        content.className = 'relative z-10 flex flex-col gap-2';
-        content.innerHTML = `
-            <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold align-middle flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full inline-block" style="background-color: ${subject.color}"></span>
-                Módulo
-            </span>
-            <span class="text-lg font-bold text-white transition-colors">
-                ${subject.name}
-            </span>
-            <span class="text-sm text-slate-500 mt-2">${subject.data.length} preguntas disponibles</span>
+        btn.innerHTML = `
+            <div class="relative z-10 flex flex-col gap-1 w-full">
+                <span class="text-4xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">${mod.icon}</span>
+                <span class="text-sm font-bold text-white transition-colors leading-tight group-hover:text-[${mod.color}]">
+                    ${mod.name}
+                </span>
+            </div>
+            <div class="relative z-10 w-full flex justify-between items-center mt-3 pt-3 border-t border-slate-600/50">
+                <span class="text-xs uppercase text-slate-400 font-semibold tracking-wide">Módulo</span>
+                <span class="w-3 h-3 rounded-full shadow-[0_0_8px_${mod.color}]" style="background-color: ${mod.color}"></span>
+            </div>
         `;
-
-        btn.appendChild(glow);
-        btn.appendChild(content);
-        subjectButtonsContainer.appendChild(btn);
+        btn.insertBefore(glow, btn.firstChild);
+        moduleButtonsContainer.appendChild(btn);
     });
 }
 
+function renderThemesList(moduleObj) {
+    levelTitle.textContent = `${moduleObj.icon} Temario de ${moduleObj.name}`;
+    levelListContainer.innerHTML = '';
+
+    if (!moduleObj.themes || moduleObj.themes.length === 0) {
+        levelListContainer.innerHTML = `<p class="text-slate-400 text-center py-6 italic">Contenido de ${moduleObj.name} en construcción...</p>`;
+    } else {
+        moduleObj.themes.forEach(theme => {
+            const btn = document.createElement('button');
+            btn.className = `w-full text-left p-5 rounded-xl bg-slate-800/60 hover:bg-slate-700 border border-slate-700/80 transition-all flex items-center justify-between group`;
+            btn.dataset.action = 'select-theme';
+            btn.dataset.id = theme.id;
+            btn.innerHTML = `
+                <span class="text-slate-200 font-medium">${theme.name}</span>
+                <span class="text-slate-500 group-hover:text-cyber-blue transition-colors text-xl">→</span>
+            `;
+            levelListContainer.appendChild(btn);
+        });
+    }
+    switchView('levels');
+}
+
+function renderTestsList(themeObj) {
+    levelTitle.textContent = themeObj.name;
+    levelListContainer.innerHTML = '';
+
+    themeObj.tests.forEach(test => {
+        const btn = document.createElement('button');
+        btn.className = `w-full text-left p-5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-cyber-blue transition-all flex items-center justify-between group shadow-md`;
+        btn.dataset.action = 'select-test';
+        btn.dataset.id = test.id;
+
+        btn.innerHTML = `
+            <div class="flex flex-col gap-1">
+                <span class="text-white font-bold group-hover:text-cyber-blue transition-colors">${test.name}</span>
+                <span class="text-xs text-slate-400">${test.questions.length} Preguntas</span>
+            </div>
+            <div class="w-8 h-8 rounded bg-slate-900 flex items-center justify-center border border-slate-700 group-hover:border-cyber-blue transition-colors">
+                <span class="text-cyber-blue text-lg">▶</span>
+            </div>
+        `;
+        levelListContainer.appendChild(btn);
+    });
+}
+
+// ---- Event Listeners ----
 function setupEventListeners() {
-    // Uso de delegación de eventos para la selección de asignatura
-    subjectButtonsContainer.addEventListener('click', (e) => {
-        const btn = e.target.closest('button[data-id]');
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-action]');
         if (!btn) return;
 
-        const subjectId = btn.dataset.id;
-        startTest(subjectId);
+        const action = btn.dataset.action;
+        const id = btn.dataset.id;
+
+        if (action === 'select-module') {
+            state.selectedModule = rawAppStructure.find(m => m.id === id);
+            renderThemesList(state.selectedModule);
+        } else if (action === 'select-theme') {
+            state.selectedTheme = state.selectedModule.themes.find(t => t.id === id);
+            renderTestsList(state.selectedTheme);
+            state.view = 'tests';
+        } else if (action === 'select-test') {
+            state.selectedTest = state.selectedTheme.tests.find(t => t.id === id);
+            startQuiz();
+        }
     });
 
-    // Delegación para las opciones de respuesta
+    btnBackMenu.addEventListener('click', () => {
+        if (state.view === 'tests') {
+            state.selectedTheme = null;
+            state.view = 'themes';
+            renderThemesList(state.selectedModule);
+        } else {
+            state.selectedModule = null;
+            renderDashboard();
+            switchView('dashboard');
+        }
+    });
+
     optionsContainer.addEventListener('click', (e) => {
         if (state.isAnswered) return;
-
         const optionBtn = e.target.closest('.option-btn');
         if (!optionBtn) return;
-
-        const selectedIndex = parseInt(optionBtn.dataset.index, 10);
-        handleAnswer(selectedIndex, optionBtn);
+        handleAnswer(parseInt(optionBtn.dataset.index, 10));
     });
 
-    // Navegación
     btnNext.addEventListener('click', nextQuestion);
-    btnBack.addEventListener('click', confirmExit);
-    btnRestart.addEventListener('click', resetApp);
+    btnAbandon.addEventListener('click', () => {
+        if (confirm('¿Abandonar test en curso?')) resetToDashboard();
+    });
+    btnRestartHome.addEventListener('click', resetToDashboard);
+    btnRestartTest.addEventListener('click', startQuiz);
 }
 
-// ---- Lógica del Test ----
-function startTest(subjectId) {
-    const subject = subjects.find(s => s.id === subjectId);
-    if (!subject) return;
-
-    state.currentSubject = subject;
-    // Barajamos levemente las preguntas
-    state.questions = [...subject.data].sort(() => Math.random() - 0.5);
+// ---- Quiz Logic ----
+function startQuiz() {
+    state.questions = [...state.selectedTest.questions].sort(() => Math.random() - 0.5);
     state.currentIndex = 0;
     state.score = 0;
 
-    // UI Updates
-    subjectTitle.textContent = subject.name;
-    subjectTitle.style.color = subject.color;
+    subjectTitle.textContent = state.selectedModule.name;
+    subjectTitle.style.color = state.selectedModule.color;
+    testBreadcrumbs.textContent = `${state.selectedModule.name} ➔ ${state.selectedTheme.name}`;
+    currentTestName.textContent = state.selectedTest.name;
     totalQNum.textContent = state.questions.length;
+
     updateScoreUI();
-
-    // Transición de pantallas
-    selectionScreen.classList.add('hidden');
-    testScreen.classList.remove('hidden');
-    resultScreen.classList.add('hidden');
-
+    switchView('quiz');
     loadQuestion();
 }
 
@@ -132,205 +264,85 @@ function loadQuestion() {
     const question = state.questions[state.currentIndex];
     currentQNum.textContent = state.currentIndex + 1;
 
-    // Actualizar barra de progreso
-    const progressPercent = ((state.currentIndex) / state.questions.length) * 100;
-    progressBar.style.width = `${progressPercent}%`;
-    progressBar.style.backgroundColor = state.currentSubject.color; // Reset to theme color
-
-    // Animación de entrada
-    questionText.classList.remove('animate-fade-in');
-    void questionText.offsetWidth; // Trigger reflow
-    questionText.classList.add('animate-fade-in');
+    progressBar.style.width = `${(state.currentIndex / state.questions.length) * 100}%`;
+    progressBar.style.backgroundColor = state.selectedModule.color;
 
     questionText.textContent = question.question;
     optionsContainer.innerHTML = '';
 
     question.options.forEach((optionText, index) => {
         const btn = document.createElement('button');
-        btn.className = `option-btn w-full text-left p-4 md:p-5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-700 hover:border-slate-500 transition-all font-medium text-slate-200 animate-fade-in flex items-center gap-4`;
-        btn.style.animationDelay = `${index * 0.1}s`;
+        btn.className = `option-btn w-full text-left p-4 md:p-5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-700 hover:border-slate-500 transition-all font-medium text-slate-200 flex items-center gap-4 group`;
         btn.dataset.index = index;
-
-        // Letra de opción (A, B, C, D)
-        const letterBadge = document.createElement('span');
-        letterBadge.className = 'flex-shrink-0 w-8 h-8 rounded-lg bg-slate-900 border border-slate-600 flex items-center justify-center text-xs font-bold text-slate-400';
-        letterBadge.textContent = String.fromCharCode(65 + index); // A, B, C...
-
-        const textSpan = document.createElement('span');
-        textSpan.className = 'flex-grow';
-        textSpan.textContent = optionText;
-
-        btn.appendChild(letterBadge);
-        btn.appendChild(textSpan);
-
+        btn.innerHTML = `
+            <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-900 border border-slate-600 flex items-center justify-center text-xs font-bold text-slate-400 group-hover:text-white transition-colors">${String.fromCharCode(65 + index)}</span>
+            <span class="flex-grow">${optionText}</span>
+        `;
         optionsContainer.appendChild(btn);
     });
 }
 
-function handleAnswer(selectedIndex, selectedBtn) {
+function handleAnswer(selectedIndex) {
     state.isAnswered = true;
     const question = state.questions[state.currentIndex];
     const isCorrect = selectedIndex === question.correct;
 
     const allOptions = optionsContainer.querySelectorAll('.option-btn');
-
-    // Estilos de feedback
     allOptions.forEach((btn, idx) => {
-        btn.classList.remove('hover:bg-slate-700', 'hover:border-slate-500', 'cursor-pointer');
+        btn.classList.remove('hover:bg-slate-700', 'hover:border-slate-500', 'cursor-pointer', 'group');
         btn.classList.add('opacity-50', 'cursor-not-allowed');
-
         const badge = btn.querySelector('span:first-child');
 
         if (idx === question.correct) {
-            // Reverdecer la correcta siempre
             btn.classList.remove('opacity-50', 'bg-slate-800/60', 'border-slate-700');
-            btn.classList.add('bg-green-900/30', 'border-green-500/50', 'text-green-300', 'shadow-[0_0_15px_rgba(57,255,20,0.1)]');
-            badge.classList.remove('bg-slate-900', 'border-slate-600', 'text-slate-400');
-            badge.classList.add('bg-green-500', 'border-green-400', 'text-black');
+            btn.classList.add('bg-green-900/40', 'border-green-500', 'text-green-300');
+            badge.className = 'flex-shrink-0 w-8 h-8 rounded-lg bg-green-500 border border-green-400 flex items-center justify-center text-xs font-bold text-black';
         } else if (idx === selectedIndex && !isCorrect) {
-            // Enrojecer si eligió la incorrecta
             btn.classList.remove('opacity-50', 'bg-slate-800/60', 'border-slate-700');
-            btn.classList.add('bg-red-900/30', 'border-red-500/50', 'text-red-300');
-            badge.classList.remove('bg-slate-900', 'border-slate-600', 'text-slate-400');
-            badge.classList.add('bg-red-500', 'border-red-400', 'text-white');
+            btn.classList.add('bg-red-900/40', 'border-red-500', 'text-red-300');
+            badge.className = 'flex-shrink-0 w-8 h-8 rounded-lg bg-red-500 border border-red-400 flex items-center justify-center text-xs font-bold text-white';
         }
     });
 
-    if (isCorrect) {
-        state.score += 100;
-        updateScoreUI();
-        triggerCorrectAnimation();
-    } else {
-        triggerIncorrectAnimation();
-    }
+    if (isCorrect) state.score += 10;
 
-    // Mostrar explicación si existe
     if (question.explanation) {
-        showExplanation(question.explanation, isCorrect);
+        const expl = document.createElement('div');
+        expl.className = `mt-4 p-4 rounded-xl text-sm border-l-4 ${isCorrect ? 'bg-green-900/10 border-green-500 text-green-200' : 'bg-slate-900/80 border-blue-500 text-blue-200'}`;
+        expl.innerHTML = `<strong>INFO:</strong> ${question.explanation}`;
+        optionsContainer.appendChild(expl);
     }
 
-    // Mostrar botón siguiente
     btnNext.classList.remove('hidden');
-    btnNext.classList.add('animate-fade-in');
-
-    // Modificar texto del botón si es la última pregunta
-    if (state.currentIndex === state.questions.length - 1) {
-        btnNext.textContent = 'Ver Resultados';
-    } else {
-        btnNext.textContent = 'Siguiente';
-    }
+    btnNext.textContent = (state.currentIndex === state.questions.length - 1) ? 'Ver Reporte' : 'Siguiente';
 }
 
 function updateScoreUI() {
     scoreDisplay.textContent = `Puntos: ${state.score}`;
-    scoreDisplay.classList.add('scale-110', 'text-white');
-    setTimeout(() => {
-        scoreDisplay.classList.remove('scale-110', 'text-white');
-    }, 200);
-}
-
-function showExplanation(text, isCorrect) {
-    const explBox = document.createElement('div');
-    explBox.className = `mt-6 p-4 rounded-xl text-sm border-l-4 animate-fade-in ${isCorrect
-            ? 'bg-green-900/10 border-green-500 text-green-200'
-            : 'bg-slate-800/50 border-blue-400 text-blue-200'
-        }`;
-    explBox.innerHTML = `<strong>Explicación:</strong> ${text}`;
-    optionsContainer.appendChild(explBox);
 }
 
 function nextQuestion() {
     state.currentIndex++;
-
-    if (state.currentIndex < state.questions.length) {
-        loadQuestion();
-    } else {
-        finishTest();
-    }
+    if (state.currentIndex < state.questions.length) loadQuestion();
+    else finishTest();
 }
 
 function finishTest() {
-    testScreen.classList.add('hidden');
-    resultScreen.classList.remove('hidden');
-
-    // Llenar barra al 100%
-    progressBar.style.width = '100%';
-
-    const percentage = Math.round((state.score / (state.questions.length * 100)) * 100);
+    switchView('results');
+    const percentage = Math.round((state.score / (state.questions.length * 10)) * 100);
     finalScore.textContent = `${percentage}%`;
+    finalMessage.textContent = percentage >= 50 ? '¡Rendimiento Óptimo!' : 'Fallo Crítico detectado.';
 
-    let message = '';
-    let colorClass = '';
-
-    if (percentage >= 90) {
-        message = '¡Excepcional! Dominio absoluto del sistema.';
-        colorClass = 'border-cyber-neon text-cyber-neon shadow-[0_0_30px_rgba(57,255,20,0.3)]';
-    } else if (percentage >= 70) {
-        message = 'Aprobado. Buen nivel operativo, sigue así.';
-        colorClass = 'border-cyber-blue text-cyber-blue shadow-[0_0_30px_rgba(0,240,255,0.3)]';
-    } else if (percentage >= 50) {
-        message = 'Al límite. Se requieren más ciclos de entrenamiento.';
-        colorClass = 'border-yellow-400 text-yellow-400 shadow-[0_0_30px_rgba(250,204,21,0.3)]';
-    } else {
-        message = 'Fallo crítico. Necesitas estudiar el manual a fondo.';
-        colorClass = 'border-cyber-red text-cyber-red shadow-[0_0_30px_rgba(255,0,60,0.3)]';
-    }
-
-    finalMessage.textContent = message;
-
-    // Limpiar clases previas del circulo
     scoreCircleContainer.className = 'w-36 h-36 rounded-full border-4 flex items-center justify-center shadow-glass transition-all mb-4 bg-slate-900/50 backdrop-blur-sm';
-
-    // Añadir nuevas clases
-    const classesToAdd = colorClass.split(' ');
-    classesToAdd.forEach(cls => scoreCircleContainer.classList.add(cls));
+    scoreCircleContainer.classList.add(percentage >= 50 ? 'border-cyber-neon' : 'border-cyber-red');
 }
 
-function confirmExit() {
-    if (confirm('¿Estás seguro de que deseas abandonar la simulación actual? Se perderá tu progreso.')) {
-        resetApp();
-    }
+function resetToDashboard() {
+    state.selectedModule = null;
+    state.selectedTheme = null;
+    state.selectedTest = null;
+    renderDashboard();
+    switchView('dashboard');
 }
 
-function resetApp() {
-    testScreen.classList.add('hidden');
-    resultScreen.classList.add('hidden');
-    selectionScreen.classList.remove('hidden');
-
-    // Reset state
-    state.currentSubject = null;
-    state.currentIndex = 0;
-    state.score = 0;
-    state.isAnswered = false;
-
-    // Reset UI reset
-    progressBar.style.width = '0%';
-    scoreDisplay.textContent = 'Puntos: 0';
-}
-
-// Visual Effects
-function triggerCorrectAnimation() {
-    progressBar.style.backgroundColor = '#39ff14'; // cyber-neon
-}
-
-function triggerIncorrectAnimation() {
-    progressBar.style.backgroundColor = '#ff003c'; // cyber-red
-    appContainer.classList.add('animate-[shake_0.4s_ease-in-out]');
-    setTimeout(() => {
-        appContainer.classList.remove('animate-[shake_0.4s_ease-in-out]');
-    }, 400);
-}
-
-// Añadir keyframe shake a la hoja de estilos global
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes shake {
-        0%, 100% { transform: translateX(0); }
-        20%, 60% { transform: translateX(-5px); }
-        40%, 80% { transform: translateX(5px); }
-    }
-`;
-document.head.appendChild(style);
-
-// Start
 document.addEventListener('DOMContentLoaded', init);
