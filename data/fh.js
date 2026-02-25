@@ -1,0 +1,248 @@
+// data/fh.js
+// Módulo: Fundamentos de Hardware (Estructura Anidada)
+
+export const questionsFH = {
+    "Tema 3: Creación de imágenes de software": {
+        "Test 1": [
+            {
+                question: "Para crear una partición primaria…",
+                options: [
+                    "Debemos ser cautos con los datos, si los contiene.",
+                    "Mantenemos los datos si los tuviera.",
+                    "Los datos se vuelcan en una memoria virtual temporal.",
+                    "No mantiene los datos pero pueden recuperarse con comandos específicos."
+                ],
+                correct: 0,
+                explanation: "Al manipular particiones siempre existe el riesgo de pérdida de datos, por lo que la precaución y el backup previo son fundamentales."
+            },
+            {
+                question: "Una copia de seguridad total es la copia sólo del Sistema Operativo. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Una copia de seguridad total (Full Backup) incluye todos los datos seleccionados, no solo el Sistema Operativo."
+            },
+            {
+                question: "Al elegir una herramienta software para realizar respaldos desde sistemas Windows valoraremos…",
+                options: [
+                    "Únicamente el coste de la herramienta.",
+                    "Buscaremos el más barato del mercado.",
+                    "Que sea fácil el manejo de la herramienta, valorando menos su eficacia.",
+                    "La utilidad práctica de la herramienta y en menor medida, el coste y sí valoraremos más las alternativas."
+                ],
+                correct: 3,
+                explanation: "La utilidad, funcionalidad y las alternativas disponibles son siempre prioritarias frente al coste único."
+            },
+            {
+                question: "Con Gparted, a la hora de aplicar los cambios debemos reiniciar el ordenador, como con Easeus. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Gparted (basado en Linux) a menudo puede aplicar cambios en caliente si las particiones no están montadas, sin necesidad de reinicio."
+            },
+            {
+                question: "Mantener copias de seguridad en ubicaciones físicas distintas, se realiza para que el propietario o responsable de la empresa tenga acceso en local en su casa, por ejemplo. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Se realiza por redundancia ante desastres físicos (incendios, inundaciones) en la sede principal (Disaster Recovery)."
+            },
+            {
+                question: "Se puede realizar copias de seguridad a través de internet contra un servidor de forma segura mediante túnel certificado. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. Se utilizan protocolos y túneles encriptados (VPN, SSH, SFTP) para garantizar la seguridad en tránsito."
+            },
+            {
+                question: "Una partición es…",
+                options: [
+                    "Un disco duro.",
+                    "Un división lógica del espacio en disco donde se crea un sistema de archivos.",
+                    "En Windows 10 la unidad C:/.",
+                    "Un sistema operativo."
+                ],
+                correct: 1,
+                explanation: "Una partición es una división lógica de una unidad de almacenamiento física, tratada por el SO como una unidad independiente."
+            },
+            {
+                question: "Una imagen de respaldo es…",
+                options: [
+                    "Una salvaguarda total de particiones.",
+                    "Una restauración del sistema de archivos.",
+                    "Una salvaguarda total de un disco duro.",
+                    "Una salvaguarda de los datos actualizados."
+                ],
+                correct: 2,
+                explanation: "Una imagen de disco es una copia exacta (sector por sector) que contiene el disco duro original completo."
+            },
+            {
+                question: "En la BIOS podemos modificar la secuencia de arranque de los dispositivos de almacenamiento masivo. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. La opción 'Boot Sequence' o 'Boot Priority' permite elegir qué dispositivo arranca primero."
+            },
+            {
+                question: "El comando Fdisk…",
+                options: [
+                    "Sólo se utiliza en Windows.",
+                    "Sólo se utiliza en Linux y Mac.",
+                    "Se utiliza tanto en Linux, Mac y Windows y tiene las mismas características de uso en todos los casos.",
+                    "Se utiliza tanto en Linux, Mac y Windows, pero tiene características diferenciadas."
+                ],
+                correct: 3,
+                explanation: "Fdisk es un gestor de particiones por línea de comandos cuyas opciones y banderas difieren según el Sistema Operativo."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "¿Es válida la siguiente afirmación? Como parte de la estrategia de copias de seguridad, se programa el día 1 de cada mes para realizar una copia total de un disco de almacenamiento masivo. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. Realizar copias totales periódicas (como el día 1 de cada mes) es la base de cualquier estrategia de retención (ej. Abuelo-Padre-Hijo)."
+            },
+            {
+                question: "La estructura de una partición EXT3 es…",
+                options: [
+                    "Está descartada por los problemas de seguridad que plantea.",
+                    "Es la evolución de EXT2 así como FAT32 es la evolución de FAT16.",
+                    "Es igual que el tipo EXT2 salvo que contiene journaling.",
+                    "Igual que EXT2 corrigiendo el tamaño máximo de archivos que soporta."
+                ],
+                correct: 2,
+                explanation: "EXT3 es fundamentalmente el sistema de archivos EXT2 al que se le ha añadido la capacidad de registro por diario (journaling)."
+            },
+            {
+                question: "Los sistemas operativos Linux utilizan, indistintamente tanto formatos de i-nodos como formatos con tablas de localizaciones. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Los sistemas nativos de Linux (EXT, ReiserFS, etc.) se basan en i-nodos. Las tablas de localizaciones (como FAT) son propias de sistemas Microsoft."
+            },
+            {
+                question: "En un disco duro pueden convivir dos sistemas operativos pero sólo uno podrá estar activo simultáneamente. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. A través de un gestor de arranque (Dual Boot) puedes tener varios SO instalados, pero físicamente solo se ejecuta uno a la vez en la máquina host."
+            },
+            {
+                question: "El punto de restauración de Windows 10 sirve para...",
+                options: [
+                    "Recuperar los datos e información de los usuarios del sistema",
+                    "Todas son incorrectas",
+                    "Recuperar el sistema a un estado anterior previamente salvado, se recupera software, controladores, registro y configuración.",
+                    "En Windows 10 dejaron de usar los puntos de restauración"
+                ],
+                correct: 2,
+                explanation: "Los puntos de restauración devuelven los archivos del sistema y el registro a un estado anterior, sin afectar a los archivos personales del usuario."
+            },
+            {
+                question: "Desde un sistema operativo Linux podemos acceder a un sistema de archivos NTFS. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. Gracias a controladores como ntfs-3g, Linux puede leer y escribir perfectamente en particiones NTFS."
+            },
+            {
+                question: "Existe una partición de arranque o partition boot sector en los discos duros. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. (Corregido de tu test). Lo que existe a nivel de disco es el MBR (Master Boot Record) o la tabla GPT, no una 'partición de arranque' genérica de esa forma."
+            },
+            {
+                question: "En cualquier herramienta de particionado, para modificar el tamaño de una partición…",
+                options: [
+                    "Debe existir en el reinicio una opción de deshacer.",
+                    "Debe desmontarse la unidad.",
+                    "No debe hacerse nada.",
+                    "Ninguna de las opciones anteriores es correcta."
+                ],
+                correct: 1,
+                explanation: "Para poder redimensionar de forma segura una partición, el sistema de archivos no puede estar en uso; por tanto, debe desmontarse previamente."
+            },
+            {
+                question: "Un disco duro puede tener varias particiones. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. Un disco físico se puede dividir lógicamente en múltiples particiones (primarias, extendidas o lógicas)."
+            },
+            {
+                question: "Con la aplicación Gparted, y en Linux, podemos crear, modificar y borrar particiones NTFS. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. Gparted es compatible con multitud de sistemas de archivos, incluyendo NTFS de Windows."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "EXT4 es un sistema de archivos con registro por diario como una mejora compatible de ext3. Ext4 soporta ahora volúmenes de hasta 1024 Petabytes. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. EXT4 trajo mejoras significativas en el límite de tamaño de volúmenes y archivos respecto a EXT3."
+            },
+            {
+                question: "Un cambio desafortunado de la secuencia de arranque puede suponer…",
+                options: [
+                    "Puede provocar el “flasheo” de la BIOS.",
+                    "No arrancar el Sistema Operativo y tener que entrar en la BIOS para solucionar el problema.",
+                    "Eliminar, accidentalmente, el disco duro que soporta el Sistema Operativo.",
+                    "Confundir la unidad desde la que puede entrar y eliminar el Sistema Operativo."
+                ],
+                correct: 1,
+                explanation: "Si le indicas a la BIOS que intente arrancar desde un disco sin SO, simplemente mostrará un error de 'Operating System not found'."
+            },
+            {
+                question: "Con una herramienta Linux podemos clonar una máquina con SISTEMA OPERATIVO Windows. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. Herramientas como Clonezilla (basadas en Linux) pueden clonar discos Windows a nivel de bloques (sectores) sin importar el SO."
+            },
+            {
+                question: "Con el gestor de arranque de Windows podemos elegir cómo arrancar el Sistema Operativo. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. El gestor de arranque de Windows (Boot Manager) permite seleccionar entre varios sistemas operativos si hay un Dual Boot."
+            },
+            {
+                question: "Si realizamos una imagen del sistema en Windows 10 no realizará una copia del historial de archivos del usuario. Esa copia solo sirve para recuperar el sistema y no los datos del usuario. Además es necesario crear un disco de reparación.",
+                options: [
+                    "Incorrecto. Esa herramienta de Windows copia todo.",
+                    "Incorrecto.",
+                    "Es incorrecto porque la creación del disco de reparación no hace falta hacerla, se puede acceder a las herramientas de recuperación desde la instalación de Windows.",
+                    "Incorrecto porque se copia el historial y además para realizar la imagen, debe estar inactiva la unidad de la que queremos realizar la imagen."
+                ],
+                correct: 2,
+                explanation: "Es incorrecto porque hoy en día puedes acceder al entorno de recuperación directamente desde un USB de instalación de Windows."
+            },
+            {
+                question: "ReiserFS almacena metadatos sobre los ficheros, entradas de directorio y listas de i-nodos en un único árbol B+ cuya clave principal es un identificador único. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. Esta es la característica principal de la arquitectura de ReiserFS para optimizar el acceso."
+            },
+            {
+                question: "El sistema de particiones GPT permite:",
+                options: [
+                    "Ninguna es correcta",
+                    "Particiones de más de 2 terabytes. Se admiten 128 particiones primarias. Ya no se usan particiones extendidas ni secundarias. Mayor seguridad frente a fallos.",
+                    "Particiones de más de 2 terabytes. Se admiten 128 particiones primarias. Ya no se usan particiones extendidas ni secundarias. Compatibilidad con MBR.",
+                    "Particiones de más de 2 terabytes. Se admiten 128 particiones extendidas. Mayor seguridad frente a fallos."
+                ],
+                correct: 1,
+                explanation: "(Corregido). GPT supera el límite de 2TB del MBR, soporta 128 particiones primarias por defecto y añade redundancia de cabeceras para mayor seguridad."
+            },
+            {
+                question: "Con una memoria USB podemos arrancar un Sistema Operativo ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. Es lo que conocemos como formato Live USB (ej: Live USB de Ubuntu) o medios de instalación."
+            },
+            {
+                question: "Una copia de seguridad diferencial es similar a la incremental, la diferencia es que no desactiva el atributo de modificación. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. La copia diferencial no resetea el bit de archivo, por lo que cada copia diferencial guarda todo lo modificado desde la última copia total."
+            },
+            {
+                question: "La aplicación Easeus permite crear particiones para Linux. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "(Corregido). Aunque formatea en ext2/ext3, en el contexto puramente académico de este test la respuesta correcta es Falso, priorizando herramientas nativas como Gparted."
+            }
+        ]
+    }
+};

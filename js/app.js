@@ -1,3 +1,18 @@
+import { questionsFH } from '../data/fh.js';
+
+// Adaptador para convertir el diccionario de temas a array de objetos
+const buildThemeStructure = (moduleId, sourceData) => {
+    return Object.entries(sourceData).map(([themeName, testsObj], tIdx) => ({
+        id: `${moduleId}-t${tIdx + 1}`,
+        name: themeName,
+        tests: Object.entries(testsObj).map(([testName, questions], testIdx) => ({
+            id: `${moduleId}-t${tIdx + 1}-test${testIdx + 1}`,
+            name: testName,
+            questions: questions
+        }))
+    }));
+};
+
 // ---- MOCKS de Datos para los Módulos ----
 // Idealmente se importarían de archivos separados (ej: import { isoData } from '../data/iso.js')
 
@@ -42,14 +57,7 @@ const rawAppStructure = [
         name: 'Fundamentos de Hardware',
         color: '#ff8c00',
         icon: '⚙️',
-        themes: [
-            {
-                id: 'fh-t1', name: 'Tema 1: Arquitectura de Computadores',
-                tests: [
-                    { id: 'fh-t1-test1', name: 'Test 1 Componentes', questions: [{ question: "¿Qué componente se considera el cerebro del ordenador?", options: ["RAM", "Disco Duro", "CPU", "GPU"], correct: 2, explanation: "La Unidad Central de Procesamiento (CPU)." }] }
-                ]
-            }
-        ]
+        themes: buildThemeStructure('fh', questionsFH)
     },
     { id: 'gbd', name: 'Gestión de Bases de Datos', color: '#b026ff', icon: '🗄️', themes: [] },
     { id: 'sost', name: 'Sostenibilidad', color: '#32cd32', icon: '🌱', themes: [] },
