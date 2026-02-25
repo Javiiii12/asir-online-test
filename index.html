@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test ASIR ONLINE - Da Vinci Albacete v2.0</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            dark: '#0f172a',
+                            panel: 'rgba(30, 41, 59, 0.7)',
+                            neon: '#39ff14',
+                            blue: '#00f0ff',
+                            red: '#ff003c',
+                        }
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px rgba(57, 255, 20, 0.5)',
+                        'blue': '0 0 15px rgba(0, 240, 255, 0.5)',
+                        'red': '0 0 15px rgba(255, 0, 60, 0.5)',
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(339,49%,30%,0.2) 0, transparent 50%);
+            background-attachment: fixed;
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+        }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        
+        .transition-all-custom {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="antialiased flex flex-col items-center py-10 px-4">
+    
+    <header class="w-full max-w-4xl text-center mb-10 text-white">
+        <h1 class="text-4xl md:text-5xl font-bold mb-3 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-cyber-blue to-cyber-neon">
+            Test ASIR ONLINE
+        </h1>
+        <p class="text-sm md:text-base text-slate-400 tracking-widest uppercase">
+            Da Vinci Albacete • v2.0
+        </p>
+    </header>
+
+    <main class="w-full max-w-3xl flex flex-col gap-6" id="app-container">
+        
+        <!-- Pantalla de Selección de Asignatura -->
+        <section id="selection-screen" class="glass-panel rounded-3xl p-8 md:p-10 shadow-glass flex flex-col gap-8 animate-fade-in">
+            <h2 class="text-2xl font-semibold text-center text-white">Selecciona un Módulo</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="subject-buttons">
+                <!-- Botones inyectados por JS -->
+            </div>
+        </section>
+
+        <!-- Pantalla del Test -->
+        <section id="test-screen" class="hidden flex flex-col gap-6 w-full animate-fade-in">
+            
+            <!-- Header del Test (Progreso y Puntuación) -->
+            <div class="glass-panel rounded-2xl p-6 shadow-glass flex flex-col gap-4">
+                <div class="flex justify-between items-center text-sm font-medium">
+                    <span id="subject-title" class="text-cyber-blue uppercase tracking-widest font-bold"></span>
+                    <span id="score-display" class="bg-slate-800 px-4 py-1.5 rounded-full border border-slate-700 text-cyber-neon shadow-sm">Puntos: 0</span>
+                </div>
+                
+                <!-- Barra de Progreso -->
+                <div class="w-full bg-slate-800 rounded-full h-2.5 relative overflow-hidden shadow-inner">
+                    <div id="progress-bar" class="bg-gradient-to-r from-cyber-blue to-cyber-neon h-2.5 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+                </div>
+                <div class="text-xs text-slate-400 text-right font-medium tracking-wide">
+                    Pregunta <span id="current-q-num" class="text-slate-200">0</span> de <span id="total-q-num" class="text-slate-200">0</span>
+                </div>
+            </div>
+
+            <!-- Contenedor principal de la Pregunta -->
+            <div class="glass-panel rounded-3xl p-8 shadow-glass transition-all-custom" id="question-container">
+                <h3 id="question-text" class="text-xl md:text-2xl font-medium leading-relaxed mb-8 text-white min-h-[4rem]">
+                    <!-- Pregunta cargada por JS -->
+                </h3>
+                
+                <div id="options-container" class="flex flex-col gap-3">
+                    <!-- Opciones inyectadas por JS -->
+                </div>
+            </div>
+            
+            <!-- Controles de navegación inferior -->
+            <div class="flex flex-col-reverse md:flex-row justify-between items-center gap-4 mt-2">
+                <button id="btn-back" class="w-full md:w-auto px-6 py-3 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-colors border border-slate-700 text-sm font-medium uppercase tracking-wider">
+                    ← Abandonar
+                </button>
+                <button id="btn-next" class="hidden w-full md:w-auto px-8 py-3 rounded-xl bg-gradient-to-r from-cyber-blue to-blue-500 text-cyber-dark hover:from-blue-400 hover:to-cyber-blue transition-all shadow-blue font-bold uppercase tracking-wider">
+                    Siguiente
+                </button>
+            </div>
+        </section>
+
+        <!-- Pantalla de Resultados Finales -->
+        <section id="result-screen" class="hidden glass-panel rounded-3xl p-10 shadow-glass flex flex-col items-center justify-center gap-6 text-center animate-fade-in">
+            <h2 class="text-3xl font-bold text-white mb-2 tracking-tight">Reporte Completado</h2>
+            <div id="score-circle-container" class="w-36 h-36 rounded-full border-4 flex items-center justify-center shadow-glass transition-all mb-4 bg-slate-900/50 backdrop-blur-sm">
+                <span id="final-score" class="text-5xl font-bold">100%</span>
+            </div>
+            <p id="final-message" class="text-lg text-slate-300 max-w-md font-medium"></p>
+            <button id="btn-restart" class="mt-6 px-10 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 transition-colors shadow-lg hover:shadow-xl text-white font-bold uppercase tracking-widest text-sm">
+                Volver al Inicio
+            </button>
+        </section>
+
+    </main>
+
+    <!-- Punto de entrada de la aplicación JS (ES6 Module) -->
+    <script type="module" src="./js/app.js"></script>
+</body>
+</html>
