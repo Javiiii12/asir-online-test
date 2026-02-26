@@ -14,9 +14,6 @@ const buildThemeStructure = (moduleId, sourceData) => {
     }));
 };
 
-// ---- MOCKS de Datos para los Módulos ----
-// Idealmente se importarían de archivos separados (ej: import { isoData } from '../data/iso.js')
-
 const rawAppStructure = [
     {
         id: 'iso',
@@ -29,13 +26,6 @@ const rawAppStructure = [
                 tests: [
                     { id: 'iso-t1-test1', name: 'Test 1 Básico', questions: [{ question: "¿Qué es un SO?", options: ["Software", "Hardware", "Periférico", "Red"], correct: 0, explanation: "Es software base." }] }
                 ]
-            },
-            {
-                id: 'iso-t2', name: 'Tema 2: Gestión de Procesos',
-                tests: [
-                    { id: 'iso-t2-test1', name: 'Test 1 Hilos', questions: [{ question: "¿Qué comando mata procesos en Linux?", options: ["kill", "stop", "end", "halt"], correct: 0, explanation: "El comando kill." }] },
-                    { id: 'iso-t2-test2', name: 'Test 2 Avanzado', questions: [{ question: "Formato octal para lectura y ejecución", options: ["7", "6", "5", "4"], correct: 2, explanation: "4(Lectura) + 1(Ejecución) = 5" }] }
-                ]
             }
         ]
     },
@@ -44,14 +34,7 @@ const rawAppStructure = [
         name: 'Planificación y Adm. de Redes',
         color: '#00f0ff', // Blue
         icon: '🌐',
-        themes: [
-            {
-                id: 'par-t1', name: 'Tema 1: Modelo OSI',
-                tests: [
-                    { id: 'par-t1-test1', name: 'Test 1 Capas', questions: [{ question: "Capa que maneja IPs", options: ["Enlace", "Red", "Transporte", "Física"], correct: 1, explanation: "La capa de red enruta IPs." }] }
-                ]
-            }
-        ]
+        themes: []
     },
     {
         id: 'fh',
@@ -93,6 +76,7 @@ const views = {
 const moduleButtonsContainer = document.getElementById('subject-buttons');
 const btnBackCourses = document.getElementById('btn-back-courses');
 const comingSoonAlert = document.getElementById('coming-soon-alert');
+
 const levelTitle = document.getElementById('level-title');
 const levelListContainer = document.getElementById('level-list-container');
 const btnBackMenu = document.getElementById('btn-back-menu');
@@ -127,6 +111,7 @@ function switchView(viewName) {
     Object.values(views).forEach(v => v.classList.add('hidden'));
     views[viewName].classList.remove('hidden');
     state.view = viewName;
+    window.scrollTo(0, 0);
 }
 
 // ---- Renderizadores de Navegación ----
@@ -135,25 +120,24 @@ function renderDashboard() {
 
     rawAppStructure.forEach(mod => {
         const btn = document.createElement('button');
-        // Estilo adaptado para soportar los colores dinámicos en hover
-        btn.className = `w-full text-left p-6 md:p-8 rounded-2xl border border-slate-700 bg-slate-800/40 hover:bg-slate-700/80 transition-all shadow-lg hover:shadow-xl group relative overflow-hidden flex flex-col justify-between min-h-[140px]`;
+        btn.className = `w-full text-left p-5 md:p-6 rounded-2xl border border-slate-700 bg-slate-800/40 hover:bg-slate-700/80 transition-all shadow-lg hover:shadow-xl group relative overflow-hidden flex flex-col justify-between min-h-[120px] md:min-h-[140px]`;
         btn.dataset.action = 'select-module';
         btn.dataset.id = mod.id;
 
         const glow = document.createElement('div');
-        glow.className = `absolute top-0 right-0 w-2 h-full transition-all group-hover:w-full opacity-10 group-hover:opacity-20 z-0`;
+        glow.className = `absolute top-0 right-0 w-1.5 md:w-2 h-full transition-all group-hover:w-full opacity-10 group-hover:opacity-20 z-0`;
         glow.style.backgroundColor = mod.color;
 
         btn.innerHTML = `
             <div class="relative z-10 flex flex-col gap-1 w-full">
-                <span class="text-4xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">${mod.icon}</span>
-                <span class="text-sm font-bold text-white transition-colors leading-tight group-hover:text-[${mod.color}]">
+                <span class="text-3xl md:text-4xl mb-1 md:mb-2 opacity-80 group-hover:opacity-100 transition-opacity">${mod.icon}</span>
+                <span class="text-xs md:text-sm font-bold text-white transition-colors leading-tight group-hover:text-white">
                     ${mod.name}
                 </span>
             </div>
             <div class="relative z-10 w-full flex justify-between items-center mt-3 pt-3 border-t border-slate-600/50">
-                <span class="text-xs uppercase text-slate-400 font-semibold tracking-wide">Módulo</span>
-                <span class="w-3 h-3 rounded-full shadow-[0_0_8px_${mod.color}]" style="background-color: ${mod.color}"></span>
+                <span class="text-[10px] uppercase text-slate-400 font-semibold tracking-wide">Módulo</span>
+                <span class="w-2.5 h-2.5 rounded-full shadow-[0_0_8px_${mod.color}]" style="background-color: ${mod.color}"></span>
             </div>
         `;
         btn.insertBefore(glow, btn.firstChild);
@@ -166,16 +150,16 @@ function renderThemesList(moduleObj) {
     levelListContainer.innerHTML = '';
 
     if (!moduleObj.themes || moduleObj.themes.length === 0) {
-        levelListContainer.innerHTML = `<p class="text-slate-400 text-center py-6 italic">Contenido de ${moduleObj.name} en construcción...</p>`;
+        levelListContainer.innerHTML = `<p class="text-slate-400 text-center py-6 italic text-sm">Contenido en construcción...</p>`;
     } else {
         moduleObj.themes.forEach(theme => {
             const btn = document.createElement('button');
-            btn.className = `w-full text-left p-5 rounded-xl bg-slate-800/60 hover:bg-slate-700 border border-slate-700/80 transition-all flex items-center justify-between group`;
+            btn.className = `w-full text-left p-4 md:p-5 rounded-xl bg-slate-800/60 hover:bg-slate-700 border border-slate-700/80 transition-all flex items-center justify-between group shadow-sm`;
             btn.dataset.action = 'select-theme';
             btn.dataset.id = theme.id;
             btn.innerHTML = `
-                <span class="text-slate-200 font-medium">${theme.name}</span>
-                <span class="text-slate-500 group-hover:text-cyber-blue transition-colors text-xl">→</span>
+                <span class="text-slate-200 font-medium text-sm md:text-base">${theme.name}</span>
+                <span class="text-cyber-blue group-hover:text-cyber-neon transition-colors text-lg md:text-xl">→</span>
             `;
             levelListContainer.appendChild(btn);
         });
@@ -189,17 +173,17 @@ function renderTestsList(themeObj) {
 
     themeObj.tests.forEach(test => {
         const btn = document.createElement('button');
-        btn.className = `w-full text-left p-5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-cyber-blue transition-all flex items-center justify-between group shadow-md`;
+        btn.className = `w-full text-left p-4 md:p-5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-cyber-blue transition-all flex items-center justify-between group shadow-md`;
         btn.dataset.action = 'select-test';
         btn.dataset.id = test.id;
 
         btn.innerHTML = `
             <div class="flex flex-col gap-1">
-                <span class="text-white font-bold group-hover:text-cyber-blue transition-colors">${test.name}</span>
-                <span class="text-xs text-slate-400">${test.questions.length} Preguntas</span>
+                <span class="text-white font-bold text-sm md:text-base group-hover:text-cyber-blue transition-colors">${test.name}</span>
+                <span class="text-[10px] md:text-xs text-slate-400 uppercase tracking-wider">${test.questions.length} Preguntas</span>
             </div>
-            <div class="w-8 h-8 rounded bg-slate-900 flex items-center justify-center border border-slate-700 group-hover:border-cyber-blue transition-colors">
-                <span class="text-cyber-blue text-lg">▶</span>
+            <div class="w-8 h-8 md:w-10 md:h-10 rounded bg-slate-900 flex items-center justify-center border border-slate-700 group-hover:border-cyber-blue transition-colors">
+                <span class="text-cyber-blue text-sm md:text-lg">▶</span>
             </div>
         `;
         levelListContainer.appendChild(btn);
@@ -236,25 +220,22 @@ function setupEventListeners() {
         }
     });
 
+    btnBackCourses.addEventListener('click', () => {
+        state.selectedCourse = null;
+        if (comingSoonAlert) comingSoonAlert.classList.add('hidden');
+        switchView('courses');
+    });
+
     btnBackMenu.addEventListener('click', () => {
         if (state.view === 'tests') {
             state.selectedTheme = null;
-            state.view = 'themes';
-            renderThemesList(state.selectedModule);
+            state.view = 'dashboard';
+            switchView('dashboard');
         } else {
             state.selectedModule = null;
-            renderDashboard();
             switchView('dashboard');
         }
     });
-
-    if (btnBackCourses) {
-        btnBackCourses.addEventListener('click', () => {
-            state.selectedCourse = null;
-            if (comingSoonAlert) comingSoonAlert.classList.add('hidden');
-            switchView('courses');
-        });
-    }
 
     optionsContainer.addEventListener('click', (e) => {
         if (state.isAnswered) return;
@@ -275,7 +256,7 @@ function setupEventListeners() {
         const confirmBtn = document.getElementById('btn-confirm-answer');
         if (confirmBtn) {
             confirmBtn.disabled = false;
-            confirmBtn.className = 'w-full mt-4 px-6 py-3 rounded-xl bg-gradient-to-r from-cyber-blue to-blue-500 text-cyber-dark hover:from-blue-400 hover:to-cyber-blue transition-all shadow-blue font-bold uppercase tracking-wider';
+            confirmBtn.className = 'w-full mt-4 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyber-blue to-blue-500 text-cyber-dark hover:from-blue-400 hover:to-cyber-blue transition-all shadow-blue font-bold uppercase tracking-wider text-sm md:text-base';
         }
     });
 
@@ -307,7 +288,6 @@ function startQuiz() {
 function loadQuestion() {
     state.isAnswered = false;
     state.selectedOptionIndex = null;
-    btnNext.classList.add('hidden');
 
     const question = state.questions[state.currentIndex];
     currentQNum.textContent = state.currentIndex + 1;
@@ -324,14 +304,14 @@ function loadQuestion() {
         btn.dataset.index = index;
         btn.innerHTML = `
             <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-900 border border-slate-600 flex items-center justify-center text-xs font-bold text-slate-400 group-hover:text-white transition-colors">${String.fromCharCode(65 + index)}</span>
-            <span class="flex-grow">${optionText}</span>
+            <span class="flex-grow text-sm md:text-base">${optionText}</span>
         `;
         optionsContainer.appendChild(btn);
     });
 
     const confirmBtn = document.createElement('button');
     confirmBtn.id = 'btn-confirm-answer';
-    confirmBtn.className = 'w-full mt-4 px-6 py-3 rounded-xl bg-slate-800/80 text-slate-500 border border-slate-700 cursor-not-allowed transition-all font-bold uppercase tracking-wider shadow-sm';
+    confirmBtn.className = 'w-full mt-4 px-6 py-3.5 rounded-xl bg-slate-800/80 text-slate-500 border border-slate-700 cursor-not-allowed transition-all font-bold uppercase tracking-wider shadow-sm text-sm';
     confirmBtn.textContent = 'Confirmar Respuesta';
     confirmBtn.disabled = true;
 
@@ -339,6 +319,7 @@ function loadQuestion() {
         if (!state.isAnswered && state.selectedOptionIndex !== null) {
             handleAnswer(state.selectedOptionIndex);
             confirmBtn.textContent = (state.currentIndex === state.questions.length - 1) ? 'Ver Reporte' : 'Siguiente Pregunta';
+            confirmBtn.className = 'w-full mt-4 px-6 py-3.5 rounded-xl bg-slate-800 border border-cyber-blue text-cyber-blue hover:bg-slate-700 transition-all font-bold uppercase tracking-wider text-sm md:text-base shadow-neon';
         } else if (state.isAnswered) {
             nextQuestion();
         }
@@ -355,32 +336,29 @@ function handleAnswer(selectedIndex) {
     const allOptions = optionsContainer.querySelectorAll('.option-btn');
     allOptions.forEach((btn, idx) => {
         btn.classList.remove('hover:bg-slate-700', 'hover:border-slate-500', 'cursor-pointer', 'group', 'ring-2', 'ring-cyber-blue', 'border-cyber-blue');
-        btn.classList.add('opacity-50', 'cursor-not-allowed');
+        btn.classList.add('opacity-40', 'cursor-default');
         const badge = btn.querySelector('span:first-child');
 
         if (idx === question.correct) {
-            btn.classList.remove('opacity-50', 'bg-slate-800/60', 'border-slate-700');
-            btn.classList.add('bg-green-900/40', 'border-green-500', 'text-green-300', 'ring-2', 'ring-green-500');
+            btn.classList.remove('opacity-40', 'bg-slate-800/60', 'border-slate-700');
+            btn.classList.add('bg-green-900/40', 'border-green-500', 'text-green-300', 'ring-2', 'ring-green-500', 'opacity-100');
             badge.className = 'flex-shrink-0 w-8 h-8 rounded-lg bg-green-500 border border-green-400 flex items-center justify-center text-xs font-bold text-black';
         } else if (idx === selectedIndex && !isCorrect) {
-            btn.classList.remove('opacity-50', 'bg-slate-800/60', 'border-slate-700', 'ring-cyber-blue');
-            btn.classList.add('bg-red-900/40', 'border-red-500', 'text-red-300', 'ring-2', 'ring-red-500');
+            btn.classList.remove('opacity-40', 'bg-slate-800/60', 'border-slate-700');
+            btn.classList.add('bg-red-900/40', 'border-red-500', 'text-red-300', 'ring-2', 'ring-red-500', 'opacity-100');
             badge.className = 'flex-shrink-0 w-8 h-8 rounded-lg bg-red-500 border border-red-400 flex items-center justify-center text-xs font-bold text-white';
         }
     });
 
     if (isCorrect) state.score += 10;
+    updateScoreUI();
 
     if (question.explanation) {
         const expl = document.createElement('div');
-        expl.className = `mt-4 mb-2 p-4 rounded-xl text-sm border-l-4 ${isCorrect ? 'bg-green-900/10 border-green-500 text-green-200' : 'bg-slate-900/80 border-blue-500 text-blue-200'}`;
-        expl.innerHTML = `<strong>INFO:</strong> ${question.explanation}`;
+        expl.className = `mt-4 mb-2 p-4 rounded-xl text-[11px] md:text-xs border-l-4 leading-relaxed animate-fade-in ${isCorrect ? 'bg-green-900/10 border-green-500 text-green-200' : 'bg-slate-900/80 border-blue-500 text-blue-200'}`;
+        expl.innerHTML = `<strong>EXPLICACIÓN:</strong> ${question.explanation}`;
         const confirmBtn = document.getElementById('btn-confirm-answer');
-        if (confirmBtn) {
-            optionsContainer.insertBefore(expl, confirmBtn);
-        } else {
-            optionsContainer.appendChild(expl);
-        }
+        optionsContainer.insertBefore(expl, confirmBtn);
     }
 }
 
@@ -398,17 +376,16 @@ function finishTest() {
     switchView('results');
     const percentage = Math.round((state.score / (state.questions.length * 10)) * 100);
     finalScore.textContent = `${percentage}%`;
-    finalMessage.textContent = percentage >= 50 ? '¡Rendimiento Óptimo!' : 'Fallo Crítico detectado.';
+    finalMessage.textContent = percentage >= 50 ? '¡Rendimiento Óptimo! Has superado el reporte con éxito.' : 'Fallo Crítico detectado localmente. Es necesario revisar el temario.';
 
-    scoreCircleContainer.className = 'w-36 h-36 rounded-full border-4 flex items-center justify-center shadow-glass transition-all mb-4 bg-slate-900/50 backdrop-blur-sm';
-    scoreCircleContainer.classList.add(percentage >= 50 ? 'border-cyber-neon' : 'border-cyber-red');
+    scoreCircleContainer.className = 'w-32 h-32 md:w-36 md:h-36 rounded-full border-4 flex items-center justify-center shadow-glass transition-all mb-4 bg-slate-900/50 backdrop-blur-sm';
+    scoreCircleContainer.classList.add(percentage >= 50 ? 'border-cyber-neon shadow-neon' : 'border-cyber-red shadow-red');
 }
 
 function resetToDashboard() {
     state.selectedModule = null;
     state.selectedTheme = null;
     state.selectedTest = null;
-    renderDashboard();
     switchView('dashboard');
 }
 
