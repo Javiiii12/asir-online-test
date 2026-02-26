@@ -1,6 +1,7 @@
 import { questionsFH } from '../data/fh.js';
 import { questionsDIG } from '../data/dig.js';
 import { questionsSOS } from '../data/sos.js';
+import { questionsGBD } from '../data/gbd.js';
 
 // Adaptador para convertir el diccionario de temas a array de objetos
 const buildThemeStructure = (moduleId, sourceData) => {
@@ -44,7 +45,7 @@ const rawAppStructure = [
         icon: '⚙️',
         themes: buildThemeStructure('fh', questionsFH)
     },
-    { id: 'gbd', name: 'Gestión de Bases de Datos', color: '#b026ff', icon: '🗄️', themes: [] },
+    { id: 'gbd', name: 'Gestión de Bases de Datos', color: '#b026ff', icon: '🗄️', themes: buildThemeStructure('gbd', questionsGBD) },
     { id: 'sost', name: 'Sostenibilidad', color: '#32cd32', icon: '🌱', themes: buildThemeStructure('sos', questionsSOS) },
     { id: 'dig', name: 'Digitalización', color: '#facc15', icon: '🤖', themes: buildThemeStructure('dig', questionsDIG) }
 ];
