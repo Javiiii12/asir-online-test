@@ -1,4 +1,5 @@
 import { questionsFH } from '../data/fh.js';
+import { questionsDIG } from '../data/dig.js';
 
 // Adaptador para convertir el diccionario de temas a array de objetos
 const buildThemeStructure = (moduleId, sourceData) => {
@@ -61,7 +62,7 @@ const rawAppStructure = [
     },
     { id: 'gbd', name: 'Gestión de Bases de Datos', color: '#b026ff', icon: '🗄️', themes: [] },
     { id: 'sost', name: 'Sostenibilidad', color: '#32cd32', icon: '🌱', themes: [] },
-    { id: 'dig', name: 'Digitalización', color: '#facc15', icon: '🤖', themes: [] }
+    { id: 'dig', name: 'Digitalización', color: '#facc15', icon: '🤖', themes: buildThemeStructure('dig', questionsDIG) }
 ];
 
 // ---- Configuración y Estado ----
@@ -75,7 +76,8 @@ const state = {
     questions: [],
     currentIndex: 0,
     score: 0,
-    isAnswered: false
+    isAnswered: false,
+    selectedOptionIndex: null
 };
 
 // ---- DOM Elements ----
@@ -237,7 +239,23 @@ function setupEventListeners() {
         if (state.isAnswered) return;
         const optionBtn = e.target.closest('.option-btn');
         if (!optionBtn) return;
-        handleAnswer(parseInt(optionBtn.dataset.index, 10));
+
+        state.selectedOptionIndex = parseInt(optionBtn.dataset.index, 10);
+
+        const allOptions = optionsContainer.querySelectorAll('.option-btn');
+        allOptions.forEach(btn => {
+            btn.classList.remove('ring-2', 'ring-cyber-blue', 'bg-slate-700', 'border-cyber-blue');
+            btn.classList.add('bg-slate-800/60', 'border-slate-700');
+        });
+
+        optionBtn.classList.remove('bg-slate-800/60', 'border-slate-700');
+        optionBtn.classList.add('ring-2', 'ring-cyber-blue', 'bg-slate-700', 'border-cyber-blue');
+
+        const confirmBtn = document.getElementById('btn-confirm-answer');
+        if (confirmBtn) {
+            confirmBtn.disabled = false;
+            confirmBtn.className = 'w-full mt-4 px-6 py-3 rounded-xl bg-gradient-to-r from-cyber-blue to-blue-500 text-cyber-dark hover:from-blue-400 hover:to-cyber-blue transition-all shadow-blue font-bold uppercase tracking-wider';
+        }
     });
 
     btnNext.addEventListener('click', nextQuestion);
@@ -267,6 +285,7 @@ function startQuiz() {
 
 function loadQuestion() {
     state.isAnswered = false;
+    state.selectedOptionIndex = null;
     btnNext.classList.add('hidden');
 
     const question = state.questions[state.currentIndex];
@@ -288,6 +307,23 @@ function loadQuestion() {
         `;
         optionsContainer.appendChild(btn);
     });
+
+    const confirmBtn = document.createElement('button');
+    confirmBtn.id = 'btn-confirm-answer';
+    confirmBtn.className = 'w-full mt-4 px-6 py-3 rounded-xl bg-slate-800/80 text-slate-500 border border-slate-700 cursor-not-allowed transition-all font-bold uppercase tracking-wider shadow-sm';
+    confirmBtn.textContent = 'Confirmar Respuesta';
+    confirmBtn.disabled = true;
+
+    confirmBtn.addEventListener('click', () => {
+        if (!state.isAnswered && state.selectedOptionIndex !== null) {
+            handleAnswer(state.selectedOptionIndex);
+            confirmBtn.textContent = (state.currentIndex === state.questions.length - 1) ? 'Ver Reporte' : 'Siguiente Pregunta';
+        } else if (state.isAnswered) {
+            nextQuestion();
+        }
+    });
+
+    optionsContainer.appendChild(confirmBtn);
 }
 
 function handleAnswer(selectedIndex) {
@@ -297,17 +333,17 @@ function handleAnswer(selectedIndex) {
 
     const allOptions = optionsContainer.querySelectorAll('.option-btn');
     allOptions.forEach((btn, idx) => {
-        btn.classList.remove('hover:bg-slate-700', 'hover:border-slate-500', 'cursor-pointer', 'group');
+        btn.classList.remove('hover:bg-slate-700', 'hover:border-slate-500', 'cursor-pointer', 'group', 'ring-2', 'ring-cyber-blue', 'border-cyber-blue');
         btn.classList.add('opacity-50', 'cursor-not-allowed');
         const badge = btn.querySelector('span:first-child');
 
         if (idx === question.correct) {
             btn.classList.remove('opacity-50', 'bg-slate-800/60', 'border-slate-700');
-            btn.classList.add('bg-green-900/40', 'border-green-500', 'text-green-300');
+            btn.classList.add('bg-green-900/40', 'border-green-500', 'text-green-300', 'ring-2', 'ring-green-500');
             badge.className = 'flex-shrink-0 w-8 h-8 rounded-lg bg-green-500 border border-green-400 flex items-center justify-center text-xs font-bold text-black';
         } else if (idx === selectedIndex && !isCorrect) {
-            btn.classList.remove('opacity-50', 'bg-slate-800/60', 'border-slate-700');
-            btn.classList.add('bg-red-900/40', 'border-red-500', 'text-red-300');
+            btn.classList.remove('opacity-50', 'bg-slate-800/60', 'border-slate-700', 'ring-cyber-blue');
+            btn.classList.add('bg-red-900/40', 'border-red-500', 'text-red-300', 'ring-2', 'ring-red-500');
             badge.className = 'flex-shrink-0 w-8 h-8 rounded-lg bg-red-500 border border-red-400 flex items-center justify-center text-xs font-bold text-white';
         }
     });
@@ -316,13 +352,15 @@ function handleAnswer(selectedIndex) {
 
     if (question.explanation) {
         const expl = document.createElement('div');
-        expl.className = `mt-4 p-4 rounded-xl text-sm border-l-4 ${isCorrect ? 'bg-green-900/10 border-green-500 text-green-200' : 'bg-slate-900/80 border-blue-500 text-blue-200'}`;
+        expl.className = `mt-4 mb-2 p-4 rounded-xl text-sm border-l-4 ${isCorrect ? 'bg-green-900/10 border-green-500 text-green-200' : 'bg-slate-900/80 border-blue-500 text-blue-200'}`;
         expl.innerHTML = `<strong>INFO:</strong> ${question.explanation}`;
-        optionsContainer.appendChild(expl);
+        const confirmBtn = document.getElementById('btn-confirm-answer');
+        if (confirmBtn) {
+            optionsContainer.insertBefore(expl, confirmBtn);
+        } else {
+            optionsContainer.appendChild(expl);
+        }
     }
-
-    btnNext.classList.remove('hidden');
-    btnNext.textContent = (state.currentIndex === state.questions.length - 1) ? 'Ver Reporte' : 'Siguiente';
 }
 
 function updateScoreUI() {
