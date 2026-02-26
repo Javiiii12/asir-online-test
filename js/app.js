@@ -67,7 +67,8 @@ const rawAppStructure = [
 
 // ---- Configuración y Estado ----
 const state = {
-    view: 'dashboard',         // 'dashboard' | 'themes' | 'tests' | 'quiz' | 'results'
+    view: 'courses',           // 'courses' | 'dashboard' | 'themes' | 'tests' | 'quiz' | 'results'
+    selectedCourse: null,      // '1-asir' | '2-asir'
     selectedModule: null,      // Object
     selectedTheme: null,       // Object
     selectedTest: null,        // Object
@@ -82,13 +83,16 @@ const state = {
 
 // ---- DOM Elements ----
 const views = {
-    dashboard: document.getElementById('selection-screen'),
+    courses: document.getElementById('course-selection-screen'),
+    dashboard: document.getElementById('module-selection-screen'),
     levels: document.getElementById('level-selection-screen'),
     quiz: document.getElementById('test-screen'),
     results: document.getElementById('result-screen')
 };
 
 const moduleButtonsContainer = document.getElementById('subject-buttons');
+const btnBackCourses = document.getElementById('btn-back-courses');
+const comingSoonAlert = document.getElementById('coming-soon-alert');
 const levelTitle = document.getElementById('level-title');
 const levelListContainer = document.getElementById('level-list-container');
 const btnBackMenu = document.getElementById('btn-back-menu');
@@ -115,6 +119,7 @@ const scoreCircleContainer = document.getElementById('score-circle-container');
 // ---- Inicialización ----
 function init() {
     renderDashboard();
+    switchView('courses');
     setupEventListeners();
 }
 
@@ -210,7 +215,15 @@ function setupEventListeners() {
         const action = btn.dataset.action;
         const id = btn.dataset.id;
 
-        if (action === 'select-module') {
+        if (action === 'select-course') {
+            if (id === '1-asir') {
+                state.selectedCourse = '1-asir';
+                if (comingSoonAlert) comingSoonAlert.classList.add('hidden');
+                switchView('dashboard');
+            } else if (id === '2-asir') {
+                if (comingSoonAlert) comingSoonAlert.classList.remove('hidden');
+            }
+        } else if (action === 'select-module') {
             state.selectedModule = rawAppStructure.find(m => m.id === id);
             renderThemesList(state.selectedModule);
         } else if (action === 'select-theme') {
@@ -234,6 +247,14 @@ function setupEventListeners() {
             switchView('dashboard');
         }
     });
+
+    if (btnBackCourses) {
+        btnBackCourses.addEventListener('click', () => {
+            state.selectedCourse = null;
+            if (comingSoonAlert) comingSoonAlert.classList.add('hidden');
+            switchView('courses');
+        });
+    }
 
     optionsContainer.addEventListener('click', (e) => {
         if (state.isAnswered) return;
