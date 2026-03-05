@@ -424,6 +424,108 @@ export const questionsFH = {
                 correct: 1,
                 explanation: "Falso. Se define por realizarse a distancia (fuera del lugar habitual de la empresa) mediante telecomunicaciones, no simplemente por usar un ordenador en la oficina."
             }
+        ],
+        "Test 3": [
+            {
+                question: "Con una PDA se pueden realizar tareas de...",
+                options: [
+                    "Realizar tareas adaptadas a la configuración de la PDA y actualizar los contactos de la agenda en el servidor.",
+                    "Realizar tareas de mantenimiento.",
+                    "Realizar cualquier operación con el servidor.",
+                    "Sólo actualizar los contactos de la agenda en el servidor."
+                ],
+                correct: 0,
+                explanation: "Una PDA instalada correctamente permite realizar tareas específicas adaptadas a su perfil (como chequear correos, leer datos) y sincronizar/actualizar los contactos de la agenda."
+            },
+            {
+                question: "De las siguientes respuestas sólo hay una correcta. ¿Cuál es?",
+                options: [
+                    "Todas las entradas, a cualquier CPD, debe estar controlado por un guarda jurado.",
+                    "Todo CPD deber tener las ventanas enrejadas.",
+                    "Todo CPD debe tener, al menos, un extintor.",
+                    "Todo CPD debe tener un sistema de respaldo dentro de las instalaciones con responsabilidad por custodia."
+                ],
+                correct: 3,
+                explanation: "Un CPD requiere un sistema de copias de seguridad/respaldo in situ, con personal responsable de custodiar dichos soportes. Las otras afirmaciones son generalizaciones no siempre ciertas o normativas."
+            },
+            {
+                question: "Un netPC tiene un pequeño disco duro donde se instala el sistema operativo soporte para el caso en que falle el servidor de la red. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Los verdaderos NetPC (o thin clients modernos) están diseñados para operar sin disco duro local y bootear directamente desde la red (PXE) contra el servidor."
+            },
+            {
+                question: "Con el protocolo NFS se pueden compartir recursos de tipo Unix con cualquier otro sistema operativo como Windows. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. NFS es el sistema nativo de compartición entre sistemas Unix/Linux. Para compartir con Windows (de forma transparente nativa para este) se utiliza SMB/CIFS (Samba)."
+            },
+            {
+                question: "Un inventario en modo activo sería:",
+                options: [
+                    "Partiendo de un inventario manual, realizar el control a través de la red de datos mediante un software adecuado.",
+                    "Sólo es válido si el inventario se realiza manualmente.",
+                    "Ninguna es correcta.",
+                    "No hace falta un inventario manual, se hace todo a través de la red."
+                ],
+                correct: 0,
+                explanation: "Un inventario activo o automático utiliza herramientas de software por red (ej. SNMP, agentes) para actualizar datos continuamente, pero partiendo de una línea base de inventario."
+            },
+            {
+                question: "¿Se puede utilizar un móvil 3G y conectar con un servidor, de forma remota?",
+                options: [
+                    "Si, no hace falta ninguna configuración adicional.",
+                    "Si, pero el router de la LAN tiene que estar configurado para que el móvil u otro equipo pueda acceder con seguridad.",
+                    "Si, sólo puede conectarse a través de un sincronizador.",
+                    "No, ningún móvil puede conectarse a ninguna red de área local."
+                ],
+                correct: 1,
+                explanation: "Sí es posible, pero requiere que el firewall/router de la red destino permita el paso del tráfico (ej: VPN activa, puertos redireccionados) con las medidas de seguridad pertinentes."
+            },
+            {
+                question: "Si se cae un servidor, ¿qué tiempo estimas que se necesita para recuperar la normalidad?",
+                options: [
+                    "Debe existir un protocolo de respuesta rápida.",
+                    "No existe tiempo de respuesta, es impredecible.",
+                    "Veinticuatro horas como mucho.",
+                    "Lo razonable son cuarenta y ocho horas."
+                ],
+                correct: 0,
+                explanation: "En entornos críticos siempre debe existir un protocolo (como un Plan de Recuperación ante Desastres, DRP) que establezca tiempos de recuperación objetivo (RTO) rápidos."
+            },
+            {
+                question: "Hoy en día es posible conectar dispositivos en caliente o hot plug... se conectan a través de...",
+                options: [
+                    "Interfaces como USB y FIREWIRE.",
+                    "Sólo mediante HDMI.",
+                    "Sólo mediante USB.",
+                    "Exclusivamente por SLOT DE EXPANSIÓN interno."
+                ],
+                correct: 0,
+                explanation: "El estándar 'hot plug' (conexión en caliente) se popularizó con interfaces externas como el USB y Firewire (IEEE 1394), permitiendo enchufar dispositivos sin apagar el host."
+            },
+            {
+                question: "¿Un CPD debe tener previsto y seguir funcionando ante un apagón general?",
+                options: [
+                    "No necesariamente, dependerá del objetivo empresarial y del nivel crítico de los datos.",
+                    "No, en ningún caso.",
+                    "Ninguna respuesta es correcta.",
+                    "Sí, siempre debe disponer de un generador eléctrico industrial."
+                ],
+                correct: 0,
+                explanation: "No todos los CPDs son Tier IV. La necesidad de continuidad y generador diésel depende totalmente del nivel de criticidad (RTO/RPO) que asuma la empresa."
+            },
+            {
+                question: "¿Cuál es la función de un servidor proxy?",
+                options: [
+                    "Sólo realiza funciones de intermediación web.",
+                    "Ninguna de las otras respuestas es correcta.",
+                    "Realiza cierto tipo de funciones para otros clientes de la red, por ejemplo, servir páginas de Internet a través suyo.",
+                    "Atender las peticiones de los equipos clientes y servir archivos."
+                ],
+                correct: 2,
+                explanation: "Un proxy actúa de intermediario procesando las peticiones de los clientes internos hacia Internet (como tráfico web), pudiendo aplicar filtros o servir contenido cacheado."
+            }
         ]
     }
 };
