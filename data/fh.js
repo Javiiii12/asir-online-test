@@ -244,5 +244,99 @@ export const questionsFH = {
                 explanation: "(Corregido). Aunque formatea en ext2/ext3, en el contexto puramente académico de este test la respuesta correcta es Falso, priorizando herramientas nativas como Gparted."
             }
         ]
+    },
+    "Tema 4: Implantación de Hardware en CPD": {
+        "Test 1": [
+            {
+                question: "¿Es conveniente que un CPD tenga un sistema de esterilización ambiental?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Un sistema de esterilización ambiental ayuda a mantener el aire libre de partículas o contaminantes que puedan dañar el hardware."
+            },
+            {
+                question: "Un sistema NAS es...",
+                options: [
+                    "Es una tecnología de almacenamiento dedicada a compartir almacenamiento a través de la red.",
+                    "Es cualquier disco externo que se conecta o por WiFi o por bluetooth.",
+                    "Es una tecnología de almacenamiento a compartir que se conecta a través del conector USB a un equipo.",
+                    "Son dispositivos de almacenamiento que se encuentran en la \"nube\", es decir, a través de Internet."
+                ],
+                correct: 0,
+                explanation: "NAS (Network Attached Storage) corresponde a dispositivos de almacenamiento conectados directamente a la red local."
+            },
+            {
+                question: "En caso de desastre en el servidor, la responsabilidad última recaerá sobre el último usuario que accedió a este. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "La responsabilidad ante desastres recae en el administrador del sistema o responsable de seguridad, no en los usuarios finales."
+            },
+            {
+                question: "¿Se debe habilitar un acceso remoto a un servidor para todos los usuarios sin distinción?",
+                options: [
+                    "Sí, si el responsable del departamento al que está adscrito así lo ordena.",
+                    "Sí, debemos dar la oportunidad de realizar tareas de teletrabajo.",
+                    "No, en ningún caso.",
+                    "Sí, siempre y cuando cumpla con los requisitos previos y bajo supervisión del administrador del servidor."
+                ],
+                correct: 3,
+                explanation: "El acceso remoto es un vector de ataque, por lo que debe concederse sólo tras cumplir requisitos de seguridad y estar bajo supervisión del administrador."
+            },
+            {
+                question: "Con el protocolo SMB/CIFS, en una red local, pueden compartir recursos tanto máquinas de tipo Unix como Windows.",
+                options: [
+                    "Sí, pero dependerá de la configuración que tenga el servidor Samba.",
+                    "No, en ningún caso.",
+                    "Sí, los equipos de Linux o Mac pueden acceder a recursos de Windows pero no al revés.",
+                    "No, sólo pueden acceder los sistemas operativos hasta Windows XP a recursos de Linux que utilicen Samba."
+                ],
+                correct: 0,
+                explanation: "Samba permite a sistemas Unix interoperar con redes Windows usando el protocolo SMB/CIFS, dependiendo de su configuración."
+            },
+            {
+                question: "Para mantener constante la temperatura, ¿podemos abrir las ventanas de la habitación donde se encuentren los equipos?",
+                options: [
+                    "No, en ningún caso.",
+                    "Sí, si la temperatura así lo aconseja.",
+                    "Sí, conseguiremos que baje la temperatura.",
+                    "Sólo si hace calor."
+                ],
+                correct: 0,
+                explanation: "Nunca se deben abrir ventanas en un CPD ya que rompe el aislamiento ambiental, introduciendo polvo y descontrolando la humedad y la temperatura."
+            },
+            {
+                question: "Cualquier disco SATA puede añadirse, en caliente, a un equipo. Es decir, abrir la caja, realizar las conexiones y listo. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "No cualquier placa base soporta conexión en caliente (Hot Swap) para discos internos, e introducir componentes mecánicamente en caliente presenta riesgos si no hay bahías extractables."
+            },
+            {
+                question: "¿Qué temperatura crees que es la más adecuada, a un metro del suelo, para mantener en buen estado los equipos?",
+                options: [
+                    "Entre 15° y 30° C.",
+                    "Entre 22° y 28° C.",
+                    "Ninguna respuesta es correcta.",
+                    "Entre 18° y 22° C."
+                ],
+                correct: 3,
+                explanation: "La temperatura en un CPD debe estar rigurosamente controlada con climatización precisa, normalmente entre 18° y 22° C para mayor eficiencia."
+            },
+            {
+                question: "En un CPD debe existir un control de permanencia de todos y cada uno de los empleados, incluyendo en qué dependencias tienen acceso. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Es fundamental tener registros y control de accesos para mantener la seguridad física integral de las instalaciones."
+            },
+            {
+                question: "Una PDA o un teléfono móvil con PDA, ¿podría conectarse vía WiFi a un servidor remoto?",
+                options: [
+                    "Sí, siempre y cuando se realicen las configuraciones adecuadas a un punto de acceso.",
+                    "Sí, pero necesita un servidor DHCP.",
+                    "No, en ningún caso.",
+                    "Sí, se realiza de forma automática."
+                ],
+                correct: 0,
+                explanation: "Cualquier dispositivo con capacidad de red puede acceder si las configuraciones del punto de acceso (y permisos del servidor) son las adecuadas."
+            }
+        ]
     }
 };
