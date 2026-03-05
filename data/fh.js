@@ -337,6 +337,93 @@ export const questionsFH = {
                 correct: 0,
                 explanation: "Cualquier dispositivo con capacidad de red puede acceder si las configuraciones del punto de acceso (y permisos del servidor) son las adecuadas."
             }
+        ],
+        "Test 2": [
+            {
+                question: "Un servidor cuya función principal es dar servicio web puede, además, dar servicio de correo con software adecuado. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Un servidor físico puede alojar múltiples servicios (web, correo, bases de datos) siempre que tenga el software y recursos adecuados."
+            },
+            {
+                question: "Para proteger la vista es mejor que el monitor tenga un filtro a que exista una buena iluminación. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Una buena iluminación ambiental e indirecta es fundamental y prioritaria frente al simple uso de un filtro de pantalla."
+            },
+            {
+                question: "A la hora de realizar una instalación. Debemos afrontar el informe, ¿Cómo?",
+                options: [
+                    "De forma global.",
+                    "De forma modular.",
+                    "Depende de los requerimientos de gerencia.",
+                    "Según las necesidades actuales."
+                ],
+                correct: 0,
+                explanation: "En la planificación e informes de instalación de un CPD se requiere una visión global, contemplando todas las variables e infraestructuras en conjunto."
+            },
+            {
+                question: "Un SAI on-line...",
+                options: [
+                    "Es cualquier fuente de alimentación de un equipo.",
+                    "Se intercala entre el suministro de red normal y la carga que se quiere alimentar.",
+                    "Se intercala entre la red normal y la carga, por medio de un AVR o acondicionador de red.",
+                    "Ninguna de las otras respuestas es correcta."
+                ],
+                correct: 2,
+                explanation: "Un SAI on-line funciona de forma continua filtrando y acondicionando la energía a través del inversor/AVR antes de llegar a la carga (doble conversión)."
+            },
+            {
+                question: "¿Qué nivel de humedad relativa, a un metro del suelo, es el adecuado para mantener en buen estado los equipos?",
+                options: [
+                    "A 40% constantemente.",
+                    "Entre 40% y 60%.",
+                    "Entre 20% y 50%.",
+                    "Por debajo del 70%."
+                ],
+                correct: 1,
+                explanation: "Para evitar electricidad estática y condensación, un CPD debe mantenerse en un rango de humedad relativa entre el 40% y el 60%."
+            },
+            {
+                question: "Un CPD debe tener, para un supuesto caso de incendio, un...",
+                options: [
+                    "Personal cualificado para la detección y sofocación de incendios.",
+                    "Extintor.",
+                    "Sistema de detección de incendios.",
+                    "Sistema completo de detección de incendios, evacuación y sofocación de pequeños focos."
+                ],
+                correct: 3,
+                explanation: "La normativa exige un sistema integral que detecte anomalías, avise para evacuar y cuente con agentes de extinción automáticos o manuales."
+            },
+            {
+                question: "¿En el CPD debe existir un control de acceso personalizado?",
+                options: [
+                    "Sí, mediante un sistema de base de datos identificando a usuarios y lugares de acceso. Que estos pueden estar filtrados mediante sistemas de identificación.",
+                    "Sí, mediante un torno controlado por un guarda de seguridad.",
+                    "Sí, un guarda de seguridad debe identificar quién entra y a dónde.",
+                    "Ninguna de las respuestas es correcta."
+                ],
+                correct: 0,
+                explanation: "El control de accesos debe estar informatizado, registrando en una base de datos las entradas y salidas mediante credenciales seguras."
+            },
+            {
+                question: "Un Centro de proceso de datos es un centro empresarial de uso común. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Es un centro de acceso restringido y crítico para la continuidad de la empresa, no una sala de uso común o general."
+            },
+            {
+                question: "En un disco duro es más importante que sea más rápido las rotaciones (RPM) que la velocidad de transferencia del bus. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Ambas son importantes, pero la velocidad de transferencia sostenida del bus/interfaz a menudo marca el cuello de botella real en el rendimiento final frente a la simple rotación del plato."
+            },
+            {
+                question: "El teletrabajo es el trabajo realizado con un ordenador. ¿Verdadero o Falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Se define por realizarse a distancia (fuera del lugar habitual de la empresa) mediante telecomunicaciones, no simplemente por usar un ordenador en la oficina."
+            }
         ]
     }
 };
