@@ -1001,5 +1001,333 @@ export const questionsPAR = {
                 explanation: "Falso, un router mira la dirección IP destino y solo envía por el puerto correspondiente de su tabla de enrutamiento."
             }
         ]
+    },
+    "Tema 4: Configuración y administración de protocolos dinámicos": {
+        "Test 1": [
+            {
+                question: "La ruta por defecto en IPv6 es",
+                options: [
+                    "::/128",
+                    "0:0:0:0:0:0:0/0",
+                    "No hay ruta por defecto",
+                    "0.0.0.0.0.0.0.0/0"
+                ],
+                correct: 1,
+                explanation: "Aunque en la práctica se suele usar la notación comprimida `::/0`, el test del curso da por válida la opción expandida `0:0:0:0:0:0:0/0`."
+            },
+            {
+                question: "Un protocolo enrutable:",
+                options: [
+                    "Identifica equipos y grupos de equipos.",
+                    "Identifica equipos.",
+                    "Identifica grupos de equipos solamente si es de enrutamiento también.",
+                    "Identifica grupos de equipos."
+                ],
+                correct: 0,
+                explanation: "Los protocolos enrutados (como IP o IPv6) proporcionan la estructura de direccionamiento que permite identificar tanto hosts individuales (equipos) como redes enteras (grupos)."
+            },
+            {
+                question: "El protocolo enrutable:",
+                options: [
+                    "Identifica a cada sistema autónomo de manera única.",
+                    "Es el encargado de comunicar dos sistemas autónomos.",
+                    "Es utilizado por el protocolo de enrutamiento.",
+                    "Encuentra la mejor ruta entre dos puntos de la red."
+                ],
+                correct: 2,
+                explanation: "Un protocolo de enrutamiento (ej. OSPF, RIP) se encarga de aprender y mantener las rutas por donde viajan los paquetes encapsulados en el protocolo enrutable (IP)."
+            },
+            {
+                question: "DIJKSTRA es un algoritmo que se emplea en:",
+                options: [
+                    "Protocolos enrutados.",
+                    "Protocolos de estado de enlace.",
+                    "En todos los protocolos IGP.",
+                    "Protocolos de vector distancia."
+                ],
+                correct: 1,
+                explanation: "El algoritmo Shortest Path First (SPF) de Dijkstra es la base matemática sobre la cual operan los protocolos de Estado de Enlace como OSPF o IS-IS."
+            },
+            {
+                question: "El protocolo OSPF es un protocolo de enrutamiento",
+                options: [
+                    "Dinámico interior",
+                    "Dinámico exterior",
+                    "Hibrido",
+                    "Estático"
+                ],
+                correct: 0,
+                explanation: "OSPF (Open Shortest Path First) se utiliza como un IGP (Interior Gateway Protocol) para rutear el tráfico dentro de un único Sistema Autónomo."
+            },
+            {
+                question: "Un sistema autónomo:",
+                options: [
+                    "Es una red LAN gestionada por una sola entidad.",
+                    "Es un conjunto de routers con direcciones IP privadas.",
+                    "Es un conjunto de redes que incluye routers y que está gestionada por una sola entidad.",
+                    "Es una red LAN que incluye routers y que está gestionada por una sola persona."
+                ],
+                correct: 2,
+                explanation: "Un Sistema Autónomo (AS) es una agrupación de redes IP y routers bajo la autoridad de una única organización (ISP, gran empresa) que presenta una política de enrutamiento común y definida hacia internet."
+            },
+            {
+                question: "El enrutamiento estático:",
+                options: [
+                    "Es mejor en redes extensas",
+                    "Todas las anteriores",
+                    "Se configura manualmente",
+                    "Consume más ancho de banda"
+                ],
+                correct: 2,
+                explanation: "El enrutamiento estático requiere que el administrador ingrese las rutas en la tabla de ruteo de cada router una por una manual y explícitamente."
+            },
+            {
+                question: "La distancia administrativa:",
+                options: [
+                    "Es el estado de enlace de los routers configurados con BGP.",
+                    "Nunca puede tomar el valor cero.",
+                    "Es el número de saltos entre dos puntos de la red.",
+                    "Es una referencia para comparar diferentes métricas."
+                ],
+                correct: 3,
+                explanation: "La Distancia Administrativa (AD) es la métrica de 'confiabilidad' que usa el router de Cisco para elegir la mejor ruta cuando aprende el mismo destino a través de diferentes protocolos de enrutamiento."
+            },
+            {
+                question: "El enrutamiento en IPv6 respecto a IPv4",
+                options: [
+                    "Hay protocolos específicos como RIPng, OSPFv3 o MP-BGP",
+                    "Solo está permitido el enrutamiento dinámico",
+                    "No hay cambios puesto que es el mismo nivel TCP/IP",
+                    "No hay cambios puesto que es el mismo nivel OSI"
+                ],
+                correct: 0,
+                explanation: "Dado que IPv6 es un protocolo de Capa 3 diferente e incompatible a nivel de red, los protocolos de enrutamiento necesitaron de nuevas versiones ('Next Generation' o 'v3') capaces de anunciar prefijos de 128 bits."
+            },
+            {
+                question: "Indica el protocolo de enrutamiento exterior:",
+                options: [
+                    "EIGRP",
+                    "IGP",
+                    "AGP",
+                    "BGP"
+                ],
+                correct: 3,
+                explanation: "El BGP (Border Gateway Protocol) es el EGP estándar que rutea todo el tráfico inter-dominio que conforma internet."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "Resumen de rutas",
+                options: [
+                    "Es acortar rutas utilizando el trayecto más corto",
+                    "Todas las anteriores",
+                    "Persiguen obtener tablas de enrutamiento más pequeñas",
+                    "Con la utilización de CIDR desapareció esta técnica"
+                ],
+                correct: 2,
+                explanation: "La sumarización, o supernetting, condensa el anuncio de múltiples redes pequeñas contiguas englobándolas en una sola ruta con prefijo menor para optimizar RAM y recursos del router."
+            },
+            {
+                question: "El enrutamiento estático no consume ancho de banda",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "A diferencia del dinámico, como los routers no deben enviarse mensajes de señalización (hello, actualizaciones) entre ellos su consumo de BW de enlace para rutas es cero."
+            },
+            {
+                question: "Una interface pasiva es aquella por la que no se envía información relativa al enrutamiento dinámico",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Configurar un puerto como 'passive interface', por ejemplo hacia una LAN final, detiene el envío de multicasts de ruteo añadiendo una gran capa de seguridad."
+            },
+            {
+                question: "En la configuración de OSPF, si quiero hacer referencia a una red de clase A, la máscara wildcard será:",
+                options: [
+                    "0.0.255.255",
+                    "10.255.255.255",
+                    "255.0.0.0",
+                    "0.255.255.255"
+                ],
+                correct: 3,
+                explanation: "La red predeterminada clase A usa bits 11111111 (255) en su primer octeto de subnet, con lo cual su invesa Wildcard es un cero en este y unos para las porciones de host."
+            },
+            {
+                question: "La técnica basada en el vector distancia:",
+                options: [
+                    "Se utiliza en protocolos enrutados.",
+                    "Cuenta el retardo a todos los nodos de la red.",
+                    "Se utiliza solo en protocolos EGP",
+                    "La información se intercambia entre nodos vecinos."
+                ],
+                correct: 3,
+                explanation: "El enrutamiento 'por rumor' provoca que un router le entregue a sus conectados inmediatos lo que a oido de los demás."
+            },
+            {
+                question: "El área es un parámetro que se configura en:",
+                options: [
+                    "RIP",
+                    "RIPv2",
+                    "OSPF",
+                    "RIPv1"
+                ],
+                correct: 2,
+                explanation: "OSPF obliga a dividir y escalar la red obligatoriamente mediante un concepto de dominios o 'Áreas' unidos por regla estricta al Área 0 (Backbone)."
+            },
+            {
+                question: "Un protocolo de enrutamiento es exterior o interior:",
+                options: [
+                    "Si actúa dentro o fuera de una red LAN.",
+                    "Si es RIP o OSPF",
+                    "Si actúa dentro o fuera de un sistema autónomo.",
+                    "Si actúa dentro o fuera de una red WAN."
+                ],
+                correct: 2,
+                explanation: "Si maneja flujos entre la organización e Internet es un EGP, si optimiza cómo alcanzan de origen a destino internamente los paquetes a sus departamentos es IGP."
+            },
+            {
+                question: "Direccionamiento sin clase",
+                options: [
+                    "Es el primer tipo de direccionamiento que se usó",
+                    "Permite usar rangos públicos de máscaras",
+                    "Permite 3 tamaños de redes",
+                    "Consiste en utilizar una máscara asociada a la IP"
+                ],
+                correct: 3,
+                explanation: "CIDR ignora los bytes fijos del direccionamiento primitivo clásico, dejando que la IP venga adjunta con su correspondiente valor de máscara (ej. /23)."
+            },
+            {
+                question: "RIPv2",
+                options: [
+                    "Es un protocolo exterior",
+                    "Es un protocolo dinámico",
+                    "Es un protocolo enrutable",
+                    "Es un protocolo con clase"
+                ],
+                correct: 1,
+                explanation: "Es el ejemplo más claro y estudiado de Routing Information Protocol que ya de forma dinámica transporta submáscaras variables logradas por VLSM."
+            },
+            {
+                question: "Indica el protocolo de enrutamiento interior:",
+                options: [
+                    "EGP",
+                    "Estático",
+                    "OSPF",
+                    "BGP"
+                ],
+                correct: 2,
+                explanation: "OSPF es el Interior Gateway Protocol más usado mundialmente en topologías de tamaño medio a inmenso que exigen convergencia rapidísima."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "La métrica de una ruta:",
+                options: [
+                    "Es el costo de una ruta.",
+                    "Es el número de saltos que da un mensaje para llegar al destino.",
+                    "Es el número de routers que se atraviesan en una ruta.",
+                    "Es el ancho de banda de una ruta."
+                ],
+                correct: 0,
+                explanation: "Es el valor algoritmico numérico que representa lo 'costoso' o penalizante de cruzar por dicho trayecto, en la cual el router buscará siempre matemáticamente el número más bajito (coste menor)."
+            },
+            {
+                question: "El protocolo IP es un protocolo enrutable. ¿Verdadero o falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Sí, es el protocolo pilar capaz de proveer direcciones a los datos para ir de la IP origen de la cabecera, a la destino de la misa."
+            },
+            {
+                question: "En el enrutamiento dinámico los routers aprenden del entorno y construyen la tabla de enrutamiento",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Sí, logran detectar de manera no supervisada roturas, cortes, congestiones y descubrir nuevas rutas al vuelo para autosanarse sin el administrador."
+            },
+            {
+                question: "Sistema autónomo",
+                options: [
+                    "Es un grupo de redes que forman parte de una entidad",
+                    "Utiliza una misma técnica de enrutamiento",
+                    "Está identificado por un número",
+                    "Todas las anteriores"
+                ],
+                correct: 3,
+                explanation: "Un AS se reconoce e interactúa bajo un único número lógico universal o privado (ASN) y puede poseer protocolos de gestión central."
+            },
+            {
+                question: "La técnica basada en el estado del enlace:",
+                options: [
+                    "Calcula el coste con todos los nodos de la red.",
+                    "Cuenta sólo el número de routers que hay entre el origen y el destino.",
+                    "Es la técnica utilizada por RIP.",
+                    "Intercambia información sólo con los nodos vecinos."
+                ],
+                correct: 0,
+                explanation: "Al construir un mapa general sobre el que asiente el SPF para evitar bucles como hace OSPF."
+            },
+            {
+                question: "La wildcard asociada a la red 88.2.188.0/25 es",
+                options: [
+                    "0.0.0.255",
+                    "255.255.255.128",
+                    "255.255.255.0",
+                    "0.0.0.127"
+                ],
+                correct: 3,
+                explanation: "Al tener la máscara .128 en su último octeto de red nos quedan 127 libres (el máximo posible era 255) haciendo que la diferencia en la subred final equivalga a 0.0.0.127."
+            },
+            {
+                question: "¿Un protocolo enrutable siempre es también un protocolo de enrutamiento?",
+                options: [
+                    "El enrutable sabe encontrar la mejor ruta y el de enrutamiento tiene otra función.",
+                    "No, son dos conceptos diferentes.",
+                    "Sí, siempre.",
+                    "Solo el IP."
+                ],
+                correct: 1,
+                explanation: "No confundir nunca: 'Enrutable' (la carta postal y su remite/Destino - IP) con 'De Enrutamiento' (los camiones, aviones, centros logísticos y rutas por donde viajan las cartas - RIP, OSFP, BGP)."
+            },
+            {
+                question: "BGP es un protocolo de enrutamiento:",
+                options: [
+                    "EGP",
+                    "Interior",
+                    "RIP",
+                    "IGP"
+                ],
+                correct: 0,
+                explanation: "Exterior Gateway Protocol (El que une a Telefónica, Amazon y Google en el mundo)."
+            },
+            {
+                question: "Protocolos de enrutamiento para IPv6",
+                options: [
+                    "MP-BGP",
+                    "RIPv2",
+                    "RIPng",
+                    "MP-BGP, RIPng y OSPFv3"
+                ],
+                correct: 3,
+                explanation: "Son las correspondencias 'Next-Gen' o modificadas para el espacio de direcciones IP largo."
+            },
+            {
+                question: "RIP y BGP son dos protocolos de enrutamiento. ¿Verdadero o falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Ambos definen de una forma o su contraria como transportar paquetes."
+            }
+        ]
     }
 };
