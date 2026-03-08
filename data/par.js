@@ -1647,4 +1647,284 @@ export const questionsPAR = {
             }
         ]
     }
+},
+"Tema 6: Configuración del acceso a Internet desde una LAN": {
+    "Test 1": [
+        {
+            question: "HSDPA es una tecnología...",
+            options: ["WAN", "PAN", "LAN", "MAN"],
+            correct: 0,
+            explanation: "High Speed Downlink Packet Access (HSDPA) es una mejora de la red 3G (UMTS) que proporciona mayor velocidad de descarga en redes móviles WAN."
+        },
+        {
+            question: "Dirección local externa es la dirección...",
+            options: [
+                "IP externa (normalmente pública) que se asigna al dispositivo interno cuando sale del router NAT.",
+                "IP local (normalmente privada) del dispositivo que origina la comunicación.",
+                "IP local del dispositivo destino en la red externa.",
+                "IP externa (normalmente pública) de destino."
+            ],
+            correct: 3,
+            explanation: "En NAT, la dirección 'Local Externa' se refiere a la dirección IP pública del destino tal como se ve desde la red local."
+        },
+        {
+            question: "LTE es una tecnología...",
+            options: ["2G", "4G", "3G", "G+"],
+            correct: 1,
+            explanation: "Long Term Evolution (LTE) es el estándar comercial de cuarta generación (4G) para comunicaciones móviles."
+        },
+        {
+            question: "Marca los accesos inalámbricos correctos:",
+            options: ["ADSL", "BPL", "WIFI", "Tanto WIFI como Bluetooth son inalámbricos"],
+            correct: 3,
+            explanation: "WIFI y Bluetooth son tecnologías inalámbricas, mientras que ADSL y BPL son cableadas."
+        },
+        {
+            question: "Los canales WIFI de los estándares 802.11b y 802.11g...",
+            options: [
+                "Son 15",
+                "Se debe elegir el primero si está libre.",
+                "Son una referencia, se pueden usar otras frecuencias.",
+                "Sus frecuencias se solapan"
+            ],
+            correct: 3,
+            explanation: "En la banda de 2.4 GHz, los canales se solapan entre sí. Los únicos canales que no se solapan son el 1, 6 y 11."
+        },
+        {
+            question: "NAT es una técnica...",
+            options: [
+                "Utilizada habitualmente en los routers domésticos.",
+                "Consistente en manipular los datos de los paquetes.",
+                "Utilizada por los grandes routers empresariales.",
+                "Ninguna de las anteriores."
+            ],
+            correct: 0,
+            explanation: "Network Address Translation (NAT) permite conectar múltiples dispositivos de una red privada a Internet usando una sola dirección IP pública."
+        },
+        {
+            question: "La asignación de IPs en Europa la realiza...",
+            options: ["ARIN", "IANA", "RIPE", "LANIC"],
+            correct: 2,
+            explanation: "RIPE NCC es el registro regional de Internet (RIR) para Europa, Oriente Medio y partes de Asia Central."
+        },
+        {
+            question: "UMTS es una tecnología...",
+            options: ["G+", "2G", "4G", "3G"],
+            correct: 3,
+            explanation: "Universal Mobile Telecommunications System (UMTS) es la tecnología sucesora de GSM y pertenece a la tercera generación (3G)."
+        },
+        {
+            question: "La diferencia entre NAT dinámica con sobrecarga y sin sobrecarga es...",
+            options: [
+                "Con sobrecarga solo manipula las IPs.",
+                "Sin sobrecarga no manipula los puertos.",
+                "Sin sobrecarga permite tener la misma IP pública asignada a dos IPs privadas.",
+                "Ninguna"
+            ],
+            correct: 1,
+            explanation: "La NAT con sobrecarga (PAT) utiliza los números de puerto para distinguir entre diferentes flujos de datos desde una sola IP pública."
+        },
+        {
+            question: "Marca los accesos cableados correctos:",
+            options: ["BPL", "HomeRF", "FTTH", "BPL, ADSL y FTTH son cableados"],
+            correct: 3,
+            explanation: "BPL (luz), ADSL (teléfono) y FTTH (fibra) son medios físicos cableados. HomeRF es inalámbrico."
+        }
+    ],
+        "Test 2": [
+            {
+                question: "¿Qué es una red Ad-hoc?",
+                options: [
+                    "Es una topología de red inalámbrica",
+                    "Es una tecnología WPAN",
+                    "Es un tipo de encriptación",
+                    "Es un modo de seguridad"
+                ],
+                correct: 0,
+                explanation: "Una red Ad-hoc es una topología descentralizada donde los dispositivos se conectan directamente entre sí sin un punto de acceso central."
+            },
+            {
+                question: "Medidas de seguridad recomendadas en conexiones WIFI:",
+                options: [
+                    "Seguridad WPA3",
+                    "Filtrado de direcciones MAC",
+                    "Evitar el uso de parámetros predeterminados",
+                    "Todas las anteriores son medidas de seguridad válidas"
+                ],
+                correct: 3,
+                explanation: "Aunque WPA3 es la más fuerte, el filtrado MAC y cambiar las claves por defecto son prácticas comunes de seguridad adicional."
+            },
+            {
+                question: "NAT inversa se puede entender como:",
+                options: [
+                    "Permitir entrar en una LAN desde internet",
+                    "Puerto activo y listo para usar por una aplicación",
+                    "Conceder permisos en un firewall",
+                    "Escuchar por un puerto"
+                ],
+                correct: 0,
+                explanation: "La NAT inversa (DNAT o Port Forwarding) permite que una petición externa llegue a un servidor específico dentro de nuestra red local."
+            },
+            {
+                question: "WIFI 2.4 GHz tiene más alcance que WIFI 5GHz:",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Las frecuencias bajas (2.4 GHz) tienen mayor longitud de onda y penetran mejor las paredes, ofreciendo más alcance que las frecuencias altas (5 GHz)."
+            },
+            {
+                question: "La 'Dirección global interna' es la dirección:",
+                options: [
+                    "IP local (normalmente privada) del dispositivo que origina la comunicación",
+                    "IP local del dispositivo destino en la red externa",
+                    "IP externa (normalmente pública) de destino",
+                    "IP externa (normalmente pública) que se asigna al dispositivo interno cuando sale del router NAT"
+                ],
+                correct: 3,
+                explanation: "Global Interna es como el mundo exterior ve a nuestro equipo: con nuestra dirección IP pública."
+            },
+            {
+                question: "NAT dinámica (con sobrecarga) puede tratarse de:",
+                options: [
+                    "Traducción de uno a uno",
+                    "No hay traducción",
+                    "Traducción de varios a uno",
+                    "Traducción de varios a varios"
+                ],
+                correct: 2,
+                explanation: "También conocido como PAT, permite que muchos dispositivos internos compartan una única dirección IP pública."
+            },
+            {
+                question: "La 'Dirección local interna' es la dirección:",
+                options: [
+                    "IP local del dispositivo destino en la red externa",
+                    "IP externa que se asigna al dispositivo interno",
+                    "IP local (normalmente privada) del dispositivo que origina la comunicación",
+                    "IP externa (normalmente pública) de destino"
+                ],
+                correct: 2,
+                explanation: "Local Interna es la dirección IP privada real del dispositivo dentro de nuestra propia red local."
+            },
+            {
+                question: "Marca la seguridad más fiable:",
+                options: ["WEP", "WPA3", "WPA2", "WPA"],
+                correct: 1,
+                explanation: "WPA3 es el estándar de seguridad más moderno y robusto actualmente disponible para redes Wi-Fi."
+            },
+            {
+                question: "ZigBee es una tecnología:",
+                options: ["WMAN", "WLAN", "WWAN", "WPAN"],
+                correct: 3,
+                explanation: "ZigBee es un protocolo de bajo consumo para redes de área personal inalámbricas (WPAN), orientado a domótica."
+            },
+            {
+                question: "NAT Masivo (Carrier-Grade NAT) se caracteriza por:",
+                options: [
+                    "Usar el rango 100.64.0.0/10",
+                    "Compartir IPs públicas para muchos usuarios",
+                    "Ser una traducción realizada por el ISP",
+                    "Todas las anteriores son características de CGNAT"
+                ],
+                correct: 3,
+                explanation: "El CGNAT permite que los operadores (ISP) ahorren direcciones IPv4 traduciendo el tráfico dentro de su propia infraestructura central."
+            }
+        ],
+            "Test 3": [
+                {
+                    question: "NAT Destino",
+                    options: [
+                        "Consiste en cambiar el puerto destino.",
+                        "Es lo mismo que la NAT Origen.",
+                        "Es manipular la IP de Origen.",
+                        "Suele estar asociada a una NAT Origen."
+                    ],
+                    correct: 3,
+                    explanation: "La NAT de destino se usa para redirigir peticiones entrantes, y a menudo requiere una regla de NAT de origen para gestionar la vuelta del tráfico."
+                },
+                {
+                    question: "NAT dinámica (sin sobrecarga) puede tratarse de:",
+                    options: [
+                        "Traducción de varios a varios o varios a uno según disponibilidad",
+                        "No hay traducción",
+                        "Traducción de uno a uno estricta",
+                        "Traducción de puertos exclusivamente"
+                    ],
+                    correct: 0,
+                    explanation: "En la NAT dinámica sin sobrecarga, una IP local se mapea a una IP pública disponible de un pool o grupo, de forma temporal."
+                },
+                {
+                    question: "NFC es una tecnología:",
+                    options: ["LAN", "WAN", "MAN", "PAN"],
+                    correct: 3,
+                    explanation: "Near Field Communication (NFC) es de muy corto alcance, por lo tanto se clasifica como Red de Área Personal (PAN)."
+                },
+                {
+                    question: "SSID",
+                    options: [
+                        "Es un identificador de PC",
+                        "Ninguna de las anteriores",
+                        "Es la MAC asociada a un dispositivo inalámbrico",
+                        "Es un identificador que permite elegir una red inalámbrica entre varias"
+                    ],
+                    correct: 3,
+                    explanation: "El Service Set Identifier (SSID) es el nombre público de una red inalámbrica."
+                },
+                {
+                    question: "NAT estática es una:",
+                    options: [
+                        "Traducción de varios a varios",
+                        "Traducción de uno a varios",
+                        "Traducción de uno a uno",
+                        "Traducción de varios a uno"
+                    ],
+                    correct: 2,
+                    explanation: "La NAT estática crea un mapeo fijo y permanente entre una IP privada local y una IP pública externa."
+                },
+                {
+                    question: "WIFI es una tecnología:",
+                    options: ["MAN", "PAN", "WAN", "LAN"],
+                    correct: 3,
+                    explanation: "Wi-Fi (IEEE 802.11) es el estándar por excelencia para Redes de Área Local inalámbricas (WLAN)."
+                },
+                {
+                    question: "WDS:",
+                    options: [
+                        "Permite comunicar entre sí equipos y da acceso a puntos de acceso",
+                        "Ninguna de las anteriores",
+                        "Permite comunicar entre sí puntos de acceso y da acceso a equipos",
+                        "Permite comunicar entre sí puntos de acceso pero no da acceso a equipos"
+                    ],
+                    correct: 2,
+                    explanation: "Wireless Distribution System (WDS) permite que los puntos de acceso hablen entre sí sin cables y a la vez den servicio a los clientes."
+                },
+                {
+                    question: "Para redes privadas locales NO se puede utilizar la red:",
+                    options: [
+                        "192.0.0.0/24",
+                        "172.23.0.0/16",
+                        "192.168.0.0/24",
+                        "172.16.0.0/16"
+                    ],
+                    correct: 0,
+                    explanation: "192.0.0.0/24 es un rango especial reservado para protocolos de infraestructura, no es para uso en red privada (RFC 1918)."
+                },
+                {
+                    question: "NAT Origen:",
+                    options: [
+                        "Cambia el puerto de origen",
+                        "Ninguna de las anteriores",
+                        "Cambia la IP de origen.",
+                        "Cambia los puertos de origen."
+                    ],
+                    correct: 2,
+                    explanation: "La SNAT (Source NAT) modifica la cabecera IP para que el paquete parezca venir de la IP externa del router en lugar del PC interno."
+                },
+                {
+                    question: "Puedo trabajar a través mi móvil con el PC de casa:",
+                    options: ["Verdadero", "Falso", "N/A", "Depende del router"],
+                    correct: 0,
+                    explanation: "Sí, mediante técnicas como VPN, Escritorio Remoto con NAT inversa o herramientas como AnyDesk/TeamViewer."
+                }
+            ]
+}
+    }
 };

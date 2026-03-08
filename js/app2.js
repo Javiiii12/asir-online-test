@@ -1,8 +1,8 @@
-import { questionsPAR } from '../data/par.js?v=2.20';
-import { questionsFH } from '../data/fh.js?v=2.20';
-import { questionsDIG } from '../data/dig.js?v=2.20';
-import { questionsSOS } from '../data/sos.js?v=2.20';
-import { questionsGBD } from '../data/gbd.js?v=2.20';
+import { questionsPAR } from '../data/par.js?v=2.21';
+import { questionsFH } from '../data/fh.js?v=2.21';
+import { questionsDIG } from '../data/dig.js?v=2.21';
+import { questionsSOS } from '../data/sos.js?v=2.21';
+import { questionsGBD } from '../data/gbd.js?v=2.21';
 
 // Adaptador para convertir el diccionario de temas a array de objetos
 const buildThemeStructure = (moduleId, sourceData) => {
@@ -360,7 +360,8 @@ function nextQuestion() {
 
 function finishTest() {
     switchView('results');
-    scoreDisplay.classList.remove('hidden'); // Show again if needed, or leave hidden since we show final score on screen.
+
+    // Calcular porcentaje
     const percentage = Math.round((state.score / (state.questions.length * 10)) * 100);
     finalScore.textContent = `${percentage}%`;
     finalMessage.textContent = percentage >= 50 ? '¡Rendimiento Óptimo! Has superado el reporte con éxito.' : 'Fallo Crítico detectado localmente. Es necesario revisar el temario.';
@@ -372,13 +373,18 @@ function finishTest() {
     detailedResultsContainer.innerHTML = '';
     const mistakes = [];
 
+    if (!state.userAnswers || state.userAnswers.length === 0) {
+        console.error("No hay respuestas guardadas en state.userAnswers");
+        detailedResultsContainer.innerHTML = '<p class="text-center text-slate-400 py-4">Error: No se registraron respuestas.</p>';
+    }
+
     state.userAnswers.forEach((ans, i) => {
         try {
             const q = ans.questionObj;
             if (!ans.isCorrect) mistakes.push(q);
 
             const resDiv = document.createElement('div');
-            resDiv.className = `p-4 md:p-5 rounded-xl border ${ans.isCorrect ? 'bg-green-900/10 border-green-500/30' : 'bg-red-900/10 border-red-500/30'} flex flex-col gap-2 shadow-sm text-sm mt-2 font-medium`;
+            resDiv.className = `p-4 md:p-5 rounded-xl border ${ans.isCorrect ? 'bg-green-900/10 border-green-500/30' : 'bg-red-900/10 border-red-500/30'} flex flex-col gap-2 shadow-sm text-sm mt-2 font-medium animate-fade-in`;
 
             const questionTextStr = q.question || "Pregunta no encontrada";
             const userOptionText = (q.options && ans.selectedIndex !== undefined && ans.selectedIndex !== null) ? q.options[ans.selectedIndex] : "Sin respuesta";
@@ -410,7 +416,7 @@ function finishTest() {
             resDiv.innerHTML = html;
             detailedResultsContainer.appendChild(resDiv);
         } catch (e) {
-            console.error("Error renderizando respuesta", e);
+            console.error("Error renderizando respuesta", e, ans);
         }
     });
 
