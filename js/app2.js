@@ -1,8 +1,8 @@
-import { questionsPAR } from '../data/par.js';
-import { questionsFH } from '../data/fh.js';
-import { questionsDIG } from '../data/dig.js';
-import { questionsSOS } from '../data/sos.js';
-import { questionsGBD } from '../data/gbd.js';
+import { questionsPAR } from '../data/par.js?v=2.20';
+import { questionsFH } from '../data/fh.js?v=2.20';
+import { questionsDIG } from '../data/dig.js?v=2.20';
+import { questionsSOS } from '../data/sos.js?v=2.20';
+import { questionsGBD } from '../data/gbd.js?v=2.20';
 
 // Adaptador para convertir el diccionario de temas a array de objetos
 const buildThemeStructure = (moduleId, sourceData) => {
@@ -438,7 +438,7 @@ function backToThemeTests() {
     }
     state.selectedTest = null;
     renderTestsList(state.selectedTheme);
-    state.view = 'tests';
+    switchView('levels');
 }
 
 document.addEventListener('DOMContentLoaded', init);
