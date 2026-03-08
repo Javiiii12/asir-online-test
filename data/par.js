@@ -343,76 +343,76 @@ export const questionsPAR = {
     "Tema 2: Integración de elementos en red": {
         "Test 1": [
             {
-                question: "En IPv6, dependiendo de los interfaces que identifican, tenemos:",
+                question: "En IPv6 dependiendo de los interfaces que identifican tenemos:",
                 options: [
-                    "Direcciones privadas y públicas.",
-                    "Direcciones estáticas y dinámicas.",
-                    "Direcciones anycast, unicast y multicast.",
-                    "Direcciones anycast, multicast y broadcast."
+                    "Direcciones privadas y públicas",
+                    "Direcciones estáticas y dinámicas",
+                    "Direcciones anycast, unicast y multicast",
+                    "Direcciones anycast, multicast y broadcast"
                 ],
                 correct: 2,
                 explanation: "IPv6 elimina el concepto de broadcast y utiliza Anycast, Unicast y Multicast para la identificación de interfaces."
             },
             {
-                question: "La tasa de transferencia es inferior o igual al ancho de banda:",
+                question: "La tasa de transferencia es inferior o igual al ancho de banda",
                 options: [
-                    "Verdadero.",
-                    "Falso."
+                    "Verdadero",
+                    "Falso"
                 ],
                 correct: 0,
                 explanation: "El ancho de banda es la capacidad máxima teórica, mientras que la tasa de transferencia (throughput) es la velocidad real, que siempre es limitada por factores externos."
             },
             {
-                question: "¿Cuál de las siguientes afirmaciones NO es correcta sobre los cables de par trenzado?",
+                question: "Cuál de las siguientes afirmaciones NO es correcta sobre los cables de par trenzado",
                 options: [
-                    "Hay varios tipos: UTP, STP, FTP.",
-                    "En la conexión cruzada solo cambia el orden de 4 de los 8 hilos.",
-                    "En conexión directa los dos extremos tienen el mismo orden de cables.",
-                    "El cable no puede comunicar con menos de 8 hilos."
+                    "Hay varios tipos: UTP, STP, FTP",
+                    "En la conexión cruzada solo cambia el orden de 4 de los 8 hilos",
+                    "En conexión directa los dos extremos tienen el mismo orden de cables",
+                    "El cable no puede comunicar con menos de 8 hilos"
                 ],
                 correct: 3,
-                explanation: "Es incorrecta porque en estándares como 10/100Base-T, solo se necesitan 4 hilos (2 pares) para la comunicación."
+                explanation: "Es incorrecta porque estándares como FastEthernet 10/100 usan solo 4 hilos."
             },
             {
-                question: "Sobre el Switch, marca la opción correcta:",
+                question: "Switch",
                 options: [
-                    "Es un dispositivo de nivel 2 y un puente multipuerto.",
-                    "Mejora las comunicaciones en la red respecto de los hub.",
-                    "Trabaja con direcciones MAC.",
-                    "Todas las anteriores son correctas."
+                    "Es un dispositivo de nivel 2",
+                    "Es un puente multipuerto",
+                    "Mejora las comunicaciones en la red respecto de los hub",
+                    "Todas son correctas"
                 ],
                 correct: 3,
-                explanation: "El switch es un dispositivo de capa de enlace (Nivel 2) que utiliza tablas MAC para conmutar tramas de forma eficiente, superando las limitaciones del hub."
+                explanation: "El switch es un dispositivo de capa de enlace (Nivel 2) que utiliza tablas MAC para conmutar tramas de forma eficiente."
             },
             {
-                question: "Marcar las formas de comunicación según el sentido de la transmisión:",
+                question: "Marcar las formas de comunicación según el sentido de la transmisión",
                 options: [
-                    "Simplex, Semiduplex y Duplex.",
-                    "UniPlex, Simplex y Duplex.",
-                    "Solo Duplex y Semiduplex.",
-                    "Solo Simplex y Duplex."
+                    "Semiduplex",
+                    "Duplex",
+                    "UniPlex",
+                    "Semiduplex, Duplex y Simplex"
                 ],
-                correct: 0,
+                correct: 3,
                 explanation: "Son los tres modos básicos: Simplex (un sentido), Half-Duplex o Semiduplex (ambos sentidos, no a la vez) y Full-Duplex (ambos sentidos simultáneos)."
             },
             {
-                question: "Si dispones de una conexión a internet de 1 Giga, ¿cuál de las siguientes frases NO es cierta?",
+                question: "Si dispones de una conexión a internet de 1Giga, cuál de las siguientes frases NO es cierta",
                 options: [
-                    "Basta con tener tarjetas FastEthernet para aprovechar todo el ancho de banda.",
-                    "Si tenemos 3 equipos encendidos el ancho de banda consumido es repartido.",
-                    "Si un equipo no está conectado no consume ancho de banda.",
-                    "Si están descargando todos, el ancho se reparte entre los equipos."
+                    "Basta con tener tarjetas FastEthernet para aprovechar todo el ancho de banda",
+                    "Si tenemos 3 equipos encendidos el ancho de banda consumido es repartido para los tres",
+                    "Si un equipo no está conectado a internet no consume ancho de banda",
+                    "Si están descargando todos los equipos este ancho se reparte entre los equipos"
                 ],
                 correct: 0,
-                explanation: "FastEthernet limita la velocidad a 100 Mbps, por lo que sería imposible aprovechar una conexión de 1 Gbps (Gigabit)."
+                explanation: "FastEthernet está limitado a 100 Mbps, por lo que no aprovecharía 1 Gbps."
             },
             {
                 question: "Una dirección IP 192.168.1.0/25 puede direccionar:",
                 options: [
-                    "126 hosts.",
-                    "224 hosts.",
-                    "254 hosts.",
-                    "128 hosts."
+                    "126 hosts",
+                    "224 hosts",
+                    "254 hosts",
+                    "128 hosts"
                 ],
                 correct: 0,
                 explanation: "Con una máscara /25 quedan 7 bits para hosts (2^7 = 128). Restando la dirección de red y la de broadcast, quedan 126 hosts útiles."
@@ -420,30 +420,30 @@ export const questionsPAR = {
             {
                 question: "El crosstalk es:",
                 options: [
-                    "Una perturbación de la señal.",
-                    "La capacidad de transmitir voz a través del cable.",
-                    "Una variante de cable de par trenzado.",
-                    "Ninguna de las anteriores."
+                    "Una perturbación de la señal",
+                    "Ninguna de las anteriores es correcta",
+                    "La capacidad de transmitir voz a través del cable",
+                    "Una variante de cable de par trenzado"
                 ],
                 correct: 0,
                 explanation: "Se refiere a la interferencia electromagnética (diafonía) producida por el acoplamiento entre hilos cercanos."
             },
             {
-                question: "Marcar las frases correctas sobre control de acceso al medio:",
+                question: "Marcar las frases correctas sobre control de acceso al medio",
                 options: [
-                    "CSMA es un método muy usado y Ethernet es el más habitual.",
-                    "Hay dos métodos básicos: centralizados y descentralizados.",
-                    "Reducen colisiones en las transmisiones en medios compartidos.",
-                    "Todas las anteriores son correctas."
+                    "CSMA es un método muy usado de acceso al medio",
+                    "Hay dos métodos básicos: centralizados y descentralizados",
+                    "Reducen colisiones en las transmisiones que se producen en medios compartidos",
+                    "Todas las anteriores son correctas"
                 ],
                 correct: 3,
-                explanation: "Los mecanismos de control de acceso al medio (MAC) gestionan cómo los dispositivos comparten el canal físico para evitar o gestionar colisiones."
+                explanation: "Los mecanismos de control de acceso al medio gestionan cómo los dispositivos comparten el canal físico para evitar colisiones."
             },
             {
-                question: "Aumentado la máscara de /16 a /17 se producen dos subredes:",
+                question: "Aumentando la máscara de /16 a /17 se producen dos subredes",
                 options: [
-                    "Verdadero.",
-                    "Falso."
+                    "Verdadero",
+                    "Falso"
                 ],
                 correct: 0,
                 explanation: "Al tomar un bit prestado de la parte de host (2^1 = 2), dividimos el espacio de direcciones original en exactamente dos subredes."
@@ -453,43 +453,43 @@ export const questionsPAR = {
             {
                 question: "BNC es:",
                 options: [
-                    "Software de escritorio remoto.",
-                    "Conector estándar T568A.",
-                    "Conector suscriptor.",
-                    "Conector de cable coaxial."
+                    "Software de escritorio remoto",
+                    "Conector estándar T568A",
+                    "Conector suscriptor",
+                    "Conector de cable coaxial"
                 ],
                 correct: 3,
                 explanation: "El conector BNC (Bayonet Neill-Concelman) es el estándar utilizado para cables coaxiales en redes antiguas y vídeo."
             },
             {
-                question: "El cableado estructurado es:",
+                question: "El cableado estructurado",
                 options: [
-                    "Una técnica para colocar el cableado dentro del edificio.",
-                    "Un conjunto de normas.",
-                    "Un recubrimiento para cables.",
-                    "Un tipo de cable."
+                    "Técnica para colocar el cableado dentro de la estructura del edificio",
+                    "Es un conjunto de normas",
+                    "Es un recubrimiento para cables de par trenzado",
+                    "Es un tipo de cable"
                 ],
                 correct: 1,
                 explanation: "Es el conjunto de estándares (como TIA/EIA) que definen cómo debe diseñarse e instalarse la infraestructura de red en un edificio."
             },
             {
-                question: "¿Cuál de ellas es causante de una distorsión en la comunicación?",
+                question: "¿De las siguientes opciones indica cuál de ellas es causante de una distorsión en la comunicación?",
                 options: [
-                    "Elementos por los que pasa la señal.",
-                    "Distancia entre emisor y receptor.",
-                    "Entorno en el que se da la transmisión.",
-                    "Las tres anteriores son correctas."
+                    "Elementos por los que tiene que pasar una señal",
+                    "Distancia entre emisor y receptor",
+                    "Entorno en el que se da la transmisión",
+                    "Las tres anteriores son correctas"
                 ],
                 correct: 3,
                 explanation: "La señal se degrada por la resistencia del medio, la distancia (atenuación) y las interferencias del entorno."
             },
             {
-                question: "¿En qué se fundamenta la transmisión por fibra óptica?",
+                question: "¿En que se fundamenta la transmisión por fibra óptica?",
                 options: [
-                    "En la transmisión de electricidad.",
-                    "En el cable de cobre.",
-                    "En los semiconductores.",
-                    "En la reflexión de la luz."
+                    "En la transmisión de electricidad",
+                    "En el cable de cobre",
+                    "En los semiconductores",
+                    "En la reflexión de la luz"
                 ],
                 correct: 3,
                 explanation: "Utiliza pulsos de luz que viajan a través del núcleo de vidrio mediante el principio de reflexión total interna."
@@ -497,68 +497,178 @@ export const questionsPAR = {
             {
                 question: "Una dirección IPv4 de clase B puede direccionar:",
                 options: [
-                    "65536 hosts.",
-                    "254 hosts.",
-                    "256 hosts.",
-                    "65534 hosts."
+                    "65536 hosts",
+                    "254 hosts",
+                    "256 hosts",
+                    "65534 hosts"
                 ],
                 correct: 3,
-                explanation: "Una Clase B usa 16 bits para hosts (2^16 = 65536). Al restar red y broadcast, obtenemos 65534 hosts."
+                explanation: "Usando 16 bits para hosts, 2^16 es 65536. Al restar 2 direcciones indispensables (la de red y la de broadcast), quedan 65534."
             },
             {
-                question: "WOL, Wake-On-LAN:",
+                question: "WOL, Wake-On-LAN",
                 options: [
-                    "Sirve para crear subinterfaces.",
-                    "Sirve para conectarse remotamente.",
-                    "Sirve para encender un equipo remotamente a través de la red local.",
-                    "Sirve para instalar el SO por red."
+                    "Sirve para crear subinterfaces en las tarjetas de red",
+                    "Sirve para conectarse a un equipo remotamente a través de la red local",
+                    "Sirve para encender un equipo remotamente a través de la red local",
+                    "Sirve para instalar el sistema operativo a través de la red local"
                 ],
                 correct: 2,
-                explanation: "Es un estándar que permite encender un ordenador apagado mediante el envío de un \"Magic Packet\" a su tarjeta de red."
+                explanation: "Es un estándar que permite encender un ordenador apagado mediante el envío de un paquete mágico ('Magic Packet') a su MAC."
             },
             {
-                question: "Diferencias entre un cable coaxial y un cable de par trenzado:",
+                question: "Diferencias entre un cable coaxial y un cable de par trenzado.",
                 options: [
-                    "Tipo de conectores y longitud.",
+                    "La longitud.",
                     "Número de conductores que lo componen.",
-                    "Todas las anteriores.",
-                    "Ninguna es correcta."
+                    "Tipo de conectores que utilizan.",
+                    "Número de conductores y Tipos de Conectores"
                 ],
-                correct: 2,
-                explanation: "Difieren en su construcción física (conductores), en los conectores (BNC vs RJ45) y en las distancias máximas que soportan."
+                correct: 3,
+                explanation: "Difieren en su construcción física (b) y en los conectores usados (a)."
             },
             {
-                question: "Marcar las topologías inalámbricas:",
+                question: "Marcar las topologías inalámbricas",
                 options: [
-                    "BBC.",
-                    "CBS.",
-                    "BCC.",
-                    "BSS."
+                    "BBC",
+                    "CBS",
+                    "BCC",
+                    "BSS"
                 ],
                 correct: 3,
                 explanation: "BSS (Basic Service Set) es la topología básica de una red inalámbrica formada por un punto de acceso y sus clientes."
             },
             {
-                question: "PoE, Power-Over-Ethernet:",
+                question: "PoE, Power-Over-Ethernet",
                 options: [
-                    "Es una tecnología para encender dispositivos Ethernet.",
-                    "Es una tecnología para encender ordenadores por red.",
-                    "Permite conectar puntos de acceso con otros dispositivos.",
-                    "Permite llevar la electricidad a través de un cable de red."
+                    "Es una tecnología que permite encender un dispositivo Ethernet",
+                    "Es una tecnología que permite encender un ordenador a través de la red",
+                    "Es una tecnología que permite conectar un punto de acceso con otros dispositivos",
+                    "Es una tecnología que permite llevar la electricidad a través de un cable de red"
                 ],
                 correct: 3,
                 explanation: "PoE permite suministrar alimentación eléctrica a dispositivos (cámaras IP, teléfonos VoIP) usando los mismos hilos del cable de datos."
             },
             {
-                question: "La máscara habitual en las redes IPv6 es:",
+                question: "La máscara habitual en las redes IPv6 es",
                 options: [
-                    "48.",
-                    "32.",
-                    "46.",
-                    "64."
+                    "48",
+                    "32",
+                    "46",
+                    "64"
                 ],
                 correct: 3,
-                explanation: "El estándar de la industria para prefijos de subred en IPv6 es /64, lo que separa perfectamente el prefijo de red del identificador de interfaz."
+                explanation: "El estándar de la industria para prefijos de subred en IPv6 es /64."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "NAT",
+                options: [
+                    "En IPv6 no es necesaria",
+                    "La mayoría de los routers-ADSL realiza está técnica",
+                    "Suele utilizarse para compartir una IP pública",
+                    "Todas son correctas"
+                ],
+                correct: 3,
+                explanation: "NAT (Network Address Translation) permite conectar múltiples dispositivos en una red local bajo una única IP pública hacia internet."
+            },
+            {
+                question: "PLC permite",
+                options: [
+                    "Transmitir inálambricamente",
+                    "Transmitir utilizando las líneas eléctricas",
+                    "Transmitir a velocidades superiores a la fibra óptica",
+                    "Transmitir a grandes distancias"
+                ],
+                correct: 1,
+                explanation: "El Power Line Communications transmite los datos enviando las señales a través del cableado eléctrico de baja o media tensión."
+            },
+            {
+                question: "Antenas",
+                options: [
+                    "Una antena direccional es una mezcla de una antena omnidireccional y sectorial",
+                    "Para cubrir grandes distancias conviene una antena omnidireccional",
+                    "Una antena sectorial tiene más ganancia que una antena direccional",
+                    "Una antena direccional suele tener la misma apertura vertical y horizontal"
+                ],
+                correct: 3,
+                explanation: "A diferencia de sectoreales (o en abanico), las direccionales puras condensan la emisión en conos iguales tanto en altura como rotación."
+            },
+            {
+                question: "La sumarización de 172.16.0.0/16 y 172.17.0.0/16 produce la red",
+                options: [
+                    "172.16.0.0/17",
+                    "No se pueden sumarizar",
+                    "172.16.0.0/16",
+                    "172.16.0.0/15"
+                ],
+                correct: 3,
+                explanation: "Al sumarizar las dos subredes consecutivas, al robar 1 bit a la máscara de host pasamos de /16 a /15."
+            },
+            {
+                question: "Diferencia principal entre fibra óptica monomodo y multimodo",
+                options: [
+                    "La monomodo transporta un solo rayo de luz",
+                    "Una es dúplex y otra Fullduplex",
+                    "Velocidad",
+                    "Reflexión"
+                ],
+                correct: 0,
+                explanation: "La de Monomodo solo propaga un modo de haz de luz a través del núcleo. Como el haz es un rayo que viaja por el centro, no rebota, haciéndola capaz de llegar mucho más lejos."
+            },
+            {
+                question: "WOL",
+                options: [
+                    "Todas las tarjetas vienen equipadas con esta característica",
+                    "Es un medio de acceso",
+                    "Significa Wireless On Line",
+                    "Permite encender un ordenador a través de la red"
+                ],
+                correct: 3,
+                explanation: "WOL son las siglas de Wake-On-LAN."
+            },
+            {
+                question: "ICMP es el protocolo en que se basa el comando ping",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Efectivamente, PING usa peticiones ICMP Echo Request y Echo Reply."
+            },
+            {
+                question: "Utilizando la técnica VLSM podemos dividir la red 192.168.0.0/24 en",
+                options: [
+                    "192.168.0.0/25 192.168.0.128/22 y 192.168.0.192/22",
+                    "192.168.0.0/25 192.168.0.64/26 y 192.168.0.128/26",
+                    "192.168.0.0/25 192.168.0.128/26 y 192.168.0.192/26",
+                    "192.168.0.0/28 y 192.168.0.128/28"
+                ],
+                correct: 2,
+                explanation: "La máscara /25 ocupa de la 0 a la 127. Luego las dos /26 ocupan de la 128 a la 191, y de la 192 a la 255. Son perfectamente contiguas."
+            },
+            {
+                question: "Un router doméstico inalámbrico",
+                options: [
+                    "Incorpora un router",
+                    "Incorpora un punto de acceso",
+                    "Incorpora un switch",
+                    "Todas las anteriores"
+                ],
+                correct: 3,
+                explanation: "Normalmente los SOHO aúnan las 3 funciones."
+            },
+            {
+                question: "Marca los factores físicos que afectan a la transmisión",
+                options: [
+                    "Absorción atmosférica y Ruido",
+                    "Retardo",
+                    "Dicofonías",
+                    "Todas son correctas"
+                ],
+                correct: 0,
+                explanation: "Las opciones confirmadas como correctas por el sistema son: Absorción atmosférica y Ruido."
             }
         ]
     },
