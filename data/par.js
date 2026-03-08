@@ -340,7 +340,7 @@ export const questionsPAR = {
             }
         ]
     },
-    "Tema 2 Integración de elementos en red": {
+    "Tema 2: Integración de elementos en red": {
         "Test 1": [
             {
                 question: "En IPv6, dependiendo de los interfaces que identifican, tenemos:",
@@ -559,6 +559,336 @@ export const questionsPAR = {
                 ],
                 correct: 3,
                 explanation: "El estándar de la industria para prefijos de subred en IPv6 es /64, lo que separa perfectamente el prefijo de red del identificador de interfaz."
+            }
+        ]
+    },
+    "Tema 3: Configuración y administración básica de routers": {
+        "Test 1": [
+            {
+                question: "¿Cuál de las siguientes NO es una característica de la tabla de enrutamiento?",
+                options: [
+                    "IP del siguiente salto.",
+                    "Red destino.",
+                    "Ancho de banda.",
+                    "Métrica."
+                ],
+                correct: 2,
+                explanation: "Una tabla de enrutamiento contiene información sobre redes destino, métricas para elegir la mejor ruta e IPs del siguiente salto, pero no el ancho de banda disponible en tiempo real."
+            },
+            {
+                question: "Indica qué firmware NO es libre:",
+                options: [
+                    "DD-WRT.",
+                    "Openwrt.",
+                    "IOS Cisco.",
+                    "Tomato."
+                ],
+                correct: 2,
+                explanation: "IOS (Internetwork Operating System) es el software propietario de Cisco Systems, a diferencia de los otros que son basados en software libre o de código abierto."
+            },
+            {
+                question: "Sobre las ACLs (Listas de Control de Acceso), marca la opción correcta:",
+                options: [
+                    "Pueden ser permisivas o prohibitivas.",
+                    "Es un conjunto de reglas donde importa el orden de las mismas.",
+                    "Deben contener al menos 2 reglas.",
+                    "Las opciones A y B son correctas."
+                ],
+                correct: 3,
+                explanation: "Las ACLs son conjuntos de reglas que permiten o deniegan tráfico, y el orden es crítico porque el router las procesa secuencialmente hasta encontrar una coincidencia."
+            },
+            {
+                question: "Las formas de conexión al router para acceder a su configuración difieren bastante de las empleadas en los conmutadores. ¿Verdadero o falso?",
+                options: [
+                    "Verdadero.",
+                    "Falso."
+                ],
+                correct: 1,
+                explanation: "En general, los métodos de acceso (consola, Telnet, SSH o entorno web) son muy similares tanto para routers como para switches gestionables."
+            },
+            {
+                question: "Los routers domésticos (típicos para conexión de hogar):",
+                options: [
+                    "Se suelen configurar por telnet.",
+                    "Se suelen configurar por CLI (línea de comandos).",
+                    "Se suelen configurar por web.",
+                    "Se suelen configurar por SSH."
+                ],
+                correct: 2,
+                explanation: "Para facilitar el uso al usuario medio, los fabricantes de routers domésticos implementan una interfaz gráfica accesible a través de un navegador web."
+            },
+            {
+                question: "Sobre Telnet, indica la opción correcta:",
+                options: [
+                    "Implica el uso de un navegador como Mozilla.",
+                    "Se puede usar con una conexión al puerto LAN del router.",
+                    "Implica el uso de un cable serie.",
+                    "Implica el uso de un cable RJ45 específico de consola."
+                ],
+                correct: 1,
+                explanation: "Telnet es un protocolo de red que permite el acceso remoto a través de una conexión TCP/IP estándar, como la del puerto LAN."
+            },
+            {
+                question: "¿Cuál es el objetivo principal de un router?",
+                options: [
+                    "Encontrar la ruta más adecuada para los paquetes.",
+                    "Separar en diferentes segmentos de colisión.",
+                    "Acceder a una red LAN.",
+                    "Conectar los equipos a Internet."
+                ],
+                correct: 0,
+                explanation: "La función básica de un router es el enrutamiento: decidir, basándose en su tabla, qué camino deben seguir los paquetes para llegar a su destino."
+            },
+            {
+                question: "Sobre la DMZ (Zona Desmilitarizada):",
+                options: [
+                    "Se usa habitualmente para ubicar servidores que deben ser accedidos desde fuera.",
+                    "Son las iniciales de \"demilitarized zone\".",
+                    "Los routers domésticos suelen incluir esta opción.",
+                    "Todas las anteriores son correctas."
+                ],
+                correct: 3,
+                explanation: "La DMZ permite exponer un equipo a la red externa (Internet) separándolo de la red local interna por seguridad."
+            },
+            {
+                question: "La conexión de configuración vía web:",
+                options: [
+                    "Se emplea solo con navegadores de Microsoft.",
+                    "Se debe hacer obligatoriamente desde Internet.",
+                    "Se puede emplear con cualquier navegador.",
+                    "Se puede hacer solamente desde una conexión LAN."
+                ],
+                correct: 2,
+                explanation: "Al basarse en estándares HTTP/HTTPS, se puede administrar el dispositivo desde cualquier navegador moderno (Chrome, Firefox, Safari, etc.)."
+            },
+            {
+                question: "Un router reenvía por todos sus puertos la información que le llega. ¿Verdadero o falso?",
+                options: [
+                    "Verdadero.",
+                    "Falso."
+                ],
+                correct: 1,
+                explanation: "A diferencia de un hub, un router analiza la dirección de destino y solo reenvía el paquete por la interfaz necesaria según su tabla de rutas."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "Sobre los Routers en las LAN:",
+                options: [
+                    "Suelen tener 2 interfaces.",
+                    "Suelen tener una red privada y una red pública.",
+                    "Suelen hacer NAT.",
+                    "Todas las anteriores son correctas."
+                ],
+                correct: 3,
+                explanation: "Un router doméstico típico actúa como frontera, separando la red privada (LAN) de la pública (WAN) mediante dos interfaces físicas o lógicas y utilizando NAT para compartir la IP pública."
+            },
+            {
+                question: "Sobre el proceso de conexión con SSH:",
+                options: [
+                    "En los routers no funciona la conexión con Telnet.",
+                    "Es más seguro que la conexión con Telnet.",
+                    "Es preferible la conexión Telnet.",
+                    "Nos permite configurar el router mediante una interfaz web."
+                ],
+                correct: 1,
+                explanation: "A diferencia de Telnet, que envía los datos en texto plano, SSH cifra toda la comunicación, impidiendo que alguien intercepte tus contraseñas en la red."
+            },
+            {
+                question: "ACLs en los routers domésticos:",
+                options: [
+                    "Suelen admitir bloqueos por palabras.",
+                    "Suelen admitir bloqueos dentro de horarios.",
+                    "Cada fabricante suele diseñar sus propias pantallas de configuración.",
+                    "Todas las anteriores son correctas."
+                ],
+                correct: 3,
+                explanation: "Las Listas de Control de Acceso en equipos domésticos son versátiles y permiten desde control parental por horario hasta filtrado de contenido web, variando la interfaz según la marca del router."
+            },
+            {
+                question: "Para conectar al router vía SSH:",
+                options: [
+                    "Necesitamos conocer la IP del router.",
+                    "Necesitamos estar en la misma red.",
+                    "Podemos hacerlo con Putty.",
+                    "Todas las anteriores son correctas."
+                ],
+                correct: 3,
+                explanation: "El acceso por SSH requiere conectividad IP (misma red o ruta válida) y un software cliente como PuTTY para establecer la sesión segura."
+            },
+            {
+                question: "Para conectar al router vía Telnet:",
+                options: [
+                    "Necesitamos conocer la IP del router.",
+                    "Necesitamos estar en la misma red.",
+                    "Podemos hacerlo con Putty.",
+                    "Todas las anteriores son correctas."
+                ],
+                correct: 3,
+                explanation: "Al igual que con SSH, Telnet requiere conocer la dirección de destino y utilizar un terminal compatible, aunque carece de cifrado."
+            },
+            {
+                question: "Los componentes básicos de un router son:",
+                options: [
+                    "Totalmente diferentes que los de un PC.",
+                    "Parecidos a los de un conmutador eléctrico.",
+                    "Del mismo tipo que un PC.",
+                    "Iguales que los de un conmutador."
+                ],
+                correct: 2,
+                explanation: "Un router es, en esencia, un ordenador especializado con su propia CPU, memoria RAM, almacenamiento (Flash) y un sistema operativo dedicado."
+            },
+            {
+                question: "Una zona desmilitarizada (DMZ) es:",
+                options: [
+                    "Una zona muy segura.",
+                    "Software empleado en Firewalls pero nunca en routers.",
+                    "Parte de la red LAN accesible desde la WAN.",
+                    "Los equipos que pueden acceder a la LAN y a los cuales no se puede acceder."
+                ],
+                correct: 2,
+                explanation: "La DMZ permite que ciertos servicios internos (como un servidor web) sean visibles desde Internet (WAN) sin comprometer totalmente la seguridad del resto de la LAN."
+            },
+            {
+                question: "Características generales de los routers en las LAN:",
+                options: [
+                    "Suelen venir configurados de fábrica.",
+                    "Suelen ser dispositivos multifunción.",
+                    "Suelen configurarse por Web.",
+                    "Todas las anteriores son correctas."
+                ],
+                correct: 3,
+                explanation: "Los routers SOHO modernos combinan funciones de switch, punto de acceso y router, vienen con IPs predeterminadas y ofrecen una interfaz web sencilla para el usuario."
+            },
+            {
+                question: "Las siglas ACL corresponden a:",
+                options: [
+                    "Access Control List.",
+                    "Anonymus Control List.",
+                    "Alternative Control List.",
+                    "Todas las anteriores son correctas."
+                ],
+                correct: 0,
+                explanation: "ACL significa Lista de Control de Acceso, que es el mecanismo básico para filtrar tráfico en dispositivos de red."
+            },
+            {
+                question: "Sobre la aplicación de las ACLs:",
+                options: [
+                    "Se pueden aplicar a la entrada o a la salida de una interfaz.",
+                    "Las reglas permisivas se suelen poner antes de las prohibitivas.",
+                    "Se aconseja poner al menos una regla permisiva en la mayoría de los sistemas.",
+                    "Las opciones A y B son correctas."
+                ],
+                correct: 3,
+                explanation: "Las reglas se procesan en orden secuencial; por ello, se definen los permisos específicos antes de los bloqueos generales, y se asocian al flujo de datos (entrada/salida) de la interfaz."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "¿Cuál de las siguientes no es una características de la tabla de enrutamiento?",
+                options: [
+                    "IP del siguiente salto",
+                    "Red destino",
+                    "Ancho de banda",
+                    "Métrica"
+                ],
+                correct: 2,
+                explanation: "Una tabla de enrutamiento contiene IP del salto, red destino y métrica, pero no ancho de banda."
+            },
+            {
+                question: "Indica que firmware NO es libre",
+                options: [
+                    "DD-WRT",
+                    "Openwrt",
+                    "IOS Cisco",
+                    "Tomato"
+                ],
+                correct: 2,
+                explanation: "IOS Cisco es propietario de Cisco, a diferencia de los otros."
+            },
+            {
+                question: "Sobre las ACLs, señala la afirmación INCORRECTA:",
+                options: [
+                    "Pueden ser permisivas o prohibitivas",
+                    "Es un conjunto de reglas donde importa el orden",
+                    "Deben contener al menos 2 reglas para funcionar",
+                    "Sirven para controlar el acceso del tráfico"
+                ],
+                correct: 2,
+                explanation: "La afirmación falsa es que deban contener 2 reglas, ya que una ACL puede funcionar perfectamente con una sola regla."
+            },
+            {
+                question: "Las formas de conexión al router para acceder a su configuración difieren bastante de las empleadas en los conmutadores. ¿Verdadero o falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. En general los métodos de acceso son muy similares a los de los switches gestionables (consola, ssh, telnet, web)."
+            },
+            {
+                question: "Los routers domésticos (típicos para conexión de hogar)",
+                options: [
+                    "Se suelen configurar por telnet",
+                    "Se suelen configurar por CLI",
+                    "Se suelen configurar por web",
+                    "Se suelen configurar por SSH"
+                ],
+                correct: 2,
+                explanation: "Se suelen configurar por entorno web para facilitar su uso al usuario doméstico."
+            },
+            {
+                question: "Telnet:",
+                options: [
+                    "Implica el uso de un navegador como Mozilla.",
+                    "Se puede usar con una conexión al puerto LAN del router.",
+                    "Implica el uso de un cable serie.",
+                    "Implica el uso de un cable RJ45 específico de consola."
+                ],
+                correct: 1,
+                explanation: "Se puede usar con una conexión al puerto LAN del router mediante un cliente de terminal."
+            },
+            {
+                question: "¿Cuál es el objetivo principal de un router?",
+                options: [
+                    "Encontrar la ruta más adecuada para los paquetes.",
+                    "Separar en diferentes segmentos de colisión",
+                    "Acceder a una red LAN",
+                    "Conectar los equipos a Internet"
+                ],
+                correct: 0,
+                explanation: "Su función principal es el enrutamiento y búsqueda de la mejor ruta."
+            },
+            {
+                question: "Sobre la DMZ, ¿cuál es correcta?",
+                options: [
+                    "Se usa habitualmente para ubicar servidores expuestos fuera",
+                    "Son las iniciales de demilitarized zone",
+                    "Los routers domésticos suelen incluir está opción",
+                    "Todas las opciones anteriores son correctas"
+                ],
+                correct: 3,
+                explanation: "Todas las características dadas describen correctamente a una DMZ."
+            },
+            {
+                question: "La conexión de configuración vía web:",
+                options: [
+                    "Se emplea con navegadores de Microsoft.",
+                    "Se debe hacer desde Internet.",
+                    "Se puede emplear con cualquier navegador",
+                    "Se puede hacer solamente desde una conexión LAN"
+                ],
+                correct: 2,
+                explanation: "La administración web funciona bajo estándares que soportan cualquier navegador moderno."
+            },
+            {
+                question: "Un router reenvía por todos sus puertos la información que le llega. ¿Verdadero o falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso, un router mira la dirección IP destino y solo envía por el puerto correspondiente de su tabla de enrutamiento."
             }
         ]
     }
