@@ -339,5 +339,343 @@ export const questionsPAR = {
                 explanation: "Un protocolo define las normas, reglas y formatos acordados para el intercambio de mensajes entre dispositivos."
             }
         ]
+    },
+    "Tema 2 Integración de elementos en red": {
+        "Test 1": [
+            {
+                question: "¿Qué es un servicio de red?",
+                options: [
+                    "Un dispositivo físico que conecta cables.",
+                    "Una aplicación que permite la comunicación entre diferentes dispositivos en una red.",
+                    "Un tipo de cable de fibra óptica.",
+                    "El sistema operativo de un router."
+                ],
+                correct: 1,
+                explanation: "Los servicios de red son programas o protocolos que facilitan recursos o comunicación entre clientes y servidores."
+            },
+            {
+                question: "¿Cuál de los siguientes es un ejemplo de un servicio de red?",
+                options: [
+                    "CPU.",
+                    "Memoria RAM.",
+                    "DNS.",
+                    "Disco duro."
+                ],
+                correct: 2,
+                explanation: "DNS (Domain Name System) es el servicio encargado de traducir nombres de dominio en direcciones IP."
+            },
+            {
+                question: "¿Qué protocolo se utiliza para la transferencia de archivos en una red?",
+                options: [
+                    "HTTP.",
+                    "FTP.",
+                    "SMTP.",
+                    "SSH."
+                ],
+                correct: 1,
+                explanation: "FTP (File Transfer Protocol) es el protocolo estándar diseñado específicamente para mover archivos entre un cliente y un servidor."
+            },
+            {
+                question: "¿Qué función cumple el protocolo DHCP?",
+                options: [
+                    "Cifra los datos de navegación.",
+                    "Asigna direcciones IP de forma dinámica a los dispositivos de la red.",
+                    "Bloquea el acceso a sitios web no autorizados.",
+                    "Traduce nombres de dominio."
+                ],
+                correct: 1,
+                explanation: "El Dynamic Host Configuration Protocol permite que los dispositivos obtengan su configuración de red (IP, máscara, puerta de enlace) automáticamente."
+            },
+            {
+                question: "¿Qué es un servidor de correo electrónico?",
+                options: [
+                    "Un hardware que solo almacena archivos de texto.",
+                    "Un servicio que permite el envío y recepción de mensajes a través de una red.",
+                    "Una aplicación para chatear en tiempo real.",
+                    "Un tipo de conexión inalámbrica."
+                ],
+                correct: 1,
+                explanation: "Utiliza protocolos específicos como SMTP para el envío y POP3 o IMAP para la gestión de la recepción de mensajes."
+            },
+            {
+                question: "¿Qué significa HTTP?",
+                options: [
+                    "HyperText Transfer Protocol.",
+                    "High Transfer Text Protocol.",
+                    "Hyper Technology Total Protocol.",
+                    "Home Text Transfer Protocol."
+                ],
+                correct: 0,
+                explanation: "Es el protocolo base de intercambio de información en la World Wide Web para la transferencia de documentos hipermedia."
+            },
+            {
+                question: "¿Qué es una dirección IP?",
+                options: [
+                    "El nombre del fabricante del equipo.",
+                    "Un identificador numérico único para cada dispositivo en una red.",
+                    "La velocidad de conexión a internet.",
+                    "Una contraseña de seguridad."
+                ],
+                correct: 1,
+                explanation: "La dirección IP funciona como una dirección postal lógica para que los paquetes de datos encuentren el destino correcto."
+            },
+            {
+                question: "¿Cuál es la diferencia principal entre IPv4 e IPv6?",
+                options: [
+                    "IPv4 es más rápido que IPv6.",
+                    "IPv6 tiene un espacio de direcciones mucho mayor que IPv4.",
+                    "IPv4 usa letras y IPv6 solo números.",
+                    "No hay diferencia, son iguales."
+                ],
+                correct: 1,
+                explanation: "IPv4 usa 32 bits (4.300 millones de direcciones), mientras que IPv6 usa 128 bits para garantizar direcciones infinitas ante el agotamiento de las anteriores."
+            },
+            {
+                question: "¿Qué es un puerto en términos de redes?",
+                options: [
+                    "Un conector físico detrás del ordenador.",
+                    "Un punto final de comunicación lógico.",
+                    "Una antena de Wi-Fi.",
+                    "El lugar donde se conectan los cables submarinos."
+                ],
+                correct: 1,
+                explanation: "Los puertos permiten que un mismo dispositivo pueda gestionar múltiples servicios (ej: puerto 80 para web, puerto 21 para FTP) de forma simultánea."
+            },
+            {
+                question: "¿Qué herramienta se utiliza para verificar la conectividad entre dos dispositivos en una red?",
+                options: [
+                    "Format.",
+                    "Copy.",
+                    "Ping.",
+                    "Delete."
+                ],
+                correct: 2,
+                explanation: "Ping envía paquetes de eco ICMP para comprobar si un destino responde y calcular la latencia de la conexión."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "¿Qué es un servidor DNS?",
+                options: [
+                    "Un servidor que almacena archivos de música.",
+                    "Un servidor que traduce nombres de dominio en direcciones IP.",
+                    "Un servidor que protege la red de virus.",
+                    "Un servidor que gestiona las impresoras."
+                ],
+                correct: 1,
+                explanation: "El DNS (Domain Name System) actúa como una \"agenda telefónica\", convirtiendo nombres legibles en IPs numéricas."
+            },
+            {
+                question: "¿Qué significa FTP?",
+                options: [
+                    "Fast Transfer Protocol.",
+                    "File Transfer Protocol.",
+                    "Format Text Protocol.",
+                    "Fiber Transfer Protocol."
+                ],
+                correct: 1,
+                explanation: "Es el protocolo estándar para la transferencia de archivos entre sistemas conectados a una red TCP."
+            },
+            {
+                question: "¿Cuál es la función del protocolo SMTP?",
+                options: [
+                    "Recibir correos electrónicos.",
+                    "Enviar correos electrónicos.",
+                    "Almacenar archivos en la nube.",
+                    "Cifrar la conexión web."
+                ],
+                correct: 1,
+                explanation: "Simple Mail Transfer Protocol se utiliza específicamente para el intercambio de mensajes de correo electrónico entre servidores."
+            },
+            {
+                question: "¿Qué es un servidor proxy?",
+                options: [
+                    "Un dispositivo que aumenta la velocidad de internet.",
+                    "Un intermediario entre un cliente y un servidor.",
+                    "Un software de edición de fotos.",
+                    "Un tipo de cable de red."
+                ],
+                correct: 1,
+                explanation: "Actúa como punto intermedio, pudiendo filtrar contenido, mejorar la seguridad o cachear datos para acelerar el acceso."
+            },
+            {
+                question: "¿Qué protocolo se utiliza para la navegación web segura?",
+                options: [
+                    "HTTP.",
+                    "HTTPS.",
+                    "FTP.",
+                    "SNMP."
+                ],
+                correct: 1,
+                explanation: "El HTTPS utiliza el puerto 443 y cifra la comunicación mediante SSL/TLS para proteger la privacidad de los datos."
+            },
+            {
+                question: "¿Qué es una red local (LAN)?",
+                options: [
+                    "Una red que conecta dispositivos en todo el mundo.",
+                    "Una red que conecta dispositivos en un área geográfica pequeña.",
+                    "Una red de satélites.",
+                    "Una red de telefonía móvil."
+                ],
+                correct: 1,
+                explanation: "Local Area Network; es la que solemos tener en casa, en una oficina o en un edificio."
+            },
+            {
+                question: "¿Qué es un router?",
+                options: [
+                    "Un dispositivo que permite la conexión inalámbrica.",
+                    "Un dispositivo que dirige los paquetes de datos entre diferentes redes.",
+                    "Un programa para navegar por internet.",
+                    "Un tipo de monitor."
+                ],
+                correct: 1,
+                explanation: "Su función principal es el enrutamiento: decidir qué camino deben seguir los datos para llegar a su red de destino."
+            },
+            {
+                question: "¿Qué es el protocolo TCP/IP?",
+                options: [
+                    "Un lenguaje de programación.",
+                    "Un conjunto de protocolos que permiten la comunicación en internet.",
+                    "Un sistema operativo para servidores.",
+                    "Un fabricante de hardware de red."
+                ],
+                correct: 1,
+                explanation: "Es el modelo fundamental sobre el que se basa internet, dividiendo la comunicación en capas funcionales."
+            },
+            {
+                question: "¿Qué función cumple el firewall?",
+                options: [
+                    "Aumenta la capacidad de almacenamiento del servidor.",
+                    "Protege la red de accesos no autorizados.",
+                    "Limpia los cables de red.",
+                    "Mejora la calidad de imagen en streaming."
+                ],
+                correct: 1,
+                explanation: "El cortafuegos monitoriza y controla el tráfico entrante y saliente basándose en reglas de seguridad predefinidas."
+            },
+            {
+                question: "¿Qué es la latencia de red?",
+                options: [
+                    "El número de dispositivos conectados.",
+                    "El tiempo que tarda un paquete de datos en viajar de un punto a otro.",
+                    "El tamaño de los archivos que se transfieren.",
+                    "El coste de la conexión a internet."
+                ],
+                correct: 1,
+                explanation: "Se mide generalmente en milisegundos (ms) y es clave para servicios en tiempo real como juegos online o videollamadas."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "¿Qué es un servidor DNS?",
+                options: [
+                    "Un servidor que almacena archivos de música.",
+                    "Un servidor que traduce nombres de dominio en direcciones IP.",
+                    "Un servidor que protege la red de virus.",
+                    "Un servidor que gestiona las impresoras."
+                ],
+                correct: 1,
+                explanation: "El DNS (Domain Name System) actúa como una \"agenda telefónica\", convirtiendo nombres legibles en IPs numéricas."
+            },
+            {
+                question: "¿Qué significa FTP?",
+                options: [
+                    "Fast Transfer Protocol.",
+                    "File Transfer Protocol.",
+                    "Format Text Protocol.",
+                    "Fiber Transfer Protocol."
+                ],
+                correct: 1,
+                explanation: "Es el protocolo estándar para la transferencia de archivos entre sistemas conectados a una red TCP."
+            },
+            {
+                question: "¿Cuál es la función del protocolo SMTP?",
+                options: [
+                    "Recibir correos electrónicos.",
+                    "Enviar correos electrónicos.",
+                    "Almacenar archivos en la nube.",
+                    "Cifrar la conexión web."
+                ],
+                correct: 1,
+                explanation: "Simple Mail Transfer Protocol se utiliza específicamente para el intercambio de mensajes de correo electrónico entre servidores."
+            },
+            {
+                question: "¿Qué es un servidor proxy?",
+                options: [
+                    "Un dispositivo que aumenta la velocidad de internet.",
+                    "Un intermediario entre un cliente y un servidor.",
+                    "Un software de edición de fotos.",
+                    "Un tipo de cable de red."
+                ],
+                correct: 1,
+                explanation: "Actúa como punto intermedio, pudiendo filtrar contenido, mejorar la seguridad o cachear datos para acelerar el acceso."
+            },
+            {
+                question: "¿Qué protocolo se utiliza para la navegación web segura?",
+                options: [
+                    "HTTP.",
+                    "HTTPS.",
+                    "FTP.",
+                    "SNMP."
+                ],
+                correct: 1,
+                explanation: "El HTTPS utiliza el puerto 443 y cifra la comunicación mediante SSL/TLS para proteger la privacidad de los datos."
+            },
+            {
+                question: "¿Qué es una red local (LAN)?",
+                options: [
+                    "Una red que conecta dispositivos en todo el mundo.",
+                    "Una red que conecta dispositivos en un área geográfica pequeña.",
+                    "Una red de satélites.",
+                    "Una red de telefonía móvil."
+                ],
+                correct: 1,
+                explanation: "Local Area Network; es la que solemos tener en casa, en una oficina o en un edificio."
+            },
+            {
+                question: "¿Qué es un router?",
+                options: [
+                    "Un dispositivo que permite la conexión inalámbrica.",
+                    "Un dispositivo que dirige los paquetes de datos entre diferentes redes.",
+                    "Un programa para navegar por internet.",
+                    "Un tipo de monitor."
+                ],
+                correct: 1,
+                explanation: "Su función principal es el enrutamiento: decidir qué camino deben seguir los datos para llegar a su red de destino."
+            },
+            {
+                question: "¿Qué es el protocolo TCP/IP?",
+                options: [
+                    "Un lenguaje de programación.",
+                    "Un conjunto de protocolos que permiten la comunicación en internet.",
+                    "Un sistema operativo para servidores.",
+                    "Un fabricante de hardware de red."
+                ],
+                correct: 1,
+                explanation: "Es el modelo fundamental sobre el que se basa internet, dividiendo la comunicación en capas funcionales."
+            },
+            {
+                question: "¿Qué función cumple el firewall?",
+                options: [
+                    "Aumenta la capacidad de almacenamiento del servidor.",
+                    "Protege la red de accesos no autorizados.",
+                    "Limpia los cables de red.",
+                    "Mejora la calidad de imagen en streaming."
+                ],
+                correct: 1,
+                explanation: "El cortafuegos monitoriza y controla el tráfico entrante y saliente basándose en reglas de seguridad predefinidas."
+            },
+            {
+                question: "¿Qué es la latencia de red?",
+                options: [
+                    "El número de dispositivos conectados.",
+                    "El tiempo que tarda un paquete de datos en viajar de un punto a otro.",
+                    "El tamaño de los archivos que se transfieren.",
+                    "El coste de la conexión a internet."
+                ],
+                correct: 1,
+                explanation: "Se mide generalmente en milisegundos (ms) y es clave para servicios en tiempo real como juegos online o videollamadas."
+            }
+        ]
     }
 };
