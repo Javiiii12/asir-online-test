@@ -1,8 +1,8 @@
-import { questionsPAR } from '../data/par.js?v=2.21';
-import { questionsFH } from '../data/fh.js?v=2.21';
-import { questionsDIG } from '../data/dig.js?v=2.21';
-import { questionsSOS } from '../data/sos.js?v=2.21';
-import { questionsGBD } from '../data/gbd.js?v=2.21';
+import { questionsPAR } from '../data/par.js?v=2.22';
+import { questionsFH } from '../data/fh.js?v=2.22';
+import { questionsDIG } from '../data/dig.js?v=2.22';
+import { questionsSOS } from '../data/sos.js?v=2.22';
+import { questionsGBD } from '../data/gbd.js?v=2.22';
 
 // Adaptador para convertir el diccionario de temas a array de objetos
 const buildThemeStructure = (moduleId, sourceData) => {
@@ -359,75 +359,77 @@ function nextQuestion() {
 }
 
 function finishTest() {
+    console.log("Finalizando test...", state);
     switchView('results');
 
-    // Calcular porcentaje
-    const percentage = Math.round((state.score / (state.questions.length * 10)) * 100);
+    // Cálculo de porcentaje
+    const totalQuestions = state.questions.length || 1;
+    const percentage = Math.round((state.score / (totalQuestions * 10)) * 100);
+
     finalScore.textContent = `${percentage}%`;
     finalMessage.textContent = percentage >= 50 ? '¡Rendimiento Óptimo! Has superado el reporte con éxito.' : 'Fallo Crítico detectado localmente. Es necesario revisar el temario.';
 
+    // Aplicar estilo al círculo
     scoreCircleContainer.className = 'w-32 h-32 md:w-36 md:h-36 rounded-full border-4 flex items-center justify-center shadow-glass transition-all bg-slate-900/50 backdrop-blur-sm shrink-0';
-    scoreCircleContainer.classList.add(percentage >= 50 ? 'border-cyber-neon shadow-neon' : 'border-cyber-red shadow-red');
-
-    // Muestra resultados detallados y fallos
-    detailedResultsContainer.innerHTML = '';
-    const mistakes = [];
-
-    if (!state.userAnswers || state.userAnswers.length === 0) {
-        console.error("No hay respuestas guardadas en state.userAnswers");
-        detailedResultsContainer.innerHTML = '<p class="text-center text-slate-400 py-4">Error: No se registraron respuestas.</p>';
+    if (percentage >= 50) {
+        scoreCircleContainer.classList.add('border-cyber-neon', 'shadow-neon');
+    } else {
+        scoreCircleContainer.classList.add('border-cyber-red', 'shadow-red');
     }
 
-    state.userAnswers.forEach((ans, i) => {
-        try {
+    // Renderizado de resultados detallados
+    const mistakes = [];
+    let htmlContent = '';
+
+    if (!state.userAnswers || state.userAnswers.length === 0) {
+        htmlContent = '<p class="text-center text-slate-400 py-6 border border-dashed border-slate-700 rounded-xl">No se han registrado respuestas en este test.</p>';
+    } else {
+        state.userAnswers.forEach((ans, i) => {
             const q = ans.questionObj;
+            if (!q) return;
+
             if (!ans.isCorrect) mistakes.push(q);
 
-            const resDiv = document.createElement('div');
-            resDiv.className = `p-4 md:p-5 rounded-xl border ${ans.isCorrect ? 'bg-green-900/10 border-green-500/30' : 'bg-red-900/10 border-red-500/30'} flex flex-col gap-2 shadow-sm text-sm mt-2 font-medium animate-fade-in`;
-
-            const questionTextStr = q.question || "Pregunta no encontrada";
-            const userOptionText = (q.options && ans.selectedIndex !== undefined && ans.selectedIndex !== null) ? q.options[ans.selectedIndex] : "Sin respuesta";
-
-            let correctOptionText = "Desconocida";
-            if (q.options && typeof q.correct === 'number') {
-                correctOptionText = q.options[q.correct];
-            } else if (q.options && Array.isArray(q.correct)) {
-                correctOptionText = q.correct.map(idx => q.options[idx]).join(' | ');
+            const userOptionText = (q.options && ans.selectedIndex !== undefined) ? q.options[ans.selectedIndex] : "Sin respuesta";
+            let correctOptionText = "Faltante";
+            if (q.options) {
+                if (typeof q.correct === 'number') correctOptionText = q.options[q.correct];
+                else if (Array.isArray(q.correct)) correctOptionText = q.correct.map(idx => q.options[idx]).join(' | ');
             }
 
-            let html = `
-                <div class="font-bold text-slate-200 mb-2 border-b border-slate-700/50 pb-3 leading-snug">${i + 1}. ${questionTextStr}</div>
-                <div class="flex flex-col gap-2 pl-1 pt-1">
+            htmlContent += `
+                <div class="p-4 md:p-5 rounded-xl border ${ans.isCorrect ? 'bg-green-900/10 border-green-500/30' : 'bg-red-900/10 border-red-500/30'} flex flex-col gap-2 shadow-sm text-sm mt-3 animate-fade-in">
+                    <div class="font-bold text-slate-200 mb-2 border-b border-slate-700/50 pb-2">${i + 1}. ${q.question}</div>
+                    <div class="flex flex-col gap-1.5">
+                        <span class="${ans.isCorrect ? 'text-green-400' : 'text-red-400'} flex items-start gap-2">
+                            <span class="shrink-0 w-4">${ans.isCorrect ? '✓' : '✗'}</span>
+                            <span class="leading-snug">${userOptionText}</span>
+                        </span>
+                        ${!ans.isCorrect ? `
+                        <span class="text-green-400 flex items-start gap-2 opacity-80">
+                            <span class="shrink-0 w-4 font-bold">✓</span>
+                            <span class="leading-snug">Correcta: ${correctOptionText}</span>
+                        </span>` : ''}
+                    </div>
+                    ${q.explanation ? `<div class="mt-3 p-3 rounded-lg bg-slate-900/80 border-l-2 ${ans.isCorrect ? 'border-green-500 text-green-100/70' : 'border-blue-500 text-blue-100/70'} text-[11px] md:text-xs leading-relaxed italic">
+                        <strong>Feedback:</strong> ${q.explanation}
+                    </div>` : ''}
+                </div>
             `;
+        });
+    }
 
-            if (ans.isCorrect) {
-                html += `<span class="text-green-400 flex items-start gap-2"><span class="shrink-0 text-base leading-none">✓</span> <span class="leading-snug break-words">${userOptionText}</span></span>`;
-            } else {
-                html += `<span class="text-red-400 flex items-start gap-2 opacity-90"><span class="shrink-0 text-base leading-none">✗</span> <span class="leading-snug break-words">${userOptionText}</span></span>`;
-                html += `<span class="text-green-400 flex items-start gap-2 mt-1"><span class="shrink-0 text-base leading-none">✓</span> <span class="leading-snug break-words">${correctOptionText}</span></span>`;
-            }
+    detailedResultsContainer.innerHTML = htmlContent;
 
-            html += `</div>`;
-
-            if (q.explanation) {
-                html += `<div class="mt-4 p-3 rounded-lg bg-slate-900/60 border-l-2 ${ans.isCorrect ? 'border-green-500 text-green-200/80' : 'border-blue-500 text-blue-200/80'} text-xs md:text-sm leading-relaxed tracking-wide"><strong>Explicación:</strong> ${q.explanation}</div>`;
-            }
-            resDiv.innerHTML = html;
-            detailedResultsContainer.appendChild(resDiv);
-        } catch (e) {
-            console.error("Error renderizando respuesta", e, ans);
-        }
-    });
-
+    // Control del botón de repetir fallos
     if (mistakes.length > 0) {
         btnRepeatMistakes.classList.remove('hidden');
-        btnRepeatMistakes.onclick = () => {
-            startQuiz(mistakes);
-        };
+        btnRepeatMistakes.onclick = () => startQuiz(mistakes);
     } else {
         btnRepeatMistakes.classList.add('hidden');
     }
+
+    console.log(`Test finalizado. Aciertos: ${state.score / 10}, Fallos: ${mistakes.length}`);
 }
 
 function resetToDashboard() {
