@@ -343,338 +343,222 @@ export const questionsPAR = {
     "Tema 2 Integración de elementos en red": {
         "Test 1": [
             {
-                question: "¿Qué es un servicio de red?",
+                question: "En IPv6, dependiendo de los interfaces que identifican, tenemos:",
                 options: [
-                    "Un dispositivo físico que conecta cables.",
-                    "Una aplicación que permite la comunicación entre diferentes dispositivos en una red.",
-                    "Un tipo de cable de fibra óptica.",
-                    "El sistema operativo de un router."
-                ],
-                correct: 1,
-                explanation: "Los servicios de red son programas o protocolos que facilitan recursos o comunicación entre clientes y servidores."
-            },
-            {
-                question: "¿Cuál de los siguientes es un ejemplo de un servicio de red?",
-                options: [
-                    "CPU.",
-                    "Memoria RAM.",
-                    "DNS.",
-                    "Disco duro."
+                    "Direcciones privadas y públicas.",
+                    "Direcciones estáticas y dinámicas.",
+                    "Direcciones anycast, unicast y multicast.",
+                    "Direcciones anycast, multicast y broadcast."
                 ],
                 correct: 2,
-                explanation: "DNS (Domain Name System) es el servicio encargado de traducir nombres de dominio en direcciones IP."
+                explanation: "IPv6 elimina el concepto de broadcast y utiliza Anycast, Unicast y Multicast para la identificación de interfaces."
             },
             {
-                question: "¿Qué protocolo se utiliza para la transferencia de archivos en una red?",
+                question: "La tasa de transferencia es inferior o igual al ancho de banda:",
                 options: [
-                    "HTTP.",
-                    "FTP.",
-                    "SMTP.",
-                    "SSH."
-                ],
-                correct: 1,
-                explanation: "FTP (File Transfer Protocol) es el protocolo estándar diseñado específicamente para mover archivos entre un cliente y un servidor."
-            },
-            {
-                question: "¿Qué función cumple el protocolo DHCP?",
-                options: [
-                    "Cifra los datos de navegación.",
-                    "Asigna direcciones IP de forma dinámica a los dispositivos de la red.",
-                    "Bloquea el acceso a sitios web no autorizados.",
-                    "Traduce nombres de dominio."
-                ],
-                correct: 1,
-                explanation: "El Dynamic Host Configuration Protocol permite que los dispositivos obtengan su configuración de red (IP, máscara, puerta de enlace) automáticamente."
-            },
-            {
-                question: "¿Qué es un servidor de correo electrónico?",
-                options: [
-                    "Un hardware que solo almacena archivos de texto.",
-                    "Un servicio que permite el envío y recepción de mensajes a través de una red.",
-                    "Una aplicación para chatear en tiempo real.",
-                    "Un tipo de conexión inalámbrica."
-                ],
-                correct: 1,
-                explanation: "Utiliza protocolos específicos como SMTP para el envío y POP3 o IMAP para la gestión de la recepción de mensajes."
-            },
-            {
-                question: "¿Qué significa HTTP?",
-                options: [
-                    "HyperText Transfer Protocol.",
-                    "High Transfer Text Protocol.",
-                    "Hyper Technology Total Protocol.",
-                    "Home Text Transfer Protocol."
+                    "Verdadero.",
+                    "Falso."
                 ],
                 correct: 0,
-                explanation: "Es el protocolo base de intercambio de información en la World Wide Web para la transferencia de documentos hipermedia."
+                explanation: "El ancho de banda es la capacidad máxima teórica, mientras que la tasa de transferencia (throughput) es la velocidad real, que siempre es limitada por factores externos."
             },
             {
-                question: "¿Qué es una dirección IP?",
+                question: "¿Cuál de las siguientes afirmaciones NO es correcta sobre los cables de par trenzado?",
                 options: [
-                    "El nombre del fabricante del equipo.",
-                    "Un identificador numérico único para cada dispositivo en una red.",
-                    "La velocidad de conexión a internet.",
-                    "Una contraseña de seguridad."
+                    "Hay varios tipos: UTP, STP, FTP.",
+                    "En la conexión cruzada solo cambia el orden de 4 de los 8 hilos.",
+                    "En conexión directa los dos extremos tienen el mismo orden de cables.",
+                    "El cable no puede comunicar con menos de 8 hilos."
                 ],
-                correct: 1,
-                explanation: "La dirección IP funciona como una dirección postal lógica para que los paquetes de datos encuentren el destino correcto."
+                correct: 3,
+                explanation: "Es incorrecta porque en estándares como 10/100Base-T, solo se necesitan 4 hilos (2 pares) para la comunicación."
             },
             {
-                question: "¿Cuál es la diferencia principal entre IPv4 e IPv6?",
+                question: "Sobre el Switch, marca la opción correcta:",
                 options: [
-                    "IPv4 es más rápido que IPv6.",
-                    "IPv6 tiene un espacio de direcciones mucho mayor que IPv4.",
-                    "IPv4 usa letras y IPv6 solo números.",
-                    "No hay diferencia, son iguales."
+                    "Es un dispositivo de nivel 2 y un puente multipuerto.",
+                    "Mejora las comunicaciones en la red respecto de los hub.",
+                    "Trabaja con direcciones MAC.",
+                    "Todas las anteriores son correctas."
                 ],
-                correct: 1,
-                explanation: "IPv4 usa 32 bits (4.300 millones de direcciones), mientras que IPv6 usa 128 bits para garantizar direcciones infinitas ante el agotamiento de las anteriores."
+                correct: 3,
+                explanation: "El switch es un dispositivo de capa de enlace (Nivel 2) que utiliza tablas MAC para conmutar tramas de forma eficiente, superando las limitaciones del hub."
             },
             {
-                question: "¿Qué es un puerto en términos de redes?",
+                question: "Marcar las formas de comunicación según el sentido de la transmisión:",
                 options: [
-                    "Un conector físico detrás del ordenador.",
-                    "Un punto final de comunicación lógico.",
-                    "Una antena de Wi-Fi.",
-                    "El lugar donde se conectan los cables submarinos."
+                    "Simplex, Semiduplex y Duplex.",
+                    "UniPlex, Simplex y Duplex.",
+                    "Solo Duplex y Semiduplex.",
+                    "Solo Simplex y Duplex."
                 ],
-                correct: 1,
-                explanation: "Los puertos permiten que un mismo dispositivo pueda gestionar múltiples servicios (ej: puerto 80 para web, puerto 21 para FTP) de forma simultánea."
+                correct: 0,
+                explanation: "Son los tres modos básicos: Simplex (un sentido), Half-Duplex o Semiduplex (ambos sentidos, no a la vez) y Full-Duplex (ambos sentidos simultáneos)."
             },
             {
-                question: "¿Qué herramienta se utiliza para verificar la conectividad entre dos dispositivos en una red?",
+                question: "Si dispones de una conexión a internet de 1 Giga, ¿cuál de las siguientes frases NO es cierta?",
                 options: [
-                    "Format.",
-                    "Copy.",
-                    "Ping.",
-                    "Delete."
+                    "Basta con tener tarjetas FastEthernet para aprovechar todo el ancho de banda.",
+                    "Si tenemos 3 equipos encendidos el ancho de banda consumido es repartido.",
+                    "Si un equipo no está conectado no consume ancho de banda.",
+                    "Si están descargando todos, el ancho se reparte entre los equipos."
                 ],
-                correct: 2,
-                explanation: "Ping envía paquetes de eco ICMP para comprobar si un destino responde y calcular la latencia de la conexión."
+                correct: 0,
+                explanation: "FastEthernet limita la velocidad a 100 Mbps, por lo que sería imposible aprovechar una conexión de 1 Gbps (Gigabit)."
+            },
+            {
+                question: "Una dirección IP 192.168.1.0/25 puede direccionar:",
+                options: [
+                    "126 hosts.",
+                    "224 hosts.",
+                    "254 hosts.",
+                    "128 hosts."
+                ],
+                correct: 0,
+                explanation: "Con una máscara /25 quedan 7 bits para hosts (2^7 = 128). Restando la dirección de red y la de broadcast, quedan 126 hosts útiles."
+            },
+            {
+                question: "El crosstalk es:",
+                options: [
+                    "Una perturbación de la señal.",
+                    "La capacidad de transmitir voz a través del cable.",
+                    "Una variante de cable de par trenzado.",
+                    "Ninguna de las anteriores."
+                ],
+                correct: 0,
+                explanation: "Se refiere a la interferencia electromagnética (diafonía) producida por el acoplamiento entre hilos cercanos."
+            },
+            {
+                question: "Marcar las frases correctas sobre control de acceso al medio:",
+                options: [
+                    "CSMA es un método muy usado y Ethernet es el más habitual.",
+                    "Hay dos métodos básicos: centralizados y descentralizados.",
+                    "Reducen colisiones en las transmisiones en medios compartidos.",
+                    "Todas las anteriores son correctas."
+                ],
+                correct: 3,
+                explanation: "Los mecanismos de control de acceso al medio (MAC) gestionan cómo los dispositivos comparten el canal físico para evitar o gestionar colisiones."
+            },
+            {
+                question: "Aumentado la máscara de /16 a /17 se producen dos subredes:",
+                options: [
+                    "Verdadero.",
+                    "Falso."
+                ],
+                correct: 0,
+                explanation: "Al tomar un bit prestado de la parte de host (2^1 = 2), dividimos el espacio de direcciones original en exactamente dos subredes."
             }
         ],
         "Test 2": [
             {
-                question: "¿Qué es un servidor DNS?",
+                question: "BNC es:",
                 options: [
-                    "Un servidor que almacena archivos de música.",
-                    "Un servidor que traduce nombres de dominio en direcciones IP.",
-                    "Un servidor que protege la red de virus.",
-                    "Un servidor que gestiona las impresoras."
+                    "Software de escritorio remoto.",
+                    "Conector estándar T568A.",
+                    "Conector suscriptor.",
+                    "Conector de cable coaxial."
                 ],
-                correct: 1,
-                explanation: "El DNS (Domain Name System) actúa como una \"agenda telefónica\", convirtiendo nombres legibles en IPs numéricas."
+                correct: 3,
+                explanation: "El conector BNC (Bayonet Neill-Concelman) es el estándar utilizado para cables coaxiales en redes antiguas y vídeo."
             },
             {
-                question: "¿Qué significa FTP?",
+                question: "El cableado estructurado es:",
                 options: [
-                    "Fast Transfer Protocol.",
-                    "File Transfer Protocol.",
-                    "Format Text Protocol.",
-                    "Fiber Transfer Protocol."
+                    "Una técnica para colocar el cableado dentro del edificio.",
+                    "Un conjunto de normas.",
+                    "Un recubrimiento para cables.",
+                    "Un tipo de cable."
                 ],
                 correct: 1,
-                explanation: "Es el protocolo estándar para la transferencia de archivos entre sistemas conectados a una red TCP."
+                explanation: "Es el conjunto de estándares (como TIA/EIA) que definen cómo debe diseñarse e instalarse la infraestructura de red en un edificio."
             },
             {
-                question: "¿Cuál es la función del protocolo SMTP?",
+                question: "¿Cuál de ellas es causante de una distorsión en la comunicación?",
                 options: [
-                    "Recibir correos electrónicos.",
-                    "Enviar correos electrónicos.",
-                    "Almacenar archivos en la nube.",
-                    "Cifrar la conexión web."
+                    "Elementos por los que pasa la señal.",
+                    "Distancia entre emisor y receptor.",
+                    "Entorno en el que se da la transmisión.",
+                    "Las tres anteriores son correctas."
                 ],
-                correct: 1,
-                explanation: "Simple Mail Transfer Protocol se utiliza específicamente para el intercambio de mensajes de correo electrónico entre servidores."
+                correct: 3,
+                explanation: "La señal se degrada por la resistencia del medio, la distancia (atenuación) y las interferencias del entorno."
             },
             {
-                question: "¿Qué es un servidor proxy?",
+                question: "¿En qué se fundamenta la transmisión por fibra óptica?",
                 options: [
-                    "Un dispositivo que aumenta la velocidad de internet.",
-                    "Un intermediario entre un cliente y un servidor.",
-                    "Un software de edición de fotos.",
-                    "Un tipo de cable de red."
+                    "En la transmisión de electricidad.",
+                    "En el cable de cobre.",
+                    "En los semiconductores.",
+                    "En la reflexión de la luz."
                 ],
-                correct: 1,
-                explanation: "Actúa como punto intermedio, pudiendo filtrar contenido, mejorar la seguridad o cachear datos para acelerar el acceso."
+                correct: 3,
+                explanation: "Utiliza pulsos de luz que viajan a través del núcleo de vidrio mediante el principio de reflexión total interna."
             },
             {
-                question: "¿Qué protocolo se utiliza para la navegación web segura?",
+                question: "Una dirección IPv4 de clase B puede direccionar:",
                 options: [
-                    "HTTP.",
-                    "HTTPS.",
-                    "FTP.",
-                    "SNMP."
+                    "65536 hosts.",
+                    "254 hosts.",
+                    "256 hosts.",
+                    "65534 hosts."
                 ],
-                correct: 1,
-                explanation: "El HTTPS utiliza el puerto 443 y cifra la comunicación mediante SSL/TLS para proteger la privacidad de los datos."
+                correct: 3,
+                explanation: "Una Clase B usa 16 bits para hosts (2^16 = 65536). Al restar red y broadcast, obtenemos 65534 hosts."
             },
             {
-                question: "¿Qué es una red local (LAN)?",
+                question: "WOL, Wake-On-LAN:",
                 options: [
-                    "Una red que conecta dispositivos en todo el mundo.",
-                    "Una red que conecta dispositivos en un área geográfica pequeña.",
-                    "Una red de satélites.",
-                    "Una red de telefonía móvil."
+                    "Sirve para crear subinterfaces.",
+                    "Sirve para conectarse remotamente.",
+                    "Sirve para encender un equipo remotamente a través de la red local.",
+                    "Sirve para instalar el SO por red."
                 ],
-                correct: 1,
-                explanation: "Local Area Network; es la que solemos tener en casa, en una oficina o en un edificio."
+                correct: 2,
+                explanation: "Es un estándar que permite encender un ordenador apagado mediante el envío de un \"Magic Packet\" a su tarjeta de red."
             },
             {
-                question: "¿Qué es un router?",
+                question: "Diferencias entre un cable coaxial y un cable de par trenzado:",
                 options: [
-                    "Un dispositivo que permite la conexión inalámbrica.",
-                    "Un dispositivo que dirige los paquetes de datos entre diferentes redes.",
-                    "Un programa para navegar por internet.",
-                    "Un tipo de monitor."
+                    "Tipo de conectores y longitud.",
+                    "Número de conductores que lo componen.",
+                    "Todas las anteriores.",
+                    "Ninguna es correcta."
                 ],
-                correct: 1,
-                explanation: "Su función principal es el enrutamiento: decidir qué camino deben seguir los datos para llegar a su red de destino."
+                correct: 2,
+                explanation: "Difieren en su construcción física (conductores), en los conectores (BNC vs RJ45) y en las distancias máximas que soportan."
             },
             {
-                question: "¿Qué es el protocolo TCP/IP?",
+                question: "Marcar las topologías inalámbricas:",
                 options: [
-                    "Un lenguaje de programación.",
-                    "Un conjunto de protocolos que permiten la comunicación en internet.",
-                    "Un sistema operativo para servidores.",
-                    "Un fabricante de hardware de red."
+                    "BBC.",
+                    "CBS.",
+                    "BCC.",
+                    "BSS."
                 ],
-                correct: 1,
-                explanation: "Es el modelo fundamental sobre el que se basa internet, dividiendo la comunicación en capas funcionales."
+                correct: 3,
+                explanation: "BSS (Basic Service Set) es la topología básica de una red inalámbrica formada por un punto de acceso y sus clientes."
             },
             {
-                question: "¿Qué función cumple el firewall?",
+                question: "PoE, Power-Over-Ethernet:",
                 options: [
-                    "Aumenta la capacidad de almacenamiento del servidor.",
-                    "Protege la red de accesos no autorizados.",
-                    "Limpia los cables de red.",
-                    "Mejora la calidad de imagen en streaming."
+                    "Es una tecnología para encender dispositivos Ethernet.",
+                    "Es una tecnología para encender ordenadores por red.",
+                    "Permite conectar puntos de acceso con otros dispositivos.",
+                    "Permite llevar la electricidad a través de un cable de red."
                 ],
-                correct: 1,
-                explanation: "El cortafuegos monitoriza y controla el tráfico entrante y saliente basándose en reglas de seguridad predefinidas."
+                correct: 3,
+                explanation: "PoE permite suministrar alimentación eléctrica a dispositivos (cámaras IP, teléfonos VoIP) usando los mismos hilos del cable de datos."
             },
             {
-                question: "¿Qué es la latencia de red?",
+                question: "La máscara habitual en las redes IPv6 es:",
                 options: [
-                    "El número de dispositivos conectados.",
-                    "El tiempo que tarda un paquete de datos en viajar de un punto a otro.",
-                    "El tamaño de los archivos que se transfieren.",
-                    "El coste de la conexión a internet."
+                    "48.",
+                    "32.",
+                    "46.",
+                    "64."
                 ],
-                correct: 1,
-                explanation: "Se mide generalmente en milisegundos (ms) y es clave para servicios en tiempo real como juegos online o videollamadas."
-            }
-        ],
-        "Test 3": [
-            {
-                question: "¿Qué es un servidor DNS?",
-                options: [
-                    "Un servidor que almacena archivos de música.",
-                    "Un servidor que traduce nombres de dominio en direcciones IP.",
-                    "Un servidor que protege la red de virus.",
-                    "Un servidor que gestiona las impresoras."
-                ],
-                correct: 1,
-                explanation: "El DNS (Domain Name System) actúa como una \"agenda telefónica\", convirtiendo nombres legibles en IPs numéricas."
-            },
-            {
-                question: "¿Qué significa FTP?",
-                options: [
-                    "Fast Transfer Protocol.",
-                    "File Transfer Protocol.",
-                    "Format Text Protocol.",
-                    "Fiber Transfer Protocol."
-                ],
-                correct: 1,
-                explanation: "Es el protocolo estándar para la transferencia de archivos entre sistemas conectados a una red TCP."
-            },
-            {
-                question: "¿Cuál es la función del protocolo SMTP?",
-                options: [
-                    "Recibir correos electrónicos.",
-                    "Enviar correos electrónicos.",
-                    "Almacenar archivos en la nube.",
-                    "Cifrar la conexión web."
-                ],
-                correct: 1,
-                explanation: "Simple Mail Transfer Protocol se utiliza específicamente para el intercambio de mensajes de correo electrónico entre servidores."
-            },
-            {
-                question: "¿Qué es un servidor proxy?",
-                options: [
-                    "Un dispositivo que aumenta la velocidad de internet.",
-                    "Un intermediario entre un cliente y un servidor.",
-                    "Un software de edición de fotos.",
-                    "Un tipo de cable de red."
-                ],
-                correct: 1,
-                explanation: "Actúa como punto intermedio, pudiendo filtrar contenido, mejorar la seguridad o cachear datos para acelerar el acceso."
-            },
-            {
-                question: "¿Qué protocolo se utiliza para la navegación web segura?",
-                options: [
-                    "HTTP.",
-                    "HTTPS.",
-                    "FTP.",
-                    "SNMP."
-                ],
-                correct: 1,
-                explanation: "El HTTPS utiliza el puerto 443 y cifra la comunicación mediante SSL/TLS para proteger la privacidad de los datos."
-            },
-            {
-                question: "¿Qué es una red local (LAN)?",
-                options: [
-                    "Una red que conecta dispositivos en todo el mundo.",
-                    "Una red que conecta dispositivos en un área geográfica pequeña.",
-                    "Una red de satélites.",
-                    "Una red de telefonía móvil."
-                ],
-                correct: 1,
-                explanation: "Local Area Network; es la que solemos tener en casa, en una oficina o en un edificio."
-            },
-            {
-                question: "¿Qué es un router?",
-                options: [
-                    "Un dispositivo que permite la conexión inalámbrica.",
-                    "Un dispositivo que dirige los paquetes de datos entre diferentes redes.",
-                    "Un programa para navegar por internet.",
-                    "Un tipo de monitor."
-                ],
-                correct: 1,
-                explanation: "Su función principal es el enrutamiento: decidir qué camino deben seguir los datos para llegar a su red de destino."
-            },
-            {
-                question: "¿Qué es el protocolo TCP/IP?",
-                options: [
-                    "Un lenguaje de programación.",
-                    "Un conjunto de protocolos que permiten la comunicación en internet.",
-                    "Un sistema operativo para servidores.",
-                    "Un fabricante de hardware de red."
-                ],
-                correct: 1,
-                explanation: "Es el modelo fundamental sobre el que se basa internet, dividiendo la comunicación en capas funcionales."
-            },
-            {
-                question: "¿Qué función cumple el firewall?",
-                options: [
-                    "Aumenta la capacidad de almacenamiento del servidor.",
-                    "Protege la red de accesos no autorizados.",
-                    "Limpia los cables de red.",
-                    "Mejora la calidad de imagen en streaming."
-                ],
-                correct: 1,
-                explanation: "El cortafuegos monitoriza y controla el tráfico entrante y saliente basándose en reglas de seguridad predefinidas."
-            },
-            {
-                question: "¿Qué es la latencia de red?",
-                options: [
-                    "El número de dispositivos conectados.",
-                    "El tiempo que tarda un paquete de datos en viajar de un punto a otro.",
-                    "El tamaño de los archivos que se transfieren.",
-                    "El coste de la conexión a internet."
-                ],
-                correct: 1,
-                explanation: "Se mide generalmente en milisegundos (ms) y es clave para servicios en tiempo real como juegos online o videollamadas."
+                correct: 3,
+                explanation: "El estándar de la industria para prefijos de subred en IPv6 es /64, lo que separa perfectamente el prefijo de red del identificador de interfaz."
             }
         ]
     }
