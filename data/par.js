@@ -1329,5 +1329,324 @@ export const questionsPAR = {
                 explanation: "Ambos definen de una forma o su contraria como transportar paquetes."
             }
         ]
+    },
+    "Tema 5: Configuración y administración de conmutadores. Internet de las cosas": {
+        "Test 1": [
+            {
+                question: "El dispositivo capaz de crear más de un dominio de colisión...",
+                options: [
+                    "Puede ser concentrador, conmutador o router.",
+                    "No existe.",
+                    "Es un conmutador.",
+                    "Es un concentrador."
+                ],
+                correct: 2,
+                explanation: "Un conmutador (switch) microsegmenta la red, es decir, cada uno de sus puertos pertenece a un dominio de colisión independiente."
+            },
+            {
+                question: "Auto-MDIX",
+                options: [
+                    "Son las iniciales de Multiple Disconect Interface, X indica el numero del puerto",
+                    "Tecnología que detecta la velocidad de la interface y se adapta a la velocidad detectada",
+                    "Tecnología que detecta si es necesario cruzar los cables al conectar 2 dispositivos",
+                    "Ninguna de las anteriores"
+                ],
+                correct: 2,
+                explanation: "Auto-MDIX (Automatic Medium-Dependent Interface Crossover) permite que el puerto configure internamente los pines de Rx/Tx para que no importe si usas un cable cruzado o directo."
+            },
+            {
+                question: "Todos los conmutadores trabajan en el nivel 1, 2 y 3 de OSI, ¿Verdadero o falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. Los conmutadores 'puros' o clásicos solo trabajan en los niveles 1 (físico) y 2 (enlace). Solamente los switches 'Multicapa' o 'Capa 3' llegan hasta el nivel de red."
+            },
+            {
+                question: "Los puertos de un switch:",
+                options: [
+                    "También se denominan interfaces",
+                    "Siempre es un número par",
+                    "Son un número de 16 bits",
+                    "No pueden superar 24 puertos"
+                ],
+                correct: 0,
+                explanation: "En la terminología de redes, los puertos físicos de conexión de un switch o router se denominan comúnmente 'interfaces'."
+            },
+            {
+                question: "¿Qué es segmentar una red?",
+                options: [
+                    "Crear varios dominios de colisión.",
+                    "Crear un segmento de red.",
+                    "Conectar un hub.",
+                    "Conectar dos nodos entre sí."
+                ],
+                correct: 0,
+                explanation: "Segmentar es dividir físicamente un gran dominio donde todos colisionan con todos, en dominios pequeñitos e independientes mediante switches o puentes."
+            },
+            {
+                question: "Un switch gestionable es lo mismo que un switch apilable, ¿Verdadero o falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. Apilable (Stackable) significa que se pueden unir varios mediante cables especiales para que actúen como uno solo. Gestionable significa que tiene sistema operativo (CLI/Web) para configurarlo."
+            },
+            {
+                question: "Las tablas alojadas en los conmutadores...",
+                options: [
+                    "Los conmutadores no pueden contener tablas.",
+                    "Contienen solamente las direcciones MAC de los equipos de la red.",
+                    "Son aprendidas del entorno y almacenan direcciones y puertos.",
+                    "Se graban cuando se fabrican y no se pueden cambiar."
+                ],
+                correct: 2,
+                explanation: "La tabla CAM (Content Addressable Memory) se va autocompletando dinámicamente según el switch 'escucha' en qué puerto está hablando cada MAC de origen."
+            },
+            {
+                question: "Un switch de configuración fija:",
+                options: [
+                    "No se puede conectar a un switch modular",
+                    "Ninguna de las anteriores",
+                    "No se puede conectar a otro switch de configuración fija",
+                    "No se puede conectar a un switch apilable"
+                ],
+                correct: 1,
+                explanation: "Que un switch sea de configuración fija (no se le pueden añadir más puertos mediante módulos o tarjetas) no limita en absoluto a qué otros aparatos lo puedes conectar por Ethernet."
+            },
+            {
+                question: "Tasa de reenvío",
+                options: [
+                    "Define la capacidad de procesamiento de un switch",
+                    "Es la velocidad en bits por segundo a la que un switch envía un paquete",
+                    "Define la capacidad de reenvio simultaneo",
+                    "Es la velocidad en bytes por segundo a la que un switch envía un paquete"
+                ],
+                correct: 0,
+                explanation: "La 'Forwarding Rate' (Tasa de Reenvío), expresada en Mpps (Millones de paquetes/tramas por segundo), mide la potencia pura del procesador del switch."
+            },
+            {
+                question: "QoS:",
+                options: [
+                    "Es recomendable en VoIP",
+                    "Sirve para asegurar un ancho de banda a un determinado servicio",
+                    "Son las iniciales de Quality of Service",
+                    "Todas las anteriores"
+                ],
+                correct: 3,
+                explanation: "QoS (Calidad de Servicio) etiqueta y prioriza tráfico crítico como la voz (VoIP) o vídeo para que no sufra retrasos ni pérdida de calidad aunque la red esté saturada."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "Todos los switchs trabajan en la capa:",
+                options: [
+                    "Ninguna de las anteriores",
+                    "Al menos capa 4",
+                    "Al menos capa 2",
+                    "Al menos capa 3"
+                ],
+                correct: 2,
+                explanation: "La característica definitoria de cualquier switch es leer cabeceras MAC para enviar tramas, una tarea exclusiva de la Capa 2 del modelo OSI (Enlace de datos)."
+            },
+            {
+                question: "Para pasar de modo usuario a modo privilegiado empleamos el comando:",
+                options: [
+                    "exec enable.",
+                    "config.",
+                    "enable.",
+                    "exec."
+                ],
+                correct: 2,
+                explanation: "En los sistemas IOS de Cisco, el comando `enable` realiza la transición del modo User EXEC (`>`) al Privileged EXEC (`#`)."
+            },
+            {
+                question: "Configuración de switchs:",
+                options: [
+                    "Todos los switchs son configurables al menos por telnet",
+                    "Los switchs de gama baja no son configurables",
+                    "Todos los switchs son configurables",
+                    "Todos los switchs son configurables o por telnet o vía web"
+                ],
+                correct: 1,
+                explanation: "Los switches domésticos o baratos (Unmanaged o 'Tontos') no traen sistema operativo ni IP, por lo tanto no pueden ser configurados ni gestionados de ninguna manera."
+            },
+            {
+                question: "Agregación de enlaces:",
+                options: [
+                    "Puede estar formada por 2 o más cables entre dos switchs",
+                    "Hay switchs que no disponen de esta característica",
+                    "Todas las anteriores",
+                    "Es una técnica que permite aumentar el ancho de banda entre 2 switchs"
+                ],
+                correct: 2,
+                explanation: "El Link Aggregation (LACP / EtherChannel) suma varios cables físicos (ej: 4 cables Gigabit) para lograr un colector unificado de más velocidad (ej: 4 Gbps lógicos)."
+            },
+            {
+                question: "Conmutación asimétrica",
+                options: [
+                    "Significa que se descarga a más velocidad que se sube",
+                    "Significa que se descarga a menos velocidad que se sube",
+                    "Permite conectar, por ejemplo, una interface 100Mbps con otra 1Gbps",
+                    "La mayoría de los switchs actuales son simétricos"
+                ],
+                correct: 2,
+                explanation: "La conmutación asimétrica se dota de memoria RAM (buffers) en sus puertos para poder recibir un chorro gigantesco de datos de un servidor Gigabit y frenarlo para inyectarlo sin pérdidas a un PC de 10 Mbps."
+            },
+            {
+                question: "Protocolo ARP",
+                options: [
+                    "Solo: Asocia IPs y direcciones MAC",
+                    "Solo: Mantiene una caché de asignaciones",
+                    "Asocia IPs a MACs, mantiene una caché, y es similar a DNS pero en un nivel inferior",
+                    "Es la última versión y se llama RARP"
+                ],
+                correct: 2,
+                explanation: "ARP se encarga de gritar preguntando '¿Quién tiene esta IP?' para conseguir su MAC y guardarla un rato en una tabla/caché para no volver a preguntar. Por ello actúa conceptualmente como un DNS pero de IPs a MACs."
+            },
+            {
+                question: "Un conmutador de nivel 3...",
+                options: [
+                    "También trabaja en los niveles 1 y 2.",
+                    "Trabaja solamente en el nivel enlace.",
+                    "No es posible, los conmutadores son de nivel 2.",
+                    "Opera solamente en el nivel de red pero no en el nivel enlace."
+                ],
+                correct: 0,
+                explanation: "Como todo dispositivo de red, si sube a una capa superior (Nivel 3, para rutear) debe forzosamente entender los campos de las capas inferiores por las que han circulado los bits antes (el cable físico 1 y la MAC 2)."
+            },
+            {
+                question: "STP",
+                options: [
+                    "Crea una red lógica en árbol",
+                    "Sirve para evitar bucles de broadcast",
+                    "Crea un árbol lógico para evitar bucles. Significa Spanning Tree Protocol y dispone de versiones actuales",
+                    "Ninguna de sus siglas es Spanning Tree"
+                ],
+                correct: 2,
+                explanation: "STP (Spanning Tree Protocol) monitoriza todas las rutas redundantes conmutadas de la red y desactiva algunas selectivamente (dejando un 'árbol' sin ciclos o bucles) para que una trama de broadcast no gire y bloquee el switch infinitamente."
+            },
+            {
+                question: "Power over Ethernet en un switch:",
+                options: [
+                    "Todos los switchs tienen esta característica",
+                    "Es aconsejable adquirir siempre los switchs con esta característica",
+                    "Un switch siempre tiene al menos un puerto con la característica PoE",
+                    "Si no se va a usar esta característica es mejor adquirirlo sin PoE para ahorrar costes"
+                ],
+                correct: 3,
+                explanation: "Las fuentes de alimentación robustas que requieren los switchs PoE disparan muchísimo los costes operativos y de adquisición. Por eso no es rentable un despliegue de estas características si solo conectaras PCs normales."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "Cuando una trama entra en un conmutador por un puerto de origen:",
+                options: [
+                    "Diferente al de destino, se descarta.",
+                    "Igual al puerto destino, se reenvía por ese puerto.",
+                    "Diferente al de destino, se reenvía por el puerto destino.",
+                    "Igual al de destino, se descarta"
+                ],
+                correct: 3,
+                explanation: "Si el destino y el origen están ambos colgando por el mismo puerto físico (porque haya un pequeño hub conectado ahí con ambos equipos enchufados), enviar la trama desde el origen a través de dicho puerto solo la devolvería hacia atrás. Por consiguiente se queda local dentro del hub y el switch simplemente la descarta."
+            },
+            {
+                question: "Cuando administramos un conmutador y podemos cambiar su configuración utilizando la línea de comandos podemos trabajar en modo:",
+                options: [
+                    "Modo usuario porque podemos consultar el estado de la configuración.",
+                    "Modo usuario y modo privilegiado.",
+                    "Modo usuario porque nos permite cambiar parámetros.",
+                    "Modo privilegiado."
+                ],
+                correct: 3,
+                explanation: "El modo usuario (`User EXEC`) solo permite utilizar contados comandos básicos de monitorización. No se puede configurar de ninguna forma si  no se escalan los privilegios."
+            },
+            {
+                question: "Telnet:",
+                options: [
+                    "Es menos seguro que ssh.",
+                    "Es lo mismo que ssh.",
+                    "Es más seguro que ssh.",
+                    "Se utiliza para configurar concentradores."
+                ],
+                correct: 0,
+                explanation: "Telnet viaja en texto total y absolutamente plano. Cualquier software sniffer conectado en medio puede capturar la sesión y ver tu contraseña escrita sin ninguna dificultad."
+            },
+            {
+                question: "Una pila de conmutadores es:",
+                options: [
+                    "Varios conmutadores unidos entre sí por el puerto uplink.",
+                    "Un conjunto de conmutadores que funcionan como una sola entidad.",
+                    "Varios conmutadores unidos entre sí por un puerto RJ45.",
+                    "Varios conmutadores unidos por el puerto consola."
+                ],
+                correct: 1,
+                explanation: "El apilado ('Stacking') en switches permite unificarlos a través de cables propietarios especiales de enorme velocidad (que ni son uplink, ni son RJ45 simple) para luego configurarlos todos desde un único menú maestro logico."
+            },
+            {
+                question: "SNMP",
+                options: [
+                    "Es un protocolo para administración de red",
+                    "Es un protocolo de gestión de correo",
+                    "Es un protocolo para evitar tormentas de broadcast",
+                    "Es un protocolo para evitar bucles"
+                ],
+                correct: 0,
+                explanation: "Significa Simple Network Management Protocol. Se usa extensivamente con agentes en los dispositivos para recoger datos en tiempo real de temperatura, uso de cpu o interfaces caídas y volcarlo a herramientas visuales y alertas centralizadas de administración."
+            },
+            {
+                question: "Un conmutador reenvía por todos sus puertos la información que le llega, ¿Verdadero o falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Rotundamente falso, porque precisamente esa es la labor destructiva de los obsoletos concentradores (Hubs). El switch aprende dónde se ubican los destinatarios de las tramas buscando en su tabla, y las reenvía ÚNICAMENTE por el puerto estricto y exacto el cual corresponda al destinatario."
+            },
+            {
+                question: "Los dispositivos que crean diferentes dominios de colisión son",
+                options: [
+                    "Routers y hubs",
+                    "Solamente los hubs.",
+                    "Puentes, switchs y routers.",
+                    "Solamente los routers."
+                ],
+                correct: 2,
+                explanation: "Históricamente lo lograban los costosos puentes. Hoy en día es el pan de cada día de los conmutadores multicapa (switchs). Los routers cortan tanto colisiones como broadcast."
+            },
+            {
+                question: "Al segmentar una red...",
+                options: [
+                    "Disminuyo el ancho de banda",
+                    "Reparto el ancho de banda.",
+                    "Aumento el ancho de banda.",
+                    "Creo un único segmento de red."
+                ],
+                correct: 1,
+                explanation: "En vez de que el canal se inunde con todo emitiendo a la vez de forma estruendosa en un único hilo, repartes matemáticamente la banda de capacidad equitativamente en pequeñas parcelas (anillos/pianos de cables) con ancho garantizado sin que tropiecen."
+            },
+            {
+                question: "El conmutador envía la información hacia uno u otro segmento de red.",
+                options: [
+                    "Porque reconoce las direcciones físicas de los equipos conectados.",
+                    "Porque utiliza las direcciones IP para identificar los destinos.",
+                    "Por el protocolo http.",
+                    "Porque reenvía la información a todos sus puertos."
+                ],
+                correct: 0,
+                explanation: "Su función y existencia tiene sentido y viabilidad económica gracias a que su firmware y chips ASIC detectan la Dirección Física ('MAC address') y encarrilan el tren digital por la correspondiente aguja."
+            },
+            {
+                question: "Un concentrador reenvía por todos sus puertos la información que le llega excepto por el puerto que la recibe. ¿Verdadero o falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Un hub o concentrador copia a nivel voltaje 1:1 toda modulación de datos por cada pin eléctrico de la caja para que los demás lo escuchen. Como no tiene lógica propia para filtrar, es imposible que reenvíe algo hacia atrás si choca contra sí misma (por simple ley física de cables directos de tx/rx)."
+            }
+        ]
     }
 };
