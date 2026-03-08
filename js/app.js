@@ -63,7 +63,7 @@ const state = {
     questions: [],
     currentIndex: 0,
     score: 0,
-    isAnswered: false,
+    userAnswers: [],
     selectedOptionIndex: null
 };
 
@@ -102,6 +102,8 @@ const btnRestartHome = document.getElementById('btn-restart-home');
 const finalScore = document.getElementById('final-score');
 const finalMessage = document.getElementById('final-message');
 const scoreCircleContainer = document.getElementById('score-circle-container');
+const detailedResultsContainer = document.getElementById('detailed-results-container');
+const btnRepeatMistakes = document.getElementById('btn-repeat-mistakes');
 
 // ---- Inicialización ----
 function init() {
@@ -241,7 +243,6 @@ function setupEventListeners() {
     });
 
     optionsContainer.addEventListener('click', (e) => {
-        if (state.isAnswered) return;
         const optionBtn = e.target.closest('.option-btn');
         if (!optionBtn) return;
 
@@ -268,28 +269,32 @@ function setupEventListeners() {
         if (confirm('¿Abandonar test en curso?')) resetToDashboard();
     });
     btnRestartHome.addEventListener('click', resetToDashboard);
-    btnRestartTest.addEventListener('click', startQuiz);
+    btnRestartTest.addEventListener('click', () => startQuiz());
 }
 
 // ---- Quiz Logic ----
-function startQuiz() {
-    state.questions = [...state.selectedTest.questions].sort(() => Math.random() - 0.5);
+function startQuiz(questionsToUse = null) {
+    if (questionsToUse) {
+        state.questions = [...questionsToUse].sort(() => Math.random() - 0.5);
+    } else {
+        state.questions = [...state.selectedTest.questions].sort(() => Math.random() - 0.5);
+    }
     state.currentIndex = 0;
     state.score = 0;
+    state.userAnswers = [];
 
     subjectTitle.textContent = state.selectedModule.name;
     subjectTitle.style.color = state.selectedModule.color;
     testBreadcrumbs.textContent = `${state.selectedModule.name} ➔ ${state.selectedTheme.name}`;
     currentTestName.textContent = state.selectedTest.name;
     totalQNum.textContent = state.questions.length;
+    scoreDisplay.classList.add('hidden'); // Hide score during quiz so it's a blind test
 
-    updateScoreUI();
     switchView('quiz');
     loadQuestion();
 }
 
 function loadQuestion() {
-    state.isAnswered = false;
     state.selectedOptionIndex = null;
 
     const question = state.questions[state.currentIndex];
@@ -307,24 +312,20 @@ function loadQuestion() {
         btn.dataset.index = index;
         btn.innerHTML = `
             <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-900 border border-slate-600 flex items-center justify-center text-xs font-bold text-slate-400 group-hover:text-white transition-colors">${String.fromCharCode(65 + index)}</span>
-            <span class="flex-grow text-sm md:text-base">${optionText}</span>
+            <span class="flex-grow text-sm md:text-base leading-snug break-words">${optionText}</span>
         `;
         optionsContainer.appendChild(btn);
     });
 
     const confirmBtn = document.createElement('button');
     confirmBtn.id = 'btn-confirm-answer';
-    confirmBtn.className = 'w-full mt-4 px-6 py-3.5 rounded-xl bg-slate-800/80 text-slate-500 border border-slate-700 cursor-not-allowed transition-all font-bold uppercase tracking-wider shadow-sm text-sm';
-    confirmBtn.textContent = 'Confirmar Respuesta';
+    confirmBtn.className = 'w-full mt-4 px-6 py-3.5 rounded-xl bg-slate-800/80 text-slate-500 border border-slate-700 cursor-not-allowed transition-all font-bold uppercase tracking-wider shadow-sm text-sm md:text-base';
+    confirmBtn.textContent = (state.currentIndex === state.questions.length - 1) ? 'Finalizar Test' : 'Siguiente Pregunta';
     confirmBtn.disabled = true;
 
     confirmBtn.addEventListener('click', () => {
-        if (!state.isAnswered && state.selectedOptionIndex !== null) {
+        if (state.selectedOptionIndex !== null) {
             handleAnswer(state.selectedOptionIndex);
-            confirmBtn.textContent = (state.currentIndex === state.questions.length - 1) ? 'Ver Reporte' : 'Siguiente Pregunta';
-            confirmBtn.className = 'w-full mt-4 px-6 py-3.5 rounded-xl bg-slate-800 border border-cyber-blue text-cyber-blue hover:bg-slate-700 transition-all font-bold uppercase tracking-wider text-sm md:text-base shadow-neon';
-        } else if (state.isAnswered) {
-            nextQuestion();
         }
     });
 
@@ -332,37 +333,19 @@ function loadQuestion() {
 }
 
 function handleAnswer(selectedIndex) {
-    state.isAnswered = true;
     const question = state.questions[state.currentIndex];
     const isCorrect = selectedIndex === question.correct;
 
-    const allOptions = optionsContainer.querySelectorAll('.option-btn');
-    allOptions.forEach((btn, idx) => {
-        btn.classList.remove('hover:bg-slate-700', 'hover:border-slate-500', 'cursor-pointer', 'group', 'ring-2', 'ring-cyber-blue', 'border-cyber-blue');
-        btn.classList.add('opacity-40', 'cursor-default');
-        const badge = btn.querySelector('span:first-child');
-
-        if (idx === question.correct) {
-            btn.classList.remove('opacity-40', 'bg-slate-800/60', 'border-slate-700');
-            btn.classList.add('bg-green-900/40', 'border-green-500', 'text-green-300', 'ring-2', 'ring-green-500', 'opacity-100');
-            badge.className = 'flex-shrink-0 w-8 h-8 rounded-lg bg-green-500 border border-green-400 flex items-center justify-center text-xs font-bold text-black';
-        } else if (idx === selectedIndex && !isCorrect) {
-            btn.classList.remove('opacity-40', 'bg-slate-800/60', 'border-slate-700');
-            btn.classList.add('bg-red-900/40', 'border-red-500', 'text-red-300', 'ring-2', 'ring-red-500', 'opacity-100');
-            badge.className = 'flex-shrink-0 w-8 h-8 rounded-lg bg-red-500 border border-red-400 flex items-center justify-center text-xs font-bold text-white';
-        }
+    state.userAnswers.push({
+        questionObj: question,
+        selectedIndex: selectedIndex,
+        isCorrect: isCorrect
     });
 
     if (isCorrect) state.score += 10;
     updateScoreUI();
 
-    if (question.explanation) {
-        const expl = document.createElement('div');
-        expl.className = `mt-4 mb-2 p-4 rounded-xl text-[11px] md:text-xs border-l-4 leading-relaxed animate-fade-in ${isCorrect ? 'bg-green-900/10 border-green-500 text-green-200' : 'bg-slate-900/80 border-blue-500 text-blue-200'}`;
-        expl.innerHTML = `<strong>EXPLICACIÓN:</strong> ${question.explanation}`;
-        const confirmBtn = document.getElementById('btn-confirm-answer');
-        optionsContainer.insertBefore(expl, confirmBtn);
-    }
+    nextQuestion();
 }
 
 function updateScoreUI() {
@@ -377,12 +360,54 @@ function nextQuestion() {
 
 function finishTest() {
     switchView('results');
+    scoreDisplay.classList.remove('hidden'); // Show again if needed, or leave hidden since we show final score on screen.
     const percentage = Math.round((state.score / (state.questions.length * 10)) * 100);
     finalScore.textContent = `${percentage}%`;
     finalMessage.textContent = percentage >= 50 ? '¡Rendimiento Óptimo! Has superado el reporte con éxito.' : 'Fallo Crítico detectado localmente. Es necesario revisar el temario.';
 
-    scoreCircleContainer.className = 'w-32 h-32 md:w-36 md:h-36 rounded-full border-4 flex items-center justify-center shadow-glass transition-all mb-4 bg-slate-900/50 backdrop-blur-sm';
+    scoreCircleContainer.className = 'w-32 h-32 md:w-36 md:h-36 rounded-full border-4 flex items-center justify-center shadow-glass transition-all bg-slate-900/50 backdrop-blur-sm shrink-0';
     scoreCircleContainer.classList.add(percentage >= 50 ? 'border-cyber-neon shadow-neon' : 'border-cyber-red shadow-red');
+
+    // Muestra resultados detallados y fallos
+    detailedResultsContainer.innerHTML = '';
+    const mistakes = [];
+
+    state.userAnswers.forEach((ans, i) => {
+        const q = ans.questionObj;
+        if (!ans.isCorrect) mistakes.push(q);
+
+        const resDiv = document.createElement('div');
+        resDiv.className = `p-4 md:p-5 rounded-xl border ${ans.isCorrect ? 'bg-green-900/10 border-green-500/30' : 'bg-red-900/10 border-red-500/30'} flex flex-col gap-2 shadow-sm text-sm mt-2 font-medium`;
+
+        let html = `
+            <div class="font-bold text-slate-200 mb-2 border-b border-slate-700/50 pb-3 leading-snug">${i + 1}. ${q.question}</div>
+            <div class="flex flex-col gap-2 pl-1 pt-1">
+        `;
+
+        if (ans.isCorrect) {
+            html += `<span class="text-green-400 flex items-start gap-2"><span class="shrink-0 text-base leading-none">✓</span> <span class="leading-snug break-words">${q.options[ans.selectedIndex]}</span></span>`;
+        } else {
+            html += `<span class="text-red-400 flex items-start gap-2 opacity-90"><span class="shrink-0 text-base leading-none">✗</span> <span class="leading-snug break-words">${q.options[ans.selectedIndex]}</span></span>`;
+            html += `<span class="text-green-400 flex items-start gap-2 mt-1"><span class="shrink-0 text-base leading-none">✓</span> <span class="leading-snug break-words">${q.options[q.correct]}</span></span>`;
+        }
+
+        html += `</div>`;
+
+        if (q.explanation) {
+            html += `<div class="mt-4 p-3 rounded-lg bg-slate-900/60 border-l-2 ${ans.isCorrect ? 'border-green-500 text-green-200/80' : 'border-blue-500 text-blue-200/80'} text-xs md:text-sm leading-relaxed tracking-wide"><strong>Explicación:</strong> ${q.explanation}</div>`;
+        }
+        resDiv.innerHTML = html;
+        detailedResultsContainer.appendChild(resDiv);
+    });
+
+    if (mistakes.length > 0) {
+        btnRepeatMistakes.classList.remove('hidden');
+        btnRepeatMistakes.onclick = () => {
+            startQuiz(mistakes);
+        };
+    } else {
+        btnRepeatMistakes.classList.add('hidden');
+    }
 }
 
 function resetToDashboard() {

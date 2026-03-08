@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test ASIR ONLINE - Da Vinci Albacete v2.12</title>
+    <title>Test ASIR ONLINE - Da Vinci Albacete v2.13</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -110,7 +110,7 @@
             Test ASIR ONLINE
         </h1>
         <p class="text-xs md:text-sm text-slate-400 tracking-widest uppercase">
-            Da Vinci Albacete • v2.12
+            Da Vinci Albacete • v2.13
         </p>
     </header>
 
@@ -236,28 +236,37 @@
 
         <!-- Pantalla de Resultados -->
         <section id="result-screen"
-            class="hidden glass-panel rounded-3xl p-8 md:p-12 shadow-glass flex flex-col items-center justify-center gap-6 text-center animate-fade-in w-full max-w-3xl mx-auto">
+            class="hidden glass-panel rounded-3xl p-6 md:p-8 shadow-glass flex flex-col items-center justify-start gap-4 text-center animate-fade-in w-full max-w-4xl mx-auto mt-4 mb-10">
             <h2 class="text-2xl md:text-3xl font-bold text-white mb-2 tracking-tight">Reporte Finalizado</h2>
             <div id="score-circle-container"
-                class="w-32 h-32 md:w-36 md:h-36 rounded-full border-4 flex items-center justify-center shadow-glass transition-all mb-4 bg-slate-900/50 backdrop-blur-sm">
+                class="w-32 h-32 md:w-36 md:h-36 rounded-full border-4 flex items-center justify-center shadow-glass transition-all bg-slate-900/50 backdrop-blur-sm shrink-0">
                 <span id="final-score" class="text-4xl md:text-5xl font-bold">0%</span>
             </div>
-            <p id="final-message" class="text-base md:text-lg text-slate-300 max-w-md font-medium"></p>
-            <div class="flex flex-col sm:flex-row gap-4 mt-6 w-full sm:w-auto">
+            <p id="final-message" class="text-base md:text-lg text-slate-300 font-medium"></p>
+
+            <div id="detailed-results-container" class="w-full text-left flex flex-col gap-4 mt-4 mb-4">
+                <!-- Inyectado por JS -->
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full justify-center">
+                <button id="btn-repeat-mistakes"
+                    class="hidden w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-800 border border-cyber-red text-cyber-red hover:bg-slate-700 font-bold uppercase tracking-wider text-xs md:text-sm transition-all">
+                    Repetir Fallos
+                </button>
                 <button id="btn-restart-test"
-                    class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-slate-700 hover:bg-slate-600 border border-slate-500 transition-colors text-white font-bold uppercase tracking-wider text-xs md:text-sm">
-                    Reintentar Test
+                    class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-700 hover:bg-slate-600 border border-slate-500 transition-colors text-white font-bold uppercase tracking-wider text-xs md:text-sm">
+                    Test Completo
                 </button>
                 <button id="btn-restart-home"
-                    class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyber-blue to-blue-600 hover:from-blue-500 hover:to-cyber-dark text-white border border-transparent transition-all shadow-blue font-bold uppercase tracking-wider text-xs md:text-sm">
-                    Volver al Inicio
+                    class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyber-blue to-blue-600 hover:from-blue-500 hover:to-cyber-dark text-white border border-transparent transition-all shadow-blue font-bold uppercase tracking-wider text-xs md:text-sm">
+                    Inicio
                 </button>
             </div>
         </section>
 
     </main>
 
-    <script type="module" src="./js/app.js?v=2.12"></script>
+    <script type="module" src="./js/app.js?v=2.13"></script>
 </body>
 
 </html>
