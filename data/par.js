@@ -24,7 +24,7 @@ export const questionsPAR = {
                     "Kilobit = 1000 bits"
                 ],
                 correct: 3,
-                explanation: "Siguiendo el estándar del SI, el prefijo Kilo equivale a 10^3 (1000)."
+                explanation: "Siguiendo el estándar del SI, el prefijo Kilo equivale a 1000. Para 1024, el término estricto sería kibibit."
             },
             {
                 question: "Las normas que debe cumplir una tarjeta de red se tratan en la capa del modelo TCP-IP",
@@ -74,12 +74,12 @@ export const questionsPAR = {
                 question: "El número hexadecimal 8 es:",
                 options: [
                     "8 en hexadecimal",
-                    "8 en hexadecimal y decimal",
                     "en octal, hexadecimal y decimal",
-                    "8 en binario, octal, hexadecimal y decimal"
+                    "8 en binario, octal, hexadecimal y decimal",
+                    "8 en hexadecimal y decimal"
                 ],
-                correct: 1,
-                explanation: "El dígito \"8\" existe y representa el mismo valor tanto en el sistema decimal (base 10) como en el hexadecimal (base 16)."
+                correct: 3,
+                explanation: "El valor 8 se representa con el mismo símbolo \"8\" tanto en el sistema decimal como en el hexadecimal."
             },
             {
                 question: "¿Cómo afecta el cambio de protocolo de IPv4 a IPv6 a la capa de Acceso a Red?",
@@ -90,18 +90,18 @@ export const questionsPAR = {
                     "Las MAC deben aumentar su tamaño en bits"
                 ],
                 correct: 1,
-                explanation: "IPv4 e IPv6 operan en la capa de Red (Internet); la capa de Acceso a Red es independiente del protocolo de capa superior que se utilice."
+                explanation: "La capa de acceso a red/enlace de datos funciona de manera independiente al protocolo de red utilizado en la capa superior."
             },
             {
                 question: "La IPv6 2001:05F8:0000:ABCD:0000:AB00:00AB:AB00 se puede resumir en:",
                 options: [
-                    "2001:5F8:0:ABCD:0:AB00:AB:AB00",
+                    "2001:5F8::ABCD::AB00:00AB:AB00",
                     "2001:5F8::ABCD:0000:AB00:AB:AB00",
-                    "2001:5F8::ABCD::AB::AB:AB",
+                    "2001:5F8::ABCD::AB::AB",
                     "2001:05F8:0000:ABCD:0000:AB00:00AB:AB00"
                 ],
-                correct: 0,
-                explanation: "Se eliminan los ceros a la izquierda de cada segmento y se puede sustituir un grupo de ceros por un solo \"0\". Ésta es una representación simplificada válida."
+                correct: 1,
+                explanation: "Recordando que solo se puede usar un bloque \"::\" para resumir ceros consecutivos."
             },
             {
                 question: "Una red pequeña suele conocerse como",
@@ -117,114 +117,112 @@ export const questionsPAR = {
         ],
         "Test 2": [
             {
-                question: "El número decimal 15 es",
+                question: "Indica las igualdades correctas:",
                 options: [
-                    "10 en binario",
-                    "E en hexadecimal",
-                    "F en hexadecimal",
-                    "1110 en binario"
-                ],
-                correct: 2,
-                explanation: "En el sistema hexadecimal, el 15 se representa con la letra F."
-            },
-            {
-                question: "Indica la igualdad correcta",
-                options: [
-                    "1 MiB = 1.000.000 bytes",
-                    "1 MiB = 1.000.000 bits",
-                    "1 MiB = 1.048.576 bytes",
-                    "1 MiB = 1.048.576 bits"
-                ],
-                correct: 2,
-                explanation: "El Mebibyte (MiB) es una unidad binaria que equivale exactamente a 2^20 bytes."
-            },
-            {
-                question: "El número binario 1010 equivale a",
-                options: [
-                    "12 en decimal",
-                    "10 en decimal",
-                    "A en hexadecimal",
-                    "Las respuestas b y c son correctas"
+                    "1 Megabyte = 1000 Kilobytes",
+                    "1 Mebibyte = 1024 Kibibytes",
+                    "1 Megabyte = 1000000 bytes",
+                    "Todas las igualdades indicadas son correctas"
                 ],
                 correct: 3,
-                explanation: "1010 en binario es 8+2=10 en decimal, lo cual se representa como 'A' en hexadecimal."
+                explanation: "Según el estándar internacional (SI), el prefijo Mega/Kilo se basa en potencias de 10, mientras que Mebi/Kibi se basa en potencias de 2. Y 1 Mebibyte también es 1048576 bytes."
             },
             {
-                question: "La capa del modelo TCP/IP que se encarga del enrutamiento de paquetes es",
+                question: "Indica las igualdades correctas:",
                 options: [
-                    "Acceso a red",
-                    "Internet",
-                    "Transporte",
-                    "Aplicación"
+                    "1 Kilobyte = 1024 bytes",
+                    "1 Kibibyte = 1000 bytes",
+                    "1 Kilobyte = 1000 bytes",
+                    "Tanto 1 Kilobyte = 1000 bytes como 1 Kibibyte = 1024 bytes"
                 ],
-                correct: 1,
-                explanation: "La capa de Internet (donde reside el protocolo IP) es la responsable de determinar la mejor ruta para los datos."
+                correct: 3,
+                explanation: "El prefijo Kilo representa 1000, y Kibi representa 1024."
             },
             {
-                question: "Una dirección IPv4 consta de",
+                question: "Encapsulamiento es el proceso por el que",
                 options: [
-                    "16 bits",
-                    "32 bits",
-                    "48 bits",
-                    "128 bits"
-                ],
-                correct: 1,
-                explanation: "Las direcciones IPv4 están formadas por 4 octetos (4 x 8 = 32 bits)."
-            },
-            {
-                question: "¿Cuál de las siguientes es una dirección MAC válida?",
-                options: [
-                    "192.168.1.1",
-                    "2001:0db8:85a3::8a2e:0370:7334",
-                    "00:1A:2B:3C:4D:5E",
-                    "FF-FF-FF-FG-FF-FF"
+                    "Se dividen los datos en paquetes pequeños que serán enviados independientemente",
+                    "Se determina la ruta óptima para el envío de datos.",
+                    "Cada capa rodea los datos a enviar con información propia de la capa",
+                    "Se entran todos los datos dentro de un sistema capsular y se envían"
                 ],
                 correct: 2,
-                explanation: "Una dirección MAC tiene 48 bits (6 pares hexadecimales). La opción 'd' es incorrecta porque la 'G' no es un carácter hexadecimal."
+                explanation: "A medida que los datos atraviesan el modelo de capas de arriba a abajo, cada capa agrega su propia cabecera (encapsula) para poder comunicarse con su capa equivalente en el destino."
             },
             {
-                question: "El protocolo encargado de asignar direcciones IP de forma automática es",
+                question: "La máscara /25 nos permite",
                 options: [
-                    "DNS",
-                    "HTTP",
-                    "DHCP",
-                    "TCP"
+                    "254 combinaciones diferentes",
+                    "126 combinaciones diferentes",
+                    "128 combinaciones diferentes",
+                    "256 combinaciones diferentes"
                 ],
                 correct: 2,
-                explanation: "DHCP (Dynamic Host Configuration Protocol) permite que los dispositivos obtengan su configuración de red automáticamente."
+                explanation: "Al tener /25, quedan 7 bits para hosts, y 2^7 = 128 combinaciones posibles. Ojo: si preguntara por equipos o hosts útiles, serían 126."
             },
             {
-                question: "La topología de red en la que todos los nodos están conectados a un punto central se llama",
+                question: "Las direcciones IPs pueden ser",
                 options: [
-                    "Bus",
-                    "Anillo",
+                    "Privadas",
+                    "Dinámicas o Públicas",
+                    "Estáticas",
+                    "Todas las anteriores son características válidas de una dirección IP"
+                ],
+                correct: 3,
+                explanation: "Una IP puede ser asignada de forma dinámica, ser estática, pertenecer a un rango privado o ser pública y enrutable en Internet."
+            },
+            {
+                question: "Indica qué red admite más equipos:",
+                options: [
+                    "/22",
+                    "/24",
+                    "/23",
+                    "/21"
+                ],
+                correct: 3,
+                explanation: "A menor número en la máscara de red, más bits quedan libres para direccionar equipos, por tanto caben más."
+            },
+            {
+                question: "Una topología lógica en estrella es siempre una topología física en estrella.",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. Por ejemplo, en redes Token Ring antiguas, la topología física podía ser una estrella (conectadas a un concentrador), pero la topología lógica (cómo viaja la información) era un anillo pasándose el testigo."
+            },
+            {
+                question: "La topología física de red en forma circular es:",
+                options: [
                     "Estrella",
-                    "Malla"
+                    "Bus",
+                    "Árbol",
+                    "Anillo"
                 ],
-                correct: 2,
-                explanation: "En la topología en estrella, todos los equipos se conectan a un switch o hub central."
+                correct: 3,
+                explanation: "La topología en anillo conecta los nodos en una ruta circular cerrada donde cada nodo está conectado exactamente a otros dos."
             },
             {
-                question: "Un Megabyte (MB) equivale a",
+                question: "La expresión 00:90:F5:FB:79:AB es un ejemplo de:",
                 options: [
-                    "1024 Kilobits",
-                    "8 Megabits",
-                    "1000 bits",
-                    "1 Mebibyte"
+                    "MAC",
+                    "IPv4",
+                    "Puerto",
+                    "IPv6"
                 ],
-                correct: 1,
-                explanation: "Como 1 Byte = 8 bits, 1 Megabyte equivale a 8 Megabits."
+                correct: 0,
+                explanation: "Es una Dirección física MAC (Media Access Control) de 48 bits representada en formato hexadecimal."
             },
             {
-                question: "¿Qué dispositivo opera principalmente en la capa de Acceso a Red (Capa 2 del modelo OSI)?",
+                question: "La dirección 0.0.0.0:",
                 options: [
-                    "Router",
-                    "Switch",
-                    "Hub",
-                    "Servidor"
+                    "Si existe y es especial.",
+                    "Es pública.",
+                    "Es de difusión.",
+                    "No existe."
                 ],
-                correct: 1,
-                explanation: "El Switch trabaja con direcciones MAC, situándose en la capa de enlace de datos (Acceso a red en TCP/IP)."
+                correct: 0,
+                explanation: "Sí existe y es especial. Se utiliza normalmente para designar una ruta por defecto o representar 'cualquier red'."
             }
         ],
         "Test 3": [
@@ -242,13 +240,13 @@ export const questionsPAR = {
             {
                 question: "Indica la igualdad correcta",
                 options: [
-                    "Megabit = 1.048.576 bits",
-                    "Megabit = 1.000.000 bytes",
-                    "Megabit = 1.000.000 bits",
-                    "Megabit = 1.048.576 bytes"
+                    "Megabit = 1048576 bits",
+                    "Megabit = 1000000 bytes",
+                    "Megabit = 1000000 bits",
+                    "Megabit = 1048576 bytes"
                 ],
                 correct: 2,
-                explanation: "Según el SI, el prefijo Mega indica 10^6 (un millón)."
+                explanation: "Según la norma SI, un Megabit (Mb) expresa un millón de bits."
             },
             {
                 question: "La capa más cercana al usuario en el modelo TCP/IP es",
@@ -259,18 +257,18 @@ export const questionsPAR = {
                     "Física"
                 ],
                 correct: 2,
-                explanation: "La capa de aplicación proporciona la interfaz para que los programas de usuario accedan a los servicios de red."
+                explanation: "La capa de aplicación es la que interactúa directamente con las aplicaciones de software del usuario."
             },
             {
                 question: "Marca qué protocolos pertenecen a la capa Aplicación del modelo TCP-IP",
                 options: [
                     "DNS",
                     "TCP",
-                    "DNS y HTTP",
-                    "IP"
+                    "HTTP",
+                    "Tanto DNS como HTTP"
                 ],
-                correct: 2,
-                explanation: "DNS y HTTP operan en la capa superior de Aplicación, mientras que TCP es de transporte e IP es de red."
+                correct: 3,
+                explanation: "DNS y HTTP operan en la capa de Aplicación. TCP es de transporte e IP es de red."
             },
             {
                 question: "La tecnología de comunicación que se caracteriza por usar un canal exclusivo es:",
@@ -281,18 +279,18 @@ export const questionsPAR = {
                     "Punto a punto"
                 ],
                 correct: 3,
-                explanation: "Las conexiones punto a punto establecen un enlace directo y dedicado entre dos nodos."
+                explanation: "En las conexiones punto a punto, dos nodos se comunican mediante un enlace dedicado y exclusivo."
             },
             {
-                question: "Indica la afirmación correcta referente a las capacidades",
+                question: "Indica las respuestas correctas:",
                 options: [
-                    "1 Megabyte es menor que 1 Mebibyte y 1 Kilobit es menor que 1 Kilobyte.",
+                    "1 Megabyte es menor que 1 Mebibyte",
                     "1 Kilobit es igual a 1 kB",
-                    "1 Kilobit es menor que 1 Kilobyte, pero 1 Megabyte es igual que 1 Mebibyte",
-                    "1 Megabyte es igual que 1 Mebibyte"
+                    "1 Megabyte es igual que 1 Mebibyte",
+                    "1 Megabyte es menor que 1 Mebibyte y 1 Kilobit es menor que 1 Kilobyte"
                 ],
-                correct: 0,
-                explanation: "Un MB (10^6) es menor que un MiB (2^20). Un Kilobit (1000 bits) es mucho menor que un Kilobyte (8000 bits)."
+                correct: 3,
+                explanation: "1 Megabyte (10^6 bytes) es menor que 1 Mebibyte (2^20 bytes). Y 1 Kilobit (1000 bits) es lógicamente menor que 1 Kilobyte (1000 bytes / 8000 bits)."
             },
             {
                 question: "La suma binaria 11 + 11, en binario es",
@@ -303,18 +301,18 @@ export const questionsPAR = {
                     "No se pueden sumar números binarios"
                 ],
                 correct: 0,
-                explanation: "11 en binario es 3. 3 + 3 = 6. El número 6 en binario es 110."
+                explanation: "En decimal sería 3 + 3 = 6; y el número 6 en binario es 110."
             },
             {
                 question: "La resta hexadecimal FFFFFF - FFFFFE, es",
                 options: [
-                    "Todas las opciones son correctas",
+                    "Todas las respuestas indicadas son correctas",
                     "1 en decimal",
                     "1 en binario",
                     "1 en hexadecimal"
                 ],
                 correct: 0,
-                explanation: "La resta da como resultado 1, que se representa exactamente igual en los tres sistemas numéricos."
+                explanation: "La diferencia es 1, y el número 1 se representa exactamente igual en base decimal, binaria y hexadecimal."
             },
             {
                 question: "El número 15 decimal es",
@@ -325,10 +323,10 @@ export const questionsPAR = {
                     "1110 en binario"
                 ],
                 correct: 2,
-                explanation: "15 dividido por 8 da cociente 1 y resto 7, por lo que su representación es 17 en base 8."
+                explanation: "En octal, 1 grupo de 8 más 7 unidades suman 15."
             },
             {
-                question: "Protocolo de red se define como:",
+                question: "Protocolo de red",
                 options: [
                     "Componente lógico de red",
                     "Orden de llegada de los datos",
@@ -336,7 +334,7 @@ export const questionsPAR = {
                     "Conjunto de elementos y dispositivos de una red"
                 ],
                 correct: 2,
-                explanation: "Un protocolo define las normas, reglas y formatos acordados para el intercambio de mensajes entre dispositivos."
+                explanation: "Un protocolo es un conjunto de reglas estandarizadas que formatan y controlan el tránsito de la información en una red."
             }
         ]
     },

@@ -266,9 +266,9 @@ function setupEventListeners() {
 
     btnNext.addEventListener('click', nextQuestion);
     btnAbandon.addEventListener('click', () => {
-        if (confirm('¿Abandonar test en curso?')) resetToDashboard();
+        if (confirm('¿Abandonar test en curso?')) backToThemeTests();
     });
-    btnRestartHome.addEventListener('click', resetToDashboard);
+    btnRestartHome.addEventListener('click', backToThemeTests);
     btnRestartTest.addEventListener('click', () => startQuiz());
 }
 
@@ -429,6 +429,16 @@ function resetToDashboard() {
     state.selectedTheme = null;
     state.selectedTest = null;
     switchView('dashboard');
+}
+
+function backToThemeTests() {
+    if (!state.selectedTheme) {
+        resetToDashboard();
+        return;
+    }
+    state.selectedTest = null;
+    renderTestsList(state.selectedTheme);
+    state.view = 'tests';
 }
 
 document.addEventListener('DOMContentLoaded', init);
