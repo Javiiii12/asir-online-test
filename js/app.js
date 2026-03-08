@@ -1,3 +1,4 @@
+import { questionsPAR } from '../data/par.js';
 import { questionsFH } from '../data/fh.js';
 import { questionsDIG } from '../data/dig.js';
 import { questionsSOS } from '../data/sos.js';
@@ -36,7 +37,7 @@ const rawAppStructure = [
         name: 'Planificación y Adm. de Redes',
         color: '#00f0ff', // Blue
         icon: '🌐',
-        themes: []
+        themes: buildThemeStructure('par', questionsPAR)
     },
     {
         id: 'fh',
