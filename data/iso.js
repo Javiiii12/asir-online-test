@@ -1314,5 +1314,354 @@ export const questionsISO = {
                 explanation: "La directiva 'workgroup' define el grupo de trabajo de Windows al que se unirá el servidor Samba."
             }
         ]
+    },
+    "Tema 5: Administración de la información": {
+        "Test 1": [
+            {
+                question: "¿Cuál de los siguientes volúmenes básicos multidisco corresponde al RAID-0?",
+                options: [
+                    "El conjunto de bandas con paridad.",
+                    "El conjunto de espejos.",
+                    "El conjunto de volúmenes.",
+                    "El conjunto de bandas sin paridad."
+                ],
+                correct: 3,
+                explanation: "El RAID 0 une discos repartiendo los datos en bandas sin paridad para ganar velocidad, pero sin tolerancia a fallos."
+            },
+            {
+                question: "¿Cuáles de estos sistemas reconocen discos dinámicos? (Selección múltiple)",
+                options: [
+                    "Windows XP Home.",
+                    "Cualquier versión de Windows Server.",
+                    "Cualquier versión de Windows 10.",
+                    "Cualquier versión de Linux."
+                ],
+                correct: [1, 2],
+                explanation: "Los discos dinámicos son soportados por Windows Server y las versiones profesionales/modernas de Windows de escritorio."
+            },
+            {
+                question: "¿Cuál de las siguientes rutas puede corresponder al Escritorio de Juan?",
+                options: [
+                    "C:\\PerfLogs\\Juan",
+                    "C:\\Usuarios\\Juan\\Escritorio",
+                    "C:\\Escritorio\\Juan",
+                    "C:\\Windows\\Desktop\\Juan"
+                ],
+                correct: 1,
+                explanation: "En Windows, las carpetas personales se encuentran dentro del perfil del usuario en C:\\Usuarios\\."
+            },
+            {
+                question: "¿Qué nombre reciben los extremos de un archivo?",
+                options: ["Principio y fin.", "Cabecera y cola.", "Comienzo y final.", "Cabeza y trasera."],
+                correct: 1,
+                explanation: "Se utiliza 'Cabecera' (Header) para el inicio y 'Cola' (Tail) para el final del archivo."
+            },
+            {
+                question: "¿Cuál de las siguientes es la modalidad más moderna de la familia FAT?",
+                options: ["FAT16.", "FAT12.", "FAT64.", "FAT32."],
+                correct: 3,
+                explanation: "De la lista de nomenclaturas clásicas, FAT32 es la versión final y más avanzada de la familia FAT."
+            },
+            {
+                question: "En el formateo a bajo nivel:",
+                options: [
+                    "No se eliminan ni los datos ni los programas.",
+                    "Se eliminan los datos pero no los programas.",
+                    "Se eliminan los programas pero no los datos.",
+                    "Se eliminan tanto los datos como los programas."
+                ],
+                correct: 3,
+                explanation: "El formateo a bajo nivel reescribe la estructura física del disco, destruyendo de forma irreversible toda la información."
+            },
+            {
+                question: "Indica qué tipos de RAID se podrían montar con cinco discos. (Selección múltiple)",
+                options: ["RAID-0.", "RAID-1.", "RAID 0+1.", "RAID-5."],
+                correct: [0, 3],
+                explanation: "RAID 0 (mínimo 2 discos) y RAID 5 (mínimo 3 discos) pueden configurarse con 5 unidades."
+            },
+            {
+                question: "¿En qué lugar se sitúa el sector de arranque (MBR)?",
+                options: [
+                    "Al final de cada partición.",
+                    "Al comienzo del disco.",
+                    "Al comienzo de cada partición.",
+                    "Al final del disco."
+                ],
+                correct: 1,
+                explanation: "El Master Boot Record (MBR) se sitúa siempre en el primer sector físico absoluto del disco (Sector 0)."
+            },
+            {
+                question: "Señala la afirmación correcta sobre las reglas de particionado UEFI (GPT):",
+                options: [
+                    "Se pueden crear particiones lógicas y primarias.",
+                    "Se pueden crear particiones lógicas.",
+                    "Se pueden crear solo particiones primarias.",
+                    "Se pueden crear extendidas."
+                ],
+                correct: 2,
+                explanation: "UEFI/GPT permite hasta 128 particiones primarias, eliminando la necesidad de particiones extendidas y lógicas."
+            },
+            {
+                question: "Señala las afirmaciones correctas sobre particionado MBR. (Selección múltiple)",
+                options: [
+                    "Puede haber más de una partición lógica en un mismo disco.",
+                    "La partición extendida es un tipo de partición primaria.",
+                    "La partición primaria no puede contener sólo datos.",
+                    "Un disco con MBR no puede tener más de cuatro particiones primarias."
+                ],
+                correct: [0, 3],
+                explanation: "El MBR limita a 4 primarias; para tener más, se usa una extendida con múltiples unidades lógicas."
+            },
+            {
+                question: "Señala las afirmaciones correctas. (Selección múltiple)",
+                options: [
+                    "La partición swap es un tipo de partición típica de Linux.",
+                    "La partición activa es en la que se inicia el arranque del sistema.",
+                    "La partición extendida puede contener particiones lógicas y primarias.",
+                    "Sobre la partición lógica no puede instalarse un sistema operativo."
+                ],
+                correct: [0, 1],
+                explanation: "Swap es la memoria virtual de Linux y la partición activa marca dónde reside el gestor de arranque."
+            },
+            {
+                question: "¿Qué es un clúster?",
+                options: ["La capacidad exacta de un bloque.", "Una agrupación de bloques.", "El tamaño de un cilindro.", "El espacio de una pista."],
+                correct: 1,
+                explanation: "Un clúster o unidad de asignación es el conjunto mínimo de sectores (bloques) que el SO puede gestionar."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "¿Cuáles de los siguientes nombres de archivo NO son correctos? (Selección múltiple)",
+                options: [
+                    "archivo.com",
+                    "archivo\"a\".com",
+                    "Archivo$.com",
+                    "3archivos.com"
+                ],
+                correct: [1, 2],
+                explanation: "Las comillas (\") están prohibidas. El símbolo $ también se considera inválido en contextos de temario clásico."
+            },
+            {
+                question: "¿Cuáles de las siguientes afirmaciones son ciertas? (Selección múltiple)",
+                options: [
+                    "El sistema ext3 incluye journaling sobre ext2.",
+                    "El sistema ext2 utiliza una tabla de i-nodos.",
+                    "El sistema ext3 está basado en extents.",
+                    "El sistema ext4 es compatible con ext3 pero sin journaling."
+                ],
+                correct: [0, 1],
+                explanation: "ext3 añadió journaling a ext2. ext4 fue el que introdujo los extents y mantiene el journaling."
+            },
+            {
+                question: "La técnica de inodos es típica de:",
+                options: ["Symbian/Android.", "Windows y Linux.", "sistemas Windows.", "sistemas Linux."],
+                correct: 3,
+                explanation: "Los i-nodos son la estructura fundamental de gestión de archivos en sistemas tipo Unix/Linux."
+            },
+            {
+                question: "¿A qué equivale un volumen seccionado?",
+                options: [
+                    "Al conjunto de bandas sin paridad.",
+                    "Al conjunto de bandas con paridad.",
+                    "Al conjunto de volúmenes.",
+                    "Al conjunto de espejos."
+                ],
+                correct: 0,
+                explanation: "Volumen seccionado es el término de Windows para un RAID-0 (bandas sin paridad)."
+            },
+            {
+                question: "¿Cuál de los siguientes no es un tipo de mantenimiento?",
+                options: ["Mantenimiento preventivo.", "Mantenimiento predictivo.", "Mantenimiento correctivo.", "Mantenimiento interactivo."],
+                correct: 3,
+                explanation: "Los mantenimientos estándar son Preventivo, Predictivo y Correctivo. El 'interactivo' no existe."
+            },
+            {
+                question: "¿Cuál de los siguientes directorios de Linux contiene los archivos de configuración del sistema?",
+                options: ["/dev", "/etc", "/bin", "/conf"],
+                correct: 1,
+                explanation: "/etc almacena los archivos de configuración globales y de servicios en sistemas Linux."
+            },
+            {
+                question: "¿Cuáles de las siguientes características son típicas de NTFS? (Selección múltiple)",
+                options: [
+                    "Está basado en el sistema de archivos HPFS.",
+                    "Windows NT no puede manejarlo.",
+                    "Soporta dominios.",
+                    "Linux no puede manejarlo."
+                ],
+                correct: [0, 2],
+                explanation: "NTFS se basó en HPFS y soporta características de seguridad para Dominios (Active Directory)."
+            },
+            {
+                question: "La ruta '../ventas/octubre' se considera:",
+                options: ["No hay datos.", "relativa.", "típica de Windows.", "absoluta."],
+                correct: 1,
+                explanation: "Es relativa porque empieza con ../, indicando una posición respecto al directorio actual."
+            },
+            {
+                question: "Indica qué tipos de RAID se podrían montar con cinco discos. (Selección múltiple)",
+                options: ["RAID-1.", "RAID-5.", "RAID-0.", "RAID 0+1."],
+                correct: [1, 2],
+                explanation: "RAID-0 (desde 2 discos) y RAID-5 (desde 3 discos) son válidos para un conjunto de 5 unidades."
+            },
+            {
+                question: "¿Cuáles de estos sistemas reconocen discos dinámicos? (Selección múltiple)",
+                options: [
+                    "Cualquier versión de Linux.",
+                    "Windows XP Home.",
+                    "Cualquier versión de Windows Server.",
+                    "Cualquier versión de Windows 10."
+                ],
+                correct: [2, 3],
+                explanation: "Es una característica de gestión de volúmenes de Windows Server y ediciones Pro/Enterprise de escritorio."
+            },
+            {
+                question: "Señala las afirmaciones correctas sobre particiones. (Selección múltiple)",
+                options: [
+                    "La partición swap es típica de Linux.",
+                    "Sobre la partición lógica no puede instalarse un SO.",
+                    "La partición activa inicia el arranque.",
+                    "La partición extendida puede contener primarias."
+                ],
+                correct: [0, 2],
+                explanation: "Swap es área de intercambio y la partición activa indica dónde está el sector de arranque."
+            },
+            {
+                question: "Si en la carpeta 'compras' tengo un archivo llamado 'nacional.dat':",
+                options: [
+                    "Puede haber otro archivo con el mismo nombre en distinta carpeta.",
+                    "En Linux no es posible este nombre.",
+                    "No puede haber otro en todo el equipo.",
+                    "Solo tendrá una ruta absoluta."
+                ],
+                correct: 0,
+                explanation: "Los nombres deben ser únicos dentro de una carpeta, pero pueden repetirse en directorios diferentes."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "Señala las tareas que se llevan a cabo para mantener un disco. (Selección múltiple)",
+                options: [
+                    "Comprobar el estado físico.",
+                    "Verificación de la integridad de datos.",
+                    "Optimización del espacio.",
+                    "Desfragmentación."
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: "Todas son tareas esenciales de mantenimiento para asegurar la salud y rendimiento del disco."
+            },
+            {
+                question: "¿Cuáles de las siguientes afirmaciones son ciertas? (Selección múltiple)",
+                options: [
+                    "El sistema ext3 está basado en extents.",
+                    "El sistema ext4 es compatible con ext3 pero sin journaling.",
+                    "El sistema ext2 utiliza i-nodos.",
+                    "El sistema ext3 incluye journaling sobre ext2."
+                ],
+                correct: [2, 3],
+                explanation: "ext2 usa inodos y ext3 añadió el journaling como mejora principal."
+            },
+            {
+                question: "Señala las afirmaciones correctas sobre RAID. (Selección múltiple)",
+                options: [
+                    "RAID-5 es una variante de RAID-0 con control de errores.",
+                    "RAID-1 utiliza discos en parejas.",
+                    "RAID 0+1 es lo mismo que RAID 1+0.",
+                    "RAID-0 no es realmente un RAID."
+                ],
+                correct: [0, 1, 3],
+                explanation: "RAID-0 no es 'realmente' un RAID por falta de redundancia. RAID-1 usa pares y RAID-5 añade paridad."
+            },
+            {
+                question: "¿Qué es el Fake RAID?",
+                options: [
+                    "No existe este término.",
+                    "RAID sin discos.",
+                    "RAID por hardware gestionado por la placa base.",
+                    "RAID simulado por software."
+                ],
+                correct: 2,
+                explanation: "Es un RAID híbrido que usa circuitería en la placa base pero depende de la CPU y drivers del SO."
+            },
+            {
+                question: "¿Se puede convertir un disco básico a dinámico?",
+                options: [
+                    "Sí, incluso en extraíbles.",
+                    "No, sólo de dinámico a básico.",
+                    "Sí, pero sólo si los discos son fijos.",
+                    "Sí, pero implica pérdida de datos."
+                ],
+                correct: 2,
+                explanation: "Windows permite convertir discos rígidos internos, pero no unidades USB o memorias extraíbles."
+            },
+            {
+                question: "Señala las afirmaciones correctas sobre la conversión de dinámico a básico. (Selección múltiple)",
+                options: [
+                    "Se mantiene el SO y arranca.",
+                    "No es necesario borrar datos.",
+                    "Hay que eliminar todos los volúmenes previamente.",
+                    "Los volúmenes no pueden convertirse a particiones."
+                ],
+                correct: [2, 3],
+                explanation: "Para pasar de dinámico a básico hay que borrar todos los volúmenes (y datos) primero."
+            },
+            {
+                question: "¿Cuál de las siguientes características es típica de FAT?",
+                options: ["Soporta dominios.", "Elimina la fragmentación.", "Control de acceso.", "Soporte para LFNs."],
+                correct: 3,
+                explanation: "El soporte para nombres largos (LFN) fue una de las mejoras clave del sistema FAT/VFAT."
+            },
+            {
+                question: "Si en la carpeta 'compras' tengo 'nacional.dat':",
+                options: [
+                    "En Linux no es posible.",
+                    "No puede haber otro igual en el equipo.",
+                    "Puede haber otro igual en distinta carpeta.",
+                    "Solo tendrá una ruta absoluta."
+                ],
+                correct: 2,
+                explanation: "Dos archivos pueden llamarse igual mientras estén en rutas o directorios diferentes."
+            },
+            {
+                question: "¿Qué designa la variable %SystemDrive%?",
+                options: [
+                    "Directorio Windows.",
+                    "Disco duro principal.",
+                    "Unidades extraíbles.",
+                    "Unidad lógica que contiene el sistema operativo."
+                ],
+                correct: 3,
+                explanation: "Es la variable de entorno que apunta a la letra de unidad donde reside Windows (normalmente C:)."
+            },
+            {
+                question: "Conversión de básico a dinámico en Windows 10. (Selección múltiple)",
+                options: [
+                    "No es posible si el disco es USB.",
+                    "Necesita al menos 1MB libre al final.",
+                    "La conversión mantiene las particiones.",
+                    "Se mantiene el SO arrancable en otros sistemas."
+                ],
+                correct: [0, 1],
+                explanation: "No funciona en USB y requiere un pequeño espacio al final para la base de datos de gestión de volúmenes."
+            },
+            {
+                question: "La técnica de inodos es típica de:",
+                options: ["Windows y Linux.", "sistemas Windows.", "sistemas Linux.", "Symbian/Android."],
+                correct: 2,
+                explanation: "Es el mecanismo estándar de almacenamiento de metadatos en file systems de Linux."
+            },
+            {
+                question: "Mediante la técnica de asignación indexada:",
+                options: [
+                    "Acceso más rápido por direcciones cortas.",
+                    "Las direcciones de bloques se colocan en una tabla de registros.",
+                    "Elimina la fragmentación.",
+                    "Cada bloque apunta al siguiente."
+                ],
+                correct: 1,
+                explanation: "Un bloque índice guarda la tabla de punteros hacia todos los bloques de datos del archivo."
+            }
+        ]
     }
-}
+};
