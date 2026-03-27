@@ -482,5 +482,238 @@ export const questionsISO = {
                 explanation: "Falso. Permite la comunicación entre el USUARIO y el sistema operativo."
             }
         ]
+    },
+    "Tema 2: Instalación, desinstalación y actualización de aplicaciones libres y propietarias": {
+        "Test 1": [
+            {
+                question: "¿Cuál es el fichero donde se encuentran las fuentes de repositorios en Ubuntu?",
+                options: [
+                    "/etc/conf/sources.list",
+                    "/etc/apt/sources.list",
+                    "/usr/bin/update-manager",
+                    "/etc/apt-get update"
+                ],
+                correct: 1,
+                explanation: "En sistemas basados en Debian como Ubuntu, el gestor de paquetes APT guarda la lista de repositorios en este archivo específico."
+            },
+            {
+                question: "¿Cómo se identifican las aplicaciones en el sistema operativo Linux para saber a qué distribución va dirigida y tipo de paquete?",
+                options: [
+                    "Mediante un nombre",
+                    "Mediante un nombre, una extensión y una numeración",
+                    "Mediante un numeración",
+                    "Mediante un nombre y una extensión"
+                ],
+                correct: 1,
+                explanation: "Un paquete en Linux suele incluir el nombre, la versión/numeración, la arquitectura y la extensión (ej: .deb o .rpm)."
+            },
+            {
+                question: "El sistema operativo Windows 10 está considerado de tipo multiusuario.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Windows 10 permite crear múltiples cuentas de usuario, cada una con su propia configuración y archivos."
+            },
+            {
+                question: "¿Cuáles se consideran formatos en los que se distribuyen aplicaciones? (Selección múltiple)",
+                options: ["RPM", "deb", "ISO", "ZIP"],
+                correct: [0, 1, 2, 3],
+                explanation: "RPM y deb son paquetes nativos, ISO para imágenes de disco y ZIP para aplicaciones portables o código fuente."
+            },
+            {
+                question: "¿Qué funciones principales tiene el servicio Windows Update?",
+                options: [
+                    "Actualizar el sistema operativo",
+                    "Actualizar el sistema operativo e Instalar Services Packs",
+                    "Instalar y desinstalar aplicaciones de propósito general",
+                    "Instalar Services Packs"
+                ],
+                correct: 1,
+                explanation: "Windows Update gestiona tanto parches de seguridad como grandes actualizaciones de características (Service Packs)."
+            },
+            {
+                question: "Para mostrar una variable del sistema en Windows se utiliza el comando Set Nombredevariable.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Para mostrar el valor de una variable se utiliza 'echo %Nombre %' o el comando 'set' sin parámetros para ver todas."
+            },
+            {
+                question: "¿Cuando se instala una aplicación no es recomendable realizar una serie de operaciones o fases de implantación?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Es falso porque SÍ es recomendable realizar una planificación y validación cuidadosa antes de instalar software."
+            },
+            {
+                question: "¿Qué archivos contienen los paquetes fuentes en Linux? (Selección múltiple)",
+                options: ["dsc", "Data.tar.gz", "fuenteIff.gz", "orig.tar.gz"],
+                correct: [0, 3],
+                explanation: "En Debian/Ubuntu, constan de un .dsc (descriptor) y un .orig.tar.gz (código fuente original)."
+            },
+            {
+                question: "Normalmente se puede instalar la misma aplicación para un sistema operativo que trabaje a 64 bits que a 32 bits.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Una aplicación de 64 bits no funcionará en un SO de 32 bits, aunque la inversa suele ser posible."
+            },
+            {
+                question: "¿Qué comando ejecutamos para actualizar los cambios del GRUB en el sistema Linux Ubuntu?",
+                options: [
+                    "sudo update grub-customizer",
+                    "sudo apt-get update-grub",
+                    "sudo upgrade-grub && sudo upgrade-grub2",
+                    "sudo update-grub && sudo update-grub2"
+                ],
+                correct: 3,
+                explanation: "El comando correcto es update-grub para regenerar el archivo de configuración grub.cfg."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "Podemos considerar que VisualBasic.Net es un programa de utilidad.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "VB.NET es un entorno de desarrollo y lenguaje de programación, no una utilidad del sistema."
+            },
+            {
+                question: "¿Cuál es el fichero Linux Ubuntu que tiene todos los script de inicialización?",
+                options: ["/etc/init.d", "/etc/init.d/rc 0", "/etc/inittab", "/etc/rc.d"],
+                correct: 2,
+                explanation: "En sistemas Linux clásicos (SysV), /etc/inittab era el fichero principal de configuración de inicialización."
+            },
+            {
+                question: "¿Cuál es la orden utilizada para instalar la aplicación nautilus en Ubuntu desde cualquier usuario?",
+                options: [
+                    "sudo apt-get install nautilus",
+                    "rpm install nautilus",
+                    "apt-get install nautilus",
+                    "sudo Apt-Get install nautilus"
+                ],
+                correct: 0,
+                explanation: "Se requiere 'sudo' para obtener privilegios de administración al instalar software mediante apt-get."
+            },
+            {
+                question: "Es más seguro gestionar las particiones de los sistemas operativos Windows con un sistema de ficheros NTFS.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "NTFS permite permisos de seguridad granulares, cifrado y tiene mejor tolerancia a fallos que FAT32."
+            },
+            {
+                question: "El comando tar es capaz de descomprimir y desempaquetar aplicaciones para poder realizar el proceso de linkaje y compilación.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. Se usa frecuentemente para extraer archivos de código fuente (.tar.gz) antes de compilarlos."
+            },
+            {
+                question: "¿Donde se encuentra el archivo de configuración Grub en Linux Ubuntu?",
+                options: [
+                    "/boot/grub/grub.cfg",
+                    "/etc/grub.conf",
+                    "/etc/bin/grub.conf",
+                    "/boot/grub.conf"
+                ],
+                correct: 0,
+                explanation: "En Ubuntu (GRUB 2), el archivo de configuración autogenerado está en /boot/grub/grub.cfg."
+            },
+            {
+                question: "Con Windows Update podemos ver el historial de actualizaciones.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Sí, existe una sección específica para revisar las actualizaciones instaladas y su estado."
+            },
+            {
+                question: "Para eliminar una variable del sistema en Windows se utiliza el comando Set Nombredevariable=Valor.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Para eliminarla se usa 'Set Nombre= ' (sin valor). Asignarle un valor la crea o la modifica."
+            },
+            {
+                question: "Podemos actualizar el sistema completo de Linux Ubuntu con la herramienta gráfica Synaptic.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Synaptic permite marcar todas las actualizaciones disponibles y aplicarlas de forma conjunta."
+            },
+            {
+                question: "¿Para que el usuario root se convierta de forma permanente en el sistema y no solicite contraseña en cada comando se ejecuta?",
+                options: ["sudo su", "sudo comando_demonio", "passwd", "Sudo"],
+                correct: 0,
+                explanation: "'sudo su' abre una sesión de superusuario, permitiendo ejecutar comandos de administración sin el prefijo sudo."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "No podemos instalar actualizaciones de Windows sin conexión a Internet.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Se pueden instalar usando archivos .msu independientes descargados previamente o herramientas como WSUS Offline."
+            },
+            {
+                question: "¿Cuál es la herramienta de Windows que permite manipular las opciones de arranque del sistema en Windows Server 2019?",
+                options: ["BCDEdit.exe", "Regedit", "Autoexec.bat", "Cmd"],
+                correct: 0,
+                explanation: "BCDEdit es el editor oficial para los datos de configuración de arranque (BCD) en Windows modernos."
+            },
+            {
+                question: "¿Cuál es el fichero de Linux Ubuntu donde se encuentran los listados de las fuentes que suministran aplicaciones?",
+                options: [
+                    "/ect/host",
+                    "/etc/apt/sources.list",
+                    "/usr/bin/update-manager",
+                    "/etc/update-manager"
+                ],
+                correct: 1,
+                explanation: "Este archivo contiene las URLs de los repositorios que APT consulta para descargar software."
+            },
+            {
+                question: "El sistema administrador de paquetes de Windows se encuentra en:",
+                options: [
+                    "Inicio-Panel de control-Programas",
+                    "Inicio-Herramientas administrativas",
+                    "Configuración-Sistema",
+                    "En el repositorios de paquetes"
+                ],
+                correct: 0,
+                explanation: "En el Panel de Control, bajo 'Programas y características', se gestiona la instalación y desinstalación centralizada."
+            },
+            {
+                question: "¿En qué lugar se encuentra la aplicación Synaptic en Windows?",
+                options: [
+                    "En el escritorio",
+                    "Synaptic no se encuentra en Windows",
+                    "Inicio-Panel de control-Synaptic",
+                    "Inicio-Todos los programas- Synaptic"
+                ],
+                correct: 1,
+                explanation: "Synaptic es un gestor de paquetes exclusivo de entornos Linux basados en Debian/APT."
+            },
+            {
+                question: "¿Cuál es la herramienta utilizada para la gestión de paquetes de tipo .deb?",
+                options: ["dpkg", "Gzip", "Rpm", "Zip"],
+                correct: 0,
+                explanation: "dpkg es el gestor básico que maneja directamente los archivos de paquete .deb."
+            },
+            {
+                question: "Cuando se instala un dispositivo en el ordenador es necesario cargar el programa controlador, el cual variará según la versión de sistema.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Los controladores (drivers) deben ser compatibles tanto con el hardware como con la versión exacta del SO."
+            },
+            {
+                question: "¿Cuál es la orden de Linux Ubuntu utilizada para actualizar el sistema?",
+                options: ["apt update", "dist-upgrade", "apt-get update", "more /ect/host"],
+                correct: 0,
+                explanation: "Tanto 'apt update' como 'apt-get update' sincronizan el índice local con los repositorios."
+            },
+            {
+                question: "¿Cuál es el interprete de comando usado normalmente por defecto en Linux?",
+                options: ["Ninguno", "bash", "ksh", "csh"],
+                correct: 1,
+                explanation: "Bash (Bourne Again SHell) es la consola estándar en la mayoría de las distribuciones Linux."
+            },
+            {
+                question: "Un programa pasa a ser un proceso cuando se carga completamente en memoria y pasa a ser ejecutado.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Se convierte en proceso cuando el SO le asigna recursos (CPU, RAM) y comienza su ejecución activa."
+            }
+        ]
     }
-};
+}
