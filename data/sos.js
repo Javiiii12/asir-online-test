@@ -219,5 +219,113 @@ export const questionsSOS = {
                 explanation: "Falso. Si se 'reciclan', el material se destruye para fabricar algo nuevo. Los que se pueden volver a usar en su forma original son los 'reutilizables'."
             }
         ]
+    },
+    "Tema 5: Plan de sostenibilidad de una empresa, grupos de interés, aspectos ASG y acciones para su gestión y medición": {
+        "Test 1": [
+            {
+                question: "En el ámbito empresarial, las siglas RSE hacen referencia a:",
+                options: [
+                    "Responsabilidad Sostenible Empresarial.",
+                    "Respeto Sostenible Empresarial",
+                    "Respeto Social Empresarial.",
+                    "Responsabilidad Social Empresarial."
+                ],
+                correct: 3,
+                explanation: "La Responsabilidad Social Empresarial (RSE) es el compromiso consciente y congruente de cumplir integralmente con la finalidad de la empresa, tanto en lo interno como en lo externo."
+            },
+            {
+                question: "La materia prima del Tencel:",
+                options: [
+                    "Es una celulosa obtenida de la pulpa de madera.",
+                    "Es una resina utilizada en la fabricación de plásticos que pueden ser biodegradables y provienen de fuentes sostenibles.",
+                    "Generalmente de eucalipto.",
+                    "Proviene del látex de árboles de caucho."
+                ],
+                correct: 0,
+                explanation: "El Tencel es una fibra de lyocell producida a partir de pulpa de madera de árboles gestionados de forma sostenible."
+            },
+            {
+                question: "En sostenibilidad, un enfoque holístico implica analizar y actuar teniendo en cuenta el conjunto completo del sistema, no solo una parte aislada. En el ámbito educativo, un enfoque holístico se caracteriza por:",
+                options: [
+                    "Respeta su individualidad.",
+                    "Conecta al estudiante con su entorno.",
+                    "Atiende el desarrollo integral (emocional, social, cognitivo).",
+                    "Todas son correctas."
+                ],
+                correct: 3,
+                explanation: "El enfoque holístico en educación busca el desarrollo total del individuo en conexión con su comunidad y el planeta."
+            },
+            {
+                question: "El Plan de Sostenibilidad es la hoja de ruta que determina la estrategia de una organización en materia de sostenibilidad.",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Es el documento estratégico que guía las acciones de la empresa para mejorar su impacto ambiental, social y económico."
+            },
+            {
+                question: "Los indicadores ambientales son medidas cuantitativas o cualitativas que se utilizan para evaluar diversos aspectos de bienestar y la calidad de vida de una sociedad.",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. Los indicadores ambientales miden el estado o la evolución de factores del medio ambiente, no directamente el bienestar social (que serían indicadores sociales)."
+            },
+            {
+                question: "¿Qué es un informe de Sostenibilidad?",
+                options: [
+                    "Un documento que comunica los impactos ambientales, sociales y económicos de una empresa y su desempeño en sostenibilidad, proporcionando transparencia y responsabilidad a los stakeholders.",
+                    "Un informe de auditoria interna.",
+                    "Un plan de negocios para nuevos productos.",
+                    "Un reporte financiero."
+                ],
+                correct: 0,
+                explanation: "Es una herramienta de comunicación y transparencia que permite a los grupos de interés conocer el desempeño ASG de la organización."
+            },
+            {
+                question: "Un Plan de Sostenibilidad es:",
+                options: [
+                    "Es un documento que comunica los impactos ambientales, sociales y económicos de una empresa y su desempeño en sostenibilidad.",
+                    "Es un documento público que comunica el desempeño de una empresa en materia de Sostenibilidad a sus grupos de interés.",
+                    "Un documento estratégico que define los objetivos, metas, acciones y recursos que una empresa se compromete a implementar para mejorar su desempeño ambiental, social y económico.",
+                    "Debe seguir los estándares reconocidos como GRI."
+                ],
+                correct: 2,
+                explanation: "Se diferencia del 'informe' en que el 'plan' es una herramienta de gestión interna y estratégica dirigida a la acción futura."
+            },
+            {
+                question: "¿Cuáles son las técnicas de Producción más Limpia?",
+                options: [
+                    "Innovación tecnológica hacia la sostenibilidad.",
+                    "Conservación de equipos e instrumentos de trabajo.",
+                    "Mejoras en los procesos productivos.",
+                    "Todas son correctas."
+                ],
+                correct: 3,
+                explanation: "La PML implica aplicar una estrategia preventiva integral a los procesos, productos y servicios para aumentar la eficiencia y reducir riesgos."
+            },
+            {
+                question: "Un Acuerdo de Producción Limpia (APL) es un convenio entre un sector empresarial, empresas y organismos públicos, cuyo objetivo es aplicar producción limpia.",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. Son instrumentos de gestión voluntarios que buscan mejorar las condiciones productivas y ambientales."
+            },
+            {
+                question: "Una empresa puede medir la satisfacción y el compromiso de sus grupos de interés mediante:",
+                options: [
+                    "Entrevistas y Focus Groups.",
+                    "Feedback directo.",
+                    "Indicadores de desempeño (KPls).",
+                    "Todas son correctas."
+                ],
+                correct: 3,
+                explanation: "La escucha activa y el diálogo con los stakeholders es fundamental para una gestión sostenible y responsable."
+            }
+        ]
     }
 };
