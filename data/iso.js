@@ -1025,5 +1025,294 @@ export const questionsISO = {
                 explanation: "Powercfg es la potente utilidad de comandos para gestionar la energía, y /LIST muestra los esquemas disponibles."
             }
         ]
+    },
+    "Tema 4: Administración de software base II": {
+        "Test 1": [
+            {
+                question: "Al dar de baja a un usuario Linux su carpeta personal se borrará.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Por defecto, al eliminar un usuario en Linux, su directorio personal en /home se mantiene por seguridad."
+            },
+            {
+                question: "Indicar qué nombres de cuentas de usuario son correctos. (Selección múltiple)",
+                options: [
+                    "Usuario23info.",
+                    "1234.",
+                    "Alumno 1.",
+                    "Alumno.info."
+                ],
+                correct: 0,
+                explanation: "En sistemas Linux clásicos, solo la opción 'a' es estrictamente correcta. Los espacios, puntos o nombres solo numéricos suelen dar problemas."
+            },
+            {
+                question: "La MMC que gestiona las directivas de seguridad local de usuarios es %windir%\\System32\\secpol.msc.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Es la ruta y el nombre exacto de la consola de Directiva de seguridad local en Windows."
+            },
+            {
+                question: "¿Qué salida provoca la ejecución del comando de Linux 'ls -a'?",
+                options: [
+                    "Visualiza el contenido de los ficheros del directorio actual.",
+                    "Lista todos los ficheros del directorio actual.",
+                    "Lista todos los ficheros ocultos.",
+                    "Visualiza el contenido del fichero a."
+                ],
+                correct: 2,
+                explanation: "Aunque lista todos, la característica distintiva del modificador -a (all) es que permite ver los ficheros ocultos."
+            },
+            {
+                question: "No podemos cambiar el nombre de usuario (login) desde el menú gráfico 'Usuarios y grupos' de Linux.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. En las GUIs clásicas puedes cambiar el nombre real, pero no el login corto. Para eso se usa 'usermod -l' en consola."
+            },
+            {
+                question: "¿Cuál de los siguientes ficheros contiene el UID de un usuario?",
+                options: ["/etc/shadow.", "/etc/.profile.d", "/etc/passwd.", "/etc/.profile."],
+                correct: 2,
+                explanation: "/etc/passwd es el archivo principal que almacena el nombre del usuario, su UID, GID y directorio home."
+            },
+            {
+                question: "¿Cuál es el directorio donde se encuentra el perfil genérico de todos los usuarios de Windows 10?",
+                options: ["C:/users/default.", "C:/users/all users.", "C:\\users\\nombre_usuario.", "C:\\users\\default."],
+                correct: 3,
+                explanation: "La carpeta 'C:\\users\\default' es la plantilla oculta que Windows usa para crear nuevos perfiles de usuario."
+            },
+            {
+                question: "La utilidad del Panel de control 'Cuentas de usuario' de Windows 10 permite gestionar grupos de usuarios.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Esa utilidad básica solo gestiona cuentas individuales. Los grupos se gestionan desde herramientas avanzadas."
+            },
+            {
+                question: "¿Qué fichero de los siguientes guarda la contraseña encriptada en Linux?",
+                options: ["/etc/shadow.", "/home/passwd.", "/var/passwd.", "/etc/passwd."],
+                correct: 0,
+                explanation: "Por seguridad, las contraseñas encriptadas se guardan en '/etc/shadow', que tiene permisos muy restrictivos."
+            },
+            {
+                question: "Cuando se elimina un grupo, también automáticamente se eliminan los usuarios que pertenecen a dicho grupo.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Los usuarios permanecen en el sistema, simplemente dejan de tener los privilegios asociados a ese grupo."
+            },
+            {
+                question: "Indicar qué informaciones contiene el fichero passwd referentes a un usuario Linux. (Selección múltiple)",
+                options: [
+                    "Nombre de usuario.",
+                    "Contraseña encriptada.",
+                    "Número de usuario y grupo.",
+                    "Directorio local del usuario."
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: "Aunque la contraseña real esté en shadow, el campo estructural de la contraseña encriptada sigue existiendo en el archivo passwd."
+            },
+            {
+                question: "La utilidad para realizar copias de seguridad en Windows Server se encuentra dentro de las Características.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Según la teoría del temario, aunque se instale como característica, se accede a ella desde Herramientas Administrativas."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "Indicar qué informaciones contiene el fichero passwd referentes a un usuario Linux. (Selección múltiple)",
+                options: [
+                    "Contraseña encriptada.",
+                    "Nombre de usuario.",
+                    "Número de usuario y grupo.",
+                    "Directorio local del usuario."
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: "Históricamente el archivo passwd contiene los 4 campos: login, password field (x), UID/GID y home directory."
+            },
+            {
+                question: "¿Desde qué entornos o comandos podemos crear un nuevo grupo local en Windows? (Selección múltiple)",
+                options: [
+                    "CMD: net localgroup /add.",
+                    "Panel de Control -> Herramientas Administrativas -> Administración de equipos.",
+                    "CMD: lusrmgr.msc.",
+                    "Búsqueda: Usuarios y grupos locales."
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: "Windows ofrece múltiples rutas: línea de comandos, consola de administración de equipos o el acceso directo lusrmgr.msc."
+            },
+            {
+                question: "El comando que permite ejecutar el editor de directivas de grupo local es %windir%\\System32\\gpedit.msc.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "gpedit.msc es el nombre correcto de la consola para editar directivas de grupo locales."
+            },
+            {
+                question: "¿Cuál es el comando que elimina una cuenta de usuario jorge incluso si tiene sesión iniciada en Linux?",
+                options: ["delete jorge.", "userdel –r jorge.", "userdel jorge.", "userdel –f jorge."],
+                correct: 3,
+                explanation: "El parámetro -f (force) obliga al sistema a eliminar al usuario aunque esté logueado en ese momento."
+            },
+            {
+                question: "¿Cuál es el directorio donde se encuentra el perfil genérico de todos los usuarios de Windows 10?",
+                options: ["C:/users/default.", "C:/users/all users.", "C:\\users\\nombre_usuario.", "C:\\users\\default."],
+                correct: 3,
+                explanation: "La plantilla de perfil base está en C:\\users\\default (usando contrabarras)."
+            },
+            {
+                question: "¿La utilidad 'Grupo de hogar' para compartir recursos en red?",
+                options: [
+                    "Funciona con dominio hogar.",
+                    "Funciona en cualquier Windows.",
+                    "Funciona con grupo trabajo hogar.",
+                    "Ya no funciona en Windows 10."
+                ],
+                correct: 3,
+                explanation: "Fue oficialmente retirada por Microsoft en las actualizaciones de Windows 10 de 2018."
+            },
+            {
+                question: "En el CMD de Windows, ¿qué abre el comando control userpasswords2?",
+                options: [
+                    "Dará error.",
+                    "Abrirá Word.",
+                    "Mostrará la ventana de Cuentas de usuario avanzada.",
+                    "Disco de restablecimiento."
+                ],
+                correct: 2,
+                explanation: "Es un comando clásico que abre la interfaz avanzada de gestión de usuarios (netplwiz)."
+            },
+            {
+                question: "Para acceder desde un terminal con una cuenta creada en un servidor Windows Server:",
+                options: [
+                    "Terminal en grupo de trabajo.",
+                    "Terminal en dominio y cuenta configurada como global.",
+                    "Cuenta de acceso local.",
+                    "Cuenta de acceso global únicamente."
+                ],
+                correct: 1,
+                explanation: "El equipo debe estar unido al Dominio y el usuario debe ser 'Global' (del dominio) para validarse centralizadamente."
+            },
+            {
+                question: "La utilidad básica del Panel de control 'Cuentas de usuario' permite gestionar grupos.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Solo permite gestionar usuarios individuales y cambios básicos de contraseña/imagen."
+            },
+            {
+                question: "¿Cuál es el directorio particular de cada usuario en Linux?",
+                options: ["Mis documentos.", "Documents and setting.", "/etc/passwd", "home"],
+                correct: 3,
+                explanation: "Las carpetas personales de los usuarios cuelgan del directorio raíz /home."
+            },
+            {
+                question: "¿Cuál de los siguientes ficheros contiene el UID de un usuario?",
+                options: ["/etc/.profile.d", "/etc/passwd.", "/etc/shadow.", "/etc/.profile."],
+                correct: 1,
+                explanation: "/etc/passwd almacena el nombre, UID, GID, home y shell de cada usuario."
+            },
+            {
+                question: "¿Qué cuenta o cuentas se encuentran deshabilitadas por defecto al instalar Windows Server?",
+                options: ["Administrador.", "Administrador e Invitado.", "Administrador, Invitado y Usuarios.", "Invitado."],
+                correct: 1,
+                explanation: "Por seguridad, la cuenta nativa Administrador y la de Invitado suelen venir deshabilitadas inicialmente."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "Indicar cuáles son cualidades de la cuenta nativa Administrador en Windows. (Selección múltiple)",
+                options: [
+                    "Deshabilitada de forma predeterminada.",
+                    "Nunca se puede eliminar ni quitar del grupo Administradores.",
+                    "Gestiona todos los aspectos del sistema.",
+                    "Pertenece al grupo Administradores."
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: "Es una cuenta especial protegida: no se puede borrar, siempre es administrador y viene deshabilitada por defecto."
+            },
+            {
+                question: "Un usuario de tipo o grupo estándar puede:",
+                options: [
+                    "Cambiar el tipo de cuenta.",
+                    "Eliminar su cuenta.",
+                    "No puede hacer nada con su configuración.",
+                    "Cambiar su propio nombre real y contraseña."
+                ],
+                correct: 3,
+                explanation: "El usuario estándar tiene privilegios sobre su propio perfil, permitiéndole cambiar su password o datos personales."
+            },
+            {
+                question: "Al intentar modificar el nombre de un usuario en Linux provocamos crear un usuario nuevo.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Solo se cambia la etiqueta del login o nombre real; el UID interno de la cuenta sigue siendo el mismo."
+            },
+            {
+                question: "Los ordenadores integrados en un dominio no necesitan físicamente estar en la misma red.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "El dominio es una agrupación lógica. Pueden estar en redes distintas si hay conectividad (ej. VPN)."
+            },
+            {
+                question: "Cuando se crea un usuario nuevo en Linux, ¿por defecto es miembro de qué grupo?",
+                options: [
+                    "Un grupo con el mismo nombre que el del usuario.",
+                    "usuarios.",
+                    "estándar.",
+                    "root."
+                ],
+                correct: 0,
+                explanation: "Se usa el modelo UPG (User Private Group), creando un grupo privado con el mismo nombre que el usuario."
+            },
+            {
+                question: "¿Cuáles son directivas de seguridad de contraseñas correctas en Windows? (Selección múltiple)",
+                options: [
+                    "Requisitos de complejidad.",
+                    "Vigencia máxima y mínima.",
+                    "Longitud mínima.",
+                    "Historial de contraseñas."
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: "Todas estas políticas se configuran en secpol.msc para endurecer la seguridad de los accesos."
+            },
+            {
+                question: "Al dar de baja a un usuario Linux su carpeta personal se borrará.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Repetida: el comando userdel por sí solo no borra el directorio /home del usuario."
+            },
+            {
+                question: "¿Qué realiza el comando 'gedit /etc/profile'?",
+                options: [
+                    "Edita ficheros ocultos.",
+                    "Edita el fichero que configura el perfil común de todos los usuarios.",
+                    "Ninguna es correcta.",
+                    "Edita el perfil del usuario conectado."
+                ],
+                correct: 1,
+                explanation: "/etc/profile es el script global que carga la configuración de entorno para todos los usuarios del sistema."
+            },
+            {
+                question: "¿Cuál es la orden que nos permite ver el nombre de usuario que tiene abierta la sesión?",
+                options: ["%USERNAME%.", "set USERNAME.", "set %USERNAME%.", "set %HOMEPATH%."],
+                correct: 2,
+                explanation: "Aunque 'echo %USERNAME%' es lo común, en el contexto de este test se espera marcar la opción con los porcentajes."
+            },
+            {
+                question: "La utilidad para realizar copias de seguridad en Windows Server se encuentra dentro de las Características.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Repetida: según la evaluación de la plataforma, esta afirmación se considera Falsa."
+            },
+            {
+                question: "Un usuario solamente puede pertenecer a un grupo local de usuarios dentro de un ordenador.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. Los usuarios pueden ser miembros de múltiples grupos simultáneamente para heredar diferentes permisos."
+            },
+            {
+                question: "¿Qué directiva en smb.conf de Samba indica el grupo de trabajo o dominio?",
+                options: ["workgroup.", "server.", "domain.", "Grupodetrabajo."],
+                correct: 0,
+                explanation: "La directiva 'workgroup' define el grupo de trabajo de Windows al que se unirá el servidor Samba."
+            }
+        ]
     }
-};
+}
