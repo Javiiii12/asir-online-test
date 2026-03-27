@@ -3,6 +3,7 @@ import { questionsFH } from '../data/fh.js?v=2.22';
 import { questionsDIG } from '../data/dig.js?v=2.22';
 import { questionsSOS } from '../data/sos.js?v=2.22';
 import { questionsGBD } from '../data/gbd.js?v=2.22';
+import { questionsISO } from '../data/iso.js?v=2.22';
 
 // Adaptador para convertir el diccionario de temas a array de objetos
 const buildThemeStructure = (moduleId, sourceData) => {
@@ -23,14 +24,7 @@ const rawAppStructure = [
         name: 'Implantación de Sistemas Operativos',
         color: '#39ff14', // Neon
         icon: '💻',
-        themes: [
-            {
-                id: 'iso-t1', name: 'Tema 1: Intro a SO',
-                tests: [
-                    { id: 'iso-t1-test1', name: 'Test 1 Básico', questions: [{ question: "¿Qué es un SO?", options: ["Software", "Hardware", "Periférico", "Red"], correct: 0, explanation: "Es software base." }] }
-                ]
-            }
-        ]
+        themes: buildThemeStructure('iso', questionsISO)
     },
     {
         id: 'par',
@@ -334,7 +328,9 @@ function loadQuestion() {
 
 function handleAnswer(selectedIndex) {
     const question = state.questions[state.currentIndex];
-    const isCorrect = selectedIndex === question.correct;
+    const isCorrect = Array.isArray(question.correct) 
+        ? question.correct.includes(selectedIndex) 
+        : selectedIndex === question.correct;
 
     state.userAnswers.push({
         questionObj: question,
