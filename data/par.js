@@ -1924,5 +1924,322 @@ export const questionsPAR = {
                 explanation: "Sí, mediante técnicas como VPN, Escritorio Remoto con NAT inversa o herramientas como AnyDesk/TeamViewer."
             }
         ]
+    },
+    "Tema 7: Configuración de redes virtuales": {
+        "Test 1": [
+            {
+                question: "¿Cuáles son los niveles del diseño jerárquico de una red?",
+                options: [
+                    "Núcleo, tronco y final",
+                    "Todos los anteriores",
+                    "Núcleo, enlaces troncales y dispositivos finales",
+                    "Distribución, acceso y núcleo"
+                ],
+                correct: 3,
+                explanation: "El modelo jerárquico de Cisco divide la red en tres capas: Acceso (conecta dispositivos), Distribución (agrega acceso y aplica políticas) y Núcleo (conmutación de alta velocidad)."
+            },
+            {
+                question: "Los dispositivos finales de una red se encuentran",
+                options: [
+                    "En la capa de acceso",
+                    "En la capa final",
+                    "En la capa de núcleo",
+                    "En la capa de distribución"
+                ],
+                correct: 0,
+                explanation: "La capa de acceso es el punto en el que los usuarios y los dispositivos finales se conectan a la red de la organización."
+            },
+            {
+                question: "Una VPN es",
+                options: [
+                    "Es una red personal visible",
+                    "Una red privada que usa una red pública",
+                    "Una red pública que usa una red privada",
+                    "Una red personal virtual"
+                ],
+                correct: 1,
+                explanation: "Una Virtual Private Network (VPN) crea un túnel cifrado sobre una infraestructura pública (como Internet) para extender una red privada de forma segura."
+            },
+            {
+                question: "Un switch multicapa puede funcionar como un router",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. Un switch de Capa 3 o multicapa tiene hardware especializado (ASICs) que le permite realizar enrutamiento IP a velocidades de cable."
+            },
+            {
+                question: "La agregación de enlaces permite",
+                options: [
+                    "Estabilizar el ancho de banda",
+                    "Disminuir el ancho de banda",
+                    "Mantener el ancho de banda",
+                    "Ampliar el ancho de banda"
+                ],
+                correct: 3,
+                explanation: "La agregación de enlaces (como EtherChannel) combina varios enlaces físicos en uno lógico para aumentar el ancho de banda total y proporcionar redundancia."
+            },
+            {
+                question: "¿En cuál de las capas del modelo jerárquico se da la mayor velocidad?",
+                options: [
+                    "Distribución",
+                    "VLAN",
+                    "Núcleo",
+                    "Acceso"
+                ],
+                correct: 2,
+                explanation: "La capa de núcleo (Core) es el backbone de la red y está diseñada para conmutar paquetes lo más rápido posible sin realizar procesos lentos como el filtrado de ACLs."
+            },
+            {
+                question: "La capa de distribución",
+                options: [
+                    "Suele ser estática",
+                    "Proporciona acceso de red",
+                    "Gestiona la calidad de servicio",
+                    "Es la periferia de la red"
+                ],
+                correct: 2,
+                explanation: "La capa de distribución actúa como interfaz entre el acceso y el núcleo, encargándose de la agregación de enlaces, políticas de seguridad (ACL) y gestión de QoS."
+            },
+            {
+                question: "Para comunicar equipos que están en dos VLANs diferentes necesitamos",
+                options: [
+                    "Es imposible comunicarlos",
+                    "Enrutar el tráfico entre las VLANs",
+                    "Conectar las VLANs a un puerto de la VLAN predeterminada",
+                    "Conectar físicamente las 2 VLANs"
+                ],
+                correct: 1,
+                explanation: "Como cada VLAN es un dominio de difusión diferente (Capa 2), se requiere un dispositivo de Capa 3 (router o switch multicapa) para enrutar el tráfico entre ellas."
+            },
+            {
+                question: "Cada puerto configurado en modo acceso admite tráfico de",
+                options: [
+                    "Todas las VLAN",
+                    "1 VLAN como máximo",
+                    "La VLAN predeterminada y la VLAN asignada",
+                    "2 VLANs como máximo"
+                ],
+                correct: 1,
+                explanation: "Un puerto de acceso pertenece a una única VLAN de datos (aunque en telefonía IP puede admitir adicionalmente una VLAN de voz)."
+            },
+            {
+                question: "Si ponemos todos los puertos en modo troncal",
+                options: [
+                    "Solo los puertos de la VLAN predeterminada comunicarán entre ellos",
+                    "Todos los puertos comunican entre sí",
+                    "No hay comunicación entre ellos",
+                    "Solo los puertos de la VLAN nativa comunican entre sí"
+                ],
+                correct: 1,
+                explanation: "Los enlaces troncales (trunk) están diseñados para transportar tráfico de múltiples VLANs; si todos los puertos son troncales, todos podrán transportar los datos de todas las VLANs."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "VTP es lo mismo que",
+                options: [
+                    "Virtual Trunking Protocol",
+                    "Virtual Technical Protocol",
+                    "Virtual Trust Protocol",
+                    "Virtual Local Area Network Trunking Protocol"
+                ],
+                correct: 3,
+                explanation: "VTP (VLAN Trunking Protocol) es un protocolo propietario de Cisco que permite sincronizar la base de datos de VLANs a través de múltiples switches en un mismo dominio."
+            },
+            {
+                question: "La capa de acceso es la capa donde la velocidad es mayor",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. La capa de acceso suele tener las velocidades más bajas del modelo jerárquico (ej. 1Gbps hacia el usuario frente a 10/40/100Gbps en el núcleo)."
+            },
+            {
+                question: "Un tipo de conexión VPN es",
+                options: [
+                    "De sitio a sitio",
+                    "De internet a internet",
+                    "De internet a sitio",
+                    "De sitio a Internet"
+                ],
+                correct: 0,
+                explanation: "Las VPN Site-to-Site conectan oficinas enteras entre sí de forma permanente y transparente para el usuario final."
+            },
+            {
+                question: "Switch multicapa también se suele conocer como",
+                options: [
+                    "Switch capa 2",
+                    "Switch capa 3",
+                    "Switch OSI",
+                    "Switch capa 4"
+                ],
+                correct: 1,
+                explanation: "Se denomina Switch de Capa 3 porque es capaz de procesar cabeceras IP y tomar decisiones de enrutamiento además de las funciones básicas de Capa 2."
+            },
+            {
+                question: "Al crear VLAN en un switch",
+                options: [
+                    "Enrutamos entre equipos conectados",
+                    "Separamos físicamente los equipos",
+                    "Desconectamos equipos",
+                    "Separamos lógicamente los equipos"
+                ],
+                correct: 3,
+                explanation: "Una VLAN (Virtual Local Area Network) permite segmentar una red física en múltiples redes lógicas independientes sin cambiar el cableado."
+            },
+            {
+                question: "El encapsulamiento 802.1q también se denomina",
+                options: [
+                    "dotq1",
+                    "Etherchannel",
+                    "802.3ad",
+                    "dot1q"
+                ],
+                correct: 3,
+                explanation: "IEEE 802.1Q es el estándar de la industria para el etiquetado de VLANs (tagging), coloquialmente conocido como dot1q."
+            },
+            {
+                question: "STP no afecta a la agregación de enlaces",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. STP opera sobre el enlace lógico resultante de la agregación (ej. EtherChannel) tratándolo como un único puerto para evitar bucles."
+            },
+            {
+                question: "Una VPN es una red privada",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Verdadero. Aunque utilice una red pública como transporte, es 'privada' porque los datos viajan cifrados y solo son accesibles por los extremos autorizados."
+            },
+            {
+                question: "Dot1q es lo mismo que",
+                options: [
+                    "Dotq1",
+                    "802.1ak",
+                    "802.3ad",
+                    "802.1q"
+                ],
+                correct: 3,
+                explanation: "Dot1q es la forma abreviada de referirse al protocolo estándar IEEE 802.1Q de etiquetado de tramas VLAN."
+            },
+            {
+                question: "Un puerto configurado en modo troncal",
+                options: [
+                    "Admite solo tráfico de la VLAN nativa",
+                    "Admite tráfico de diferentes VLANs",
+                    "Admite tráfico nativo",
+                    "Admite solo tráfico de la VLAN predetermina"
+                ],
+                correct: 1,
+                explanation: "La función principal de un puerto 'trunk' es permitir el paso de múltiples VLANs a través de un único enlace físico entre switches."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "La agregación de enlaces consiste",
+                options: [
+                    "Utilizar varios enlaces entre dos dispositivos como si se tratase de un único enlace",
+                    "Añadir más puertos a un router",
+                    "Puentear varios enlaces",
+                    "Añadir más puertos a un switch"
+                ],
+                correct: 0,
+                explanation: "Consiste en agrupar interfaces físicas para formar una interfaz lógica de mayor capacidad (suma de anchos de banda) y con tolerancia a fallos."
+            },
+            {
+                question: "La situación inicial en un switch que admite VLANs es",
+                options: [
+                    "Todos los puertos están en la VLAN predeterminada",
+                    "Todos los puertos están en la VLAN administrativa",
+                    "Todos los puertos están desconectados entre sí",
+                    "Todos los puertos están en la VLAN nativa"
+                ],
+                correct: 0,
+                explanation: "De fábrica, en los switches Cisco todos los puertos están asignados a la VLAN 1 (VLAN predeterminada)."
+            },
+            {
+                question: "Marca los protocolos de túnel",
+                options: [
+                    "PPTP",
+                    "L2TP",
+                    "L2F",
+                    "Todas las anteriores"
+                ],
+                correct: 3,
+                explanation: "Protocolos como PPTP, L2TP, L2F e IPsec son tecnologías utilizadas para encapsular datos y crear túneles seguros en conexiones VPN."
+            },
+            {
+                question: "Indica los protocolos para administración de redes virtuales",
+                options: [
+                    "MRP",
+                    "VTP",
+                    "VLAN Trunking Protocol",
+                    "Todas las anteriores"
+                ],
+                correct: 3,
+                explanation: "VTP (VLAN Trunking Protocol) y MRP son ejemplos de protocolos que ayudan a gestionar la creación y propagación de VLANs en la red."
+            },
+            {
+                question: "Un tipo de conexión VPN es",
+                options: [
+                    "De acceso remoto",
+                    "De acceso privado",
+                    "De acceso público",
+                    "De acceso local"
+                ],
+                correct: 0,
+                explanation: "La VPN de acceso remoto permite a usuarios móviles o teletrabajadores conectarse de forma segura a la red interna de su empresa."
+            },
+            {
+                question: "802.1q",
+                options: [
+                    "Encapsula a una trama Ethernet",
+                    "Se encapsula dentro de una trama Ethernet",
+                    "Es un protocolo",
+                    "Todas las anteriores"
+                ],
+                correct: 1,
+                explanation: "A diferencia del antiguo ISL de Cisco, el estándar 802.1Q inserta una etiqueta de 4 bytes entre la dirección de origen y el campo Type/Length de la trama Ethernet original."
+            },
+            {
+                question: "En un switch que admite VLAN y que tiene 24 puertos ¿cuantos dominios de difusión puede haber?",
+                options: [
+                    "Entre 1 y 24 dependiendo de las VLANs que se creen",
+                    "Un máximo de 23",
+                    "23"
+                ],
+                correct: 0,
+                explanation: "Cada VLAN creada constituye un dominio de difusión único. Al asignar cada puerto a una VLAN distinta, podríamos tener hasta 24 dominios."
+            },
+            {
+                question: "VLAN de nivel 2",
+                options: [
+                    "Asocia por puerto físico del switch",
+                    "Asocia por IP",
+                    "Asocia por puerto TCP",
+                    "Asocia por MAC"
+                ],
+                correct: 3,
+                explanation: "Las VLANs de Nivel 2 (Enlace de Datos) se pueden basar en el puerto del switch o, de forma más avanzada, en la dirección física (MAC) del dispositivo conectado."
+            },
+            {
+                question: "Cuando no hay conexión entre VLANs diferentes es posible que",
+                options: [
+                    "El enlace troncal este asignado a la VLAN predeterminada",
+                    "Falle el enrutamiento",
+                    "Todas las anteriores",
+                    "Tengan el mismo número de VLAN predeterminada"
+                ],
+                correct: 1,
+                explanation: "Al estar en redes lógicas distintas, el tráfico debe pasar por un router (enrutamiento inter-VLAN). Si este falla o no está configurado, la comunicación es imposible."
+            },
+            {
+                question: "SVI son las iniciales de",
+                options: [
+                    "Switch Virtual IP",
+                    "Software Virtual Interface",
+                    "Ninguna de las anteriores",
+                    "Switch Virtual Interface"
+                ],
+                correct: 3,
+                explanation: "Una SVI es una interfaz lógica de Capa 3 configurada en un switch para permitir el enrutamiento inter-VLAN o la gestión del dispositivo."
+            }
+        ]
     }
 };
