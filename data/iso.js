@@ -715,5 +715,315 @@ export const questionsISO = {
                 explanation: "Se convierte en proceso cuando el SO le asigna recursos (CPU, RAM) y comienza su ejecución activa."
             }
         ]
+    },
+    "Tema 3: Administración de software base I": {
+        "Test 1": [
+            {
+                question: "Para activar o desactivar servicios en un servidor de Windows, debemos ir al apartado de configuración denominado:",
+                options: [
+                    "Agregar características.",
+                    "Habilitar escritorio remoto.",
+                    "Configurar Windows.",
+                    "Agregar roles y características."
+                ],
+                correct: 3,
+                explanation: "En Windows Server, la herramienta principal para instalar servicios como DNS o DHCP es el Asistente para agregar roles y características."
+            },
+            {
+                question: "Todas las distribuciones de Windows disponen de una ventana donde se centralizan las herramientas y utilidades de administración ¿Cómo se llama?",
+                options: [
+                    "Símbolo del sistema.",
+                    "Panel de control.",
+                    "Sistema y mantenimiento.",
+                    "Apariencia y personalización."
+                ],
+                correct: 1,
+                explanation: "El Panel de Control ha sido históricamente el núcleo de configuración centralizado en todas las versiones de Windows."
+            },
+            {
+                question: "La configuración de red en el entorno de escritorio de Linux Ubuntu se encuentra en el apartado:",
+                options: [
+                    "Mostrar aplicaciones - Configuración - Red.",
+                    "Sistema - Administración - Configuración de red.",
+                    "Sistema – Preferencias - Propiedades de Interfaz de red.",
+                    "Configuración - Red."
+                ],
+                correct: 0,
+                explanation: "En Ubuntu (GNOME), se accede a la red desde el menú Mostrar aplicaciones -> icono de Configuración -> pestaña Red."
+            },
+            {
+                question: "Señala la afirmación correcta para la configuración de la red mediante la utilidad Grupo Hogar.",
+                options: [
+                    "Esta función no está disponible en Windows 10.",
+                    "Permite compartir recursos en cualquier entorno de red Windows.",
+                    "Solamente permite compartir carpetas.",
+                    "Será necesario hacer una completa configuración de la red para que funcione."
+                ],
+                correct: 0,
+                explanation: "Microsoft eliminó la función Grupo Hogar (HomeGroup) a partir de la versión 1803 de Windows 10."
+            },
+            {
+                question: "¿Qué orden se emplea para mostrar las interfaces activas en Windows y Linux? (Selección múltiple)",
+                options: [
+                    "ifconfig.",
+                    "ipconfig.",
+                    "netdom renamecomputer",
+                    "netsh interface ipv4",
+                    "ifconfig -a"
+                ],
+                correct: [1, 4],
+                explanation: "ipconfig es el comando estándar para Windows, mientras que ifconfig -a se utiliza en sistemas Linux."
+            },
+            {
+                question: "¿Cuál es la variable de entorno de Linux que nos indica la ruta completa del directorio de trabajo actual?",
+                options: ["$PWD.", "PWD$.", "pwd.", "$pwd."],
+                correct: 0,
+                explanation: "La variable $PWD (Print Working Directory) almacena la ruta absoluta del directorio actual en la terminal de Linux."
+            },
+            {
+                question: "En Windows Server, las características mejoran la operatividad de las funciones (roles).",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Los Roles son las funciones principales, mientras que las Características son componentes que los apoyan o añaden funcionalidades extra."
+            },
+            {
+                question: "Mediante la función de bibliotecas de Windows 10 algunas aplicaciones pueden ser utilizadas en cualquier proceso.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Las bibliotecas dinámicas (DLL) permiten que múltiples procesos compartan el mismo código y recursos en memoria."
+            },
+            {
+                question: "¿Para qué sirve la función XP Mode en Windows 10?",
+                options: [
+                    "Para realizar programas que funcionen en Windows XP.",
+                    "Para realizar búsquedas avanzadas de aplicaciones.",
+                    "No es compatible con Windows 10.",
+                    "Para hacer copias de seguridad del sistema."
+                ],
+                correct: 2,
+                explanation: "XP Mode era una característica de Windows 7; en Windows 10 ya no está disponible ni es compatible."
+            },
+            {
+                question: "¿Cuál es el comando que nos permite abrir la ventana MMC para administrar las Directivas de grupo local?",
+                options: [
+                    "gepedit.msc.",
+                    "gpedit.msc /gpcomputer: “%ComputerName%”.",
+                    "gpedit.mcs /gpcomputer: “equipo1”.",
+                    "gpedit.mcs \"equipo\": /gpcomputer."
+                ],
+                correct: 1,
+                explanation: "gpedit.msc abre el editor de directivas, y el parámetro /gpcomputer permite especificar el equipo (usando variables de entorno)."
+            },
+            {
+                question: "¿Windows y Linux disponen de las ventanas de entrada de comandos?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Ambos sistemas cuentan con interfaces de línea de comandos (CLI) como CMD/PowerShell en Windows y Bash en Linux."
+            },
+            {
+                question: "¿Qué comando en Windows nos permite configurar parámetros de red como la IP o el Firewall?",
+                options: ["Shutdown.", "Netsh.", "NetBios.", "Todas son correctas."],
+                correct: 1,
+                explanation: "netsh (Network Shell) es la utilidad de comandos para visualizar y modificar casi cualquier parámetro de red en Windows."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "¿PowerShell es una función (Rol) en Windows Server?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. PowerShell se considera una Característica (Feature), no un Rol o Función principal del servidor."
+            },
+            {
+                question: "Señala la afirmación correcta para la configuración de la red mediante la utilidad Grupo Hogar.",
+                options: [
+                    "Esta función no está disponible en Windows 10.",
+                    "Permite compartir recursos en cualquier entorno de red Windows.",
+                    "Solamente permite compartir carpetas.",
+                    "Será necesario hacer una completa configuración de la red."
+                ],
+                correct: 0,
+                explanation: "Función retirada por Microsoft en las actualizaciones de 2018 para Windows 10."
+            },
+            {
+                question: "¿Qué opción del menú de arranque del Grub permite la entrada a modo de recuperación para solucionar errores?",
+                options: [
+                    "Other operating System.",
+                    "Ubuntu recuperation.",
+                    "Ubuntu. Kernel versión (recovery mode).",
+                    "No existe ese modo."
+                ],
+                correct: 2,
+                explanation: "El recovery mode arranca el sistema con servicios mínimos y acceso a consola para realizar reparaciones."
+            },
+            {
+                question: "¿Qué gestiona la consola MMC compmgmt.msc?",
+                options: [
+                    "Configuración de la política de seguridad.",
+                    "Para administrar usuarios y grupos locales.",
+                    "Permite acceder a la administración de equipos.",
+                    "Comprobar el rendimiento del sistema."
+                ],
+                correct: 2,
+                explanation: "Abre la Administración de Equipos, que incluye gestión de discos, servicios, usuarios locales y eventos."
+            },
+            {
+                question: "¿Qué comando en Windows nos permite configurar parámetros de red?",
+                options: ["Shutdown.", "Netsh.", "NetBios.", "Todas son correctas."],
+                correct: 1,
+                explanation: "Netsh es la herramienta fundamental para administración de red por comandos en Windows."
+            },
+            {
+                question: "Si deseamos cifrar solamente ficheros individuales en NTFS utilizamos:",
+                options: [
+                    "Bitlocker.",
+                    "Device encrypter stage.",
+                    "Encrypted File System (EFS).",
+                    "Todas son ciertas."
+                ],
+                correct: 2,
+                explanation: "EFS permite cifrar archivos y carpetas individuales, mientras que BitLocker cifra volúmenes de disco completos."
+            },
+            {
+                question: "Las direcciones IP dinámicas se asignan mediante un servidor DNS.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. El servidor DHCP asigna las IP dinámicas. El DNS traduce nombres de dominio a direcciones IP."
+            },
+            {
+                question: "¿Cuál es la variable de entorno de Linux que indica la ruta del directorio de trabajo actual?",
+                options: ["$PWD.", "PWD$.", "pwd.", "$pwd."],
+                correct: 0,
+                explanation: "La variable de entorno $PWD almacena la ruta absoluta del directorio actual."
+            },
+            {
+                question: "En Windows podemos configurar archivos de red sin conexión desde el Centro de sincronización del Panel de Control.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Esta función permite mantener una copia local de archivos de red para trabajar cuando no hay conexión al servidor."
+            },
+            {
+                question: "¿Mediante qué orden en Windows (CMD) podemos obtener la ayuda de un comando?",
+                options: ["Ayuda ?", "Cmd comando.", "Help comando.", "Man comando."],
+                correct: 2,
+                explanation: "El comando 'help' seguido del nombre del comando (o comando /?) muestra la sintaxis y opciones."
+            },
+            {
+                question: "Un gestor de ventanas en Linux es un programa cliente X-Windows que controla la apariencia de otras ventanas.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "El Window Manager se encarga de gestionar los bordes, botones y posicionamiento de las aplicaciones gráficas."
+            },
+            {
+                question: "¿Cuáles se consideran funciones o competencias del usuario administrador? (Selección múltiple)",
+                options: [
+                    "Configurar la actualización del sistema.",
+                    "Diagnosticar el servidor de base de datos.",
+                    "Reparar la seguridad del sistema.",
+                    "Gestionar equipos y accesos de usuarios."
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: "El administrador tiene control total sobre actualizaciones, diagnóstico de servicios, seguridad y recursos del sistema."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "El identificador del usuario (UID) root en Linux tiene el valor 0.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "En sistemas tipo Unix/Linux, el UID 0 es el identificador único reservado para el superusuario root."
+            },
+            {
+                question: "¿Qué nombre genérico reciben en Linux sh, csh, ksh y bash?",
+                options: [
+                    "Shell o Interpretes de comandos.",
+                    "Línea de comandos.",
+                    "Prompts de entrada de comandos.",
+                    "Todas son ciertas."
+                ],
+                correct: 0,
+                explanation: "Son diferentes tipos de shells que actúan como intérpretes entre el usuario y el kernel."
+            },
+            {
+                question: "¿Qué opción del menú de arranque del Grub permite solucionar errores mediante el recovery mode?",
+                options: [
+                    "Other operating System.",
+                    "Ubuntu recuperation.",
+                    "Ubuntu (recovery mode).",
+                    "No existe ese modo."
+                ],
+                correct: 2,
+                explanation: "Permite iniciar en un entorno simplificado para tareas de mantenimiento y rescate."
+            },
+            {
+                question: "Si deseamos cifrar ficheros individuales en lugar de discos completos usamos:",
+                options: [
+                    "Bitlocker.",
+                    "Device encrypter stage.",
+                    "Encrypted File System (EFS).",
+                    "Todas son ciertas."
+                ],
+                correct: 2,
+                explanation: "EFS es la herramienta de cifrado de archivos nativa del sistema de ficheros NTFS."
+            },
+            {
+                question: "¿En la nomenclatura de red de Linux, es lo mismo eth1 que eth0:1?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. eth1 es una interfaz física distinta. eth0:1 es una interfaz virtual (alias) asociada a la misma tarjeta eth0."
+            },
+            {
+                question: "¿Qué formato de orden se usa para ver la ayuda de netsh en Windows?",
+                options: ["ipconfig /all.", "ipconfig /?", "netsh /all.", "netsh /?"],
+                correct: 3,
+                explanation: "Casi todos los comandos de Windows aceptan el parámetro '/?' para mostrar su manual de ayuda."
+            },
+            {
+                question: "Desde un terminal de Linux, ¿Qué comando utilizas (en minúsculas) para apagar/reiniciar el equipo?",
+                options: ["Sudo poweroff.", "sudo poweroff.", "SUDO POWEROFF.", "Todas son correctas."],
+                correct: 1,
+                explanation: "Linux distingue entre mayúsculas y minúsculas; los comandos y su prefijo sudo deben ir en minúsculas."
+            },
+            {
+                question: "Para obtener información completa de la configuración de red en Windows se utiliza el comando ifconfig.",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Falso. El comando en Windows es ipconfig. ifconfig es para entornos Unix/Linux."
+            },
+            {
+                question: "¿Qué fichero editable de Ubuntu permite configurar dispositivos de red mediante YAML?",
+                options: [
+                    "etc/resolv.conf.",
+                    "/etc/netplan/01-network-manager-all.yaml.",
+                    "/etc/hosts.",
+                    "/etc/init.d/networking."
+                ],
+                correct: 1,
+                explanation: "Netplan es la herramienta de configuración de red en Ubuntu moderno, basada en archivos YAML."
+            },
+            {
+                question: "¿Qué gestiona la MMC compmgmt.msc?",
+                options: [
+                    "Configuración de la política de seguridad.",
+                    "Administración de usuarios locales.",
+                    "Acceso a la administración de equipos.",
+                    "Rendimiento del sistema."
+                ],
+                correct: 2,
+                explanation: "Es la consola central de Administración de Equipos de Windows."
+            },
+            {
+                question: "Es necesario configurar DNS manualmente cuando las direcciones IP se asignan de forma estática.",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Sin DHCP, el equipo no conoce automáticamente los servidores DNS para resolver nombres de dominio."
+            },
+            {
+                question: "¿Qué comando se usa en Windows para listar los planes de energía disponibles?",
+                options: ["Power.msc.", "Powercfg /LIST.", "Powercfg /a.", "Power.msc /a."],
+                correct: 1,
+                explanation: "Powercfg es la potente utilidad de comandos para gestionar la energía, y /LIST muestra los esquemas disponibles."
+            }
+        ]
     }
-}
+};
