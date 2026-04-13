@@ -527,5 +527,343 @@ export const questionsFH = {
                 explanation: "Un proxy actúa de intermediario procesando las peticiones de los clientes internos hacia Internet (como tráfico web), pudiendo aplicar filtros o servir contenido cacheado."
             }
         ]
+    },
+    "Tema 5: Cumplimiento de las normas de prevención de riesgos laborales y protección ambiental": {
+        "Test 1": [
+            {
+                question: "Un fuego, en un puesto de trabajo de montaje de equipos, puede ser producido por calentamiento excesivo de un componente electrónico de un equipo.",
+                options: [
+                    "Verdadero.",
+                    "Falso, los componentes electrónicos no pueden generar calor suficiente.",
+                    "Falso, solo los equipos mecánicos o con motores pueden producir fuego.",
+                    "Falso, el fuego solo se produce si hay un cortocircuito en la red eléctrica general."
+                ],
+                correct: 0,
+                explanation: "Verdadero. El sobrecalentamiento de componentes electrónicos es una causa real de incendios en equipos informáticos."
+            },
+            {
+                question: "Para apretar un tornillo podemos utilizar…",
+                options: [
+                    "Un destornillador adecuado a la cabeza del tornillo.",
+                    "Ninguna de las respuestas es correcta.",
+                    "Cualquier destornillador.",
+                    "Un cuchillo."
+                ],
+                correct: 0,
+                explanation: "Se debe usar siempre la herramienta adecuada para evitar dañar el tornillo o sufrir un accidente."
+            },
+            {
+                question: "Cómo debe ser la iluminación en un puesto de trabajo.",
+                options: [
+                    "Las entradas de luz, natural o artificial, no deben deslumbrar al operador.",
+                    "Los focos de luz deben estar enfocados directamente en el equipo de montaje.",
+                    "Las ventanas deben estar en una posición alta para evitar la luz directa.",
+                    "Debe ser natural siempre, prohibiéndose la artificial."
+                ],
+                correct: 0,
+                explanation: "La iluminación debe ser suficiente pero sin causar deslumbramientos que puedan provocar fatiga visual o accidentes."
+            },
+            {
+                question: "La empresa debe ser la encargada del reciclaje de todos los componentes de desecho que produzcan y/o que le aporten los clientes.",
+                options: [
+                    "Verdadero.",
+                    "Falso, es responsabilidad exclusiva del cliente deshacerse de sus desechos.",
+                    "Falso, la empresa solo debe reciclar si los componentes son radiactivos.",
+                    "Falso, los servicios municipales de basura ordinaria deben encargarse de su recogida en la empresa."
+                ],
+                correct: 0,
+                explanation: "Verdadero. Las empresas de informática tienen la obligación legal de gestionar correctamente los residuos RAEE."
+            },
+            {
+                question: "El número de teléfono de emergencias debe estar guardado en una agenda y ésta bien guardada.",
+                options: [
+                    "Verdadero, por motivos de privacidad de los datos.",
+                    "Falso, debe estar en un lugar visible y accesible para todos en todo momento.",
+                    "Verdadero, solo el encargado de prevención de riesgos debe tener acceso a él.",
+                    "Falso, no es necesario tenerlo visible si todos los empleados tienen teléfono móvil propio."
+                ],
+                correct: 1,
+                explanation: "En caso de emergencia, cada segundo cuenta, por lo que los números de contacto deben ser visibles para cualquiera."
+            },
+            {
+                question: "Una buena disposición del mobiliario y adecuación de este así como una buena colocación postural previene de futuras enfermedades profesionales.",
+                options: [
+                    "Verdadero.",
+                    "Falso, las enfermedades profesionales dependen únicamente de la carga genética del trabajador.",
+                    "Falso, la postura no influye en la salud física a largo plazo.",
+                    "Falso, solo el uso de equipos de protección respiratoria previene enfermedades."
+                ],
+                correct: 0,
+                explanation: "Verdadero. La ergonomía es clave para prevenir trastornos musculoesqueléticos a largo plazo."
+            },
+            {
+                question: "Nos piden realizar una reparación fuera del taller, en una factoría. ¿Qué EPI debemos utilizar, la del taller o la especificada en la factoría?",
+                options: [
+                    "Debemos utilizar el equipamiento del taller, no el de la factoría.",
+                    "Debemos cumplir solo con las normas de prevención de riesgos que tenga estipulada nuestra propia empresa.",
+                    "Debemos tener el equipamiento adecuado para el desarrollo de la tarea y cumplir, además, con las normas de prevención que nos dicte la empresa dónde desarrollemos el trabajo.",
+                    "No es necesario utilizar EPI si la reparación es menor y dura menos de una hora."
+                ],
+                correct: 2,
+                explanation: "Siempre se debe cumplir con la normativa de seguridad más estricta o específica del lugar donde se trabaja."
+            },
+            {
+                question: "Se define riesgo laboral grave o inminente como: \"La posibilidad de que un trabajador sufra un determinado daño derivado de su trabajo\".",
+                options: [
+                    "Verdadero, esa es la definición legal exacta.",
+                    "Falso, esa es la definición de riesgo laboral general, no de \"grave o inminente\".",
+                    "Verdadero, siempre y cuando el daño requiera un mínimo de hospitalización.",
+                    "Falso, esa es la definición de accidente de trabajo."
+                ],
+                correct: 1,
+                explanation: "La definición citada es la de 'riesgo laboral' en general, no la de 'riesgo grave o inminente'."
+            },
+            {
+                question: "¿Qué significan las siglas EPI?",
+                options: [
+                    "Exposición sobre protección internacional.",
+                    "Ninguna de las otras respuestas es correcta.",
+                    "Equipamiento de protección individual.",
+                    "Enumeración para la protección individual."
+                ],
+                correct: 2,
+                explanation: "EPI significa Equipamiento de Protección Individual, elementos destinados a proteger al trabajador de riesgos."
+            },
+            {
+                question: "Los teléfonos móviles contienen componentes muy tóxicos y la batería de éstos es altamente contaminante para el agua. Pero, ¿si las baterías no se tiran al agua no existe tanto riesgo ni problema para la salud humana?",
+                options: [
+                    "Las baterías no contribuyen a la contaminación ambiental, solo el CO2 de los coches.",
+                    "Pues todo es un ciclo, donde al final se terminará descomponiendo y pasando a la tierra, de la tierra pasará al agua, esta se evaporará y volverá a llover y en el aire y en el agua existirán partículas de todos aquellos sustancias químicas o metales pesados. Y si no contaminan directamente, indirectamente en su extracción se usan sustancias químicas que sí contaminan.",
+                    "La batería de Litio no contamina bajo ninguna circunstancia.",
+                    "Cierto, en el vertedero de chatarra acabará descomponiéndose sin ocasionar muchos problemas en el medio ambiente."
+                ],
+                correct: 1,
+                explanation: "El ciclo ambiental hace que los contaminantes del suelo acaben en el agua y el aire, afectando a la salud global."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "¿Qué significado tienen las siglas LPRL?",
+                options: [
+                    "Ley de prevención de rasgos laborales.",
+                    "Es un partido político.",
+                    "Ley de prevención de riesgos laborales.",
+                    "Ley de progresión de riesgos laborales."
+                ],
+                correct: 2,
+                explanation: "LPRL es la Ley 31/1995 de Prevención de Riesgos Laborales en España."
+            },
+            {
+                question: "Desde el punto de vista de la Prevención y la Seguridad, ¿cuál de estas afirmaciones es correcta?",
+                options: [
+                    "Mantener las herramientas a la vista, en la mesa.",
+                    "Almacenar las herramientas revueltas en un cajón.",
+                    "Tener diversos cajones para las herramientas en función del color.",
+                    "Mantener correctamente las herramientas y máquinas según las instrucciones del fabricante."
+                ],
+                correct: 3,
+                explanation: "El mantenimiento siguiendo el manual del fabricante garantiza que los sistemas de seguridad de la herramienta funcionen."
+            },
+            {
+                question: "En una evaluación de los riesgos, se estima, a grandes rasgos, qué señales se necesitan y qué EPI utilizará el trabajador.",
+                options: [
+                    "Verdadero, es un proceso rápido y orientativo.",
+                    "Falso, la evaluación debe ser rigurosa, exhaustiva y priorizar medidas colectivas, no hacerse \"a grandes rasgos\".",
+                    "Verdadero, solo el Ministerio de Trabajo hace evaluaciones precisas.",
+                    "Falso, porque no se evalúan nunca los EPIs en este proceso."
+                ],
+                correct: 1,
+                explanation: "La evaluación de riesgos es un documento técnico fundamental que debe ser detallado y priorizar la protección colectiva."
+            },
+            {
+                question: "Estamos realizando limpieza de equipos y estamos utilizando un compresor de aire. ¿Qué elementos formarían parte de nuestro EPI de forma principal?",
+                options: [
+                    "Muñequera antiestática.",
+                    "Tapones auditivos.",
+                    "Vestuario de trabajo ordinario.",
+                    "Casco de obra."
+                ],
+                correct: 1,
+                explanation: "El ruido de un compresor y el aire a presión pueden dañar el oído, por lo que la protección auditiva es prioritaria."
+            },
+            {
+                question: "El orden y la limpieza forma parte de la prevención de riesgos laborales.",
+                options: [
+                    "Verdadero, es un principio básico para evitar accidentes como tropiezos o caídas.",
+                    "Falso, solo afecta a la estética del taller.",
+                    "Falso, es responsabilidad exclusiva del personal de limpieza externo.",
+                    "Falso, no está contemplado en ninguna normativa."
+                ],
+                correct: 0,
+                explanation: "Verdadero. Un entorno sucio o desordenado es una de las causas más frecuentes de accidentes laborales leves."
+            },
+            {
+                question: "La LPRL establece los principios generales relativos a la prevención de riesgos profesionales.",
+                options: [
+                    "Verdadero.",
+                    "Falso, establece los salarios mínimos interprofesionales.",
+                    "Falso, es una ley exclusiva para el sector de la construcción.",
+                    "Falso, establece únicamente las sanciones, no los principios de prevención."
+                ],
+                correct: 0,
+                explanation: "Verdadero. La ley marca el marco jurídico para promover la seguridad y salud de los trabajadores."
+            },
+            {
+                question: "La responsabilidad última de cumplir la Ley de Prevención de Riesgos Laborales recae sobre el trabajador u operario.",
+                options: [
+                    "Verdadero, cada persona es responsable de sí misma.",
+                    "Falso, la responsabilidad última y el deber de protección recae siempre sobre el empresario.",
+                    "Verdadero, a menos que el trabajador sea menor de edad.",
+                    "Falso, recae exclusivamente sobre la Mutua de accidentes."
+                ],
+                correct: 1,
+                explanation: "Aunque el trabajador debe cumplir las normas, el empresario es el garante legal de la seguridad en el centro."
+            },
+            {
+                question: "Queremos desatornillar los tornillos de una caja de un equipo informático. ¿Qué pasos son los correctos?",
+                options: [
+                    "Sólo cortar la corriente en la fuente de alimentación, ya que todas tienen un interruptor para cortar la corriente eléctrica.",
+                    "Desenchufar el ordenador, esperar unos segundos, elegir el destornillador apropiado con aislamiento eléctrico y utilizar una pulsera electrostática.",
+                    "Desenchufar el cable del ordenador e inmediatamente utilizar cualquier destornillador disponible.",
+                    "Mantener el equipo encendido para comprobar si el ventilador gira al abrir la tapa."
+                ],
+                correct: 1,
+                explanation: "Desenchufar y esperar permite que se descarguen los condensadores, evitando calambres o daños por estática."
+            },
+            {
+                question: "Debemos señalizar adecuadamente el puesto de trabajo indicando los peligros.",
+                options: [
+                    "Verdadero.",
+                    "Falso, los trabajadores deben aprenderse los peligros de memoria.",
+                    "Falso, la señalización asusta a los clientes.",
+                    "Falso, solo es obligatorio señalizar las salidas de emergencia, no los puestos de trabajo."
+                ],
+                correct: 0,
+                explanation: "La señalización de seguridad advierte de riesgos que no han podido ser eliminados o protegidos colectivamente."
+            },
+            {
+                question: "Para evitar cortes durante el trabajo...",
+                options: [
+                    "Podemos utilizar guantes de látex.",
+                    "Podemos utilizar guantes de kevlar o material anticorte similar.",
+                    "Debemos pulir el objeto punzante antes de tocarlo.",
+                    "Debemos protegernos envolviendo las manos con un trapo o paño."
+                ],
+                correct: 1,
+                explanation: "El kevlar es un material sintético de alta resistencia que previene cortes por aristas vivas de las cajas de PC."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "¿Qué normativa regula y contempla el tratamiento de residuos de aparatos eléctricos y electrónicos?",
+                options: [
+                    "Ninguna de las anteriores.",
+                    "Real Decreto 110/2015, de 20 de febrero, sobre residuos de aparatos eléctricos y electrónicos.",
+                    "Real Decreto 106/2008, de 1 de febrero, sobre residuos de aparatos eléctricos y electrónicos.",
+                    "Real Decreto 106/2008, de 1 de febrero, sobre pilas y acumuladores y la gestión ambiental de sus residuos."
+                ],
+                correct: 1,
+                explanation: "El RD 110/2015 es la norma vigente que traspone la directiva europea sobre residuos RAEE."
+            },
+            {
+                question: "En función de posturas, esfuerzos y movimientos (desde el punto de vista ergonómico), ¿qué consejos son válidos? (Pregunta de selección múltiple)",
+                options: [
+                    "Alternar posturas.",
+                    "Posición adecuada de los brazos.",
+                    "Cerrar los ojos diez minutos por hora trabajada.",
+                    "Dar un paseo de vez en cuando."
+                ],
+                correct: [0, 1],
+                explanation: "Alternar la postura y mantener una correcta alineación de brazos/muñecas previene lesiones por tensión repetitiva."
+            },
+            {
+                question: "En nuestro puesto de trabajo de montaje de equipos, ¿qué elemento NO es parte de nuestro EPI?",
+                options: [
+                    "Casco.",
+                    "Guantes de nitrilo.",
+                    "Botas reforzadas.",
+                    "Mascarilla."
+                ],
+                correct: 0,
+                explanation: "En un taller de montaje de sobremesa no suele haber riesgo de caída de objetos en altura que justifique el uso de casco."
+            },
+            {
+                question: "Si queremos evitar quemaduras, ¿qué afirmación es correcta?",
+                options: [
+                    "Utilizar guantes ignífugos cuando se trabaje con disipadores.",
+                    "Tocar, rápidamente, la resistencia para ver si circula corriente. Entonces, esperar unos segundos.",
+                    "No tocar resistencias de potencia sin estar previamente desconectada.",
+                    "Esperar una hora para que finalice la descarga de electricidad estática que tuviera el equipo."
+                ],
+                correct: 2,
+                explanation: "Las resistencias de potencia pueden alcanzar temperaturas muy altas; nunca deben tocarse bajo tensión."
+            },
+            {
+                question: "Un puesto de trabajo es la empresa entera donde un trabajador desarrolla su trabajo.",
+                options: [
+                    "Verdadero, engloba todas las instalaciones de la empresa.",
+                    "Falso, el puesto de trabajo se refiere al área concreta o zona de actividad específica donde el operario realiza sus tareas.",
+                    "Verdadero, es un sinónimo legal de la razón social.",
+                    "Falso, el puesto de trabajo solo hace referencia a la silla y la mesa."
+                ],
+                correct: 1,
+                explanation: "El puesto de trabajo es el entorno físico inmediato donde el trabajador realiza su labor principal."
+            },
+            {
+                question: "El empleado o trabajador no es el responsable del reciclado.",
+                options: [
+                    "Verdadero, es responsabilidad exclusiva del departamento de limpieza.",
+                    "Falso, el trabajador tiene la obligación de seguir los protocolos y separar los residuos en su puesto.",
+                    "Verdadero, el trabajador solo está obligado si es un directivo.",
+                    "Falso, el trabajador es el único responsable legal ante el Estado."
+                ],
+                correct: 1,
+                explanation: "El trabajador tiene el deber de colaborar con la empresa en la gestión de residuos siguiendo las instrucciones recibidas."
+            },
+            {
+                question: "En un puesto de trabajo, ¿qué riesgos podemos sufrir? (Pregunta de selección múltiple)",
+                options: [
+                    "Caídas.",
+                    "Aplastamiento.",
+                    "Atropello.",
+                    "Corte."
+                ],
+                correct: [1, 3],
+                explanation: "En montaje de equipos existen riesgos específicos de aplastamiento (pesos) y cortes (chapas)."
+            },
+            {
+                question: "Si hay un conato de incendio en un equipo, ¿qué debemos hacer?",
+                options: [
+                    "Intentar sofocarlo inmediatamente con el extintor más cercano y que sea apropiado para el tipo de fuego.",
+                    "Evacuar las instalaciones e intentar apagarlo con agua.",
+                    "Evacuar las instalaciones y llamar a los bomberos.",
+                    "Salir corriendo antes de que vaya a más."
+                ],
+                correct: 0,
+                explanation: "Un conato es un fuego pequeño que puede ser sofocado con el extintor de CO2 o polvo adecuado (nunca agua en equipos eléctricos)."
+            },
+            {
+                question: "¿Cómo pueden ser dadas a conocer las señales de advertencia?",
+                options: [
+                    "Mediante paneles informativos explicando el riesgo y cómo evitarlo.",
+                    "Mediante señales que se especifican en la entrada al puesto de trabajo y desarrolladas por la empresa.",
+                    "Mediante el responsable de seguridad que en todo momento informará a todos de los riesgos laborales y cómo evitarlos.",
+                    "Mediante composición de colores y formas, debidamente estandarizadas."
+                ],
+                correct: 3,
+                explanation: "Las señales de seguridad usan un código universal de colores y formas (triángulo amarillo para advertencia) según la norma ISO."
+            },
+            {
+                question: "Debemos utilizar gafas protectoras y mascarilla para realizar una limpieza de un equipo con un compresor.",
+                options: [
+                    "Verdadero, para evitar que el aire a presión introduzca partículas en los ojos o las vías respiratorias.",
+                    "Falso, con apartar la cara es suficiente.",
+                    "Falso, el compresor solo expulsa aire limpio que no supone riesgo.",
+                    "Verdadero, pero solo si el equipo estuvo sumergido en líquidos tóxicos."
+                ],
+                correct: 0,
+                explanation: "El aire a presión levanta nubes de polvo y partículas que pueden irritar ojos y pulmones."
+            }
+        ]
     }
 };
