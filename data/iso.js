@@ -1663,5 +1663,283 @@ export const questionsISO = {
                 explanation: "Un bloque índice guarda la tabla de punteros hacia todos los bloques de datos del archivo."
             }
         ]
+    },
+    "Tema 6: Administración de dominios": {
+        "Test 1": [
+            {
+                question: "¿Cómo se llaman las cuentas de los equipos Windows que se añaden a un controlador de dominio Linux?",
+                options: ["Cuentas equipos.", "Cuentas de confianza.", "Cuentas que contengan el signo dólar ($).", "Cuentas especiales."],
+                correct: 1,
+                explanation: "Las cuentas de confianza (Trust Accounts) permiten que los equipos se identifiquen ante el controlador de dominio Linux mediante Samba."
+            },
+            {
+                question: "Cuando se instala el Active Directory en el primer equipo de la red, ¿qué objetos se crean de forma predeterminada?",
+                options: ["Solo el dominio raíz.", "Solo el bosque del dominio.", "El dominio raíz y el bosque del dominio.", "Las relaciones de confianza y los equipos clientes."],
+                correct: 2,
+                explanation: "El primer controlador crea simultáneamente la raíz del dominio y el bosque (Forest) que lo contiene."
+            },
+            {
+                question: "En un entorno de dominio, ¿es válida una contraseña de usuario como \"aluMn101\"?",
+                options: [
+                    "Sí, porque cumple con los requisitos de complejidad (contiene minúsculas, mayúsculas y números).",
+                    "No, porque carece de caracteres especiales obligatorios.",
+                    "Sí, pero solo si tiene una longitud mínima de 12 caracteres.",
+                    "No, porque una contraseña nunca puede incluir números consecutivos."
+                ],
+                correct: 0,
+                explanation: "Cumple con las 3 categorías básicas: mayúsculas, minúsculas y números, lo que satisface la política de complejidad estándar."
+            },
+            {
+                question: "¿Puede un usuario Administrador de un controlador de dominio Windows Server 2019 tener una contraseña como \"alumno101\"?",
+                options: [
+                    "Sí, las cuentas de administrador no tienen restricciones de complejidad.",
+                    "No, porque no cumple con los requisitos mínimos de complejidad (le falta una mayúscula o un carácter especial).",
+                    "Sí, porque supera los 8 caracteres de longitud exigidos.",
+                    "No, porque las contraseñas de administrador deben tener al menos 15 caracteres."
+                ],
+                correct: 1,
+                explanation: "Las cuentas administrativas exigen complejidad obligatoria; 'alumno101' solo tiene minúsculas y números."
+            },
+            {
+                question: "¿Es necesario tener instalado Samba para poder compartir una carpeta en Linux con equipos Windows y personalizar el tipo de acceso por usuario?",
+                options: [
+                    "No, Linux puede compartir carpetas nativamente con Windows sin software adicional.",
+                    "Sí, Samba es el servicio indispensable para usar el protocolo SMB y gestionar dichos accesos.",
+                    "No, se utiliza el protocolo SSH para compartir carpetas en red local de forma gráfica.",
+                    "Sí, pero solo si la red no cuenta con un servidor DNS."
+                ],
+                correct: 1,
+                explanation: "Samba implementa el protocolo SMB/CIFS en Linux, permitiendo la interoperabilidad con sistemas de archivos de Windows."
+            },
+            {
+                question: "¿A qué tipo de usuarios podemos asignar perfiles móviles (roaming profiles) en un entorno de red?",
+                options: ["A los usuarios locales de cada equipo.", "A los usuarios globales de un dominio.", "A los usuarios invitados (Guest) del sistema.", "A cualquier usuario, independientemente de si pertenece a un dominio o grupo de trabajo."],
+                correct: 1,
+                explanation: "Los perfiles móviles requieren una cuenta de dominio global para que el servidor pueda sincronizar el perfil en cualquier equipo de la red."
+            },
+            {
+                question: "¿Qué tipo de configuración de red TCP/IP debe tener el servidor que gestiona el servicio DNS?",
+                options: ["Automática (DHCP).", "Dinámica (APIPA).", "Manual / Estática.", "Depende de la versión del sistema operativo."],
+                correct: 2,
+                explanation: "Un servidor de infraestructura crítica como el DNS debe tener una IP estática para que los clientes siempre puedan localizarlo."
+            },
+            {
+                question: "¿Cuál es el grupo de trabajo que tienen configurado de forma predeterminada los equipos Linux en el fichero de configuración de Samba?",
+                options: ["WINDOWS.", "LOCALHOST.", "smb.", "WORKGROUP."],
+                correct: 3,
+                explanation: "Por compatibilidad con Windows, el valor predeterminado en smb.conf suele ser WORKGROUP."
+            },
+            {
+                question: "¿Cuál es el protocolo más seguro utilizado para acceder remotamente a la consola de un servidor Linux?",
+                options: ["ftp.", "telnet.", "SSH.", "samba."],
+                correct: 2,
+                explanation: "SSH (Secure Shell) utiliza cifrado para proteger la comunicación, a diferencia de protocolos antiguos como Telnet."
+            },
+            {
+                question: "¿Es posible instalar un controlador de dominio secundario (adicional) para un controlador de dominio principal?",
+                options: [
+                    "No, una red solo puede tener un único controlador de dominio.",
+                    "Sí, para proporcionar tolerancia a fallos y balancear la carga de trabajo.",
+                    "Sí, pero solo si ambos servidores son Linux.",
+                    "No, a menos que el servidor principal esté apagado."
+                ],
+                correct: 1,
+                explanation: "Los controladores adicionales mejoran la redundancia y permiten que los usuarios sigan validándose si el principal falla."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "¿Podemos crear unidades organizativas dentro de otra unidad organizativa?",
+                options: [
+                    "Sí, se pueden anidar formando una jerarquía para reflejar la estructura de la organización.",
+                    "No, las unidades organizativas solo pueden colgar directamente de la raíz del dominio.",
+                    "Sí, pero el sistema operativo limita el anidamiento a un máximo de dos niveles.",
+                    "No, para agrupar unidades organizativas dentro de otras es necesario utilizar grupos globales."
+                ],
+                correct: 0,
+                explanation: "Las UO son contenedores jerárquicos que permiten organizar recursos por departamentos, delegaciones, etc."
+            },
+            {
+                question: "¿Cuáles de las siguientes son herramientas administrativas de Active Directory?",
+                options: [
+                    "Programador de tareas y Windows PowerShell ISE (x86).",
+                    "Solo la consola de \"Usuarios y equipos de Active Directory\".",
+                    "\"Usuarios y equipos de Active Directory\" y \"Sitios y servicios de Active Directory\".",
+                    "El Programador de tareas y \"Sitios y servicios de Active Directory\"."
+                ],
+                correct: 2,
+                explanation: "Son las dos consolas principales para gestionar objetos y la topología física de la red respectivamente."
+            },
+            {
+                question: "¿Cuál es el comando en Linux que permite convertir un usuario del sistema en un usuario de Samba?",
+                options: ["passwd", "smbpasswd", "useradd", "adduser"],
+                correct: 1,
+                explanation: "smbpasswd se encarga de gestionar las contraseñas y el estado de las cuentas de usuario en el servicio Samba."
+            },
+            {
+                question: "¿Cuál es la orden exacta que nos permite añadir el usuario \"baloo\" como usuario del servicio Samba?",
+                options: [
+                    "sudo AddUser –a baloo",
+                    "sudo smbpasswd –a baloo",
+                    "sudo SmbPasswd –a baloo",
+                    "sudo adduser –a baloo"
+                ],
+                correct: 1,
+                explanation: "El parámetro -a añade el usuario especificado a la base de datos de usuarios de Samba."
+            },
+            {
+                question: "¿Desde qué terminales de una red local podemos acceder como usuarios de un servidor que actúa como controlador de dominio?",
+                options: [
+                    "Solo en los equipos que tengan una dirección IP estática del mismo rango de red que el servidor.",
+                    "Únicamente en los terminales en los que el usuario esté dado de alta de forma local.",
+                    "En cualquier equipo cliente o servidor que esté unido o sea miembro del dominio.",
+                    "En los equipos donde el grupo de trabajo configurado sea WORKGROUP."
+                ],
+                correct: 2,
+                explanation: "Cualquier equipo miembro permite el inicio de sesión con cuentas del dominio gracias a la confianza establecida."
+            },
+            {
+                question: "Si un usuario tiene permiso de escritura en dos carpetas y tiene asignada una cuota de disco de 2 MB en ese volumen, ¿cuánto puede almacenar en cada carpeta?",
+                options: [
+                    "Independientemente de cómo lo reparta, la suma de las dos carpetas no puede sobrepasar los 2 MB en total.",
+                    "Exactamente 1 MB para cada una de las carpetas.",
+                    "Puede almacenar 2 MB en cada carpeta, sumando un total de 4 MB.",
+                    "Solamente puede tener permiso para almacenar datos en una de ellas si se aplican cuotas."
+                ],
+                correct: 0,
+                explanation: "Las cuotas se aplican por volumen y usuario, limitando el espacio total consumido por ese usuario en todo el disco."
+            },
+            {
+                question: "¿Qué formato de nombre de usuario ponemos en el login de entrada para acceder localmente a un equipo Windows integrado en un dominio?",
+                options: [
+                    "Nombre_equipo_local\\nombre_usuario_local",
+                    "Nombre_equipo_local/nombre_usuario_local",
+                    "Nombre_dominio\\nombre_usuario_local",
+                    "No se puede acceder localmente a un equipo que está unido a un dominio."
+                ],
+                correct: 0,
+                explanation: "Para forzar el acceso local se usa la sintaxis Equipo\\Usuario, de lo contrario se intentará validar contra el dominio."
+            },
+            {
+                question: "Siempre que tengamos una cuenta de usuario local creada, podemos iniciar sesión como usuario local en un terminal que está unido a un dominio. ¿Es esto verdadero o falso?",
+                options: [
+                    "Sí, seleccionando el equipo local en lugar del dominio en la pantalla de inicio de sesión.",
+                    "No, al unirse a un dominio las cuentas locales se desactivan automáticamente y no se pueden usar.",
+                    "Sí, pero solo si el controlador de dominio está apagado o la red está caída.",
+                    "No, las políticas de seguridad del dominio eliminan las cuentas locales preexistentes."
+                ],
+                correct: 0,
+                explanation: "Unirse al dominio no borra ni deshabilita las cuentas locales; estas siguen siendo útiles para mantenimiento local."
+            },
+            {
+                question: "¿Cuál de las siguientes órdenes permite reiniciar el servicio Samba desde la línea de comandos en distribuciones antiguas como Ubuntu 9.04 (basadas en init.d)?",
+                options: [
+                    "sudo /etc/init.d/samba stop",
+                    "sudo /etc/init.d/samba restart",
+                    "sudo /etc/init.d/init samba",
+                    "sudo systemctl restart smbd"
+                ],
+                correct: 1,
+                explanation: "En sistemas antiguos se invocaban los scripts de /etc/init.d/ con el parámetro restart."
+            },
+            {
+                question: "¿Podemos acceder a un recurso compartido por un equipo mediante la característica \"Grupo en el hogar\" (HomeGroup) desde un Windows XP Profesional?",
+                options: [
+                    "Sí, Windows XP es totalmente compatible con la característica de Grupo en el hogar.",
+                    "No, la característica Grupo en el hogar fue introducida en Windows 7 y no es compatible con Windows XP.",
+                    "Sí, pero solo si el equipo con Windows XP tiene instalado el protocolo IPv6 manualmente.",
+                    "No, porque Windows XP solo puede unirse a dominios, no a grupos de trabajo convencionales."
+                ],
+                correct: 1,
+                explanation: "HomeGroup es una característica 'nueva' que XP no reconoce, aunque se instale IPv6."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "¿En qué campo de la pestaña Perfil, en la ventana de Propiedades de la cuenta de un usuario, podemos indicar un script de inicio de sesión que pueda contener, por ejemplo la orden para conectar con una unidad de red de un recurso?",
+                options: ["Net use.", "Script de inicio de sesión.", "Ruta de acceso al perfil.", "Fichero bat de arranque."],
+                correct: 1,
+                explanation: "El campo 'Script de inicio de sesión' apunta al nombre del archivo .bat o .vbs ubicado en la carpeta Netlogon del servidor."
+            },
+            {
+                question: "Cuándo un equipo se integra en el dominio, de forma predeterminada, se crea una cuenta de equipo en la carpeta Computers del Active Directory. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Es el contenedor base donde van a parar todos los nuevos miembros del dominio si no se especifica una UO."
+            },
+            {
+                question: "Si disponemos de los permisos adecuados, podemos acceder a un recurso compartido de otro ordenador mediante la herramienta de Conectarse a una Unidad de red. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Mapear una unidad de red permite asignar una letra de unidad (ej. Z:) a una ruta UNC (\\\\servidor\\recurso)."
+            },
+            {
+                question: "¿Cuál o cuáles son los caminos a seguir en el sistema operativo Windows 10 para acceder a la configuración de la tarjeta de red?",
+                options: [
+                    "Panel de búsqueda escribimos-Red, hacemos clic en Ver conexiones de red-botón derecho de ratón en el adaptador-Propiedades.",
+                    "Panel de búsqueda escribimos-Panel de control-Sistema-Administrador de dispositivos-Adaptador de red.",
+                    "Inicio-Equipo, botón derecho de ratón- Propiedades -Sistema-Administrador de dispositivos-Adaptador de red.",
+                    "Inicio-Equipo-seleccionar Red-botón derecho del ratón-Ver equipos y dispositivos."
+                ],
+                correct: 0,
+                explanation: "Es el método más directo en las versiones modernas para llegar a las propiedades de IPv4."
+            },
+            {
+                question: "¿Qué servicio es necesario instalar y configurar para poder crear un controlador de dominio?",
+                options: ["Dns.", "Ftp.", "Dhcp.", "Wins."],
+                correct: 0,
+                explanation: "Active Directory depende críticamente del DNS para localizar los servicios del dominio (SRV records)."
+            },
+            {
+                question: "Una cuenta de equipo puede pertenecer a una unidad organizativa dentro del Active Directory. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Movemos cuentas de equipo a UOs para aplicarles políticas de grupo (GPO) específicas."
+            },
+            {
+                question: "¿Cuándo podemos acceder en una red desde un equipo Linux a un recurso compartido de un equipo Windows?",
+                options: [
+                    "Siempre que se tenga instalado samba y configurado el fichero samb.conf.",
+                    "Siempre que el equipo Linux sea un servidor de Windows.",
+                    "Siempre que se tenga instalada SWAT.",
+                    "No se puede acceder."
+                ],
+                correct: 0,
+                explanation: "Samba proporciona los drivers y protocolos necesarios para que Linux 'entienda' los recursos compartidos de Windows."
+            },
+            {
+                question: "¿Podemos deshabilitar la cuenta de un equipo, para que no pueda entrar al dominio, aunque en ese instante tenga una sesión abierta con el Active Directory?",
+                options: [
+                    "No, antes hay que borrar los usuarios del equipo.",
+                    "No, nunca.",
+                    "Si borrando la cuenta de la carpeta Computers.",
+                    "Si pero antes debemos forzar a cerrar la sesión."
+                ],
+                correct: 3,
+                explanation: "Deshabilitar la cuenta impide nuevas validaciones, pero para que sea efectiva inmediatamente hay que cerrar las conexiones activas."
+            },
+            {
+                question: "Cuando se comparte una carpeta en un terminal Windows, de forma predeterminada, ¿Quién tiene permiso para modificar?",
+                options: [
+                    "Los usuarios propietarios de la carpeta y el grupo administradores.",
+                    "solamente el propietario.",
+                    "solamente el administrador.",
+                    "Usuarios del dominio."
+                ],
+                correct: 0,
+                explanation: "El creador (propietario) y los administradores heredan el control sobre el recurso compartido por defecto."
+            },
+            {
+                question: "¿Qué orden escribirías en el terminal para editar el fichero de configuración samba?",
+                options: [
+                    "sudo nano /etc/var/samba.conf",
+                    "sudo nano /etc/samba/samba.conf",
+                    "sudo nano /etc/samba/smb.conf",
+                    "sudo nano /var/samba/samba.conf."
+                ],
+                correct: 2,
+                explanation: "La ruta estándar de configuración de Samba es /etc/samba/smb.conf."
+            }
+        ]
     }
 };
