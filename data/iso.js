@@ -2349,6 +2349,510 @@ export const questionsISO = {
                 explanation: "Restringir el ámbito a 'Sólo esta carpeta' detiene la propagación de permisos por herencia."
             }
         ]
+    },
+    "Tema 8: Supervisión del rendimiento del sistema": {
+        "Test 1": [
+            {
+                question: "¿Qué operaciones sobre registros y alertas puede realizar un usuario estándar del sistema?",
+                options: [
+                    "Puede ejecutarlos pero no crearlos.",
+                    "Puede crearlos pero no ejecutarlos.",
+                    "Puede crearlos y ejecutarlos.",
+                    "Ninguna. No podrá usar esos elementos."
+                ],
+                correct: 3,
+                explanation: "Los usuarios estándar carecen de privilegios para gestionar o utilizar las herramientas de seguimiento y alertas de rendimiento del sistema."
+            },
+            {
+                question: "¿Qué elemento proporciona información sobre el rendimiento de uno o varios contadores siempre que se produzca un determinado evento?",
+                options: [
+                    "El registro de eventos.",
+                    "Las alertas.",
+                    "El registro de seguimiento.",
+                    "El registro de contador."
+                ],
+                correct: 2,
+                explanation: "El registro de seguimiento (Trace Log) recopila datos detallados cada vez que ocurre un evento específico del sistema o de una aplicación."
+            },
+            {
+                question: "¿Qué operaciones puedo realizar sobre procesos en el Administrador de tareas? (Selección múltiple)",
+                options: [
+                    "Cambiar su prioridad.",
+                    "Finalizar todo su árbol de procesos.",
+                    "Finalizarlo.",
+                    "Modificar el propietario."
+                ],
+                correct: [0, 1, 2],
+                explanation: "El Administrador de tareas permite gestionar procesos activos, pero no modificar su propietario original directamente desde esta interfaz."
+            },
+            {
+                question: "¿Para qué se utiliza un evento operativo?",
+                options: [
+                    "Para registrar operaciones de todos los programas del equipo.",
+                    "Para analizar el rendimiento de una operación del sistema.",
+                    "Para registrar operaciones de los programas a los que se asocie.",
+                    "Para analizar un problema o una condición en el sistema."
+                ],
+                correct: 3,
+                explanation: "Los eventos operativos están diseñados para ayudar a los administradores a identificar y diagnosticar anomalías o estados específicos del sistema."
+            },
+            {
+                question: "¿Para qué se utilizan los diagramas de Kiviat?",
+                options: [
+                    "Para reducir el coste del estudio del rendimiento.",
+                    "Para detectar y reparar fallos en la carga del sistema.",
+                    "Para aumentar la potencia del procesador.",
+                    "Para identificar posibles cuellos de botella."
+                ],
+                correct: 3,
+                explanation: "Como representación radial, el diagrama de Kiviat ayuda a visualizar de forma rápida qué recurso (CPU, E/S, RAM) está limitando el sistema."
+            },
+            {
+                question: "¿Qué se puede hacer con un conjunto recopilador de datos? (Selección múltiple)",
+                options: [
+                    "Configurarlo para que se comporte como una alerta.",
+                    "Utilizarlo como un supervisor de rendimiento de aplicaciones Linux.",
+                    "Asociarlo con otros conjuntos recopiladores de datos.",
+                    "Programarlo para que ejecute un script de optimización."
+                ],
+                correct: [0],
+                explanation: "En Windows, un recopilador de datos puede configurarse para disparar una acción o aviso cuando se cumplan ciertos umbrales (comportamiento de alerta)."
+            },
+            {
+                question: "Señala los elementos que pueden formar parte de un conjunto recopilador de datos: (Selección múltiple)",
+                options: [
+                    "Datos de seguimiento de eventos.",
+                    "Información de configuración.",
+                    "Registro de aplicaciones y servicios.",
+                    "Contador de rendimiento."
+                ],
+                correct: [0, 1, 3],
+                explanation: "Un conjunto recopilador puede agrupar contadores, seguimientos y el estado de la configuración del sistema para un análisis integral."
+            },
+            {
+                question: "¿Qué se puede hacer con el historial de confiabilidad? (Selección múltiple)",
+                options: [
+                    "Guardarlo para estudiarlo posteriormente.",
+                    "Exportarlo a XML.",
+                    "Interpretarlo con el monitor de rendimiento.",
+                    "Exportarlo a XLS."
+                ],
+                correct: [0, 1],
+                explanation: "Windows permite ver el historial de errores y exportarlo a formato XML para auditoría o análisis externo."
+            },
+            {
+                question: "¿Cómo se puede acceder al Monitor de confiabilidad?",
+                options: [
+                    "Sólo de forma remota.",
+                    "Sólo físicamente.",
+                    "Sólo es posible acceder si el equipo no forma parte de una red.",
+                    "Físicamente o de forma remota."
+                ],
+                correct: 3,
+                explanation: "Como la mayoría de herramientas de administración de Windows, se puede consultar localmente o a través de la red."
+            },
+            {
+                question: "¿Qué herramienta de Sysstat recoge información del rendimiento de forma más completa?",
+                options: [
+                    "uidstat.",
+                    "sar.",
+                    "mpstat.",
+                    "oistat."
+                ],
+                correct: 1,
+                explanation: "SAR (System Activity Reporter) es la herramienta más versátil de la suite Sysstat para monitorizar múltiples subsistemas en Linux."
+            },
+            {
+                question: "¿Qué combinación de teclas abre directamente el Administrador de tareas?",
+                options: [
+                    "Ctrl+Alt+Intro.",
+                    "Ctrl+Mayúsc+Esc.",
+                    "Ctrl+Alt+Supr.",
+                    "Alt+F4."
+                ],
+                correct: 1,
+                explanation: "Esta combinación de teclas lanza la aplicación directa del Administrador de tareas sin pasar por el menú de seguridad de Windows."
+            },
+            {
+                question: "¿Cómo se denomina al conjunto de reglas que se aplica a uno o más registros para obtener sólo aquellos que nos interese? (Selección múltiple)",
+                options: [
+                    "Una vista personalizada.",
+                    "Un filtro de eventos.",
+                    "Un conjunto recopilador de datos.",
+                    "Un contador de rendimiento."
+                ],
+                correct: [0, 1],
+                explanation: "Tanto las vistas personalizadas como los filtros nos permiten aislar los eventos importantes entre miles de registros."
+            },
+            {
+                question: "¿Qué busca la optimización del sistema?",
+                options: [
+                    "Mínimo rendimiento con el mayor número de recursos posibles.",
+                    "Máximo rendimiento con el menor número de recursos posibles.",
+                    "Mínimo rendimiento con el menor número de recursos posibles.",
+                    "Máximo rendimiento con el mayor número de recursos posibles."
+                ],
+                correct: 1,
+                explanation: "La eficiencia consiste en exprimir las capacidades de cómputo minimizando el uso innecesario de recursos o hardware."
+            },
+            {
+                question: "¿Cuál de los siguientes eventos es más grave?",
+                options: [
+                    "Evento crítico.",
+                    "Error.",
+                    "Evento informativo.",
+                    "Advertencia."
+                ],
+                correct: 0,
+                explanation: "Un evento crítico indica un fallo sistémico grave que suele requerir atención inmediata para restablecer el servicio."
+            },
+            {
+                question: "¿Cuándo emite un informe el Monitor de rendimiento?",
+                options: [
+                    "Cuando ha encontrado fallos en la recogida de datos.",
+                    "Siempre que se produzca una determinada condición.",
+                    "A la vez que va recopilando los resultados.",
+                    "Una vez ha recopilado los resultados."
+                ],
+                correct: 3,
+                explanation: "El informe de diagnóstico o rendimiento se genera como un resumen final tras el periodo de observación y captura de datos."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "¿Qué significa que un equipo tenga como índice de estabilidad 1?",
+                options: [
+                    "Que es un equipo muy estable.",
+                    "Que es un equipo que no dará fallos en un futuro.",
+                    "Que es un equipo muy poco estable.",
+                    "Que está totalmente optimizado."
+                ],
+                correct: 2,
+                explanation: "En la escala de confiabilidad de Windows (1-10), el valor 1 representa el nivel más bajo de estabilidad."
+            },
+            {
+                question: "¿Qué hay que escribir en /etc/init.d/sysstat para poder recoger datos de forma periódica y guardarlos en ficheros históricos?",
+                options: [
+                    "DISABLED=false.",
+                    "ENABLED=false.",
+                    "DISABLED=true.",
+                    "ENABLED=true."
+                ],
+                correct: 3,
+                explanation: "Habilitar (ENABLED=true) el demonio sysstat es necesario para activar la recolección automática de datos históricos en Linux."
+            },
+            {
+                question: "¿Qué monitorizo ejecutando en Ubuntu la orden time?",
+                options: [
+                    "Nada. Esa orden sirve para mostrar o cambiar la hora.",
+                    "El tiempo que emplea el equipo en resolver direcciones IP.",
+                    "El tiempo que lleva el usuario la sesión abierta.",
+                    "El tiempo de ejecución de un programa."
+                ],
+                correct: 3,
+                explanation: "El comando 'time' mide los recursos y el tiempo real, de usuario y de sistema que consume un proceso al ejecutarse."
+            },
+            {
+                question: "¿Qué orden muestra los usuarios conectados al sistema?",
+                options: [
+                    "users show.",
+                    "users.",
+                    "who.",
+                    "free."
+                ],
+                correct: 2,
+                explanation: "El comando 'who' lista los usuarios autenticados actualmente y desde qué terminales han accedido."
+            },
+            {
+                question: "¿Cuál de las pestañas del Monitor del sistema de Ubuntu proporciona información a través de gráficos dinámicos?",
+                options: [
+                    "Recursos.",
+                    "Sistemas de archivos.",
+                    "Procesos.",
+                    "Sistema."
+                ],
+                correct: 0,
+                explanation: "La pestaña 'Recursos' muestra gráficos en tiempo real del uso de CPU, red y memoria RAM."
+            },
+            {
+                question: "¿A qué orden equivale el interfaz gráfico del Monitor del sistema de Ubuntu?",
+                options: [
+                    "systray.",
+                    "ps.",
+                    "system-monitor.",
+                    "top."
+                ],
+                correct: 3,
+                explanation: "El comando 'top' es la versión en terminal para monitorizar procesos en tiempo real, equivalente a la vista gráfica."
+            },
+            {
+                question: "¿Qué monitorizo ejecutando en Ubuntu la orden vmstat?",
+                options: [
+                    "La actividad de la memoria.",
+                    "El estado actual de la máquina virtual.",
+                    "La carga del sistema.",
+                    "El ancho de banda disponible en la conexión de red."
+                ],
+                correct: 0,
+                explanation: "Virtual Memory Statistics (vmstat) informa sobre procesos, memoria, paginación, E/S de bloques e interrupciones de CPU."
+            },
+            {
+                question: "Señala las afirmaciones CORRECTAS: (Selección múltiple)",
+                options: [
+                    "Existen objetos que están presentes en todos los sistemas.",
+                    "El proceso tiene un comportamiento similar a una cola.",
+                    "Cada proceso lleva asociado un contador que cuantifica su comportamiento.",
+                    "Los subprocesos sólo son posibles en equipos con procesadores de más de un núcleo."
+                ],
+                correct: [0],
+                explanation: "En la arquitectura de monitorización de Windows, ciertos objetos (como Procesador o Memoria) son universales a cualquier instalación."
+            },
+            {
+                question: "¿Cómo se llama la herramienta gráfica con la que se puede interpretar información recopilada en ficheros de rendimiento?",
+                options: [
+                    "graf.",
+                    "isag.",
+                    "sadf.",
+                    "stat."
+                ],
+                correct: 1,
+                explanation: "ISAG (Interactive System Activity Grapher) es una utilidad gráfica clásica de la suite sysstat en Linux."
+            },
+            {
+                question: "¿Qué orden se utiliza para abrir el Monitor de rendimiento?",
+                options: [
+                    "system-monitor.",
+                    "monrend.",
+                    "perfmon.",
+                    "monmgr."
+                ],
+                correct: 2,
+                explanation: "PERFMON (Performance Monitor) es el comando ejecutable para lanzar la consola de monitorización de Windows."
+            },
+            {
+                question: "Señala las afirmaciones CORRECTAS relacionadas con suscripciones: (Selección múltiple)",
+                options: [
+                    "Permite recopilar eventos locales pero no globales.",
+                    "La información recopilada la trata como un único evento.",
+                    "Una suscripción activa recibe información en tiempo real.",
+                    "La suscripción sólo es posible con equipos en red."
+                ],
+                correct: [2],
+                explanation: "Las suscripciones a eventos permiten que un servidor centralizado reciba alertas de otros equipos de forma instantánea."
+            },
+            {
+                question: "¿Cuántas líneas me genera la ejecución de la sentencia mpstat 1 5?",
+                options: [
+                    "Cinco líneas en intervalos de un minuto.",
+                    "Cinco líneas en intervalos de un segundo.",
+                    "Una línea en intervalos de cinco minutos.",
+                    "Una línea en intervalos de cinco segundos."
+                ],
+                correct: 1,
+                explanation: "El parámetro 1 indica el intervalo (segundos) y el 5 indica el número de capturas o líneas de salida."
+            },
+            {
+                question: "¿Cuál de las siguientes herramientas NO forma parte de Sysstat?",
+                options: [
+                    "sar.",
+                    "oistat.",
+                    "uidstat.",
+                    "mpstat."
+                ],
+                correct: 2,
+                explanation: "uidstat no es una utilidad estándar de la suite Sysstat de Linux."
+            },
+            {
+                question: "Señala los datos que pueden observarse en la pestaña Sistemas de archivos de Ubuntu: (Selección múltiple)",
+                options: [
+                    "El tipo de sistema operativo (x86/x64).",
+                    "El nombre del dispositivo.",
+                    "El tipo de sistema de archivos.",
+                    "El espacio de disco disponible."
+                ],
+                correct: [1, 2, 3],
+                explanation: "Muestra la tabla de particiones activas, su punto de montaje (/), tipo (ext4, ntfs) y el espacio libre restante."
+            },
+            {
+                question: "¿Cuál de los siguientes elementos no es un parámetro que se muestre en la pestaña Rendimiento del Administrador de tareas?",
+                options: [
+                    "Procesos.",
+                    "CPU.",
+                    "Disco.",
+                    "Memoria."
+                ],
+                correct: 0,
+                explanation: "En el Administrador de tareas de Windows, 'Procesos' es su propia pestaña independiente, no un recurso dentro de la pestaña 'Rendimiento'."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "¿Qué elemento proporciona información sobre el rendimiento de uno o varios contadores siempre que se produzca un determinado evento?",
+                options: [
+                    "El registro de eventos.",
+                    "Las alertas.",
+                    "El registro de contador.",
+                    "El registro de seguimiento."
+                ],
+                correct: 3,
+                explanation: "El registro de seguimiento nos da la visión temporal del rendimiento ligada a eventos específicos."
+            },
+            {
+                question: "¿Cuál de los siguientes elementos no es un parámetro que se muestre en la pestaña Rendimiento del Administrador de tareas?",
+                options: [
+                    "Memoria.",
+                    "Disco.",
+                    "Procesos.",
+                    "CPU."
+                ],
+                correct: 2,
+                explanation: "Los procesos tienen su propio panel; la pestaña Rendimiento se centra en recursos de hardware (CPU, RAM, Discos, Red)."
+            },
+            {
+                question: "¿Qué se puede hacer con un conjunto recopilador de datos? (Selección múltiple)",
+                options: [
+                    "Asociarlo con otros conjuntos recopiladores de datos.",
+                    "Configurarlo para que se comporte como una alerta.",
+                    "Programarlo para que ejecute un script de optimización.",
+                    "Utilizarlo como un supervisor de rendimiento de aplicaciones Linux."
+                ],
+                correct: [1],
+                explanation: "Se puede programar una acción automática para que se active cuando un recopilador de datos alcance un valor crítico."
+            },
+            {
+                question: "¿Cuál de los siguientes eventos es más grave?",
+                options: [
+                    "Advertencia.",
+                    "Error.",
+                    "Evento crítico.",
+                    "Evento informativo."
+                ],
+                correct: 2,
+                explanation: "Los eventos críticos señalan una emergencia que ha detenido alguna función vital del sistema operativo."
+            },
+            {
+                question: "¿Qué orden se utiliza para abrir el Monitor de rendimiento?",
+                options: [
+                    "system-monitor.",
+                    "monrend.",
+                    "monmgr.",
+                    "perfmon."
+                ],
+                correct: 3,
+                explanation: "perfmon.msc es la consola maestra de rendimiento en todos los sistemas Windows modernos."
+            },
+            {
+                question: "¿A qué orden equivale el interfaz gráfico del Monitor del sistema de Ubuntu?",
+                options: [
+                    "ps.",
+                    "top.",
+                    "systray.",
+                    "system-monitor."
+                ],
+                correct: 1,
+                explanation: "El comando 'top' ofrece una vista interactiva de procesos y recursos en modo texto."
+            },
+            {
+                question: "¿Cuál de las pestañas del Monitor del sistema de Ubuntu proporciona información a través de gráficos dinámicos?",
+                options: [
+                    "Sistema.",
+                    "Recursos.",
+                    "Procesos.",
+                    "Sistemas de archivos."
+                ],
+                correct: 1,
+                explanation: "Toda la telemetría visual de consumo se centraliza en la pestaña 'Recursos'."
+            },
+            {
+                question: "¿Qué combinación de teclas abre directamente el Administrador de tareas?",
+                options: [
+                    "Alt+F4.",
+                    "Ctrl+Alt+Intro.",
+                    "Ctrl+Mayúsc+Esc.",
+                    "Ctrl+Alt+Supr."
+                ],
+                correct: 2,
+                explanation: "Recordar esta combinación ahorra tiempo ya que no requiere un segundo paso de selección como Ctrl+Alt+Supr."
+            },
+            {
+                question: "¿Qué significa que un equipo tenga como índice de estabilidad 1?",
+                options: [
+                    "Que es un equipo que no dará fallos en un futuro.",
+                    "Que está totalmente optimizado.",
+                    "Que es un equipo muy poco estable.",
+                    "Que es un equipo muy estable."
+                ],
+                correct: 2,
+                explanation: "Un índice bajo sugiere que el sistema ha sufrido cuelgues o errores graves de forma frecuente."
+            },
+            {
+                question: "¿Cuántas líneas me genera la ejecución de la sentencia mpstat 1 5?",
+                options: [
+                    "Cinco líneas en intervalos de un segundo.",
+                    "Cinco líneas en intervalos de un minuto.",
+                    "Una línea en intervalos de cinco segundos.",
+                    "Una línea en intervalos de cinco minutos."
+                ],
+                correct: 0,
+                explanation: "Segundos=1, Conteo=5. Generará una actualización por segundo hasta llegar a cinco."
+            },
+            {
+                question: "¿Qué operaciones sobre registros y alertas puede realizar un usuario estándar del sistema?",
+                options: [
+                    "Puede crearlos y ejecutarlos.",
+                    "Ninguna. No podrá usar esos elementos.",
+                    "Puede crearlos pero no ejecutarlos.",
+                    "Puede ejecutarlos pero no crearlos."
+                ],
+                correct: 1,
+                explanation: "Por seguridad, la gestión del rendimiento y las alertas está reservada al administrador o usuarios con privilegios elevados."
+            },
+            {
+                question: "¿Qué monitorizo ejecutando en Ubuntu la orden time?",
+                options: [
+                    "El tiempo que lleva el usuario la sesión abierta.",
+                    "El tiempo que emplea el equipo en resolver direcciones IP.",
+                    "Nada. Esa orden sirve para mostrar o cambiar la hora.",
+                    "El tiempo de ejecución de un programa."
+                ],
+                correct: 3,
+                explanation: "Permite analizar el rendimiento de un script o programa midiendo su duración."
+            },
+            {
+                question: "¿Qué busca la optimización del sistema?",
+                options: [
+                    "Mínimo rendimiento con el mayor número de recursos posibles.",
+                    "Mínimo rendimiento con el menor número de recursos posibles.",
+                    "Máximo rendimiento con el menor número de recursos posibles.",
+                    "Máximo rendimiento con el mayor número de recursos posibles."
+                ],
+                correct: 2,
+                explanation: "Optimizar es conseguir el mejor resultado posible gestionando de forma inteligente el hardware limitado."
+            },
+            {
+                question: "¿Cuándo emite un informe el Monitor de rendimiento?",
+                options: [
+                    "Una vez ha recopilado los resultados.",
+                    "Cuando ha encontrado fallos en la recogida de datos.",
+                    "Siempre que se produzca una determinada condición.",
+                    "A la vez que va recopilando los resultados."
+                ],
+                correct: 0,
+                explanation: "El informe es el producto final de un proceso de monitorización planificado."
+            },
+            {
+                question: "Señala los elementos que pueden formar parte de un conjunto recopilador de datos: (Selección múltiple)",
+                options: [
+                    "Registro de aplicaciones y servicios.",
+                    "Información de configuración.",
+                    "Contador de rendimiento.",
+                    "Datos de seguimiento de eventos."
+                ],
+                correct: [1, 2, 3],
+                explanation: "Permite una monitorización granular combinando telemetría (contadores) y registros detallados (eventos)."
+            }
+        ]
     }
 };
+
 
