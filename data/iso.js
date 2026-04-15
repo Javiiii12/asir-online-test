@@ -2852,7 +2852,412 @@ export const questionsISO = {
                 explanation: "Permite una monitorización granular combinando telemetría (contadores) y registros detallados (eventos)."
             }
         ]
+    },
+    "Tema 9: Directivas de Seguridad y Auditorías": {
+        "Test 1": [
+            {
+                question: "¿Contra qué base de datos se hace el análisis de seguridad?",
+                options: [
+                    "secedit.sdb",
+                    "security.sql",
+                    "database.mdb",
+                    "auditory.dat"
+                ],
+                correct: 0,
+                explanation: "La herramienta de Configuración y análisis de seguridad de Windows utiliza una base de datos con extensión .sdb, habitualmente secedit.sdb, para comparar la configuración actual del sistema con una plantilla."
+            },
+            {
+                question: "¿Qué es una plantilla de seguridad?",
+                options: [
+                    "Un archivo de texto que representa una configuración de seguridad.",
+                    "Una configuración de una directiva de auditoría.",
+                    "Un vínculo con uno o más GPOs de seguridad.",
+                    "No existe. En tal caso es una plantilla administrativa."
+                ],
+                correct: 0,
+                explanation: "Las plantillas de seguridad son archivos de texto sin formato con extensión .inf que contienen los parámetros de seguridad definidos."
+            },
+            {
+                question: "¿A qué configuración afecta la directiva de bucle invertido?",
+                options: [
+                    "A la configuración de usuario.",
+                    "A la configuración de equipo.",
+                    "A la configuración de usuario y de equipo.",
+                    "Ni a la configuración de usuario ni a la de equipo."
+                ],
+                correct: 0,
+                explanation: "El procesamiento de bucle invertido o 'loopback processing' se utiliza para aplicar configuraciones de usuario específicas dependiendo del equipo en el que inicie sesión."
+            },
+            {
+                question: "¿En qué ruta se almacenan todos los GPOs de inicio?",
+                options: [
+                    "En \\SERVIDOR\\sysvol\\GPOs.",
+                    "En \\sysvol\\GPO.",
+                    "En \\SERVIDOR\\sysvol\\StarterGPOs.",
+                    "En \\sysvol\\StarterGPO."
+                ],
+                correct: 2,
+                explanation: "Los GPOs de inicio o 'Starter GPOs' se guardan en la carpeta de red compartida SYSVOL, dentro de la subcarpeta StarterGPOs."
+            },
+            {
+                question: "¿Cuándo se fuerza un GPO de forma predeterminada?",
+                options: [
+                    "Nunca.",
+                    "Siempre.",
+                    "Cuando el GPO sea de inicio.",
+                    "Cuando se quiere variar la prioridad de los GPOs existentes."
+                ],
+                correct: 0,
+                explanation: "Por defecto, los GPOs no están configurados como 'Forzados'. El administrador debe habilitar explícitamente esta opción si lo desea."
+            },
+            {
+                question: "¿Cuántos filtros WMI puede tener un GPO?",
+                options: [
+                    "Uno.",
+                    "Dos.",
+                    "Tantos como GPOs haya.",
+                    "No hay límite."
+                ],
+                correct: 0,
+                explanation: "Un Objeto de Directiva de Grupo (GPO) solo puede tener vinculado un único filtro WMI al mismo tiempo."
+            },
+            {
+                question: "¿Cuál de las siguientes operaciones NO es posible con un GPO de inicio?",
+                options: [
+                    "Importarlo.",
+                    "Exportarlo.",
+                    "Eliminar un GPO a partir de él.",
+                    "Generar un GPO a partir de él."
+                ],
+                correct: 2,
+                explanation: "Los GPOs de inicio sirven como plantillas base para crear (generar), exportar o importar nuevas configuraciones, pero no tienen la función de eliminar otros GPOs."
+            },
+            {
+                question: "¿En qué circunstancia se puede auditar el acceso a archivos y carpetas (en entornos Windows)?",
+                options: [
+                    "Cuando el GPO de acceso al objeto esté disponible.",
+                    "Siempre.",
+                    "Nunca.",
+                    "Cuando el sistema de archivos sea NTFS."
+                ],
+                correct: 3,
+                explanation: "Para poder establecer y auditar permisos granulares sobre archivos y carpetas, es un requisito estricto que la partición esté formateada con el sistema de archivos NTFS."
+            },
+            {
+                question: "¿A qué afectan directamente los GPOs?",
+                options: [
+                    "Al comportamiento de usuarios y de equipos.",
+                    "Al comportamiento de usuarios exclusivamente.",
+                    "Al comportamiento de equipos exclusivamente.",
+                    "Los GPOs no afectan al comportamiento de nada."
+                ],
+                correct: 0,
+                explanation: "Las directivas de grupo se dividen en dos secciones principales: Configuración de equipo y Configuración de usuario."
+            },
+            {
+                question: "¿Cuántos GPOs pueden utilizar un mismo filtro WMI?",
+                options: [
+                    "Uno.",
+                    "Dos.",
+                    "Tantos como GPOs haya.",
+                    "Tantos como filtros haya."
+                ],
+                correct: 2,
+                explanation: "Aunque un GPO solo puede tener un filtro WMI asignado, ese mismo filtro WMI puede ser reutilizado y vinculado a multitud de GPOs diferentes."
+            },
+            {
+                question: "¿Cuál de las siguientes directivas se proporciona de forma automática en un equipo Windows Server 2019 que es controlador de dominio?",
+                options: [
+                    "Default Domain Controller Policy.",
+                    "Default Server Controller Policy.",
+                    "Domain Controller Policy.",
+                    "Default Domain Policy."
+                ],
+                correct: 0,
+                explanation: "Al promover un servidor a Controlador de Dominio, se crean automáticamente dos directivas principales, siendo la específica para los controladores la 'Default Domain Controllers Policy'."
+            },
+            {
+                question: "¿Qué sucederá si una directiva de auditoría no está permitida?",
+                options: [
+                    "No puede darse este caso porque prevalece sobre cualquier directiva.",
+                    "Que se informará al administrador para que decida si la autoriza.",
+                    "Que los GPOs vinculados a esta directiva no funcionarán.",
+                    "Que se omitirá sin más."
+                ],
+                correct: 3,
+                explanation: "Si una directiva entra en conflicto, está bloqueada o no está permitida por herencia y no está forzada, el sistema simplemente la ignora o la omite sin aplicar su configuración."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "¿Puede hacerse un modelado de GPO sobre cualquier equipo?",
+                options: [
+                    "Sí, siempre que sea Windows.",
+                    "No. Debe ser un equipo Windows Server.",
+                    "No. Debe ser un equipo Windows que además sea controlador de dominio.",
+                    "No. Debe ser un equipo controlador de dominio."
+                ],
+                correct: 2,
+                explanation: "El modelado de directivas de grupo es una función de simulación que requiere las herramientas presentes en un Controlador de Dominio de Active Directory."
+            },
+            {
+                question: "Si el vínculo de un GPO está forzado, entonces…",
+                options: [
+                    "Este GPO tendrá prioridad sobre cualquier otro GPO.",
+                    "El vínculo se hará automáticamente al crear el GPO.",
+                    "No preguntará cuando se vincule el GPO al contenedor.",
+                    "El GPO no tendrá ningún efecto sobre el contenedor relacionado."
+                ],
+                correct: 0,
+                explanation: "Un vínculo 'Enforced' (Forzado) asegura que la configuración del GPO prevalezca sobre cualquier directiva conflictiva, incluso aquellas con mayor prioridad jerárquica."
+            },
+            {
+                question: "¿Cuál de los siguientes valores NO es posible para una directiva de auditoría?",
+                options: [
+                    "Advertencia.",
+                    "Correcto.",
+                    "Error.",
+                    "Sin auditoría."
+                ],
+                correct: 0,
+                explanation: "Las directivas de auditoría se configuran para registrar éxitos (Correcto), fallos (Error) o ambos, pero 'Advertencia' no es un nivel de configuración de auditoría."
+            },
+            {
+                question: "¿A través de qué herramienta se observan los resultados de una auditoría?",
+                options: [
+                    "Visor de eventos.",
+                    "Visor de auditoría.",
+                    "Visor de registros.",
+                    "Monitor de auditoría."
+                ],
+                correct: 0,
+                explanation: "Todos los sucesos auditados por las directivas de seguridad se registran en el log de Seguridad del Visor de Eventos de Windows."
+            },
+            {
+                question: "¿Cuál de las siguientes directivas tiene mayor prioridad?",
+                options: [
+                    "Directiva de usuario local.",
+                    "Directiva de grupo del dominio.",
+                    "Directiva de grupo de la unidad organizativa.",
+                    "Directiva de equipo local."
+                ],
+                correct: 2,
+                explanation: "En la jerarquía LSDOU (Local, Sitio, Dominio, OU), la Unidad Organizativa es la que tiene mayor prioridad y sus directivas sobreescriben a las anteriores."
+            },
+            {
+                question: "¿Qué sucede cuando se deshabilita el vínculo de GPO?",
+                options: [
+                    "Que se impide la ejecución del GPO para el contenedor relacionado.",
+                    "Que también se deshabilita el GPO.",
+                    "Que también se deshabilita el contenedor.",
+                    "Que se deshabilita tanto el contenedor como el GPO."
+                ],
+                correct: 0,
+                explanation: "Deshabilitar el vínculo significa que el GPO sigue existiendo en el dominio, pero deja de aplicarse al sitio, dominio o OU específica."
+            },
+            {
+                question: "¿Qué utilidad tiene una directiva de auditoría?",
+                options: [
+                    "Aplicar permisos sobre la tarjeta de audio.",
+                    "Indicar qué GPOs están vinculados.",
+                    "Especificar los contenedores que tienen vínculos de GPO.",
+                    "Supervisar eventos relacionados con la seguridad del sistema."
+                ],
+                correct: 3,
+                explanation: "La auditoría permite realizar un seguimiento de quién ha accedido a qué recursos y qué acciones ha realizado para fines de seguridad."
+            },
+            {
+                question: "¿A qué elementos se vinculan los GPO?",
+                options: [
+                    "Usuario y grupo.",
+                    "Usuario y equipo.",
+                    "Sitio, dominio y unidad organizativa.",
+                    "Usuario, grupo y unidad organizativa."
+                ],
+                correct: 1,
+                explanation: "Las directivas de grupo afectan y se aplican técnicamente a Objetos de Usuario y Objetos de Equipo dentro de la estructura del directorio."
+            },
+            {
+                question: "¿A qué nivel se realiza el análisis de seguridad con el complemento Configuración y análisis de seguridad?",
+                options: [
+                    "A nivel de dominio.",
+                    "A nivel de unidad organizativa.",
+                    "A nivel de sitio.",
+                    "A nivel local."
+                ],
+                correct: 3,
+                explanation: "Esta herramienta se utiliza para comparar la configuración de seguridad de la máquina local frente a una plantilla de referencia."
+            },
+            {
+                question: "¿Para qué se utiliza el modelado de GPO?",
+                options: [
+                    "Para observar el efecto de un GPO antes de implantarlo.",
+                    "Para observar la forma del GPO al vincularlo a los contenedores.",
+                    "Para tener diversidad de GPO para vincular.",
+                    "Para comprobar que un GPO se ha implantado adecuadamente."
+                ],
+                correct: 0,
+                explanation: "El asistente de modelado permite simular qué directivas se aplicarían a un usuario o equipo en una ubicación determinada del AD."
+            },
+            {
+                question: "Si se aplica la directiva de bucle invertido…",
+                options: [
+                    "La directiva de equipo tiene prioridad sobre la de usuario.",
+                    "La directiva de usuario tiene prioridad sobre la de equipo.",
+                    "Las directivas de usuario y de equipo tienen la misma prioridad.",
+                    "Las directivas de usuario y de equipo se anulan."
+                ],
+                correct: 0,
+                explanation: "En modo de bucle invertido, las directivas de usuario que se aplican son las vinculadas a la ubicación del equipo, no las del usuario, dándole el control al 'equipo'."
+            },
+            {
+                question: "El vínculo de un GPO…",
+                options: [
+                    "Relaciona todos los permisos con su usuario.",
+                    "Es único.",
+                    "Es permanente.",
+                    "Puede establecerse de forma automática."
+                ],
+                correct: 3,
+                explanation: "Los vínculos pueden crearse manualmente o mediante scripts y herramientas de automatización de AD."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "¿Contra qué base de datos se hace el análisis de seguridad?",
+                options: [
+                    "secedit.sdb",
+                    "security.sql",
+                    "database.mdb",
+                    "auditory.dat"
+                ],
+                correct: 0,
+                explanation: "La base de datos secedit.sdb es el repositorio local donde se guardan los resultados de las comparaciones de seguridad."
+            },
+            {
+                question: "¿Qué tipo de bucle invertido se aplicará cuando se persigue que todos los usuarios reciban una misma configuración en un determinado lugar?",
+                options: [
+                    "Un bucle invertido de combinación.",
+                    "Un bucle invertido de sustitución.",
+                    "Un bucle invertido de unificación.",
+                    "Para esta situación no es recomendable aplicar un bucle invertido."
+                ],
+                correct: 1,
+                explanation: "El modo 'Replace' (Sustitución) ignora las directivas de usuario habituales del usuario y las reemplaza por las que indique el equipo."
+            },
+            {
+                question: "¿Desde dónde se establece la directiva de acceso a objetos?",
+                options: [
+                    "Desde el GPO correspondiente.",
+                    "Desde el contenedor correspondiente.",
+                    "Desde el GPO de inicio.",
+                    "Desde el propio objeto."
+                ],
+                correct: 0,
+                explanation: "Primero se debe habilitar la auditoría de acceso a objetos en un GPO y luego configurar la auditoría en el archivo/carpeta deseado."
+            },
+            {
+                question: "¿Cuántos GPOs pueden utilizar un mismo filtro WMI?",
+                options: [
+                    "Uno.",
+                    "Dos.",
+                    "Tantos como GPOs haya.",
+                    "Tantos como filtros haya."
+                ],
+                correct: 2,
+                explanation: "Un filtro WMI es un componente independiente que se puede reutilizar en cualquier número de GPOs del dominio."
+            },
+            {
+                question: "¿Qué utilidad tiene una directiva de auditoría?",
+                options: [
+                    "Aplicar permisos sobre la tarjeta de audio.",
+                    "Indicar qué GPOs están vinculados.",
+                    "Especificar los contenedores que tienen vínculos de GPO.",
+                    "Supervisar eventos relacionados con la seguridad del sistema."
+                ],
+                correct: 3,
+                explanation: "Es una herramienta fundamental para rastrear incidentes y cumplir con normativas de seguridad de la información."
+            },
+            {
+                question: "¿Qué sucede cuando se deshabilita el vínculo de GPO?",
+                options: [
+                    "Que se impide la ejecución del GPO para el contenedor relacionado.",
+                    "Que también se deshabilita el GPO.",
+                    "Que también se deshabilita el contenedor.",
+                    "Que se deshabilita tanto el contenedor como el GPO."
+                ],
+                correct: 0,
+                explanation: "Al romper el vínculo (link), el GPO deja de tener efecto sobre los objetos que dependen de ese contenedor."
+            },
+            {
+                question: "¿En qué circunstancia se puede auditar el acceso a archivos y carpetas (en entornos Windows)?",
+                options: [
+                    "Cuando el GPO de acceso al objeto esté disponible.",
+                    "Siempre.",
+                    "Nunca.",
+                    "Cuando el sistema de archivos sea NTFS."
+                ],
+                correct: 3,
+                explanation: "NTFS es el único sistema de archivos de Windows que soporta las listas de control de acceso (ACL) necesarias para la auditoría."
+            },
+            {
+                question: "¿Para qué se utiliza el modelado de GPO?",
+                options: [
+                    "Para observar el efecto de un GPO antes de implantarlo.",
+                    "Para observar la forma del GPO al vincularlo a los contenedores.",
+                    "Para tener diversidad de GPO para vincular.",
+                    "Para comprobar que un GPO se ha implantado adecuadamente."
+                ],
+                correct: 0,
+                explanation: "Ayuda a predecir el 'Resultant Set of Policy' (RSoP) para usuarios en diferentes escenarios de red."
+            },
+            {
+                question: "¿Cuál de las siguientes operaciones NO puede llevarse a cabo con GPOs?",
+                options: [
+                    "Cambiar su orden de aplicación respecto del orden por defecto.",
+                    "Forzar su aplicación en caso de que otro GPO lo anule.",
+                    "Bloquear la herencia del GPO.",
+                    "Bloquear la modificación de permisos del GPO."
+                ],
+                correct: 3,
+                explanation: "Los permisos sobre el objeto GPO se gestionan mediante Delegación en la consola ADUC o GPMC, y no existe una opción de 'bloqueo' dentro de la lógica del GPO."
+            },
+            {
+                question: "¿Cuál de las siguientes directivas se aplica antes?",
+                options: [
+                    "Directiva de grupo del sitio.",
+                    "Directiva de grupo de la unidad organizativa.",
+                    "Directiva de grupo del dominio.",
+                    "Directiva de grupo del controlador de dominio."
+                ],
+                correct: 0,
+                explanation: "Siguiendo el orden LSDOU, la directiva de Sitio es la primera de AD en aplicarse (tras la Local)."
+            },
+            {
+                question: "¿Cuál de estos sistemas operativos NO interpreta los filtros WMI?",
+                options: [
+                    "Windows 2000.",
+                    "Windows XP.",
+                    "Windows Vista.",
+                    "Windows 7."
+                ],
+                correct: 0,
+                explanation: "Los filtros WMI se introdujeron con Windows XP; los sistemas Windows 2000 simplemente los ignoran."
+            },
+            {
+                question: "¿A través de qué herramienta se pueden observar los Resultados de GPO?",
+                options: [
+                    "No existe tal herramienta.",
+                    "Visor de resultados.",
+                    "Administración de directivas de grupo.",
+                    "Visor de eventos."
+                ],
+                correct: 2,
+                explanation: "La consola GPMC (Administración de directivas de grupo) incluye un asistente de Resultados de Directiva de Grupo para ver qué se está aplicando realmente."
+            }
+        ]
     }
 };
+
 
 
