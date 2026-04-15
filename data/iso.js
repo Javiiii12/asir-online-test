@@ -1941,5 +1941,414 @@ export const questionsISO = {
                 explanation: "La ruta estándar de configuración de Samba es /etc/samba/smb.conf."
             }
         ]
+    },
+    "Tema 7: Administración de dominios (Parte 2)": {
+        "Test 1": [
+            {
+                question: "¿Qué comando se ejecutará para unir una cuenta de equipo Linux al controlador de dominio Windows serviWindows.es, cuyo usuario administrador del Active Directory es administrador con clave Servidor123es?",
+                options: [
+                    "sudo sudo net ads join –S serviWindows.es",
+                    "sudo net join –S serviWindows.es -U administrador%Servidor123es",
+                    "sudo join –S serviWindows.es -U administrador%Servidor123es",
+                    "sudo net ads join –S serviWindows.es -U administrador%Servidor123es"
+                ],
+                correct: 3,
+                explanation: "Para unir un equipo Linux a un Active Directory, se utiliza el comando net ads join. El parámetro -S indica el servidor/dominio, y -U permite introducir el usuario y la contraseña separados por un %."
+            },
+            {
+                question: "En Windows, si las casillas de verificación del cuadro Permisos para usuario o grupo están sombreadas, o si el botón Quitar no está disponible, el archivo o la carpeta tiene permisos heredados de la carpeta principal. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "En los sistemas de archivos NTFS, las casillas de permisos grises o 'sombreadas' son el indicador visual de que esos permisos no son explícitos, sino que se heredan de un directorio superior."
+            },
+            {
+                question: "¿Qué línea deberemos de añadir el fichero “/etc/exports” de un servidor NFS de Linux para compartir la carpeta “/home/carlos” con los permisos de sólo lectura para todos?",
+                options: [
+                    "/home/carlos Todos(ro)",
+                    "/home/carlos * +ro",
+                    "/home/carlos *(ro)",
+                    "Todas son correctas."
+                ],
+                correct: 2,
+                explanation: "En la sintaxis de /etc/exports (NFS), el asterisco * equivale a \"todos los equipos/clientes\", y (ro) es el parámetro para indicar \"read-only\" (sólo lectura)."
+            },
+            {
+                question: "¿En qué directorio se encuentran las directivas de grupo local de los diferentes objetos en cada ordenador con sistema Windows?",
+                options: [
+                    "SystemRoot\\System32\\GroupPolicy",
+                    "SystemRoot\\System32",
+                    "%windir%\\System32",
+                    "windows\\System32"
+                ],
+                correct: 0,
+                explanation: "Las directivas de grupo local se almacenan en una carpeta oculta por defecto ubicada en la variable de entorno de la raíz del sistema, dentro de System32."
+            },
+            {
+                question: "Si el servidor wind con sistema Linux tiene la dirección IP 192.168.1.1 e esta compartiendo la carpeta Apuntes de forma anónima. ¿Qué orden ejecutaremos como usuario root en un cliente de Linux para poderla utilizar el recurso Apuntes?",
+                options: [
+                    "smbumount /home/carlos",
+                    "smbclient //wind/Apuntes –I 192.168.1.1",
+                    "Ninguna es correcta.",
+                    "smbmount //wind/Apuntes /home/carlos -o guest –I 192.168.1.1"
+                ],
+                correct: 3,
+                explanation: "El comando smbmount monta la carpeta de red en un directorio local. El parámetro -o guest es indispensable para indicar que el acceso es anónimo (sin credenciales)."
+            },
+            {
+                question: "Un usuario que tiene el permiso de lectura sobre una carpeta compartida en un dominio de Windows, puede añadir más carpetas dentro de la carpeta compartida. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "El permiso de \"Lectura\" solo permite ver el contenido. Para crear o añadir carpetas se requiere, como mínimo, el permiso de \"Escritura\"."
+            },
+            {
+                question: "Con la orden “chmod = ejercicios.txt” damos todos los privilegios a todos los usuarios del archivo “ejercicios.txt”. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "La orden chmod = es una sintaxis incompleta. Para dar todos los privilegios a todos se usaría chmod 777 ejercicios.txt o chmod a=rwx ejercicios.txt."
+            },
+            {
+                question: "De forma predeterminada, los permisos de acceso a la carpeta Acceso público serán asignados para el grupo Todos. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Las carpetas de \"Acceso público\" en Windows vienen configuradas de fábrica para que el grupo \"Todos\" pueda leer y escribir, facilitando el intercambio local de archivos."
+            },
+            {
+                question: "Indicar qué permisos especiales en ficheros o carpetas tiene un usuario en un recurso compartido de un dominio, que permite Mostrar el contenido de la carpeta. (Selección múltiple)",
+                options: [
+                    "Leer permisos.",
+                    "Listar carpeta / leer datos.",
+                    "Recorre la carpeta o ejecutar archivo.",
+                    "Cambiar permisos."
+                ],
+                correct: [0, 1, 2],
+                explanation: "En los permisos avanzados de NTFS, el permiso estándar \"Mostrar el contenido de la carpeta\" es un permiso compuesto que engloba la capacidad de recorrer la estructura, ver (listar) los archivos que contiene, y leer sus atributos y permisos básicos."
+            },
+            {
+                question: "¿Qué comando usaremos para montar el recurso “Apuntes” de servidor SMB “servidorsmb”, en el directorio local “/mnt” como usuario “carlos” e con la contraseña “1234”?",
+                options: [
+                    "smbmount //servidorsmb/Apuntes /mnt –U carlos –P 1234",
+                    "mv //servidorsmb/Apuntes /mnt –U carlos –P 1234",
+                    "cp //servidorsmb/Apuntes /mnt –U carlos –P 1234",
+                    "mount //servidorsmb/Apuntes /mnt –U carlos –P 1234"
+                ],
+                correct: 0,
+                explanation: "smbmount es la herramienta clásica de Samba para montar recursos. Se pasan el usuario con la etiqueta -U y la contraseña con -P."
+            },
+            {
+                question: "Si tenemos una carpeta compartida llamada “Apuntes” con permisos Linux de lectura, escritura y ejecución para todos, y en el archivo de configuración de samba dicho recurso tiene el parámetro “read only = yes”, no será posible realizar cambios ya que está compartido con permiso de “solo lectura”. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "En Samba siempre prevalece el permiso más restrictivo. Si Samba impone \"read only = yes\", bloqueará la escritura por red sin importar que los permisos locales de Linux sean totales (777)."
+            },
+            {
+                question: "¿Cuál será la respuesta correcta?, si tenemos compartida una carpeta llamada “Distancia” con permisos de escritura para el grupo “Alumnos”, todos los usuarios que pertenezcan al grupo alumnos podrán realizar cambios en la carpeta, pero si dentro de dicha carpeta existe otra llamada “Justificantes” sobre la cual no tiene permiso para entrar el grupo Alumnos.",
+                options: [
+                    "Ningún alumno podrá ver el contenido de Justificantes.",
+                    "Los alumnos solamente pueden ver el contenido de la carpeta Justificantes.",
+                    "Los alumnos no pueden ver el contenido de Justificantes y Distancia.",
+                    "Los alumnos pueden ver el contenido de Justificantes y Distancia."
+                ],
+                correct: 0,
+                explanation: "Los permisos en subcarpetas pueden romper la herencia. Si tienen denegado el acceso o carecen de permisos en la subcarpeta \"Justificantes\", su interior será inaccesible para ellos, aunque sí puedan ver y modificar \"Distancia\"."
+            },
+            {
+                question: "Ejecutando en Linux como usuario root la orden “chmod 1777 /tmp” se evita el borrado de ficheros ajenos dentro del directorio público /tmp. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "El número 1 inicial activa el \"Sticky bit\" (Bit pegajoso). En un directorio público (777), este bit garantiza que un usuario solo pueda borrar los archivos de los que él mismo es propietario."
+            },
+            {
+                question: "¿De qué manera podemos conseguir que solamente el usuario pueda ver el contenido del directorio /home/Apuntes en Linux?",
+                options: [
+                    "sudo chmod go-rwx /home/Apuntes",
+                    "sudo chmod 711 /home/Apuntes",
+                    "sudo chmod 771 /home/Apuntes",
+                    "sudo chmod go+rwx /home/Apuntes"
+                ],
+                correct: 0,
+                explanation: "El modificador go-rwx le resta (quita) los permisos de lectura, escritura y ejecución a los Grupos (g) y a los Otros (o). Esto aísla la carpeta para que solo su propietario conserve el acceso."
+            },
+            {
+                question: "¿Cuál es la aplicación que podemos ejecutar desde Símbolo de sistema en Windows Server 2019 e que nos permite administrar las Directivas de grupo?",
+                options: [
+                    "gpedit.msc",
+                    "secpol.msc",
+                    "security.msc",
+                    "GroupPolicy"
+                ],
+                correct: 0,
+                explanation: "gpedit.msc es el comando que abre directamente el Editor de Directivas de Grupo Local (Group Policy Editor) en la interfaz de Windows."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "El permiso Modificar predeterminado NTFS que se puede asignar a una carpeta, permite cambiar los ficheros y las carpetas, crear e eliminar ficheros y carpetas nuevas. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Aunque en la práctica \"Modificar\" abarca muchas acciones, en la teoría estricta de Windows (y de este test), el permiso para \"crear\" ficheros y carpetas nuevas recae técnicamente sobre el permiso de \"Escritura\" (Write)."
+            },
+            {
+                question: "En Windows después de configurar los permisos en una carpeta principal, los nuevos archivos y subcarpetas que se crean en la carpeta heredan estos permisos. Si no deseamos que los archivos y las carpetas hereden los permisos, activaremos la opción de Sólo esta carpeta en el cuadro Aplicar al configurar permisos especiales para la carpeta principal. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Cambiar el menú desplegable \"Aplicar a\" hacia \"Sólo esta carpeta\" restringe los permisos exclusivamente al contenedor padre, evitando la herencia."
+            },
+            {
+                question: "Indicar qué permisos especiales en ficheros o carpetas tiene un usuario en un recurso compartido de un dominio que se permite Modificar. (Selección múltiple)",
+                options: [
+                    "Eliminar subcarpetas e archivos.",
+                    "Leer permisos.",
+                    "Crear carpetas / Anexar datos.",
+                    "Recorre la carpeta o ejecutar archivo."
+                ],
+                correct: [1, 2, 3],
+                explanation: "El permiso especial \"Eliminar subcarpetas e archivos\" es exclusivo del permiso general de Control Total. \"Modificar\" permite borrar archivos individuales pero no árboles enteros."
+            },
+            {
+                question: "Ejecutando en Linux la orden smbclient -L 192.168.1.23 podemos hacer un listado de los recursos que dispone el ordenador que tiene esa dirección IP dentro de la red. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "El parámetro -L (Listar) indica al cliente SMB que pregunte al servidor remoto por todos los recursos disponibles y públicos."
+            },
+            {
+                question: "Gracias a las reglas de directiva de grupo podemos controlar los entornos de trabajo de los usuarios del dominio. Indica de las siguientes actuaciones cuáles pueden ser controlados por directivas en el sistema Windows: (Selección múltiple)",
+                options: [
+                    "Limitar las funcionalidades de los equipos.",
+                    "Activa o no los scripts que se ejecutan al inicio y final de sesión de equipo o usuario.",
+                    "Cambiar la actuación de los permisos de usuarios y grupos.",
+                    "Bloquear cuentas."
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: "Las GPO de Windows Server permiten gestionar todos estos aspectos: scripts, políticas de bloqueo, privilegios y restricciones."
+            },
+            {
+                question: "Cuando los permisos Linux se contradicen con los permisos samba, el permiso efectivo es el más restrictivo de los dos. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "En la interoperabilidad entre Linux y Samba, siempre prevalece la restricción más fuerte para garantizar la seguridad."
+            },
+            {
+                question: "¿Cuál será el formato de la orden cacls en Windows que permita al usuario Carlos escribir, e al usuario Ana el control total del fichero \\usuarios\\Alumnos\\Trabajos clase\\trab1.doc?",
+                options: [
+                    "cacls usuarios\\Alumnos\\Trabajos clase\\trab1.doc /g Carlos:w Ana:f",
+                    "cacls “usuarios\\Alumnos\\Trabajos clase\\trab1.doc” /g Carlos Ana:f.",
+                    "cacls “usuarios\\Alumnos\\Trabajos clase\\trab1.doc” /g Carlos:f Ana:w",
+                    "cacls “usuarios\\Alumnos\\Trabajos clase\\trab1.doc” /g Carlos:w Ana:f"
+                ],
+                correct: 3,
+                explanation: "Si la ruta tiene espacios, debe ir entre comillas. El parámetro /g usa la sintaxis Usuario:Permiso (w para escribir, f para control total)."
+            },
+            {
+                question: "¿Qué permisos tiene la carpeta pública predeterminada de Windows?",
+                options: [
+                    "Permite solamente el acceso de lectura a todos los usuarios.",
+                    "solamente leer e escribir a todos los usuarios.",
+                    "Todos los usuarios tienen todos los permisos.",
+                    "No se asigna ningún permiso hasta que no lo realice el administrador."
+                ],
+                correct: 0,
+                explanation: "Por motivos de seguridad, cuando la carpeta de \"Acceso público\" se comparte en red, Windows asigna por defecto permisos de solo lectura al grupo \"Todos\"."
+            },
+            {
+                question: "¿Cómo podemos hacer para que el archivo “material.txt” tenga los permisos de de lectura e ejecución para todos los usuarios en Linux?",
+                options: [
+                    "sudo chmod 600 material.txt",
+                    "sudo ugo+x, a-r material.txt",
+                    "sudo a-rx material.txt",
+                    "sudo chmod 555 material.txt"
+                ],
+                correct: 3,
+                explanation: "En octal, 5 (4 lectura + 1 ejecución) para usuario, grupo y otros (555) otorga estos permisos a todos."
+            },
+            {
+                question: "En la ficha Permisos efectivos de Windows se muestra información de permisos existentes. La información presentada en esa página es de sólo lectura e no admite cambiar los permisos de un usuario con la activación o desactivación de las casillas de verificación de permisos. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "\"Permisos efectivos\" es una herramienta de auditoría, no un panel de configuración."
+            },
+            {
+                question: "¿Qué nos indica la siguiente línea?: \"-rwsr-xr–x 1 root shadow 25640 dic 17 12:05 /usr/bin/passwd\"",
+                options: [
+                    "que los usuarios por seguridad no pueden escribir en el fichero /etc/shadow.",
+                    "que cualquier usuarios pueda escribir en el fichero de claves/etc/shadow propiedad de root.",
+                    "que cualquiera puede escribir e crear ficheros en el directorio passwd.",
+                    "no indica nada ya que esos permisos no existen."
+                ],
+                correct: 1,
+                explanation: "El bit SUID (s) permite que un usuario ejecute el comando con los privilegios del propietario (root), permitiendo modificar indirectamente /etc/shadow."
+            },
+            {
+                question: "Cuando en Windows se utiliza la configuración Denegar e Permitir, los permisos activados en Permitir son acumulativos e reemplazan o priorizan a los de Denegar. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "En NTFS, la denegación explícita (Deny) siempre tiene prioridad sobre el permiso concedido (Allow)."
+            },
+            {
+                question: "De manera predeterminada, por motivos de seguridad, sólo root puede utilizar los comandos smbmount e smbumount ¿Cuáles son las órdenes correctas a ejecutar para establecer permiso de SUID a dichos comandos? (Selección múltiple)",
+                options: [
+                    "chmod 1755 /usr/bin/smbmount",
+                    "chmod 4755 /usr/bin/smbmount",
+                    "chmod 4755 /usr/bin/smbumount",
+                    "chmod 1755 /usr/bin/smbumount"
+                ],
+                correct: [1, 2],
+                explanation: "El bit SUID se establece con el valor 4 al inicio del modo octal (4755)."
+            },
+            {
+                question: "Explica qué permisos asigna o desasigna el siguiente comando: “chmod go-rw,a+x agenda”",
+                options: [
+                    "Quita al grupo e a los otros el permiso de leer un archivo, e les da a todos los usuarios el permiso de ejecutarlo.",
+                    "Permisos de lectura e escritura al dueño e permisos de lectura al resto.",
+                    "Quita a los otros el permiso de leer un archivo, e les da a todos los usuarios el permiso de ejecutarlo telnet.",
+                    "Todos los permisos al dueño e permisos de lectura e ejecución al resto."
+                ],
+                correct: 0,
+                explanation: "go-rw retira lectura e escritura a grupo e otros; a+x añade ejecución a todos."
+            },
+            {
+                question: "Las listas de control de acceso o ACLs en Windows no son exclusivas de particiones con formato NTFS. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "Las ACLs avanzadas son una característica fundamental e específica de NTFS."
+            }
+        ],
+        "Test 3": [
+            {
+                question: "¿Qué nos indica la siguiente línea?: \"-rwsr-xr–x 1 root shadow 25640 dic 17 12:05 /usr/bin/passwd\"",
+                options: [
+                    "que cualquier usuarios pueda escribir en el fichero de claves/etc/shadow propiedad de root.",
+                    "que los usuarios por seguridad no pueden escribir en el fichero /etc/shadow.",
+                    "que cualquiera puede escribir e crear ficheros en el directorio passwd.",
+                    "no indica nada ya que esos permisos no existen."
+                ],
+                correct: 0,
+                explanation: "El bit SUID (s) permite que un usuario ejecute el comando con privilegios de root para cambiar su contraseña en /etc/shadow."
+            },
+            {
+                question: "En Windows, si las casillas de verificación del cuadro Permisos para usuario o grupo están sombreadas, o si el botón Quitar no está disponible, el archivo o la carpeta tiene permisos heredados de la carpeta principal. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "El sombreado gris indica que los permisos fluyen desde una carpeta superior."
+            },
+            {
+                question: "¿Cómo podemos hacer para que el archivo “material.txt” tenga los permisos de de lectura e ejecución para todos los usuarios en Linux?",
+                options: [
+                    "sudo chmod 600 material.txt",
+                    "sudo ugo+x, a-r material.txt",
+                    "sudo chmod 555 material.txt",
+                    "sudo a-rx material.txt"
+                ],
+                correct: 2,
+                explanation: "555 asigna lectura (4) e ejecución (1) a Usuario, Grupo e Otros."
+            },
+            {
+                question: "Gracias a las reglas de directiva de grupo podemos controlar los entornos de trabajo de los usuarios del dominio. Indica de las siguientes actuaciones cuáles pueden ser controlados por directivas en el sistema Windows: (Selección múltiple)",
+                options: [
+                    "Limitar las funcionalidades de los equipos.",
+                    "Activa o no los scripts que se ejecutan al inicio e final de sesión de equipo o usuario.",
+                    "Cambiar la actuación de los permisos de usuarios y grupos.",
+                    "Bloquear cuentas."
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: "Las GPO permiten gestionar scripts, bloqueos de cuenta, privilegios e restricciones del sistema."
+            },
+            {
+                question: "Indicar qué permisos especiales en ficheros o carpetas tiene un usuario en un recurso compartido de un dominio que se permite Modificar. (Selección múltiple)",
+                options: [
+                    "Crear carpetas / Anexar datos.",
+                    "Leer permisos.",
+                    "Recorre la carpeta o ejecutar archivo.",
+                    "Eliminar subcarpetas e archivos."
+                ],
+                correct: [0, 1, 2],
+                explanation: "Modificar permite borrar archivos individuales pero no el permiso especial de 'Eliminar subcarpetas e archivos' de Control Total."
+            },
+            {
+                question: "¿Cuál será el formato de la orden cacls en Windows que permita al usuario Carlos escribir, e al usuario Ana el control total del fichero \\usuarios\\Alumnos\\Trabajos clase\\trab1.doc?",
+                options: [
+                    "cacls usuarios\\Alumnos\\Trabajos clase\\trab1.doc /g Carlos:w Ana:f",
+                    "cacls “usuarios\\Alumnos\\Trabajos clase\\trab1.doc” /g Carlos Ana:f.",
+                    "cacls “usuarios\\Alumnos\\Trabajos clase\\trab1.doc” /g Carlos:w Ana:f",
+                    "cacls “usuarios\\Alumnos\\Trabajos clase\\trab1.doc” /g Carlos:f Ana:w"
+                ],
+                correct: 2,
+                explanation: "Obligatorio usar comillas si hay espacios. /g concede permisos (w: escribir, f: full control)."
+            },
+            {
+                question: "En la ficha Permisos efectivos de Windows se muestra información de permisos existentes. La información presentada en esa página es de sólo lectura e no admite cambiar los permisos de un usuario con la activación o desactivación de las casillas de verificación de permisos. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Es una herramienta de cálculo e auditoría, no de edición directa."
+            },
+            {
+                question: "¿Cuál será la respuesta correcta?, si tenemos compartida una carpeta llamada “Distancia” con permisos de escritura para el grupo “Alumnos”, todos los usuarios que pertenezcan al grupo alumnos podrán realizar cambios en la carpeta, pero si dentro de dicha carpeta existe otra llamada “Justificantes” sobre la cual no tiene permiso para entrar el grupo Alumnos.",
+                options: [
+                    "Los alumnos no pueden ver el contenido de Justificantes e Distancia.",
+                    "Los alumnos pueden ver el contenido de Justificantes e Distancia.",
+                    "Los alumnos solamente pueden ver el contenido de la carpeta Justificantes.",
+                    "Ningún alumno podrá ver el contenido de Justificantes."
+                ],
+                correct: 3,
+                explanation: "Si se deniega el acceso a la subcarpeta, esta es inaccesible aunque se tenga permiso en la carpeta padre."
+            },
+            {
+                question: "Explica qué permisos asigna o desasigna el siguiente comando: “chmod go-rw,a+x agenda”",
+                options: [
+                    "Permisos de lectura e escritura al dueño e permisos de lectura al resto.",
+                    "Quita al grupo e a los otros el permiso de leer un archivo, e les da a todos los usuarios el permiso de ejecutarlo.",
+                    "Quita a los otros el permiso de leer un archivo, e les da a todos los usuarios el permiso de ejecutarlo telnet.",
+                    "Todos los permisos al dueño e permisos de lectura e ejecución al resto."
+                ],
+                correct: 1,
+                explanation: "go-rw quita lectura/escritura a grupo/otros; a+x da ejecución a todos."
+            },
+            {
+                question: "¿Qué permisos tiene la carpeta pública predeterminada de Windows?",
+                options: [
+                    "solamente leer e escribir a todos los usuarios.",
+                    "Todos los usuarios tienen todos los permisos.",
+                    "Permite solamente el acceso de lectura a todos los usuarios.",
+                    "No se asigna ningún permiso hasta que no lo realice el administrador."
+                ],
+                correct: 0,
+                explanation: "La carpeta 'Acceso público' (Public) permite leer e escribir al grupo Todos para facilitar el intercambio local."
+            },
+            {
+                question: "Con la orden “chmod = ejercicios.txt” damos todos los privilegios a todos los usuarios del archivo “ejercicios.txt”. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "La orden es incompleta e daría error. Se requiere chmod 777 o chmod a=rwx."
+            },
+            {
+                question: "¿Qué línea deberemos de añadir el fichero “/etc/exports” de un servidor NFS de Linux para compartir la carpeta “/home/carlos” con los permisos de sólo lectura para todos?",
+                options: [
+                    "/home/carlos *(ro)",
+                    "/home/carlos * +ro",
+                    "/home/carlos Todos(ro)",
+                    "Todas son correctas."
+                ],
+                correct: 0,
+                explanation: "El comodín * representa a todos los hosts e (ro) es read-only. No debe haber espacio antes del paréntesis."
+            },
+            {
+                question: "El permiso Modificar predeterminado NTFS que se puede asignar a una carpeta, permite cambiar los ficheros y las carpetas, crear e eliminar ficheros y carpetas nuevas. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 1,
+                explanation: "En la teoría de permisos NTFS, la acción de 'crear' recae específicamente sobre el permiso de 'Escritura'."
+            },
+            {
+                question: "Ejecutando en Linux la orden smbclient -L 192.168.1.23 podemos hacer un listado de los recursos que dispone el ordenador que tiene esa dirección IP dentro de la red. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "-L (Listar) indica al cliente SMB que pida la lista de recursos compartidos."
+            },
+            {
+                question: "En Windows después de configurar los permisos en una carpeta principal, los nuevos archivos y subcarpetas que se crean en la carpeta heredan estos permisos. Si no deseamos que los archivos y las carpetas hereden los permisos, activaremos la opción de Sólo esta carpeta en el cuadro Aplicar al configurar permisos especiales para la carpeta principal. ¿Verdadero o falso?",
+                options: ["Verdadero", "Falso"],
+                correct: 0,
+                explanation: "Restringir el ámbito a 'Sólo esta carpeta' detiene la propagación de permisos por herencia."
+            }
+        ]
     }
 };
+
