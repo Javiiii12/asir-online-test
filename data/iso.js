@@ -3256,8 +3256,213 @@ export const questionsISO = {
                 explanation: "La consola GPMC (Administración de directivas de grupo) incluye un asistente de Resultados de Directiva de Grupo para ver qué se está aplicando realmente."
             }
         ]
+    },
+    "Tema 10: Resolución de incidencias y soporte técnico": {
+        "Test 1": [
+            {
+                question: "¿Cuál de los siguientes usuarios tiene más privilegios en el sistema?",
+                options: [
+                    "Administrador avanzado.",
+                    "Administrador supervisor.",
+                    "Administrador.",
+                    "Usuario avanzado."
+                ],
+                correct: 2,
+                explanation: "En la mayoría de los sistemas operativos, la cuenta 'Administrador' (o 'root' en sistemas basados en Unix) es la que posee los privilegios más altos de control total. Las opciones A y B no son roles estándar por defecto."
+            },
+            {
+                question: "¿Qué tipo de aplicaciones pueden utilizarse para dar asistencia remota?",
+                options: [
+                    "Todas las aplicaciones que existen son gratuitas.",
+                    "Cada empresa tiene una propia, ya que no hay oferta en el mercado.",
+                    "Sólo existen aplicaciones de pago.",
+                    "Existen aplicaciones gratuitas y de pago."
+                ],
+                correct: 3,
+                explanation: "El mercado ofrece una amplia variedad de herramientas. Algunas son de código abierto o gratuitas para uso personal, mientras que otras requieren licencias comerciales."
+            },
+            {
+                question: "¿Qué debe generarse cuando un usuario tiene un problema en el sistema?",
+                options: [
+                    "Un parte de incidencias.",
+                    "Un mensaje de advertencia en el monitor del técnico.",
+                    "Un mensaje de advertencia en el monitor del usuario.",
+                    "Mensajes de advertencia en todos los equipos implicados."
+                ],
+                correct: 0,
+                explanation: "También conocido como 'ticket', es el procedimiento estándar para registrar, clasificar y realizar el seguimiento de cualquier fallo o petición de un usuario."
+            },
+            {
+                question: "¿Cuál de las siguientes afirmaciones sobre administración remota es CIERTA?",
+                options: [
+                    "Puede hacerse a través de Internet.",
+                    "El técnico no puede saber con exactitud a cuántos equipo da soporte.",
+                    "Puede usarse Internet, pero es necesaria la autorización del ISP.",
+                    "El alcance máximo es la propia LAN."
+                ],
+                correct: 0,
+                explanation: "La asistencia remota no se limita a la red local (LAN); mediante el uso de Internet y las herramientas adecuadas, un técnico puede acceder a equipos en cualquier parte del mundo."
+            },
+            {
+                question: "¿Qué servicios deben estar activos para poder utilizar WDS?",
+                options: [
+                    "DFS y DHCP.",
+                    "DNS y NFS.",
+                    "DFS y DNS.",
+                    "DHCP y DNS."
+                ],
+                correct: 3,
+                explanation: "WDS (Windows Deployment Services) requiere que en la red estén configurados y funcionando los servicios de Active Directory, DHCP —para asignar IPs a los equipos que arrancan por red— y DNS."
+            },
+            {
+                question: "El conjunto de medidas orientadas a alargar la vida del sistema corresponden al mantenimiento:",
+                options: [
+                    "Predictivo.",
+                    "Correctivo.",
+                    "Paliativo.",
+                    "Preventivo."
+                ],
+                correct: 3,
+                explanation: "El mantenimiento preventivo incluye limpieza, actualizaciones de software, revisiones de hardware, etc., con el fin de evitar que ocurran averías y prolongar la vida útil del equipo."
+            },
+            {
+                question: "¿Qué se utiliza para contactar con un usuario en TeamViewer?",
+                options: [
+                    "La IP de su equipo.",
+                    "Su nombre de usuario asociado.",
+                    "La MAC de su equipo.",
+                    "Su ID de usuario."
+                ],
+                correct: 3,
+                explanation: "TeamViewer genera un número de identificación único (ID) y una contraseña temporal en el equipo cliente para que el técnico pueda establecer la conexión."
+            },
+            {
+                question: "¿Qué significa CAU?",
+                options: [
+                    "Centro de Atención al Usuario.",
+                    "Código de Alta de Usuario.",
+                    "Clasificación Automática de Usuarios y equipos.",
+                    "Clasificación de Averías Unificada."
+                ],
+                correct: 0,
+                explanation: "También conocido comúnmente como Help Desk o Service Desk, es el punto único de contacto entre los usuarios y el departamento de soporte informático."
+            },
+            {
+                question: "¿Qué debe hacerse con la documentación técnica de un sistema informático?",
+                options: [
+                    "Recopilarla pero no actualizarla.",
+                    "No es necesario recopilarla ni actualizarla, porque está siempre disponible en Internet.",
+                    "Recopilarla y actualizarla.",
+                    "Actualizarla pero no recopilarla."
+                ],
+                correct: 2,
+                explanation: "Tener un registro documental de la arquitectura, configuraciones e historial de la red es fundamental, y debe actualizarse constantemente cada vez que se realice un cambio para que sea de utilidad real."
+            }
+        ],
+        "Test 2": [
+            {
+                question: "¿Deben cerrarse todos los partes de incidencia?",
+                options: [
+                    "Sólo si los problemas se han resuelto.",
+                    "No, nunca deben cerrarse.",
+                    "Si el problema es nuevo no es necesario cerrarlo.",
+                    "Sí, siempre deben cerrarse."
+                ],
+                correct: 3,
+                explanation: "Todo parte de incidencia o 'ticket' debe tener un ciclo de vida que termine en su cierre, ya sea porque se ha resuelto o porque se considera irresoluble, pero no deben quedar abiertos indefinidamente."
+            },
+            {
+                question: "¿Para qué se utiliza WDS?",
+                options: [
+                    "Para gestionar la asistencia remota.",
+                    "Para administrar imágenes y vídeos en el servidor.",
+                    "Para poder instalar un programa en varios equipos de forma local.",
+                    "Para realizar una instalación utilizando PXE."
+                ],
+                correct: 3,
+                explanation: "Windows Deployment Services se utiliza para desplegar e instalar sistemas operativos Windows a través de la red en equipos cliente, utilizando el protocolo de arranque por red PXE."
+            },
+            {
+                question: "¿Qué es una instalación desatendida?",
+                options: [
+                    "Aquella que se realiza sin la interacción del usuario.",
+                    "La que realiza un técnico de forma remota.",
+                    "La que consta de más de un programa.",
+                    "La compuesta por programas que no tienen número de serie."
+                ],
+                correct: 0,
+                explanation: "Se automatiza el proceso mediante un archivo de respuesta (por ejemplo, un archivo .xml) para que no haya que hacer configuraciones manualmente durante la instalación."
+            },
+            {
+                question: "¿Cuál es la finalidad de la administración remota?",
+                options: [
+                    "Gestionar directamente un cliente desde otro cliente.",
+                    "Poder gestionar un equipo cliente desde el servidor.",
+                    "Dar soporte técnico a un usuario del sistema.",
+                    "Poder gestionar el servidor desde un equipo cliente."
+                ],
+                correct: 3,
+                explanation: "La 'Administración remota' tiene como fin principal que el administrador pueda configurar y gestionar un servidor sin tener que estar físicamente presente en la sala de servidores."
+            },
+            {
+                question: "¿Cómo se llama el documento que recoge las medidas que se adoptan para el mantenimiento de un sistema informático?",
+                options: [
+                    "Plan de Mantenimiento.",
+                    "Registro de Mantenimiento.",
+                    "Registro de Prevención.",
+                    "Plan de Prevención."
+                ],
+                correct: 0,
+                explanation: "El Plan de Mantenimiento es el documento formal donde se definen las tareas, la frecuencia y las herramientas que se van a utilizar para mantener el sistema informático."
+            },
+            {
+                question: "¿Qué es PXE?",
+                options: [
+                    "Un programa.",
+                    "Una característica del microprocesador.",
+                    "Un protocolo.",
+                    "Un servicio."
+                ],
+                correct: 2,
+                explanation: "PXE (Preboot Execution Environment) es un entorno/protocolo estándar cliente-servidor que permite arrancar un ordenador desde una interfaz de red antes de cargar el SO."
+            },
+            {
+                question: "Por defecto, la herramienta de asistencia remota en Windows 10:",
+                options: [
+                    "Viene preinstalada y preconfigurada.",
+                    "No viene ni instalada ni configurada.",
+                    "Viene instalada y configurada.",
+                    "Viene instalada pero no configurada."
+                ],
+                correct: 3,
+                explanation: "La herramienta viene incluida e instalada, pero por seguridad no está configurada para aceptar conexiones remotas por defecto; debe habilitarse explícitamente."
+            },
+            {
+                question: "¿Qué elemento del equipo es compatible o no con PXE?",
+                options: [
+                    "El sistema operativo.",
+                    "El microprocesador.",
+                    "La memoria RAM.",
+                    "La tarjeta de red."
+                ],
+                correct: 3,
+                explanation: "Para que un equipo pueda arrancar a través de la red mediante PXE, es un requisito hardware indispensable que su tarjeta de red (NIC) y su BIOS/UEFI sean compatibles."
+            },
+            {
+                question: "¿Qué parte de la aplicación VNC se instala en el equipo del usuario?",
+                options: [
+                    "VNC Host.",
+                    "VNC User.",
+                    "VNC Viewer.",
+                    "VNC Server."
+                ],
+                correct: 3,
+                explanation: "En la arquitectura de VNC, el equipo que va a ser controlado (el del usuario) debe ejecutar el 'Server', mientras que el técnico utiliza el 'Viewer' para conectarse."
+            }
+        ]
     }
 };
+
 
 
 
