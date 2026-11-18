@@ -110,6 +110,108 @@ export const questionsASO = {
                 correct: 0,
                 explanation: "dsquery es una utilidad de consola en Windows Server diseñada para realizar búsquedas de objetos (usuarios, equipos, unidades organizativas, etc.) dentro de Active Directory."
             }
+        ],
+        "Test 2": [
+            {
+                question: "Debemos tener instalado el servicio DNS para que funcione adecuadamente el servidor Active Directory. ¿Verdadero o falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Active Directory depende por completo de DNS: los registros SRV permiten localizar los controladores de dominio y servicios como LDAP o Kerberos. Sin DNS el dominio no funciona correctamente."
+            },
+            {
+                question: "¿Qué tipos de grupos tendremos en un Active Directory?",
+                options: [
+                    "Grupos locales del dominio, unidades organizativas y equipos del dominio.",
+                    "Grupos universales.",
+                    "Grupos locales del dominio, globales y universales.",
+                    "Grupos globales y locales del dominio."
+                ],
+                correct: 2,
+                explanation: "Los tres ámbitos de grupo de Active Directory son: locales de dominio, globales y universales. Las unidades organizativas (OU) y los equipos no son tipos de grupo."
+            },
+            {
+                question: "Podemos crear un dominio LDAP con un nombre cualificado en Internet. ¿Verdadero o falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Se puede usar un nombre DNS cualificado (FQDN) como base del directorio, por ejemplo empresa.com traducido a dc=empresa,dc=com como naming context del LDAP."
+            },
+            {
+                question: "Hemos instalado, en el servidor, un software que permite imprimir archivos PDF. Es posible administrar derechos y privilegios de acceso a dicho software a usuarios y/o grupos a través del LDAP. ¿Verdadero o falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Según el criterio oficial del test es Verdadero: el directorio puede emplearse para gestionar los derechos de acceso a recursos/servicios publicados para usuarios y grupos. Ojo: en la práctica LDAP centraliza identidad y permisos, pero la aplicación debe consultarlo; en el envío original se marcó «Falso» y la plataforma lo dio por incorrecto."
+            },
+            {
+                question: "Debemos organizar, antes de proceder a la instalación, el árbol de directorio. Es decir, saber todos los usuarios, claves, máquinas, grupos, etc. que se unirán al árbol de directorio. ¿Verdadero o falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. No hace falta tener inventariados todos los objetos antes de instalar: se diseña una estructura general y el árbol se amplía y modifica posteriormente creando usuarios, grupos, equipos y OU."
+            },
+            {
+                question: "¿Qué entendemos por \"servicio de directorio\"?",
+                options: [
+                    "Es una aplicación o conjunto de aplicaciones que se comunica con un servidor llamado controlador de dominio.",
+                    "Es una aplicación o conjunto de aplicaciones que almacena y organiza la información sobre los usuarios de una red de ordenadores.",
+                    "Es una aplicación que se instala en cada uno de los ordenadores de la red para controlar la difusión y los recursos compartidos de cada ordenador.",
+                    "Es una aplicación o conjunto de aplicaciones cliente/servidor que se instala en todos los equipos de la red con sistema operativo Windows."
+                ],
+                correct: 1,
+                explanation: "El servicio de directorio es el conjunto de aplicaciones que almacena y organiza la información de los objetos de una red (usuarios, equipos, grupos, recursos) y permite consultarla y administrarla de forma centralizada."
+            },
+            {
+                question: "La función de un controlador de dominios es:",
+                options: [
+                    "Gestionar las consultas de un dominio.",
+                    "Dar servicio a las máquinas clientes.",
+                    "Ceñirse a unas reglas de seguridad y autenticación comunes siendo una entidad administrativa unificada.",
+                    "Ninguna respuesta es correcta."
+                ],
+                correct: 2,
+                explanation: "El controlador de dominio actúa como entidad administrativa unificada que aplica unas reglas comunes de seguridad y autenticación a todos los recursos del dominio (en línea con la definición del Test 1)."
+            },
+            {
+                question: "Cuando se procede a realizar la instalación de un controlador de dominio debemos indicar el dominio que va a gestionar. ¿Verdadero o Falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. Al promover un servidor a controlador de dominio hay que indicar si crea un bosque/dominio nuevo o se añade a uno existente, es decir, qué dominio va a gestionar."
+            },
+            {
+                question: "¿Un nombre de dominio debe estar cualificado por un registrador en Internet?",
+                options: [
+                    "Sí, todos los dominios deben ser cualificados.",
+                    "No, pero el dominio no será \"visible\" por la red.",
+                    "No, pero es conveniente que el nombre no sea registrable.",
+                    "Ninguna de las otras respuestas es correcta."
+                ],
+                correct: 2,
+                explanation: "No es obligatorio registrar el nombre en Internet; de hecho se recomienda usar un nombre no registrable (o un subdominio propio) para evitar conflictos con dominios DNS públicos."
+            },
+            {
+                question: "En Windows Server en cualquiera de las últimas versiones, ¿qué pasos son correctos para agregar una máquina al dominio?",
+                options: [
+                    "Configurar el cliente DNS para que resuelva el nombre de dominio.",
+                    "Cambiar la configuración de la máquina para agregarse al dominio.",
+                    "Sólo se puede agregar manualmente desde el servidor.",
+                    "Ninguna es correcta."
+                ],
+                correct: 0,
+                explanation: "La respuesta oficial es la a: antes de unir un equipo hay que configurar el cliente DNS para que resuelva el nombre del dominio y pueda localizar los controladores. Aunque la b también es un paso del proceso, el test marca solo la a."
+            }
         ]
     }
 };
