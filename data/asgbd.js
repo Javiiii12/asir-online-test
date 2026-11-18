@@ -105,7 +105,7 @@ export const questionsASGBD = {
                 explanation: "Verdadero según el criterio del test. El gestor de memoria intermedia (buffer manager) administra qué páginas de datos permanecen en memoria principal y cuáles se vuelcan, reduciendo los accesos a disco."
             }
         ],
-        "Bloque 1": [
+        "Tarea 1": [
             {
                 question: "¿Qué formato adicional soporta MySQL además de SQL?",
                 options: ["JSON", "YAML", "XML", "CSV"],
@@ -167,7 +167,7 @@ export const questionsASGBD = {
                 explanation: "ODBC es una interfaz estándar independiente del fabricante que desacopla la aplicación del SGBD; JDBC cumple esa función solo para Java."
             }
         ],
-        "Bloque 2": [
+        "Tarea 2": [
             {
                 question: "¿Qué modelo lógico define los datos en una estructura de árbol?",
                 options: ["Modelo Relacional", "Modelo Orientado a Objetos", "Modelo Jerárquico", "Modelo XML"],
@@ -229,7 +229,7 @@ export const questionsASGBD = {
                 explanation: "En el almacenamiento como cadena, cada hijo del elemento raíz se guarda como una cadena (chain) en una tupla independiente."
             }
         ],
-        "Bloque 3": [
+        "Tarea 3": [
             {
                 question: "¿Qué tipo de documentación incluye los usuarios de la base de datos?",
                 options: ["Informe de SQL Server", "Informe de Workbench", "Informe de Oracle", "Informe de Access"],
@@ -291,7 +291,7 @@ export const questionsASGBD = {
                 explanation: "PostgreSQL es de código libre (licencia PostgreSQL) y objeto-relacional; Oracle, DB2 y SQL Server son productos propietarios."
             }
         ],
-        "Bloque 4": [
+        "Tarea 4": [
             {
                 question: "¿Qué tipo de almacenamiento XML da importancia a la colocación de las cosas en el lugar que les corresponde?",
                 options: ["Relacional", "Basado en documentos", "Estructurado XML", "Jerárquico"],
@@ -353,7 +353,7 @@ export const questionsASGBD = {
                 explanation: "En un SGBD monocapa todo (interfaz, lógica y datos) corre en el equipo del usuario, sin servidor independiente."
             }
         ],
-        "Bloque 5": [
+        "Tarea 5": [
             {
                 question: "¿Qué estructura representa datos XML como una pareja de relaciones?",
                 options: ["Representación en árbol", "Almacenamiento como cadena", "Estructura tabular", "Asignación a relaciones"],
