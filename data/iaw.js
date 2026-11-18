@@ -542,6 +542,110 @@ export const questionsIAW = {
                 correct: 1,
                 explanation: "La licencia expresa los límites y condiciones que el autor impone al uso de su obra por terceros (copia, distribución, modificación, uso comercial, etc.)."
             }
+        ],
+        "Test 3": [
+            {
+                question: "El front-end es la parte que se encarga de gestionar el back-end, que es la parte accesible a los usuarios. ¿Verdadero o Falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. Está al revés: el back-end es el panel de administración donde se gestiona el contenido y el front-end es la parte pública que ven los usuarios (en línea con la P10 del Test 1 de esta UT)."
+            },
+            {
+                question: "\"Todos los Derechos Reservados. Prohibida la reproducción total o parcial de esta obra, por cualquier medio, sin la autorización del autor/editor.\" Es una licencia permisiva. ¿Verdadero o Falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. «Todos los derechos reservados» es copyright puro, lo más restrictivo. Una licencia permisiva (MIT, BSD, CC BY...) sí permite copiar y reutilizar la obra con muy pocas condiciones."
+            },
+            {
+                question: "Es posible tener en un mismo servidor el mismo gestor de contenidos instalado varias veces empleando una base de datos distinta para cada uno de ellos. ¿Verdadero o Falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. Se pueden instalar varias instancias del mismo CMS en un servidor siempre que cada una use su propia base de datos (y su propio directorio o virtualhost) para no mezclar los contenidos."
+            },
+            {
+                question: "Una plataforma de e-learning:",
+                options: [
+                    "Favorece que los usuarios adquieran conocimientos sobre tecnologías web.",
+                    "Incorpora herramientas para facilitar la comunicación.",
+                    "Suele emplearse en educación semipresencial.",
+                    "Para comunicarse en ella solo puedes utilizar el e-mail."
+                ],
+                correct: [1, 2],
+                explanation: "Las plataformas e-learning incorporan herramientas de comunicación (foros, chat, mensajería, videoclases) y se usan mucho en educación semipresencial / blended learning. La a no es su finalidad y la d es falsa."
+            },
+            {
+                question: "Aparte de los propios gestores de foros, otros gestores de contenidos incluyen sus propios foros. ¿Verdadero o Falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. Además de los gestores de foros específicos (phpBB, Discourse...), muchos CMS incluyen foros propios o los añaden con plugins (por ejemplo bbPress en WordPress)."
+            },
+            {
+                question: "Las licencias existentes hoy en día son:",
+                options: [
+                    "Copyright.",
+                    "Copyright, Copyleft y Creative Commons.",
+                    "Copyright y Creative Commons.",
+                    "Las que permite la Sociedad de Autores."
+                ],
+                correct: 1,
+                explanation: "Según el temario, las tres familias son Copyright, Copyleft y Creative Commons. Ojo: en la práctica hay muchas más (MIT, Apache, GPL, MPL...), pero el test marca la b."
+            },
+            {
+                question: "Las conversaciones están anidadas en:",
+                options: [
+                    "Un blog.",
+                    "Un foro.",
+                    "Una wiki.",
+                    "Cualquier CMS con módulo de chat incorporado."
+                ],
+                correct: 1,
+                explanation: "En un foro las respuestas se organizan en hilos anidados (tema → respuestas → subrespuestas). En un blog los comentarios suelen ser planos y en una wiki las páginas se enlazan, no se anidan conversaciones."
+            },
+            {
+                question: "Para evitar las vulnerabilidades peligrosas, y mantener las funcionalidades activas y en condiciones:",
+                options: [
+                    "Instalo un antivirus con función antispam.",
+                    "Hago lo posible por mantener el CMS actualizado.",
+                    "Controlo el acceso de los usuarios.",
+                    "No instalo el módulo de correo dentro del gestor de contenidos."
+                ],
+                correct: 1,
+                explanation: "La respuesta oficial es mantener actualizado el CMS (core, plugins y temas): los parches corrigen las vulnerabilidades conocidas. Un antivirus o controlar accesos ayudan, pero no sustituyen las actualizaciones."
+            },
+            {
+                question: "Marca las opciones correctas. Un sistema gestor de contenidos, o CMS...",
+                options: [
+                    "Se ejecuta exclusivamente en una máquina local.",
+                    "Se accede a través del navegador web.",
+                    "Controla una base de datos, por lo menos.",
+                    "Almacena contenido de un sitio web."
+                ],
+                correct: [1, 2, 3],
+                explanation: "Un CMS se accede por navegador, utiliza al menos una base de datos y almacena el contenido del sitio. La a es falsa: se ejecuta en un servidor web, no exclusivamente en local."
+            },
+            {
+                question: "Instalaremos un tipo de gestor de contenidos u otro:",
+                options: [
+                    "Según la estética del sitio a crear.",
+                    "En base a las necesidades a cubrir.",
+                    "Siempre hay que escoger el mismo tipo que hemos aprendido a instalar.",
+                    "Dependiendo de los colores que haya escogido el diseñador."
+                ],
+                correct: 1,
+                explanation: "Se elige el CMS en función de las necesidades a cubrir (tipo de contenido, número de usuarios, integraciones, escalabilidad), no por estética ni por costumbre."
+            }
         ]
     }
 };
