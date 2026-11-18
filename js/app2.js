@@ -4,11 +4,11 @@ import { questionsDIG } from '../data/dig.js?v=2.22';
 import { questionsSOS } from '../data/sos.js?v=2.22';
 import { questionsGBD } from '../data/gbd.js?v=2.22';
 import { questionsISO } from '../data/iso.js?v=2.22';
-import { questionsASGBD } from '../data/asgbd.js?v=2.35';
-import { questionsCID } from '../data/cid.js?v=2.35';
-import { questionsASO } from '../data/aso.js?v=2.35';
-import { questionsIAW } from '../data/iaw.js?v=2.35';
-import { questionsSRI } from '../data/sri.js?v=2.35';
+import { questionsASGBD } from '../data/asgbd.js?v=2.36';
+import { questionsCID } from '../data/cid.js?v=2.36';
+import { questionsASO } from '../data/aso.js?v=2.36';
+import { questionsIAW } from '../data/iaw.js?v=2.36';
+import { questionsSRI } from '../data/sri.js?v=2.36';
 
 // Adaptador para convertir el diccionario de temas a array de objetos
 const buildThemeStructure = (moduleId, sourceData) => {

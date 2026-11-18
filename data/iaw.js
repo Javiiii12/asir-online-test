@@ -110,6 +110,108 @@ export const questionsIAW = {
                 correct: 0,
                 explanation: "sudo systemctl restart mysql detiene y vuelve a arrancar el servicio con systemd. start solo lo inicia, reload recarga la configuración y reiniciar apache2 afecta al servidor web, no a la base de datos. Nota: en el cuestionario original era una pregunta de respuesta corta; aquí se ofrece como opción múltiple."
             }
+        ],
+        "Test 2": [
+            {
+                question: "¿Cuál es el comando correcto para instalar PHP en una distribución Ubuntu?",
+                options: [
+                    "sudo apt install php",
+                    "sudo yum install php",
+                    "sudo dnf install php",
+                    "sudo pacman -S php"
+                ],
+                correct: 0,
+                explanation: "En Ubuntu/Debian el gestor de paquetes es apt: sudo apt install php instala el intérprete y los módulos base. yum/dnf son de RHEL/Fedora y pacman de Arch. Se parece a la P4 del Test 1, pero allí se pedía instalar una extensión."
+            },
+            {
+                question: "Después de instalar PHP en Ubuntu, ¿qué comando se debe usar para reiniciar Apache y aplicar los cambios?",
+                options: [
+                    "sudo systemctl restart apache2",
+                    "sudo systemctl start apache2",
+                    "sudo systemctl restart mysql",
+                    "sudo service apache2 reload"
+                ],
+                correct: 0,
+                explanation: "Tras instalar PHP hay que reiniciar Apache para que cargue el módulo: sudo systemctl restart apache2. Nota: en el cuestionario original era una pregunta de respuesta corta; aquí se ofrece como opción múltiple."
+            },
+            {
+                question: "¿Qué comando permite habilitar Apache para que se inicie automáticamente con el sistema?",
+                options: [
+                    "sudo systemctl enable apache2",
+                    "sudo apache2ctl enable",
+                    "sudo apache2 -enable",
+                    "sudo service apache2 start"
+                ],
+                correct: 0,
+                explanation: "systemctl enable apache2 crea los enlaces para que el servicio arranque automáticamente con el sistema. Ojo: enable no lo inicia en ese momento; para eso está start."
+            },
+            {
+                question: "¿Cuál es el comando que te permite verificar si Apache está corriendo?",
+                options: [
+                    "sudo systemctl status apache2",
+                    "sudo service apache2 install",
+                    "sudo systemctl enable apache2",
+                    "sudo apache2 -v"
+                ],
+                correct: 0,
+                explanation: "systemctl status apache2 muestra si el servicio está activo, su PID y las últimas líneas de log. apache2 -v solo muestra la versión y enable lo habilita para el arranque."
+            },
+            {
+                question: "Apache es un servidor web que se puede instalar en sistemas Linux mediante el gestor de paquetes.",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. Apache está en los repositorios de las distribuciones Linux y se instala con su gestor de paquetes (apache2 mediante apt en Debian/Ubuntu), como veíamos en la P6 del Test 1."
+            },
+            {
+                question: "En Windows, puedes administrar MySQL usando el \"MySQL Workbench\" para tareas gráficas y SQL.",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. MySQL Workbench es la herramienta gráfica oficial para diseñar esquemas, ejecutar consultas SQL y gestionar usuarios, disponible también en Windows."
+            },
+            {
+                question: "¿Qué comando se usa para verificar el estado de MySQL/MariaDB en Ubuntu?",
+                options: [
+                    "sudo systemctl status mysql",
+                    "sudo systemctl mysql check",
+                    "sudo mysql status",
+                    "sudo service check mysql"
+                ],
+                correct: 0,
+                explanation: "systemctl status mysql consulta el estado del servicio MariaDB/MySQL en Ubuntu. Es el equivalente a la P4 de este mismo test, pero sobre el servicio de base de datos."
+            },
+            {
+                question: "MySQL y MariaDB son sistemas gestores de bases de datos relacionales.",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. Ambos son SGBD relacionales (MariaDB es un fork de MySQL), usan SQL y organizan la información en tablas, filas y columnas."
+            },
+            {
+                question: "XAMPP es una herramienta que incluye Apache, PHP y MySQL para facilitar el desarrollo local en Windows.",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. XAMPP empaqueta Apache, PHP, MySQL/MariaDB y otros componentes en un único instalador para montar un entorno de desarrollo local. Repite la idea de la P8 del Test 1 (XAMPP/WAMP)."
+            },
+            {
+                question: "El comando sudo systemctl status apache2 muestra el estado actual del servicio Apache.",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. systemctl status apache2 informa del estado actual del servicio (active/inactive, PID y logs recientes). Es prácticamente la misma comprobación que la P4 de este test, planteada como Verdadero/Falso."
+            }
         ]
     }
 };
