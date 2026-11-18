@@ -212,6 +212,116 @@ export const questionsASO = {
                 correct: 0,
                 explanation: "La respuesta oficial es la a: antes de unir un equipo hay que configurar el cliente DNS para que resuelva el nombre del dominio y pueda localizar los controladores. Aunque la b también es un paso del proceso, el test marca solo la a."
             }
+        ],
+        "Test 3": [
+            {
+                question: "Un dominio es:",
+                options: [
+                    "La estructura básica del árbol.",
+                    "La otra denominación del árbol de directorio.",
+                    "Igual que Unidad Organizativa.",
+                    "Ninguna es correcta."
+                ],
+                correct: 0,
+                explanation: "El dominio es la unidad básica del árbol de directorio que agrupa jerárquicamente los objetos bajo una administración común. No es sinónimo de todo el árbol ni equivale a una Unidad Organizativa (OU)."
+            },
+            {
+                question: "LDAP es un acrónimo que significa \"Protocolo Ligero de Acceso a Directorios\" en castellano. ¿Qué significan cada una de las iniciales?",
+                options: [
+                    "Light Directory Acces Protocol.",
+                    "Lightweight Directory Access Protocol.",
+                    "Little Directory Action Protocol.",
+                    "Life Dir Access Protocol."
+                ],
+                correct: 1,
+                explanation: "LDAP = Lightweight Directory Access Protocol, la versión ligera del protocolo DAP del estándar X.500 para acceder a servicios de directorio."
+            },
+            {
+                question: "¿Qué entendemos por esquema en un entorno LDAP?",
+                options: [
+                    "Un gráfico indicando la organización del LDAP.",
+                    "Es un modelo de los datos que pueden almacenarse en LDAP.",
+                    "Es un modelo transaccional entre varias bases de datos que se interrelacionan con el sistema base.",
+                    "Es la base de datos del sistema que sirve de referencia o índice de todos los recursos, grupos y usuarios del sistema."
+                ],
+                correct: 1,
+                explanation: "El esquema define las clases de objeto y los atributos permitidos (tipos, sintaxis y reglas), es decir, el modelo de datos que puede almacenarse en el directorio."
+            },
+            {
+                question: "Para instalar el Active Directory en Windows, ¿qué pasos son los correctos?.",
+                options: [
+                    "Agregar la funcionalidad al servidor y seguidamente, promocionar el controlador de dominio mediante el comando dcpromo.",
+                    "Instalarlo mediante el menú \"Administrador del servidor\".",
+                    "Instalarlo mediante la opción \"añadir o quitar programas\".",
+                    "Ninguna es correcta."
+                ],
+                correct: 0,
+                explanation: "Según el criterio del test: se agrega la funcionalidad/rol al servidor y después se promociona a controlador de dominio con dcpromo. Nota: en versiones modernas de Windows Server dcpromo está en desuso y se usa el Administrador del servidor o PowerShell, pero el temario sigue el procedimiento clásico."
+            },
+            {
+                question: "\"cn=admin,dc=sored,dc=local\", ¿qué te sugiere?",
+                options: [
+                    "Identificación del usuario \"admin\" del dominio sored.local.",
+                    "Grupo admin del dominio sored.local.",
+                    "Nada, falta la clave.",
+                    "Administrar la base de datos de un LDAP."
+                ],
+                correct: 0,
+                explanation: "Es un DN (Distinguished Name): cn=admin es el nombre común del objeto y dc=sored,dc=local forman el dominio sored.local. Identifica al usuario admin de ese dominio."
+            },
+            {
+                question: "Un uso muy común de LDAP es:",
+                options: [
+                    "Controlar los accesos al sistema.",
+                    "Gestión de usuarios y grupos.",
+                    "Sustituir diversos servicios del sistema.",
+                    "Actúa como CRM (servicio al cliente) del sistema."
+                ],
+                correct: 1,
+                explanation: "El uso más extendido de LDAP es la gestión y consulta centralizada de usuarios y grupos (autenticación, directorio corporativo, etc.); no sustituye al resto de servicios de red."
+            },
+            {
+                question: "¿Qué es \"nombre distinguido\"?",
+                options: [
+                    "Es el alias que se da al dominio.",
+                    "Es un atributo por el que se identifica un objeto.",
+                    "Es la identificación de una Unidad Organizativa.",
+                    "Ninguna es correcta."
+                ],
+                correct: 1,
+                explanation: "El nombre distinguido (DN) identifica de forma única a un objeto dentro del árbol LDAP, encadenando RDNs (cn, ou, dc...) desde el objeto hasta la raíz."
+            },
+            {
+                question: "Cuando un cliente Windows se agrega al dominio, ¿qué NO se puede hacer en el equipo cliente?",
+                options: [
+                    "El usuario del dominio, por defecto, no puede administrar el equipo local.",
+                    "Todos los usuarios del dominio pueden administrar el equipo local.",
+                    "Sólo los usuarios locales y que estén integrados en el grupo administradores pueden administrar el equipo.",
+                    "Ninguna es correcta."
+                ],
+                correct: 0,
+                explanation: "La respuesta oficial es la a: al unir el equipo al dominio, un usuario del dominio corriente NO es administrador local por defecto (solo el grupo Domain Admins se añade al grupo Administradores local). Ojo con el enunciado, que pregunta «qué NO se puede hacer» y cuya opción correcta describe precisamente esa limitación. En el envío original se marcó otra opción y se puntuó como incorrecta."
+            },
+            {
+                question: "La afirmación \"dpkg-reconfigure ldap-auth-config\" permite reconfigurar LDAP es ¿verdadera o falsa?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. dpkg-reconfigure ldap-auth-config vuelve a ejecutar el asistente de configuración del paquete en Debian/Ubuntu para cambiar los parámetros LDAP. En el envío original se marcó «Falso» y la plataforma lo dio por incorrecto."
+            },
+            {
+                question: "El administrador de un controlador de dominio Windows Server puede administrar remotamente cualquier equipo conectado a la red.",
+                options: [
+                    "Sí, si está dentro de la difusión.",
+                    "Sí, si está integrado en el dominio.",
+                    "Sí, si el cortafuegos se lo permite y está integrado en la base de datos del controlador de dominio.",
+                    "No, porque el administrador no está dado de alta en el equipo local."
+                ],
+                correct: 2,
+                explanation: "La respuesta oficial es la c: para administrar remotamente hace falta que el equipo esté integrado en el dominio (dado de alta en el DC) y que el cortafuegos permita el tráfico de administración (RPC/WMI, administración remota, etc.)."
+            }
         ]
     }
 };
