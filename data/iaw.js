@@ -431,6 +431,117 @@ export const questionsIAW = {
                 correct: 1,
                 explanation: "Un CMS se divide en back-end (panel de administración donde se crea y gestiona el contenido) y front-end (la parte pública que ven los visitantes)."
             }
+        ],
+        "Test 2": [
+            {
+                question: "A la hora de realizar una copia de seguridad del CMS, debo:",
+                options: [
+                    "Recoger los contenidos debidamente ordenados y clasificados.",
+                    "Exportar la base de datos completa en un fichero SQL.",
+                    "Guardar la estructura completa de directorios del sitio.",
+                    "No es necesario realizar copias de seguridad de un CMS."
+                ],
+                correct: [1, 2],
+                explanation: "La copia de un CMS tiene dos partes: la base de datos (exportada a un fichero SQL, con entradas, usuarios y configuración) y los archivos del sitio (estructura de directorios, temas, plugins e imágenes subidas). La d es falsa y la a no es propiamente una acción de copia."
+            },
+            {
+                question: "Una licencia CC share-alike es igual que una licencia copyleft completa. ¿Verdadero o Falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. CC BY-SA (share-alike / compartir igual) es una cláusula modular dentro de Creative Commons, que se basa en «algunos derechos reservados». No equivale a un copyleft completo como la GPL, que obliga a mantener la misma licencia en toda obra derivada."
+            },
+            {
+                question: "Los gestores de contenidos requieren grandes conocimientos en programación de portales web. ¿Verdadero o Falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. Precisamente la ventaja de un CMS es permitir crear y gestionar contenidos desde un panel gráfico sin necesidad de saber programar portales web."
+            },
+            {
+                question: "Asocia cada contenido con su tipo:",
+                match: {
+                    lefts: ["Fotos y dibujos", "Videos y podcasts", "Noticias"],
+                    rights: [
+                        "Textos.",
+                        "Gráfico.",
+                        "Multimedia."
+                    ],
+                    correct: [1, 2, 0]
+                },
+                explanation: "Fotos y dibujos son contenido gráfico; los vídeos y podcasts, multimedia; las noticias, textos."
+            },
+            {
+                question: "Marca las opciones correctas: Los derechos sobre los que puede actuar una licencia:",
+                options: [
+                    "Sólo distribución en formato digital.",
+                    "Recoge la traducción y adaptación.",
+                    "Refleja la Copia y reproducción.",
+                    "Ni se crean ni se destruyen, sólo se transmiten."
+                ],
+                correct: [1, 2],
+                explanation: "Una licencia puede abarcar la traducción/adaptación (obras derivadas) y la copia/reproducción, además de la distribución. No se limita solo al formato digital (a) y la d describe una idea de la física, no un derecho de autor."
+            },
+            {
+                question: "En una wiki:",
+                options: [
+                    "No existe la posibilidad de colaborar en los contenidos.",
+                    "El conjunto de páginas está interconectado por enlaces y permite búsquedas temáticas.",
+                    "Da igual si los enlaces se rompen, porque tenemos una BD.",
+                    "Sería bueno que tuviese implementado un historial de cambios."
+                ],
+                correct: 1,
+                explanation: "Una wiki se caracteriza por páginas interconectadas mediante enlaces (hipertexto) que permiten navegar y buscar por temas. La a es falsa (es colaborativa), la c es falsa (los enlaces rotos sí importan) y la d, aunque deseable, no es la respuesta marcada."
+            },
+            {
+                question: "Asocia cada tipo con su característica:",
+                match: {
+                    lefts: ["Reconocimiento", "No comercial", "No derivadas", "Misma licencia"],
+                    rights: [
+                        "Permite la distribución bajo la misma licencia usada.",
+                        "El autor se reserva algunos derechos.",
+                        "Permite todo siempre que se cite al autor original.",
+                        "Permite todo siempre que se no se haga uso comercial."
+                    ],
+                    correct: [2, 3, 1, 0]
+                },
+                explanation: "Reconocimiento (BY): citar al autor original; No comercial (NC): sin uso comercial; No derivadas (ND): el autor se reserva algunos derechos; Misma licencia / Compartir igual (SA): distribuir bajo la misma licencia."
+            },
+            {
+                question: "Los foros son sitios web utilizados para compartir opiniones y comentarios en torno a un mismo _______.",
+                options: [
+                    "Interés",
+                    "Tema",
+                    "Foro",
+                    "Asunto"
+                ],
+                correct: 0,
+                explanation: "El término exacto del temario es «interés»: un foro agrupa a personas en torno a un mismo interés o motivo de debate. Ojo: en el intento original se respondió «tema» y la plataforma lo puntuó como incorrecto, aunque sea casi sinónimo."
+            },
+            {
+                question: "La forma de indicar los términos de la Licencia de Uso, es a través de un texto que resuma lo que se puede hacer con ella. ¿Verdadero o Falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. Los términos de la licencia se comunican con un texto resumen legible que indica qué se puede y qué no se puede hacer con la obra, acompañado del texto legal completo."
+            },
+            {
+                question: "La licencia recoge la voluntad del autor sobre:",
+                options: [
+                    "Su capacidad de expresarse libremente.",
+                    "Los límites sobre el uso de su obra por terceras personas.",
+                    "Su deseo de enriquecerse con su obra.",
+                    "La distribución de su obra pero sólo si son libros."
+                ],
+                correct: 1,
+                explanation: "La licencia expresa los límites y condiciones que el autor impone al uso de su obra por terceros (copia, distribución, modificación, uso comercial, etc.)."
+            }
         ]
     }
 };
