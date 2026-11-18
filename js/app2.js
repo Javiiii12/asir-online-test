@@ -1,14 +1,14 @@
-import { questionsPAR } from '../data/par.js?v=2.44';
-import { questionsFH } from '../data/fh.js?v=2.44';
-import { questionsDIG } from '../data/dig.js?v=2.44';
-import { questionsSOS } from '../data/sos.js?v=2.44';
-import { questionsGBD } from '../data/gbd.js?v=2.44';
-import { questionsISO } from '../data/iso.js?v=2.44';
-import { questionsASGBD } from '../data/asgbd.js?v=2.44';
-import { questionsCID } from '../data/cid.js?v=2.44';
-import { questionsASO } from '../data/aso.js?v=2.44';
-import { questionsIAW } from '../data/iaw.js?v=2.44';
-import { questionsSRI } from '../data/sri.js?v=2.44';
+import { questionsPAR } from '../data/par.js?v=2.45';
+import { questionsFH } from '../data/fh.js?v=2.45';
+import { questionsDIG } from '../data/dig.js?v=2.45';
+import { questionsSOS } from '../data/sos.js?v=2.45';
+import { questionsGBD } from '../data/gbd.js?v=2.45';
+import { questionsISO } from '../data/iso.js?v=2.45';
+import { questionsASGBD } from '../data/asgbd.js?v=2.45';
+import { questionsCID } from '../data/cid.js?v=2.45';
+import { questionsASO } from '../data/aso.js?v=2.45';
+import { questionsIAW } from '../data/iaw.js?v=2.45';
+import { questionsSRI } from '../data/sri.js?v=2.45';
 
 // Adaptador para convertir el diccionario de temas a array de objetos
 const buildThemeStructure = (moduleId, sourceData) => {

@@ -854,6 +854,105 @@ export const questionsPAR = {
                 ],
                 correct: 0,
                 explanation: "Las opciones confirmadas como correctas por el sistema son: Absorción atmosférica y Ruido."
+            },
+            {
+                question: "Asociación 802.11",
+                options: [
+                    "Se produce cuando se estable el enlace",
+                    "Solo es posible si está habilitado el broadcast en el punto de acceso",
+                    "Se produce cuando escribimos la clave",
+                    "Se produce cuando un cliente busca una red"
+                ],
+                correct: 0,
+                explanation: "En IEEE 802.11 el proceso tiene tres fases: descubrimiento/escaneo, autenticación y asociación. La asociación es el momento en que se establece formalmente el enlace de nivel 2 entre cliente y punto de acceso. La d describe el escaneo y la c la autenticación."
+            },
+            {
+                question: "Marcar las formas de comunicación según el sentido de la transmisión",
+                options: [
+                    "Simplex",
+                    "Semiduplex",
+                    "Duplex",
+                    "UniPlex"
+                ],
+                correct: [0, 1, 2],
+                explanation: "Los tres modos son simplex (un solo sentido), semidúplex / half-duplex (ambos sentidos pero alternados) y dúplex / full-duplex (simultáneo). UniPlex no existe. Frente a la versión clásica de este tema, aquí no hay una opción combinada «Semiduplex, Duplex y Simplex»: hay que marcar las tres por separado."
+            },
+            {
+                question: "Marcar tipos de cable de par trenzado",
+                options: [
+                    "FTP",
+                    "VTP",
+                    "RTP",
+                    "UTP"
+                ],
+                correct: [0, 3],
+                explanation: "UTP (sin apantallar) y FTP (con lámina) son variantes de cable de par trenzado según su apantallamiento. VTP es el protocolo de gestión de VLANs de Cisco y RTP el protocolo de transporte en tiempo real; ninguno es un cable."
+            },
+            {
+                question: "Router",
+                options: [
+                    "Es un dispositivo de la capa de transporte",
+                    "En una LAN es imprescindible, sin él no hay comunicación entre dispositivos",
+                    "Dispone de un sistema operativo, procesador y memoria",
+                    "Un router también hace las funciones de switch"
+                ],
+                correct: 2,
+                explanation: "Un router es un equipo de capa 3 (red) con CPU, memorias RAM/Flash/NVRAM/ROM y su propio sistema operativo. Dentro de una misma LAN los equipos se comunican mediante un switch sin necesidad de router; este se usa para interconectar redes distintas."
+            },
+            {
+                question: "Marca los factores físicos que afectan a la transmisión",
+                options: [
+                    "Dicofonías",
+                    "Retardo",
+                    "Ruido",
+                    "Absorción atmosférica"
+                ],
+                correct: [1, 2, 3],
+                explanation: "El retardo, el ruido y la absorción atmosférica degradan la señal. «Dicofonías» es un término erróneo (lo correcto es diafonía / crosstalk) y actúa como trampa. Ojo: la versión clásica de este mismo test daba por buena únicamente «Absorción atmosférica y Ruido»; aquí hay que marcar las tres."
+            },
+            {
+                question: "La asignación dinámica y automática de IPs se diferencian en",
+                options: [
+                    "Solo existen en IPv6",
+                    "Nada",
+                    "La asignación dinámica suele utilizarse para gran cantidad de clientes",
+                    "En la asignación automática se asigna una IP fija"
+                ],
+                correct: 2,
+                explanation: "La asignación dinámica (DHCP) cede direcciones durante un tiempo limitado (lease), lo que permite reutilizar el rango y atender a muchos clientes intermitentes. No es exclusiva de IPv6 y la automática no asigna una IP fija."
+            },
+            {
+                question: "Dominio de difusión",
+                options: [
+                    "Es lo mismo que dominio de colisión",
+                    "Está contenido dentro de un dominio de colisión",
+                    "Es lo mismo que dominio de broadcast",
+                    "Está contenido dentro de más de un dominio de colisión"
+                ],
+                correct: 2,
+                explanation: "Dominio de difusión es la traducción de broadcast domain: el conjunto de dispositivos que reciben una trama enviada a la dirección de difusión. No debe confundirse con el dominio de colisión, que es el segmento donde se comparte el medio y pueden producirse colisiones."
+            },
+            {
+                question: "Marca las tecnologías utilizadas a nivel de enlace:",
+                options: [
+                    "Ethernet",
+                    "Token Ring",
+                    "TCP",
+                    "Fibra óptica"
+                ],
+                correct: [0, 1],
+                explanation: "Ethernet (IEEE 802.3) y Token Ring (IEEE 802.5) son tecnologías de la capa 2 (enlace de datos). TCP pertenece a la capa 4 (transporte) y la fibra óptica es un medio físico de la capa 1."
+            },
+            {
+                question: "Cuál de los siguientes ES un estándar",
+                options: [
+                    "T685C",
+                    "T685A",
+                    "T568B",
+                    "T658A"
+                ],
+                correct: 2,
+                explanation: "Los dos estándares oficiales ANSI/TIA-568 para la asignación de pines del conector RJ-45 son T568A y T568B. Las demás opciones invierten las cifras y son distractores."
             }
         ]
     },
