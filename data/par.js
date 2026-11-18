@@ -113,6 +113,39 @@ export const questionsPAR = {
                 ],
                 correct: 2,
                 explanation: "LAN (Local Area Network) es el término para redes de área local, típicamente de corto alcance como una oficina o un hogar."
+            },
+            {
+                question: "Indica la unidad con más capacidad",
+                options: [
+                    "Kilobit",
+                    "Kilobyte",
+                    "Bit",
+                    "Byte"
+                ],
+                correct: 1,
+                explanation: "Ordenadas de menor a mayor capacidad: Bit (1 bit), Byte (8 bits), Kilobit (1000 bits) y Kilobyte (8000 bits). El Kilobyte es la mayor."
+            },
+            {
+                question: "Indica las igualdades correctas (respuesta múltiple):",
+                options: [
+                    "1 Mebibyte = 1024 Kibibytes",
+                    "1 Megabyte = 1000000 bytes",
+                    "1 Mebibyte = 1048576 bytes",
+                    "1 Megabyte = 1000 Kilobytes"
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: "Las cuatro son correctas: los prefijos binarios IEC usan base 1024 (1 MiB = 1024 KiB = 1 048 576 bytes) y los decimales del SI base 1000 (1 MB = 1000 KB = 1 000 000 bytes). En esta versión hay que marcar las cuatro: no existe la opción «Todas son correctas» que sí aparece en el Test 2."
+            },
+            {
+                question: "Marca que protocolos pertenecen a la capa Aplicación del modelo TCP-IP",
+                options: [
+                    "IP",
+                    "HTTP",
+                    "TCP",
+                    "DNS"
+                ],
+                correct: [1, 3],
+                explanation: "HTTP y DNS operan en la capa de Aplicación del modelo TCP/IP; TCP pertenece a Transporte e IP a Internet. Es la versión en selección múltiple de la pregunta del Test 3, donde la respuesta era la opción única «Tanto DNS como HTTP»."
             }
         ],
         "Test 2": [
