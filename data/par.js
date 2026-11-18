@@ -678,6 +678,72 @@ export const questionsPAR = {
                 ],
                 correct: 3,
                 explanation: "El estándar de la industria para prefijos de subred en IPv6 es /64."
+            },
+            {
+                question: "A partir de la dirección de red 192.168.1.0 creamos 4 subredes:",
+                options: [
+                    "El tercer byte de las máscaras de subred tiene los valores 0, 64, 128, 192",
+                    "Las direcciones de subred difieren en el cuarto byte",
+                    "Las máscaras de subred de las direcciones obtenidas son 255.255.255.0",
+                    "Las máscaras de subred son 192.168.255.0"
+                ],
+                correct: 1,
+                explanation: "192.168.1.0 es una red de clase C (/24). Para obtener 4 subredes se toman 2 bits prestados (2^2 = 4), dando /26 = 255.255.255.192. Los saltos de 64 se aplican al CUARTO octeto: 192.168.1.0, .64, .128 y .192. Por eso es falsa la a (habla del tercer byte) y la c (la máscara ya no es /24)."
+            },
+            {
+                question: "En el establecimiento de una conexión UDP tenemos",
+                options: [
+                    "3 pasos: enviar ACK, Enviar ACK/SYN y Enviar SYN",
+                    "No se establece conexión",
+                    "3 pasos: enviar SYN, Enviar SYN/ACK y Enviar ACK",
+                    "3 pasos: enviar SYN, Enviar ACK/SYN y Enviar ACK"
+                ],
+                correct: 1,
+                explanation: "UDP es un protocolo no orientado a conexión: envía los datagramas directamente, sin negociación previa. El saludo de tres vías (SYN, SYN/ACK, ACK) corresponde a TCP."
+            },
+            {
+                question: "Marca los medios inalámbricos:",
+                options: [
+                    "UTP",
+                    "Infrarrojos",
+                    "Microondas",
+                    "Fibra multimodo"
+                ],
+                correct: [1, 2],
+                explanation: "Los infrarrojos y las microondas son medios de transmisión no guiados (inalámbricos). El cable UTP y la fibra multimodo son medios guiados. Hay que marcar las dos."
+            },
+            {
+                question: "Cuál de los siguientes cables NO es de par trenzado",
+                options: [
+                    "STP",
+                    "VTP",
+                    "UTP",
+                    "FTP"
+                ],
+                correct: 1,
+                explanation: "UTP (sin apantallar), STP (apantallado) y FTP (con lámina) son categorías de cable de par trenzado según su apantallamiento. VTP (VLAN Trunking Protocol) es un protocolo propietario de Cisco para propagar VLANs, no un tipo de cable."
+            },
+            {
+                question: "Las ondas de radio:",
+                options: [
+                    "Son más direccionales que las microondas",
+                    "Tienen menor alcance que los infrarrojos",
+                    "Ninguna de las anteriores es correcta",
+                    "Son menos direccionales que las microondas"
+                ],
+                correct: 3,
+                explanation: "Las ondas de radio se propagan de forma omnidireccional y atraviesan obstáculos con facilidad; las microondas requieren antenas muy direccionales y visión directa. Por tanto las ondas de radio son MENOS direccionales que las microondas."
+            },
+            {
+                question: "Marcar las frases correctas sobre WIFI",
+                options: [
+                    "Actualmente se instalan dispositivos que trabajan en 2.4GHz y 5Ghz",
+                    "La banda 5GHz usa canales diferentes a la banda 2.4GHz",
+                    "Si queremos mayor cobertura no debemos elegir la banda 5GHz",
+                    "Los estandars 802.11b y 802.11g se conocen como WIFI 5G"
+                ],
+                correct: [0, 1, 2],
+                explanation: "Los puntos de acceso actuales son de doble banda (2,4 y 5 GHz), cada banda emplea un rango de canales distinto y 5 GHz ofrece menor alcance y penetración que 2,4 GHz. La d es falsa: 802.11b y 802.11g operan solo en 2,4 GHz; Wi-Fi 5 corresponde a 802.11ac."
             }
         ],
         "Test 3": [
