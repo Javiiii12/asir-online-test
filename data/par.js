@@ -368,6 +368,61 @@ export const questionsPAR = {
                 ],
                 correct: 2,
                 explanation: "Un protocolo es un conjunto de reglas estandarizadas que formatan y controlan el tránsito de la información en una red."
+            },
+            {
+                question: "Indica las respuestas correctas (respuesta múltiple):",
+                options: [
+                    "1 Megabyte es menor que 1 Mebibyte",
+                    "1 Kilobit es igual a 1 kB",
+                    "1 Kilobit es menor que 1 Kilobyte",
+                    "1 Megabyte es igual que 1 Mebibyte"
+                ],
+                correct: [0, 2],
+                explanation: "1 MB (1 000 000 bytes) es menor que 1 MiB (1 048 576 bytes) -> la a es cierta. 1 Kilobit (1000 bits) es ocho veces menor que 1 Kilobyte (8000 bits) -> la c es cierta. La b confunde bits con bytes y la d es falsa. En esta versión hay que marcar las dos por separado; en la pregunta original del Test 3 existía una única opción que combinaba ambas afirmaciones."
+            },
+            {
+                question: "Topologías físicas de red",
+                options: [
+                    "Malla",
+                    "Árbol",
+                    "Estrella",
+                    "Piramidal"
+                ],
+                correct: [0, 1, 2],
+                explanation: "Malla, árbol y estrella son topologías físicas estándar (junto con bus, anillo e híbrida). «Piramidal» no existe como topología física de red. Hay que marcar las tres."
+            },
+            {
+                question: "Si en el navegador indicamos http://127.0.0.1 ¿Qué estamos haciendo?",
+                options: [
+                    "Visitar una web pública en internet pero sin usar DNS",
+                    "Navegar en modo incógnito",
+                    "No va a funcionar, tenemos que indicar una frase",
+                    "Consultar la web alojada en nuestro propio equipo"
+                ],
+                correct: 3,
+                explanation: "127.0.0.1 es la dirección IPv4 de bucle local (loopback / localhost): apunta al propio equipo, por lo que se consulta el servidor web local si lo hay, sin salir a Internet ni resolver nombres con DNS."
+            },
+            {
+                question: "Indica las igualdades correctas (respuesta múltiple):",
+                options: [
+                    "1 Kibibyte = 1024 bytes",
+                    "1 Kilobyte = 1024 bytes",
+                    "1 Kibibyte = 1000 bytes",
+                    "1 Kilobyte = 1000 bytes"
+                ],
+                correct: [0, 3],
+                explanation: "El estándar IEC usa prefijos binarios: 1 KiB = 2^10 = 1024 bytes (a). El SI usa decimales: 1 kB = 10^3 = 1000 bytes (d). La b y la c intercambian ambos criterios. Ojo: comparte enunciado con otra pregunta del Test 1, pero allí las opciones trataban de Megabyte/Mebibyte."
+            },
+            {
+                question: "Un socket",
+                options: [
+                    "Es una combinación de 2 IPs y 2 puertos",
+                    "Ninguna de las anteriores",
+                    "Identifica de manera exclusiva un proceso en un dispositivo",
+                    "Es un puerto dinámico"
+                ],
+                correct: 0,
+                explanation: "Una comunicación TCP/IP queda definida por sus dos extremos: IP origen + puerto origen e IP destino + puerto destino (2 IPs y 2 puertos). Un puerto por sí solo únicamente identifica un servicio dentro de un mismo dispositivo; no es un socket."
             }
         ]
     },
