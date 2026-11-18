@@ -533,6 +533,39 @@ export const questionsPAR = {
                 ],
                 correct: 0,
                 explanation: "Al tomar un bit prestado de la parte de host (2^1 = 2), dividimos el espacio de direcciones original en exactamente dos subredes."
+            },
+            {
+                question: "Marcar las frases correctas sobre control de acceso al medio (selección múltiple)",
+                options: [
+                    "Ethernet es el más habitual",
+                    "Hay dos métodos básicos: centralizados y descentralizados",
+                    "CSMA es un método muy usado de acceso al medio",
+                    "Reducen colisiones en las transmisiones que se producen en medios compartidos"
+                ],
+                correct: [1, 2, 3],
+                explanation: "Hay que marcar b, c y d: los métodos MAC se dividen en centralizados y descentralizados, CSMA es el más extendido y su finalidad es reducir las colisiones en medios compartidos. «Ethernet es el más habitual» no se marca porque Ethernet (IEEE 802.3) es un estándar de red completo, no el método de acceso (CSMA/CD). Frente a la versión clásica de este tema, aquí no existe la opción «Todas las anteriores» y se añade ese distractor."
+            },
+            {
+                question: "Dentro del espectro electromagnético NO se encuentran",
+                options: [
+                    "Luz",
+                    "Infrarrojos",
+                    "Herzios",
+                    "Sonidos"
+                ],
+                correct: 2,
+                explanation: "Según el criterio del test la respuesta es Herzios: es la unidad de medida de la frecuencia, no un tipo de radiación del espectro electromagnético (luz visible, infrarrojos, microondas, rayos X...). Ojo: físicamente el sonido es una onda mecánica y tampoco pertenece al espectro EM, pero la plataforma marca «Herzios»."
+            },
+            {
+                question: "En IPv6, la configuración sin estado significa que",
+                options: [
+                    "Se asigna el final de la IP y el equipo añade el prefijo",
+                    "No se asigna la dirección IPv6 completa",
+                    "Se asigna la IP completa",
+                    "La MAC es parte de la IP"
+                ],
+                correct: 1,
+                explanation: "En SLAAC (stateless address autoconfiguration) ningún servidor DHCPv6 entrega ni mantiene el registro de direcciones completas: el router anuncia el prefijo de red (Router Advertisement) y cada equipo autoconfigura el identificador de interfaz, por ejemplo a partir de su MAC con EUI-64 o de forma aleatoria."
             }
         ],
         "Test 2": [
