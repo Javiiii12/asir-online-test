@@ -317,5 +317,120 @@ export const questionsIAW = {
                 explanation: "La respuesta oficial es mysql -u root -p: indica el usuario y solicita la contraseña. Ojo: en el envío original se respondió «sudo mysql» y la plataforma lo puntuó como incorrecto, aunque en Ubuntu con el plugin auth_socket suele funcionar sin contraseña. Nota: era respuesta corta en el cuestionario; aquí se ofrece como opción múltiple."
             }
         ]
+    },
+
+    "Unidad de Trabajo 2.- Instalación de servidores de gestores de contenidos": {
+        "Test 1": [
+            {
+                question: "La licencia Copyleft:",
+                options: [
+                    "Recoge que el autor se reserva todos los derechos.",
+                    "Se suele utilizar en la distribución de software.",
+                    "Permite la libre distribución de copias y modificaciones.",
+                    "Hace que se mantengan los mismos derechos en las obras derivadas."
+                ],
+                correct: [1, 2, 3],
+                explanation: "El copyleft se emplea sobre todo en software: permite copiar, modificar y redistribuir, pero obliga a que las obras derivadas conserven esas mismas libertades (cláusula «hereditaria»). La a describe el copyright (todos los derechos reservados), no el copyleft."
+            },
+            {
+                question: "Es aconsejable emplear un usuario con los _______ estrictamente necesarios para realizar las peticiones a la base de datos.",
+                options: [
+                    "Permisos",
+                    "Privilegios",
+                    "Roles",
+                    "Derechos"
+                ],
+                correct: 0,
+                explanation: "Principio de mínimo privilegio: la cuenta con la que el CMS se conecta a la BD debe tener solo los permisos imprescindibles (SELECT, INSERT, UPDATE...), nunca privilegios de administrador. El término exacto del temario es «permisos»."
+            },
+            {
+                question: "Los portales de contenidos son sitios web que proporcionan varias _______ que varían según los contenidos que posean.",
+                options: [
+                    "Funciones",
+                    "Herramientas",
+                    "Plantillas",
+                    "Extensiones"
+                ],
+                correct: 0,
+                explanation: "El término exacto es «funciones»: un portal ofrece distintas funciones (foros, buscador, galería, área de usuarios...) según sus contenidos. Ojo: en el intento original se respondió «herramientas» y la plataforma lo puntuó como incorrecto."
+            },
+            {
+                question: "Señala las ventajas de usar un CMS:",
+                options: [
+                    "Favorece que los usuarios adquieran conocimientos sobre tecnologías web.",
+                    "Facilita que los usuarios colaboren realizando el mismo trabajo.",
+                    "Simplifica el proceso de realizar copias de seguridad.",
+                    "Facilita realizar copias de otros sitios web."
+                ],
+                correct: [1, 2],
+                explanation: "Las ventajas marcadas son la b (varios usuarios pueden colaborar sobre los mismos contenidos) y la c (al centralizar el contenido, las copias de seguridad son más sencillas). La a no es una ventaja inherente del CMS y la d es falsa."
+            },
+            {
+                question: "El respeto por los _______ significa que una persona no puede adjudicarse la autoría de una obra que no ha creado.",
+                options: [
+                    "Derechos morales",
+                    "Derechos de autor",
+                    "Derechos patrimoniales",
+                    "Derechos de copia"
+                ],
+                correct: 0,
+                explanation: "El término exacto es «derechos morales»: incluyen el derecho de paternidad (reconocimiento de la autoría) y el de integridad de la obra. «Derechos de autor» es el conjunto más amplio (morales + patrimoniales) y fue la respuesta marcada como incorrecta en el intento original."
+            },
+            {
+                question: "Un blog:",
+                options: [
+                    "No admite la posibilidad de instalación ni personalización.",
+                    "Es un sitio web personal.",
+                    "No ordena las entradas de ninguna manera.",
+                    "Es necesario tener conocimientos avanzados para tener uno."
+                ],
+                correct: 1,
+                explanation: "Un blog es un sitio web personal (originalmente un diario de entradas ordenadas cronológicamente). Sí se puede instalar y personalizar, las entradas se ordenan por fecha y no hacen falta conocimientos avanzados."
+            },
+            {
+                question: "Siempre que se conozca la autoría de una obra:",
+                options: [
+                    "No importa si modifico, al menos, el 30% de la obra.",
+                    "Se debe indicar.",
+                    "Se dice el autor cuando te pregunten.",
+                    "Se indica según el uso que se haga de esa obra."
+                ],
+                correct: 1,
+                explanation: "La autoría debe indicarse siempre que se conozca: es el derecho moral de paternidad. No depende del uso, de que te pregunten ni de ningún porcentaje de modificación."
+            },
+            {
+                question: "Asocia cada licencia con su característica.",
+                match: {
+                    lefts: ["Copyright", "Copyleft", "Creative Commons"],
+                    rights: [
+                        "El autor se reserva algunos derechos.",
+                        "El autor se reserva todos los derechos.",
+                        "Libre distribución de copias y versiones."
+                    ],
+                    correct: [1, 2, 0]
+                },
+                explanation: "Copyright = todos los derechos reservados; Copyleft = libre distribución de copias y versiones (manteniendo la misma licencia en las derivadas); Creative Commons = el autor se reserva algunos derechos (some rights reserved)."
+            },
+            {
+                question: "En los CMS una vez que preparamos algún contenido aparece directamente publicado y no lo podemos ocultar, a no ser que lo eliminemos. ¿Verdadero o Falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. Los CMS permiten guardar borradores, programar la publicación, despublicar u ocultar contenidos sin borrarlos (estados: borrador, pendiente de revisión, publicado, privado...)."
+            },
+            {
+                question: "Un gestor de contenidos consta, básicamente, de:",
+                options: [
+                    "Menús.",
+                    "Back-end y Front-end.",
+                    "Imágenes, enlaces y textos.",
+                    "Dependiendo del tipo de gestor consta de unas cosas u otras."
+                ],
+                correct: 1,
+                explanation: "Un CMS se divide en back-end (panel de administración donde se crea y gestiona el contenido) y front-end (la parte pública que ven los visitantes)."
+            }
+        ]
     }
 };
