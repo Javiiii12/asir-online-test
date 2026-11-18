@@ -212,6 +212,110 @@ export const questionsIAW = {
                 correct: 0,
                 explanation: "Verdadero. systemctl status apache2 informa del estado actual del servicio (active/inactive, PID y logs recientes). Es prácticamente la misma comprobación que la P4 de este test, planteada como Verdadero/Falso."
             }
+        ],
+        "Test 3": [
+            {
+                question: "El archivo de configuración principal de Apache en distribuciones basadas en Debian se encuentra en /etc/httpd/httpd.conf.",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. En Debian/Ubuntu el archivo principal es /etc/apache2/apache2.conf, con la configuración repartida en sites-available/sites-enabled y conf-available. /etc/httpd/httpd.conf es la ruta típica de RHEL/CentOS/Fedora."
+            },
+            {
+                question: "El archivo principal de configuración de PHP en Ubuntu se encuentra en /etc/php/[versión]/apache2/php.ini.",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. Con el módulo de Apache (libapache2-mod-php) el php.ini vive en /etc/php/<versión>/apache2/php.ini; para la versión de línea de comandos sería /etc/php/<versión>/cli/php.ini."
+            },
+            {
+                question: "¿Cuál es el comando correcto para verificar la versión de PHP instalada en Ubuntu?",
+                options: [
+                    "php -v",
+                    "php --version",
+                    "php -info",
+                    "sudo systemctl php -v"
+                ],
+                correct: 0,
+                explanation: "php -v muestra la versión del intérprete. Ojo: php --version también funciona en la práctica, pero el test marca php -v. «php -info» no es válido (sería php -i o phpinfo()) y systemctl no ejecuta binarios de usuario."
+            },
+            {
+                question: "¿Cuál de las siguientes órdenes permite administrar MySQL/MariaDB desde la terminal en Ubuntu?",
+                options: [
+                    "mysql",
+                    "psql",
+                    "sqlcmd",
+                    "phpmyadmin"
+                ],
+                correct: 0,
+                explanation: "mysql es el cliente de terminal de MySQL/MariaDB. psql pertenece a PostgreSQL, sqlcmd a SQL Server y phpMyAdmin es una interfaz web, no una orden de consola."
+            },
+            {
+                question: "En Windows, el archivo php.ini se encuentra normalmente dentro de la carpeta donde PHP fue instalado.",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. En Windows PHP busca php.ini en su propio directorio de instalación (junto a php.exe); con XAMPP suele estar en la carpeta xampp/php."
+            },
+            {
+                question: "Para instalar MySQL en Windows, es necesario habilitar Windows Subsystem for Linux (WSL).",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. MySQL/MariaDB dispone de instalador nativo para Windows (MSI o ZIP) y no necesita WSL; WSL solo haría falta para ejecutar la edición de Linux dentro de Windows."
+            },
+            {
+                question: "¿Cuál es el puerto por defecto que usa MySQL/MariaDB para escuchar conexiones entrantes?",
+                options: [
+                    "3306",
+                    "3307",
+                    "80",
+                    "5432"
+                ],
+                correct: 0,
+                explanation: "El puerto por defecto de MySQL/MariaDB es el 3306. El 80 es HTTP, el 5432 de PostgreSQL y el 3307 se usa a veces para una segunda instancia. Nota: en el cuestionario original era una pregunta de respuesta corta; aquí se ofrece como opción múltiple."
+            },
+            {
+                question: "¿Cuál es el directorio por defecto donde Apache almacena los archivos web en distribuciones basadas en Debian?",
+                options: [
+                    "/var/www/html",
+                    "/etc/apache2/",
+                    "/home/www/html",
+                    "/srv/apache/html"
+                ],
+                correct: 0,
+                explanation: "En Debian/Ubuntu el DocumentRoot por defecto es /var/www/html. /etc/apache2/ guarda la configuración del servidor, no los archivos web."
+            },
+            {
+                question: "¿Cuál es el comando para iniciar el servicio Apache en Linux?",
+                options: [
+                    "sudo systemctl start apache2",
+                    "sudo service apache2 stop",
+                    "sudo systemctl status apache2",
+                    "sudo apache2ctl -k stop"
+                ],
+                correct: 0,
+                explanation: "systemctl start apache2 inicia el servicio con systemd. status solo consulta el estado y las opciones con stop lo detienen."
+            },
+            {
+                question: "¿Qué comando se usa para acceder a la consola de MySQL desde la terminal en Ubuntu?",
+                options: [
+                    "mysql -u root -p",
+                    "sudo mysql",
+                    "mysql -u root",
+                    "sudo systemctl start mysql"
+                ],
+                correct: 0,
+                explanation: "La respuesta oficial es mysql -u root -p: indica el usuario y solicita la contraseña. Ojo: en el envío original se respondió «sudo mysql» y la plataforma lo puntuó como incorrecto, aunque en Ubuntu con el plugin auth_socket suele funcionar sin contraseña. Nota: era respuesta corta en el cuestionario; aquí se ofrece como opción múltiple."
+            }
         ]
     }
 };
