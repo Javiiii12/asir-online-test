@@ -4,6 +4,11 @@ import { questionsDIG } from '../data/dig.js?v=2.22';
 import { questionsSOS } from '../data/sos.js?v=2.22';
 import { questionsGBD } from '../data/gbd.js?v=2.22';
 import { questionsISO } from '../data/iso.js?v=2.22';
+import { questionsASGBD } from '../data/asgbd.js?v=2.29';
+import { questionsCID } from '../data/cid.js?v=2.29';
+import { questionsASO } from '../data/aso.js?v=2.29';
+import { questionsIAW } from '../data/iaw.js?v=2.29';
+import { questionsSRI } from '../data/sri.js?v=2.29';
 
 // Adaptador para convertir el diccionario de temas a array de objetos
 const buildThemeStructure = (moduleId, sourceData) => {
@@ -19,8 +24,10 @@ const buildThemeStructure = (moduleId, sourceData) => {
 };
 
 const rawAppStructure = [
+    // ---- 1º ASIR ----
     {
         id: 'iso',
+        course: '1-asir',
         name: 'Implantación de Sistemas Operativos',
         color: '#39ff14', // Neon
         icon: '💻',
@@ -28,6 +35,7 @@ const rawAppStructure = [
     },
     {
         id: 'par',
+        course: '1-asir',
         name: 'Planificación y Adm. de Redes',
         color: '#00f0ff', // Blue
         icon: '🌐',
@@ -35,14 +43,78 @@ const rawAppStructure = [
     },
     {
         id: 'fh',
+        course: '1-asir',
         name: 'Fundamentos de Hardware',
         color: '#ff8c00',
         icon: '⚙️',
         themes: buildThemeStructure('fh', questionsFH)
     },
-    { id: 'gbd', name: 'Gestión de Bases de Datos', color: '#b026ff', icon: '🗄️', themes: buildThemeStructure('gbd', questionsGBD) },
-    { id: 'sost', name: 'Sostenibilidad', color: '#32cd32', icon: '🌱', themes: buildThemeStructure('sos', questionsSOS) },
-    { id: 'dig', name: 'Digitalización', color: '#facc15', icon: '🤖', themes: buildThemeStructure('dig', questionsDIG) }
+    {
+        id: 'gbd',
+        course: '1-asir',
+        name: 'Gestión de Bases de Datos',
+        color: '#b026ff',
+        icon: '🗄️',
+        themes: buildThemeStructure('gbd', questionsGBD)
+    },
+    {
+        id: 'sost',
+        course: '1-asir',
+        name: 'Sostenibilidad',
+        color: '#32cd32',
+        icon: '🌱',
+        themes: buildThemeStructure('sos', questionsSOS)
+    },
+    {
+        id: 'dig',
+        course: '1-asir',
+        name: 'Digitalización',
+        color: '#facc15',
+        icon: '🤖',
+        themes: buildThemeStructure('dig', questionsDIG)
+    },
+
+    // ---- 2º ASIR ----
+    {
+        id: 'asgbd',
+        course: '2-asir',
+        name: 'Administración de Sistemas Gestores de Bases de Datos',
+        color: '#b026ff',
+        icon: '🗄️',
+        themes: buildThemeStructure('asgbd', questionsASGBD)
+    },
+    {
+        id: 'cid',
+        course: '2-asir',
+        name: 'Ciudadanía e Identidad Digital',
+        color: '#facc15',
+        icon: '🛡️',
+        themes: buildThemeStructure('cid', questionsCID)
+    },
+    {
+        id: 'aso',
+        course: '2-asir',
+        name: 'Administración de Sistemas Operativos',
+        color: '#39ff14',
+        icon: '🖥️',
+        themes: buildThemeStructure('aso', questionsASO)
+    },
+    {
+        id: 'iaw',
+        course: '2-asir',
+        name: 'Implantación de Aplicaciones Web',
+        color: '#ff8c00',
+        icon: '🌐',
+        themes: buildThemeStructure('iaw', questionsIAW)
+    },
+    {
+        id: 'sri',
+        course: '2-asir',
+        name: 'Servicios de Red e Internet',
+        color: '#00f0ff',
+        icon: '📡',
+        themes: buildThemeStructure('sri', questionsSRI)
+    }
 ];
 
 // ---- Configuración y Estado ----
@@ -58,7 +130,8 @@ const state = {
     currentIndex: 0,
     score: 0,
     userAnswers: [],
-    selectedOptionIndex: null
+    selectedOptionIndexes: [],  // 1 índice en preguntas únicas, varios en selección múltiple
+    matchSelections: []         // índice de la opción elegida en cada fila de asociación
 };
 
 // ---- DOM Elements ----
@@ -71,8 +144,8 @@ const views = {
 };
 
 const moduleButtonsContainer = document.getElementById('subject-buttons');
+const moduleScreenTitle = document.getElementById('module-screen-title');
 const btnBackCourses = document.getElementById('btn-back-courses');
-const comingSoonAlert = document.getElementById('coming-soon-alert');
 
 const levelTitle = document.getElementById('level-title');
 const levelListContainer = document.getElementById('level-list-container');
@@ -117,31 +190,41 @@ function switchView(viewName) {
 function renderDashboard() {
     moduleButtonsContainer.innerHTML = '';
 
-    rawAppStructure.forEach(mod => {
-        const btn = document.createElement('button');
-        btn.className = `w-full text-left p-5 md:p-6 rounded-2xl border border-slate-700 bg-slate-800/40 hover:bg-slate-700/80 transition-all shadow-lg hover:shadow-xl group relative overflow-hidden flex flex-col justify-between min-h-[120px] md:min-h-[140px]`;
-        btn.dataset.action = 'select-module';
-        btn.dataset.id = mod.id;
+    const activeCourse = state.selectedCourse || '1-asir';
 
-        const glow = document.createElement('div');
-        glow.className = `absolute top-0 right-0 w-1.5 md:w-2 h-full transition-all group-hover:w-full opacity-10 group-hover:opacity-20 z-0`;
-        glow.style.backgroundColor = mod.color;
+    if (moduleScreenTitle) {
+        moduleScreenTitle.textContent = activeCourse === '2-asir'
+            ? '2º ASIR - Módulos'
+            : '1º ASIR - Módulos';
+    }
 
-        btn.innerHTML = `
-            <div class="relative z-10 flex flex-col gap-1 w-full">
-                <span class="text-3xl md:text-4xl mb-1 md:mb-2 opacity-80 group-hover:opacity-100 transition-opacity">${mod.icon}</span>
-                <span class="text-xs md:text-sm font-bold text-white transition-colors leading-tight group-hover:text-white">
-                    ${mod.name}
-                </span>
-            </div>
-            <div class="relative z-10 w-full flex justify-between items-center mt-3 pt-3 border-t border-slate-600/50">
-                <span class="text-[10px] uppercase text-slate-400 font-semibold tracking-wide">Módulo</span>
-                <span class="w-2.5 h-2.5 rounded-full shadow-[0_0_8px_${mod.color}]" style="background-color: ${mod.color}"></span>
-            </div>
-        `;
-        btn.insertBefore(glow, btn.firstChild);
-        moduleButtonsContainer.appendChild(btn);
-    });
+    rawAppStructure
+        .filter(mod => mod.course === activeCourse)
+        .forEach(mod => {
+            const btn = document.createElement('button');
+            btn.className = `w-full text-left p-5 md:p-6 rounded-2xl border border-slate-700 bg-slate-800/40 hover:bg-slate-700/80 transition-all shadow-lg hover:shadow-xl group relative overflow-hidden flex flex-col justify-between min-h-[120px] md:min-h-[140px]`;
+            btn.dataset.action = 'select-module';
+            btn.dataset.id = mod.id;
+
+            const glow = document.createElement('div');
+            glow.className = `absolute top-0 right-0 w-1.5 md:w-2 h-full transition-all group-hover:w-full opacity-10 group-hover:opacity-20 z-0`;
+            glow.style.backgroundColor = mod.color;
+
+            btn.innerHTML = `
+                <div class="relative z-10 flex flex-col gap-1 w-full">
+                    <span class="text-3xl md:text-4xl mb-1 md:mb-2 opacity-80 group-hover:opacity-100 transition-opacity">${mod.icon}</span>
+                    <span class="text-xs md:text-sm font-bold text-white transition-colors leading-tight group-hover:text-white">
+                        ${mod.name}
+                    </span>
+                </div>
+                <div class="relative z-10 w-full flex justify-between items-center mt-3 pt-3 border-t border-slate-600/50">
+                    <span class="text-[10px] uppercase text-slate-400 font-semibold tracking-wide">Módulo</span>
+                    <span class="w-2.5 h-2.5 rounded-full shadow-[0_0_8px_${mod.color}]" style="background-color: ${mod.color}"></span>
+                </div>
+            `;
+            btn.insertBefore(glow, btn.firstChild);
+            moduleButtonsContainer.appendChild(btn);
+        });
 }
 
 function renderThemesList(moduleObj) {
@@ -199,12 +282,10 @@ function setupEventListeners() {
         const id = btn.dataset.id;
 
         if (action === 'select-course') {
-            if (id === '1-asir') {
-                state.selectedCourse = '1-asir';
-                if (comingSoonAlert) comingSoonAlert.classList.add('hidden');
+            if (id === '1-asir' || id === '2-asir') {
+                state.selectedCourse = id;
+                renderDashboard();
                 switchView('dashboard');
-            } else if (id === '2-asir') {
-                if (comingSoonAlert) comingSoonAlert.classList.remove('hidden');
             }
         } else if (action === 'select-module') {
             state.selectedModule = rawAppStructure.find(m => m.id === id);
@@ -221,7 +302,6 @@ function setupEventListeners() {
 
     btnBackCourses.addEventListener('click', () => {
         state.selectedCourse = null;
-        if (comingSoonAlert) comingSoonAlert.classList.add('hidden');
         switchView('courses');
     });
 
@@ -240,22 +320,42 @@ function setupEventListeners() {
         const optionBtn = e.target.closest('.option-btn');
         if (!optionBtn) return;
 
-        state.selectedOptionIndex = parseInt(optionBtn.dataset.index, 10);
+        const question = state.questions[state.currentIndex];
+        if (isMatchQuestion(question)) return;
 
-        const allOptions = optionsContainer.querySelectorAll('.option-btn');
-        allOptions.forEach(btn => {
-            btn.classList.remove('ring-2', 'ring-cyber-blue', 'bg-slate-700', 'border-cyber-blue');
-            btn.classList.add('bg-slate-800/60', 'border-slate-700');
+        const index = parseInt(optionBtn.dataset.index, 10);
+        const isMulti = Array.isArray(question.correct);
+
+        if (isMulti) {
+            // Casilla: se puede marcar / desmarcar cada opción
+            const pos = state.selectedOptionIndexes.indexOf(index);
+            if (pos === -1) state.selectedOptionIndexes.push(index);
+            else state.selectedOptionIndexes.splice(pos, 1);
+        } else {
+            // Radio: solo una opción seleccionada
+            state.selectedOptionIndexes = [index];
+        }
+
+        optionsContainer.querySelectorAll('.option-btn').forEach(btn => {
+            const i = parseInt(btn.dataset.index, 10);
+            paintOptionButton(btn, state.selectedOptionIndexes.includes(i));
         });
 
-        optionBtn.classList.remove('bg-slate-800/60', 'border-slate-700');
-        optionBtn.classList.add('ring-2', 'ring-cyber-blue', 'bg-slate-700', 'border-cyber-blue');
-
-        const confirmBtn = document.getElementById('btn-confirm-answer');
-        if (confirmBtn) {
-            confirmBtn.disabled = false;
-            confirmBtn.className = 'w-full mt-4 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyber-blue to-blue-500 text-cyber-dark hover:from-blue-400 hover:to-cyber-blue transition-all shadow-blue font-bold uppercase tracking-wider text-sm md:text-base';
+        const hint = document.getElementById('multi-select-hint');
+        if (hint) {
+            hint.textContent = `Selección múltiple · ${state.selectedOptionIndexes.length} marcada(s) · marca todas las correctas`;
         }
+
+        updateConfirmState();
+    });
+
+    // Las preguntas de asociar usan desplegables en vez de botones de opción
+    optionsContainer.addEventListener('change', (e) => {
+        const select = e.target.closest('.match-select');
+        if (!select) return;
+        const leftIdx = parseInt(select.dataset.left, 10);
+        state.matchSelections[leftIdx] = select.value === '' ? null : parseInt(select.value, 10);
+        updateConfirmState();
     });
 
     btnNext.addEventListener('click', nextQuestion);
@@ -288,10 +388,100 @@ function startQuiz(questionsToUse = null) {
     loadQuestion();
 }
 
+// ---- Helpers para los distintos tipos de pregunta ----
+const isMatchQuestion = (q) => !!(q && q.match);
+
+function isAnswerReady() {
+    const q = state.questions[state.currentIndex];
+    if (!q) return false;
+    if (isMatchQuestion(q)) {
+        return state.matchSelections.length === q.match.lefts.length
+            && state.matchSelections.every(v => v !== null && v !== undefined);
+    }
+    return state.selectedOptionIndexes.length > 0;
+}
+
+function updateConfirmState() {
+    const confirmBtn = document.getElementById('btn-confirm-answer');
+    if (!confirmBtn) return;
+    const ready = isAnswerReady();
+    confirmBtn.disabled = !ready;
+    confirmBtn.className = ready
+        ? 'w-full mt-4 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyber-blue to-blue-500 text-cyber-dark hover:from-blue-400 hover:to-cyber-blue transition-all shadow-blue font-bold uppercase tracking-wider text-sm md:text-base'
+        : 'w-full mt-4 px-6 py-3.5 rounded-xl bg-slate-800/80 text-slate-500 border border-slate-700 cursor-not-allowed transition-all font-bold uppercase tracking-wider shadow-sm text-sm md:text-base';
+}
+
+// Pinta el estado (seleccionada / no seleccionada) de una opción
+function paintOptionButton(btn, isSelected) {
+    if (isSelected) {
+        btn.classList.remove('bg-slate-800/60', 'border-slate-700');
+        btn.classList.add('ring-2', 'ring-cyber-blue', 'bg-slate-700', 'border-cyber-blue');
+    } else {
+        btn.classList.remove('ring-2', 'ring-cyber-blue', 'bg-slate-700', 'border-cyber-blue');
+        btn.classList.add('bg-slate-800/60', 'border-slate-700');
+    }
+
+    const check = btn.querySelector('.multi-check');
+    if (check) {
+        if (isSelected) {
+            check.classList.remove('text-transparent', 'border-slate-600');
+            check.classList.add('text-cyber-dark', 'bg-cyber-blue', 'border-cyber-blue');
+        } else {
+            check.classList.remove('text-cyber-dark', 'bg-cyber-blue', 'border-cyber-blue');
+            check.classList.add('text-transparent', 'border-slate-600');
+        }
+    }
+}
+
+// Pregunta de asociar: una fila por elemento con un desplegable de resultados
+function renderMatchQuestion(question) {
+    const hint = document.createElement('p');
+    hint.className = 'text-[10px] md:text-xs text-cyber-purple uppercase tracking-wider font-bold -mt-2 mb-1';
+    hint.textContent = 'Asocia cada elemento con su resultado (elige del desplegable)';
+    optionsContainer.appendChild(hint);
+
+    // Se desordenan las opciones para que su orden no delate la respuesta
+    const rightsOrder = question.match.rights.map((_, i) => i).sort(() => Math.random() - 0.5);
+
+    question.match.lefts.forEach((leftText, leftIdx) => {
+        const row = document.createElement('div');
+        row.className = 'flex flex-col sm:flex-row sm:items-center gap-2 p-3 md:p-4 rounded-xl border border-slate-700 bg-slate-800/40';
+
+        const label = document.createElement('span');
+        label.className = 'text-sm md:text-base font-bold text-cyber-blue sm:w-1/3 shrink-0 break-words';
+        label.textContent = leftText;
+
+        const select = document.createElement('select');
+        select.className = 'match-select flex-grow w-full p-2.5 rounded-lg bg-slate-900 border border-slate-600 text-slate-200 text-sm md:text-base focus:outline-none focus:border-cyber-blue transition-colors';
+        select.dataset.left = leftIdx;
+
+        const placeholder = document.createElement('option');
+        placeholder.value = '';
+        placeholder.textContent = '— Selecciona una opción —';
+        placeholder.className = 'bg-slate-900 text-slate-400';
+        select.appendChild(placeholder);
+
+        rightsOrder.forEach(rightIdx => {
+            const opt = document.createElement('option');
+            opt.value = rightIdx;
+            opt.textContent = question.match.rights[rightIdx];
+            opt.className = 'bg-slate-900 text-slate-200';
+            select.appendChild(opt);
+        });
+
+        row.appendChild(label);
+        row.appendChild(select);
+        optionsContainer.appendChild(row);
+    });
+}
+
 function loadQuestion() {
-    state.selectedOptionIndex = null;
+    state.selectedOptionIndexes = [];
+    state.matchSelections = [];
 
     const question = state.questions[state.currentIndex];
+    const isMatch = isMatchQuestion(question);
+    const isMulti = !isMatch && Array.isArray(question.correct);
     currentQNum.textContent = state.currentIndex + 1;
 
     progressBar.style.width = `${(state.currentIndex / state.questions.length) * 100}%`;
@@ -300,16 +490,30 @@ function loadQuestion() {
     questionText.textContent = question.question;
     optionsContainer.innerHTML = '';
 
-    question.options.forEach((optionText, index) => {
-        const btn = document.createElement('button');
-        btn.className = `option-btn w-full text-left p-4 md:p-5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-700 hover:border-slate-500 transition-all font-medium text-slate-200 flex items-center gap-4 group`;
-        btn.dataset.index = index;
-        btn.innerHTML = `
-            <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-900 border border-slate-600 flex items-center justify-center text-xs font-bold text-slate-400 group-hover:text-white transition-colors">${String.fromCharCode(65 + index)}</span>
-            <span class="flex-grow text-sm md:text-base leading-snug break-words">${optionText}</span>
-        `;
-        optionsContainer.appendChild(btn);
-    });
+    if (isMatch) {
+        state.matchSelections = question.match.lefts.map(() => null);
+        renderMatchQuestion(question);
+    } else {
+        if (isMulti) {
+            const hint = document.createElement('p');
+            hint.id = 'multi-select-hint';
+            hint.className = 'text-[10px] md:text-xs text-cyber-yellow uppercase tracking-wider font-bold -mt-2 mb-1';
+            hint.textContent = 'Selección múltiple · 0 marcada(s) · marca todas las correctas';
+            optionsContainer.appendChild(hint);
+        }
+
+        question.options.forEach((optionText, index) => {
+            const btn = document.createElement('button');
+            btn.className = `option-btn w-full text-left p-4 md:p-5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-700 hover:border-slate-500 transition-all font-medium text-slate-200 flex items-center gap-4 group`;
+            btn.dataset.index = index;
+            btn.innerHTML = `
+                <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-900 border border-slate-600 flex items-center justify-center text-xs font-bold text-slate-400 group-hover:text-white transition-colors">${String.fromCharCode(65 + index)}</span>
+                <span class="flex-grow text-sm md:text-base leading-snug break-words">${optionText}</span>
+                ${isMulti ? '<span class="multi-check flex-shrink-0 w-5 h-5 rounded border border-slate-600 flex items-center justify-center text-[10px] font-bold text-transparent transition-colors">✓</span>' : ''}
+            `;
+            optionsContainer.appendChild(btn);
+        });
+    }
 
     const confirmBtn = document.createElement('button');
     confirmBtn.id = 'btn-confirm-answer';
@@ -318,23 +522,37 @@ function loadQuestion() {
     confirmBtn.disabled = true;
 
     confirmBtn.addEventListener('click', () => {
-        if (state.selectedOptionIndex !== null) {
-            handleAnswer(state.selectedOptionIndex);
-        }
+        if (!isAnswerReady()) return;
+        const q = state.questions[state.currentIndex];
+        handleAnswer(isMatchQuestion(q) ? [...state.matchSelections] : [...state.selectedOptionIndexes]);
     });
 
     optionsContainer.appendChild(confirmBtn);
 }
 
-function handleAnswer(selectedIndex) {
+function handleAnswer(selectedIndexes) {
     const question = state.questions[state.currentIndex];
-    const isCorrect = Array.isArray(question.correct) 
-        ? question.correct.includes(selectedIndex) 
-        : selectedIndex === question.correct;
+    const isMatch = isMatchQuestion(question);
+    const correctIndexes = isMatch
+        ? question.match.correct
+        : (Array.isArray(question.correct) ? question.correct : [question.correct]);
+
+    let isCorrect;
+    if (isMatch) {
+        // En asociar el orden importa: cada fila debe emparejarse con su resultado
+        isCorrect = selectedIndexes.length === correctIndexes.length
+            && correctIndexes.every((idx, i) => idx === selectedIndexes[i]);
+    } else {
+        // Se acierta solo si se marcan exactamente todas las correctas y ninguna de más
+        const sortedSelected = [...selectedIndexes].sort((a, b) => a - b);
+        const sortedCorrect = [...correctIndexes].sort((a, b) => a - b);
+        isCorrect = sortedSelected.length === sortedCorrect.length
+            && sortedSelected.every((idx, i) => idx === sortedCorrect[i]);
+    }
 
     state.userAnswers.push({
         questionObj: question,
-        selectedIndex: selectedIndex,
+        selectedIndexes: selectedIndexes,
         isCorrect: isCorrect
     });
 
@@ -386,11 +604,26 @@ function finishTest() {
 
             if (!ans.isCorrect) mistakes.push(q);
 
-            const userOptionText = (q.options && ans.selectedIndex !== undefined) ? q.options[ans.selectedIndex] : "Sin respuesta";
-            let correctOptionText = "Faltante";
-            if (q.options) {
-                if (typeof q.correct === 'number') correctOptionText = q.options[q.correct];
-                else if (Array.isArray(q.correct)) correctOptionText = q.correct.map(idx => q.options[idx]).join(' | ');
+            let userOptionText, correctOptionText;
+            if (isMatchQuestion(q)) {
+                const chosen = ans.selectedIndexes || [];
+                userOptionText = chosen.length
+                    ? chosen.map((rightIdx, i) => `${q.match.lefts[i]} → ${rightIdx === null || rightIdx === undefined ? 'Sin respuesta' : q.match.rights[rightIdx]}`).join(' | ')
+                    : 'Sin respuesta';
+                correctOptionText = q.match.correct
+                    .map((rightIdx, i) => `${q.match.lefts[i]} → ${q.match.rights[rightIdx]}`)
+                    .join(' | ');
+            } else {
+                const formatOption = (idx) => `${String.fromCharCode(65 + idx)}. ${q.options[idx] ?? '—'}`;
+                const selected = ans.selectedIndexes || [];
+                userOptionText = (q.options && selected.length)
+                    ? [...selected].sort((a, b) => a - b).map(formatOption).join(' | ')
+                    : "Sin respuesta";
+                correctOptionText = "Faltante";
+                if (q.options) {
+                    const correctIdx = Array.isArray(q.correct) ? q.correct : [q.correct];
+                    correctOptionText = [...correctIdx].sort((a, b) => a - b).map(formatOption).join(' | ');
+                }
             }
 
             htmlContent += `
