@@ -219,6 +219,114 @@ export const questionsSRI = {
                 correct: 0,
                 explanation: "La sintaxis de dig es dig <nombre_dominio> <TIPO_REGISTRO>: primero el dominio y después el tipo de registro, por convención en mayúsculas (NS). En la práctica dig no distingue mayúsculas en el tipo, pero «dig ejemplo.com NS» es la forma canónica."
             }
+        ],
+        "Test 3": [
+            {
+                question: "En la declaración de una zona de resolución inversa para direcciones IP pertenecientes a la dirección de red 170.16.0.0/16 el nombre de la zona será:",
+                options: [
+                    "170.16.0.in-addr.arpa.",
+                    "0.0.16.170.in-addr.arpa.",
+                    "0.16.170.in-addr.arpa.",
+                    "16.170.in-addr.arpa."
+                ],
+                correct: 3,
+                explanation: "Con /16 los dos primeros octetos (170.16) son la parte de red. Para la zona inversa se invierte el orden de esos octetos y se añade el sufijo in-addr.arpa.: 16.170.in-addr.arpa.. Las opciones con más octetos corresponderían a máscaras /24 o /32."
+            },
+            {
+                question: "El servicio DNS se comunica con los clientes DNS usando el puerto:",
+                options: [
+                    "UDP 53.",
+                    "TCP 67.",
+                    "UDP 67.",
+                    "TCP 25."
+                ],
+                correct: 0,
+                explanation: "Las consultas habituales cliente → servidor DNS usan UDP 53 por su rapidez y baja sobrecarga; TCP 53 se reserva para transferencias de zona y respuestas que superan el tamaño estándar. El puerto 67 es DHCP y el 25 es SMTP."
+            },
+            {
+                question: "En los sistemas Linux se establecen los servidores DNS utilizados por un equipo para que se encarguen de la resolución de los nombres en el archivo /etc/resolv.conf. ¿Verdadero o Falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. /etc/resolv.conf contiene las directivas nameserver seguidas de las IPs de los servidores DNS que el resolutor del sistema consultará para traducir nombres de dominio."
+            },
+            {
+                question: "Cuando tenemos en nuestra red un servidor DNS que tienen activado DDNS, la actualización de la zona cuando un equipo de la red recibe por DHCP una nueva IP es solicitada por:",
+                options: [
+                    "El servidor DNS.",
+                    "El cliente DHCP.",
+                    "El servidor DHCP.",
+                    "El cliente DNS del equipo que recibió la IP."
+                ],
+                correct: 3,
+                explanation: "En el esquema estándar de DNS dinámico (DDNS), es el servicio cliente DNS del propio equipo que recibió la IP quien solicita directamente al servidor DNS la actualización de su registro A/AAAA. Pregunta corregida: ni el servidor DHCP ni el servidor DNS piden el cambio."
+            },
+            {
+                question: "En un archivo de zona, para indicar que la zona es secundaria, se utiliza la directiva:",
+                options: [
+                    "type slave.",
+                    "type master.",
+                    "type secondary.",
+                    "type hint."
+                ],
+                correct: 0,
+                explanation: "En BIND (named.conf.local) se declara type slave; para una zona secundaria, frente a type master; para la primaria y type hint; para las zonas raíz. «type secondary» no existe como directiva."
+            },
+            {
+                question: "El tipo de registro de recursos de una zona que sirve para declarar que un equipo es servidor DNS en la zona se llama _______.",
+                options: [
+                    "NS",
+                    "MX",
+                    "A",
+                    "SOA"
+                ],
+                correct: 0,
+                explanation: "El registro NS (Name Server) especifica qué servidores de nombres tienen autoridad para gestionar y responder consultas sobre una zona. Nota: en el cuestionario original era respuesta corta; aquí se ofrece como opción múltiple."
+            },
+            {
+                question: "Una zona secundaria sólo la podemos editar en el servidor secundario cuando está apagado o detenido el servidor primario. ¿Verdadero o Falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. Una zona secundaria es SIEMPRE de solo lectura en el secundario: nunca puede editarse directamente en él, esté el primario encendido, apagado o detenido. Sus datos se actualizan exclusivamente mediante transferencias de zona desde el primario. Pregunta corregida."
+            },
+            {
+                question: "Para detener el servicio DNS bind en sistemas Linux Debian/Ubuntu, debes ejecutar el comando _______.",
+                options: [
+                    "systemctl stop bind9",
+                    "service bind9 stop",
+                    "systemctl stop named",
+                    "service dns stop"
+                ],
+                correct: 0,
+                explanation: "La respuesta esperada es systemctl stop bind9 (systemd, Debian/Ubuntu modernos); en temarios previos a systemd también se admite /etc/init.d/bind9 stop. Ojo: «service bind9 stop» NO fue dado por válido en Moodle porque el corrector de respuesta corta compara cadenas literalmente. Pregunta corregida."
+            },
+            {
+                question: "Una transferencia de zona entre un servidor primario y otro secundario DNS se produce:",
+                options: [
+                    "Cuando lo solicita el secundario.",
+                    "Cada vez que en el secundario se edita la zona.",
+                    "Siempre que lo solicite el primario.",
+                    "Cuando se hace alguna modificación en la zona."
+                ],
+                correct: 0,
+                explanation: "La transferencia de zona la inicia y solicita siempre el servidor secundario: periódicamente al vencer el temporizador Refresh del registro SOA o tras recibir un aviso NOTIFY del primario. No la provoca una edición en el secundario (es de solo lectura) ni una orden directa del primario."
+            },
+            {
+                question: "Un registro CNAME contiene en propietario:",
+                options: [
+                    "El nombre del dominio.",
+                    "El nombre real de un equipo.",
+                    "El nombre alias de un equipo.",
+                    "El nombre de la zona."
+                ],
+                correct: 2,
+                explanation: "La sintaxis es alias IN CNAME nombre_real: el campo propietario (a la izquierda) contiene siempre el alias que apunta al nombre canónico o real del equipo."
+            }
         ]
     }
 };
