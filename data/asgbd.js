@@ -105,6 +105,117 @@ export const questionsASGBD = {
                 explanation: "Verdadero según el criterio del test. El gestor de memoria intermedia (buffer manager) administra qué páginas de datos permanecen en memoria principal y cuáles se vuelcan, reduciendo los accesos a disco."
             }
         ],
+        "Test 2": [
+            {
+                question: "Los SGBD monocapa:",
+                options: [
+                    "Se emplean en hogares y pequeños negocios.",
+                    "Suelen estar incorporados dentro de paquetes ofimáticos.",
+                    "Soportan macros.",
+                    "Son más potentes que los multicapa.",
+                    "Incorporan asistentes para crear formularios."
+                ],
+                correct: [0, 1, 2, 4],
+                explanation: "Los SGBD monocapa (Access, Base...) se usan en hogares y pequeños negocios, van integrados en suites ofimáticas, admiten macros e incluyen asistentes para formularios. Son MENOS potentes que los multicapa, por eso la d es falsa."
+            },
+            {
+                question: "La sentencia empleada para limpiar los ficheros LOG es: _______",
+                options: [
+                    "RESET MASTER",
+                    "FLUSH LOGS;",
+                    "DELETE LOGS;",
+                    "CLEAR LOGS;"
+                ],
+                correct: 0,
+                explanation: "Según el epígrafe de ficheros de registro de la UT1, RESET MASTER elimina/limpia los logs binarios, mientras que FLUSH LOGS solo cierra y abre nuevos ficheros para rotarlos. Ojo: en Moodle «FLUSH LOGS;» se puntuó 0,00 por el punto y coma; en respuesta corta las sentencias se guardan SIN el ; final (también se acepta FLUSH LOGS sin punto y coma). Es la versión en respuesta corta de la pregunta «¿Qué comando limpia los archivos de log en MySQL?» de la Tarea 1."
+            },
+            {
+                question: "La arquitectura ANSI/SPARC establece los niveles de abstracción:",
+                options: [
+                    "Interno y externo.",
+                    "Interno, lógico y conceptual.",
+                    "Interno, conceptual y externo.",
+                    "Lógico, conceptual y externo."
+                ],
+                correct: 2,
+                explanation: "ANSI/SPARC define tres niveles: interno o físico, conceptual (esquema lógico global) y externo (vistas de usuario)."
+            },
+            {
+                question: "En un SGBD de dos capas, las aplicaciones de usuario:",
+                options: [
+                    "Almacenan los datos en el cliente.",
+                    "Se ejecutan en el lado cliente.",
+                    "Se carga una copia de la base de datos en el cliente.",
+                    "Se ejecutan en el lado servidor."
+                ],
+                correct: 1,
+                explanation: "En la arquitectura cliente/servidor de dos capas la aplicación se ejecuta en el cliente y el SGBD reside en el servidor. Los datos no se copian ni se almacenan en el cliente."
+            },
+            {
+                question: "La sentencia que se utiliza para ver las variables de sistema es:",
+                options: [
+                    "show variables;",
+                    "set variable = valor;",
+                    "show variables like \"%log%\";",
+                    "show status;"
+                ],
+                correct: 0,
+                explanation: "show variables; lista todas las variables de sistema. show status; muestra las de estado, set variable = valor; permite modificarlas y show variables like ... solo filtra un subconjunto."
+            },
+            {
+                question: "Las reglas que establecen el paso entre niveles se denominan:",
+                options: [
+                    "Transiciones.",
+                    "Correspondencias.",
+                    "Reglas de paso.",
+                    "No tienen un nombre específico."
+                ],
+                correct: 1,
+                explanation: "En ANSI/SPARC las reglas que definen el paso (mapeo) entre el esquema conceptual y los esquemas interno/externo se denominan correspondencias (mappings), y son la base de la independencia de datos."
+            },
+            {
+                question: "Los tipos de variables que emplea el SGBD son variables de _______",
+                options: [
+                    "sistema y de estado",
+                    "sistema y estado.",
+                    "sistema y configuración",
+                    "usuario y de entorno"
+                ],
+                correct: 0,
+                explanation: "La frase literal del temario es «variables de sistema y de estado»; la cadena a introducir es «sistema y de estado» (también se admite «sistema y estado»). En Moodle «sistema y estado.» se puntuó 0,00 por el punto final: la respuesta corta exige coincidencia literal sin puntuación."
+            },
+            {
+                question: "La documentación de un SGBD debe de guardar, entre otros, los siguientes datos:",
+                options: [
+                    "Sistema operativo.",
+                    "Capacidad de disco.",
+                    "Tiempo que se ha invertido en la instalación.",
+                    "Actualizaciones de las versiones del SGBD."
+                ],
+                correct: [0, 1, 3],
+                explanation: "La documentación debe recoger el sistema operativo, la capacidad de disco y el histórico de actualizaciones de versión del SGBD. El tiempo invertido en la instalación no es un dato que se conserve."
+            },
+            {
+                question: "MySQL sólo permite conectarse a él a través de un entorno gráfico de la empresa que lo desarrolla. ¿Verdadero o falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. MySQL admite la consola/CLI (mysql), conectores desde lenguajes de programación (JDBC, ODBC, PHP...) y herramientas gráficas de terceros (MySQL Workbench, phpMyAdmin, DBeaver...)."
+            },
+            {
+                question: "Si deseamos instalar MySQL seleccionando distintas opciones en la instalación, deberemos escoger la distribución de _______",
+                options: [
+                    "código fuente",
+                    "código fuente.",
+                    "binaria",
+                    "automática"
+                ],
+                correct: 0,
+                explanation: "La distribución de código fuente permite compilar MySQL eligiendo opciones y características; la binaria ya viene precompilada. En Moodle la respuesta corta exige la cadena exacta «código fuente» sin punto final. Es la versión en respuesta corta de la pregunta «¿Qué tipo de instalación permite modificar características específicas?» de la Tarea 5."
+            }
+        ],
         "Tarea 1": [
             {
                 question: "¿Qué formato adicional soporta MySQL además de SQL?",
