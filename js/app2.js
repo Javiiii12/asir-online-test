@@ -1,26 +1,65 @@
-import { questionsPAR } from '../data/par.js?v=2.46';
-import { questionsFH } from '../data/fh.js?v=2.46';
-import { questionsDIG } from '../data/dig.js?v=2.46';
-import { questionsSOS } from '../data/sos.js?v=2.46';
-import { questionsGBD } from '../data/gbd.js?v=2.46';
-import { questionsISO } from '../data/iso.js?v=2.46';
-import { questionsASGBD } from '../data/asgbd.js?v=2.46';
-import { questionsCID } from '../data/cid.js?v=2.46';
-import { questionsASO } from '../data/aso.js?v=2.46';
-import { questionsIAW } from '../data/iaw.js?v=2.46';
-import { questionsSRI } from '../data/sri.js?v=2.46';
+import { questionsPAR } from '../data/par.js?v=2.47';
+import { questionsFH } from '../data/fh.js?v=2.47';
+import { questionsDIG } from '../data/dig.js?v=2.47';
+import { questionsSOS } from '../data/sos.js?v=2.47';
+import { questionsGBD } from '../data/gbd.js?v=2.47';
+import { questionsISO } from '../data/iso.js?v=2.47';
+import { questionsASGBD } from '../data/asgbd.js?v=2.47';
+import { questionsCID } from '../data/cid.js?v=2.47';
+import { questionsASO } from '../data/aso.js?v=2.47';
+import { questionsIAW } from '../data/iaw.js?v=2.47';
+import { questionsSRI } from '../data/sri.js?v=2.47';
 
-// Adaptador para convertir el diccionario de temas a array de objetos
+// Adaptador: convierte el diccionario de temas en la estructura de la app.
+// Una clave de test con formato "Carpeta/Nombre" genera una carpeta desplegable
+// que agrupa todos los tests que compartan ese mismo nombre de carpeta.
 const buildThemeStructure = (moduleId, sourceData) => {
-    return Object.entries(sourceData).map(([themeName, testsObj], tIdx) => ({
-        id: `${moduleId}-t${tIdx + 1}`,
-        name: themeName,
-        tests: Object.entries(testsObj).map(([testName, questions], testIdx) => ({
-            id: `${moduleId}-t${tIdx + 1}-test${testIdx + 1}`,
-            name: testName,
-            questions: questions
-        }))
-    }));
+    return Object.entries(sourceData).map(([themeName, testsObj], tIdx) => {
+        const themeId = `${moduleId}-t${tIdx + 1}`;
+        const tests = [];
+        const folders = new Map();
+        let counter = 0;
+
+        Object.entries(testsObj).forEach(([testName, questions]) => {
+            counter++;
+            const id = `${themeId}-test${counter}`;
+            const slash = testName.indexOf('/');
+
+            if (slash === -1) {
+                tests.push({ id, name: testName, questions });
+                return;
+            }
+
+            const folderName = testName.slice(0, slash).trim();
+            const childName = testName.slice(slash + 1).trim();
+
+            if (!folders.has(folderName)) {
+                const folder = {
+                    id: `${themeId}-folder${folders.size + 1}`,
+                    name: folderName,
+                    isFolder: true,
+                    children: []
+                };
+                folders.set(folderName, folder);
+                tests.push(folder);
+            }
+            folders.get(folderName).children.push({ id, name: childName, questions });
+        });
+
+        return { id: themeId, name: themeName, tests };
+    });
+};
+
+// Busca un test tanto en la lista principal como dentro de las carpetas
+const findTestById = (themeObj, id) => {
+    for (const test of themeObj.tests) {
+        if (test.id === id) return test;
+        if (test.isFolder) {
+            const found = test.children.find(child => child.id === id);
+            if (found) return found;
+        }
+    }
+    return null;
 };
 
 const rawAppStructure = [
@@ -119,10 +158,11 @@ const rawAppStructure = [
 
 // ---- Configuración y Estado ----
 const state = {
-    view: 'courses',           // 'courses' | 'dashboard' | 'themes' | 'tests' | 'quiz' | 'results'
+    view: 'courses',           // 'courses' | 'dashboard' | 'levels' | 'tests' | 'folder' | 'quiz' | 'results'
     selectedCourse: null,      // '1-asir' | '2-asir'
     selectedModule: null,      // Object
     selectedTheme: null,       // Object
+    selectedFolder: null,      // Object (carpeta desplegable abierta)
     selectedTest: null,        // Object
 
     // Quiz State
@@ -249,27 +289,56 @@ function renderThemesList(moduleObj) {
     switchView('levels');
 }
 
+function createTestButton(test) {
+    const btn = document.createElement('button');
+    btn.className = `w-full text-left p-4 md:p-5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-cyber-blue transition-all flex items-center justify-between group shadow-md`;
+    btn.dataset.action = 'select-test';
+    btn.dataset.id = test.id;
+
+    btn.innerHTML = `
+        <div class="flex flex-col gap-1">
+            <span class="text-white font-bold text-sm md:text-base group-hover:text-cyber-blue transition-colors">${test.name}</span>
+            <span class="text-[10px] md:text-xs text-slate-400 uppercase tracking-wider">${test.questions.length} Preguntas</span>
+        </div>
+        <div class="w-8 h-8 md:w-10 md:h-10 rounded bg-slate-900 flex items-center justify-center border border-slate-700 group-hover:border-cyber-blue transition-colors">
+            <span class="text-cyber-blue text-sm md:text-lg">▶</span>
+        </div>
+    `;
+    return btn;
+}
+
+function createFolderButton(folder) {
+    const btn = document.createElement('button');
+    btn.className = `w-full text-left p-4 md:p-5 rounded-xl bg-slate-800/60 hover:bg-slate-700 border border-cyber-purple/50 hover:border-cyber-purple transition-all flex items-center justify-between group shadow-md`;
+    btn.dataset.action = 'open-folder';
+    btn.dataset.id = folder.id;
+
+    const totalQuestions = folder.children.reduce((sum, child) => sum + child.questions.length, 0);
+    btn.innerHTML = `
+        <div class="flex flex-col gap-1">
+            <span class="text-white font-bold text-sm md:text-base group-hover:text-cyber-purple transition-colors">📁 ${folder.name}</span>
+            <span class="text-[10px] md:text-xs text-slate-400 uppercase tracking-wider">${folder.children.length} Tests · ${totalQuestions} Preguntas</span>
+        </div>
+        <div class="w-8 h-8 md:w-10 md:h-10 rounded bg-slate-900 flex items-center justify-center border border-cyber-purple/40 group-hover:border-cyber-purple transition-colors">
+            <span class="text-cyber-purple text-sm md:text-lg">▸</span>
+        </div>
+    `;
+    return btn;
+}
+
 function renderTestsList(themeObj) {
     levelTitle.textContent = themeObj.name;
     levelListContainer.innerHTML = '';
 
     themeObj.tests.forEach(test => {
-        const btn = document.createElement('button');
-        btn.className = `w-full text-left p-4 md:p-5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-cyber-blue transition-all flex items-center justify-between group shadow-md`;
-        btn.dataset.action = 'select-test';
-        btn.dataset.id = test.id;
-
-        btn.innerHTML = `
-            <div class="flex flex-col gap-1">
-                <span class="text-white font-bold text-sm md:text-base group-hover:text-cyber-blue transition-colors">${test.name}</span>
-                <span class="text-[10px] md:text-xs text-slate-400 uppercase tracking-wider">${test.questions.length} Preguntas</span>
-            </div>
-            <div class="w-8 h-8 md:w-10 md:h-10 rounded bg-slate-900 flex items-center justify-center border border-slate-700 group-hover:border-cyber-blue transition-colors">
-                <span class="text-cyber-blue text-sm md:text-lg">▶</span>
-            </div>
-        `;
-        levelListContainer.appendChild(btn);
+        levelListContainer.appendChild(test.isFolder ? createFolderButton(test) : createTestButton(test));
     });
+}
+
+function renderFolderContents(folder) {
+    levelTitle.textContent = `📁 ${folder.name}`;
+    levelListContainer.innerHTML = '';
+    folder.children.forEach(test => levelListContainer.appendChild(createTestButton(test)));
 }
 
 // ---- Event Listeners ----
@@ -289,13 +358,19 @@ function setupEventListeners() {
             }
         } else if (action === 'select-module') {
             state.selectedModule = rawAppStructure.find(m => m.id === id);
+            state.selectedFolder = null;
             renderThemesList(state.selectedModule);
         } else if (action === 'select-theme') {
             state.selectedTheme = state.selectedModule.themes.find(t => t.id === id);
+            state.selectedFolder = null;
             renderTestsList(state.selectedTheme);
             state.view = 'tests';
+        } else if (action === 'open-folder') {
+            state.selectedFolder = state.selectedTheme.tests.find(t => t.id === id);
+            renderFolderContents(state.selectedFolder);
+            state.view = 'folder';
         } else if (action === 'select-test') {
-            state.selectedTest = state.selectedTheme.tests.find(t => t.id === id);
+            state.selectedTest = findTestById(state.selectedTheme, id);
             startQuiz();
         }
     });
@@ -306,7 +381,12 @@ function setupEventListeners() {
     });
 
     btnBackMenu.addEventListener('click', () => {
-        if (state.view === 'tests') {
+        if (state.view === 'folder') {
+            // De la carpeta volvemos a la lista de tests del tema
+            state.selectedFolder = null;
+            renderTestsList(state.selectedTheme);
+            state.view = 'tests';
+        } else if (state.view === 'tests') {
             state.selectedTheme = null;
             state.view = 'dashboard';
             switchView('dashboard');
@@ -664,6 +744,7 @@ function finishTest() {
 function resetToDashboard() {
     state.selectedModule = null;
     state.selectedTheme = null;
+    state.selectedFolder = null;
     state.selectedTest = null;
     switchView('dashboard');
 }
@@ -674,8 +755,13 @@ function backToThemeTests() {
         return;
     }
     state.selectedTest = null;
-    renderTestsList(state.selectedTheme);
+    if (state.selectedFolder) {
+        renderFolderContents(state.selectedFolder);
+    } else {
+        renderTestsList(state.selectedTheme);
+    }
     switchView('levels');
+    state.view = state.selectedFolder ? 'folder' : 'tests';
 }
 
 document.addEventListener('DOMContentLoaded', init);

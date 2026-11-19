@@ -1,5 +1,8 @@
 // data/asgbd.js
 // Módulo: Administración de Sistemas Gestores de Bases de Datos (2º ASIR)
+// Nota: las claves con formato "Carpeta/Nombre" se agrupan en una carpeta
+//       desplegable en la app (ver buildThemeStructure en js/app2.js).
+//       Ej.: "Bloques UT1/Tarea 1" -> carpeta «Bloques UT1» > test «Tarea 1».
 
 export const questionsASGBD = {
     "Tema 1: Instalación y configuración de un Sistema Gestor de Base de Datos": {
@@ -216,7 +219,7 @@ export const questionsASGBD = {
                 explanation: "La distribución de código fuente permite compilar MySQL eligiendo opciones y características; la binaria ya viene precompilada. En Moodle la respuesta corta exige la cadena exacta «código fuente» sin punto final. Es la versión en respuesta corta de la pregunta «¿Qué tipo de instalación permite modificar características específicas?» de la Tarea 5."
             }
         ],
-        "Tarea 1": [
+        "Bloques UT1/Tarea 1": [
             {
                 question: "¿Qué formato adicional soporta MySQL además de SQL?",
                 options: ["JSON", "YAML", "XML", "CSV"],
@@ -278,7 +281,7 @@ export const questionsASGBD = {
                 explanation: "ODBC es una interfaz estándar independiente del fabricante que desacopla la aplicación del SGBD; JDBC cumple esa función solo para Java."
             }
         ],
-        "Tarea 2": [
+        "Bloques UT1/Tarea 2": [
             {
                 question: "¿Qué modelo lógico define los datos en una estructura de árbol?",
                 options: ["Modelo Relacional", "Modelo Orientado a Objetos", "Modelo Jerárquico", "Modelo XML"],
@@ -340,7 +343,7 @@ export const questionsASGBD = {
                 explanation: "En el almacenamiento como cadena, cada hijo del elemento raíz se guarda como una cadena (chain) en una tupla independiente."
             }
         ],
-        "Tarea 3": [
+        "Bloques UT1/Tarea 3": [
             {
                 question: "¿Qué tipo de documentación incluye los usuarios de la base de datos?",
                 options: ["Informe de SQL Server", "Informe de Workbench", "Informe de Oracle", "Informe de Access"],
@@ -402,7 +405,7 @@ export const questionsASGBD = {
                 explanation: "PostgreSQL es de código libre (licencia PostgreSQL) y objeto-relacional; Oracle, DB2 y SQL Server son productos propietarios."
             }
         ],
-        "Tarea 4": [
+        "Bloques UT1/Tarea 4": [
             {
                 question: "¿Qué tipo de almacenamiento XML da importancia a la colocación de las cosas en el lugar que les corresponde?",
                 options: ["Relacional", "Basado en documentos", "Estructurado XML", "Jerárquico"],
@@ -464,7 +467,7 @@ export const questionsASGBD = {
                 explanation: "En un SGBD monocapa todo (interfaz, lógica y datos) corre en el equipo del usuario, sin servidor independiente."
             }
         ],
-        "Tarea 5": [
+        "Bloques UT1/Tarea 5": [
             {
                 question: "¿Qué estructura representa datos XML como una pareja de relaciones?",
                 options: ["Representación en árbol", "Almacenamiento como cadena", "Estructura tabular", "Asignación a relaciones"],
