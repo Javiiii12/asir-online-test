@@ -1,14 +1,14 @@
-import { questionsPAR } from '../data/par.js?v=2.47';
-import { questionsFH } from '../data/fh.js?v=2.47';
-import { questionsDIG } from '../data/dig.js?v=2.47';
-import { questionsSOS } from '../data/sos.js?v=2.47';
-import { questionsGBD } from '../data/gbd.js?v=2.47';
-import { questionsISO } from '../data/iso.js?v=2.47';
-import { questionsASGBD } from '../data/asgbd.js?v=2.47';
-import { questionsCID } from '../data/cid.js?v=2.47';
-import { questionsASO } from '../data/aso.js?v=2.47';
-import { questionsIAW } from '../data/iaw.js?v=2.47';
-import { questionsSRI } from '../data/sri.js?v=2.47';
+import { questionsPAR } from '../data/par.js?v=2.48';
+import { questionsFH } from '../data/fh.js?v=2.48';
+import { questionsDIG } from '../data/dig.js?v=2.48';
+import { questionsSOS } from '../data/sos.js?v=2.48';
+import { questionsGBD } from '../data/gbd.js?v=2.48';
+import { questionsISO } from '../data/iso.js?v=2.48';
+import { questionsASGBD } from '../data/asgbd.js?v=2.48';
+import { questionsCID } from '../data/cid.js?v=2.48';
+import { questionsASO } from '../data/aso.js?v=2.48';
+import { questionsIAW } from '../data/iaw.js?v=2.48';
+import { questionsSRI } from '../data/sri.js?v=2.48';
 
 // Adaptador: convierte el diccionario de temas en la estructura de la app.
 // Una clave de test con formato "Carpeta/Nombre" genera una carpeta desplegable
