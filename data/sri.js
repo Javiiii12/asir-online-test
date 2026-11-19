@@ -111,6 +111,114 @@ export const questionsSRI = {
                 correct: 1,
                 explanation: "El servidor secundario (o esclavo) obtiene una copia de solo lectura de los datos de la zona desde el primario mediante una transferencia de zona (AXFR/IXFR), por lo que no permite modificar los registros directamente en él."
             }
+        ],
+        "Test 2": [
+            {
+                question: "Si hemos registrado un dominio, tenemos el servidor DNS para ese dominio en nuestra red y nuestro router tiene una IP dinámica, debemos contratar en alguna compañía de Internet un servicio que se llama:",
+                options: [
+                    "DynDNS.",
+                    "DDNS.",
+                    "NO-IP.",
+                    "Dyn-DNS."
+                ],
+                correct: 1,
+                explanation: "DDNS (Dynamic DNS o DNS dinámico) es el servicio genérico que actualiza automáticamente la IP pública dinámica asociada a un nombre de dominio. DynDNS y No-IP son proveedores comerciales concretos que lo ofrecen, no el nombre del servicio."
+            },
+            {
+                question: "Un dominio de primer nivel de tipo ccTLD:",
+                options: [
+                    "Integra dominios que pertenecen a un país.",
+                    "Tiene un nombre formado por dos o más letras.",
+                    "Integra dominios que ofrecen sus servicios en un determinado idioma.",
+                    "Integra dominios con objetivos comerciales."
+                ],
+                correct: 0,
+                explanation: "ccTLD (country code Top-Level Domain) son los dominios de nivel superior geográficos asociados a un país o territorio (.es, .fr, .de), formados por exactamente DOS letras según ISO 3166-1. La b dice «dos o más», por eso no es la definición correcta."
+            },
+            {
+                question: "A un nombre DNS de un equipo que representa el nombre completo del equipo dentro del espacio de nombres de dominio, se le conoce con las siglas _______.",
+                options: [
+                    "FQDN",
+                    "FQDNs",
+                    "DNS",
+                    "DDNS"
+                ],
+                correct: 0,
+                explanation: "FQDN (Fully Qualified Domain Name) es la ruta completa de un equipo en la jerarquía DNS: hostname más todos los dominios superiores hasta la raíz (por ejemplo pc1.aula.org.). Nota: en el cuestionario original era respuesta corta; aquí se ofrece como opción múltiple."
+            },
+            {
+                question: "Para especificar en la zona DNS \"aula.org\" que el ordenador \"info\" es un servidor de correo, hay que añadir en la zona el registro:",
+                options: [
+                    "\"info IN MX 0 aula.org.\"",
+                    "\"aula.org . IN MX 0 info.aula.org.\"",
+                    "\"info.aula.org. IN MX 0 1 aula.org.\"",
+                    "\" info.aula.org IN MX 0 1 aula.org.\""
+                ],
+                correct: 1,
+                explanation: "Un MX sigue <dominio_destino> IN MX <prioridad> <servidor_correo>. La sintaxis real es aula.org. IN MX 0 info.aula.org. (la opción b de la plataforma incluye un espacio tipográfico antes del primer punto). La a invierte origen y destino; c y d añaden dos prioridades (0 1) y están mal formadas."
+            },
+            {
+                question: "En Linux Debian/Ubuntu, el archivo de configuración del servicio bind llamado named.conf incluye el contenido de varios archivos. De esos archivos, el dedicado a que un administrador declare nuevas zonas para el servidor se llama:",
+                options: [
+                    "named.conf.local.",
+                    "named.conf.options.",
+                    "named.conf.default.",
+                    "named.conf.zones."
+                ],
+                correct: 0,
+                explanation: "En Debian/Ubuntu (/etc/bind/) named.conf se reparte en named.conf.options (parámetros globales), named.conf.default-zones (zonas predeterminadas como localhost y raíz) y named.conf.local, reservado para que el administrador defina sus propias zonas directas e inversas."
+            },
+            {
+                question: "En un proceso de resolución iterativa, un servidor DNS envía una consulta a uno de los servidores raíz y este le devuelve información sobre los servidores TLD que deben resolver la consulta a continuación. ¿Verdadero o Falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 0,
+                explanation: "Verdadero. En una consulta iterativa el servidor consultado no realiza la búsqueda completa, sino que devuelve la mejor referencia de la que dispone: un servidor raíz responde con las direcciones de los servidores TLD para que el resolver local siga preguntando paso a paso."
+            },
+            {
+                question: "En Internet, todas las resoluciones inversas de cualquier tipo de dirección IP se resuelven dado el dominio \"in-addr.arpa.\". ¿Verdadero o Falso?",
+                options: [
+                    "Verdadero",
+                    "Falso"
+                ],
+                correct: 1,
+                explanation: "Falso. in-addr.arpa. se emplea exclusivamente para la resolución inversa de direcciones IPv4; para IPv6 existe un espacio de nombres distinto: ip6.arpa."
+            },
+            {
+                question: "En el módulo bind de la herramienta webmin, el nombre que se usa para indicar una zona que se encarga de resolver nombres es:",
+                options: [
+                    "Reenvío.",
+                    "Directa.",
+                    "Inversa.",
+                    "Resolución directa."
+                ],
+                correct: 0,
+                explanation: "En la traducción al español de Webmin (Servidor DNS BIND → Crear zona maestra), «Forward (Names to Addresses)» aparece literalmente como Reenvío (Nombres a Direcciones), frente a Inversa (Direcciones a Nombres). Conceptualmente es la zona directa, pero la interfaz la denomina Reenvío."
+            },
+            {
+                question: "Para especificar en la zona DNS \"aula,org\" que se resuelva el nombre del equipo \"pc1\" perteneciente a la zona con la dirección IP 192.168.7.2, hay que añadir el registro:",
+                options: [
+                    "\"pc1.aula.org IN A 192.168.7.2\"",
+                    "\"pc1 IN A 192.168.7.2\"",
+                    "\"pc1. IN A 192.168.7.2\"",
+                    "\"pc1.aula.org. IN A 192.168.7.2.\""
+                ],
+                correct: 1,
+                explanation: "Al escribir un nombre relativo sin punto final (pc1), BIND le añade automáticamente el origen de la zona (aula.org.), formando pc1.aula.org. La a duplicaría el dominio por faltarle el punto final, la c trataría pc1. como dominio de primer nivel y la d tiene un punto indebido tras la IPv4. Nota: el enunciado de la plataforma dice «aula,org» por errata."
+            },
+            {
+                question: "Para obtener los servidores NS del dominio ejemplo.com hay que ejecutar:",
+                options: [
+                    "dig ejemplo.com NS",
+                    "dig ns ejemplo.com",
+                    "dig ejemplo.com ns",
+                    "dig ejemplo.com"
+                ],
+                correct: 0,
+                explanation: "La sintaxis de dig es dig <nombre_dominio> <TIPO_REGISTRO>: primero el dominio y después el tipo de registro, por convención en mayúsculas (NS). En la práctica dig no distingue mayúsculas en el tipo, pero «dig ejemplo.com NS» es la forma canónica."
+            }
         ]
     }
 };
